@@ -1,0 +1,127 @@
+CREATE TABLE c_member (
+    id        VARCHAR2(20) PRIMARY KEY,
+    pw        VARCHAR2(20) NOT NULL,
+    name      VARCHAR2(20) NOT NULL,
+    email     VARCHAR2(100) NOT NULL,
+    tel       VARCHAR2(20) NOT NULL,
+    profile   VARCHAR2(100),
+    type      NUMBER(1) NOT NULL,
+    sex       NUMBER(1) NOT NULL,
+    issmoke   NUMBER(1) NOT NULL
+);
+CREATE TABLE c_board1 (
+    num          NUMBER PRIMARY KEY,
+    type		 NUMBER(1) NOT NULL,
+    cate         VARCHAR2(20) NOT NULL,
+    w_date		 DATE NOT NULL,
+    start_time   DATE NOT NULL,
+    start_posi   VARCHAR2(50) NOT NULL,
+    end_posi     VARCHAR2(50) NOT NULL,
+    start_x		 NUMBER NOT NULL,
+    start_y		 NUMBER NOT NULL,
+    end_x		 NUMBER NOT NULL,
+    end_y		 NUMBER NOT NULL,
+    price        NUMBER(20) NOT NULL,
+    content      VARCHAR2(200),
+    title        VARCHAR2(100) NOT NULL,
+    seat		 NUMBER NOT NULL,
+    maxSeat      NUMBER NOT NULL,
+    writer       VARCHAR2(20) NOT NULL,
+    driver		 VARCHAR2(20),
+    passenger1   VARCHAR2(20),
+    passenger2   VARCHAR2(20),
+    passenger3   VARCHAR2(20),
+    profile		 VARCHAR(100),
+    CONSTRAINT writer_fk FOREIGN KEY ( writer ) REFERENCES c_member ( id ) ON DELETE CASCADE,
+    CONSTRAINT driver_fk FOREIGN KEY ( driver ) REFERENCES c_member ( id ) ON DELETE CASCADE,
+    CONSTRAINT passenger1_fk FOREIGN KEY ( passenger1 ) REFERENCES c_member ( id ) ON DELETE CASCADE,
+    CONSTRAINT passenger2_fk FOREIGN KEY ( passenger2 ) REFERENCES c_member ( id ) ON DELETE CASCADE,
+    CONSTRAINT passenger3_fk FOREIGN KEY ( passenger3 ) REFERENCES c_member ( id ) ON DELETE CASCADE
+);
+CREATE TABLE c_board2 (
+    num          NUMBER PRIMARY KEY,
+    type         NUMBER NOT NULL,
+    w_date		 DATE NOT NULL,
+    title        VARCHAR2(100) NOT NULL,
+    content      VARCHAR2(200),
+    writer       VARCHAR2(20),
+    CONSTRAINT writer_fk2 FOREIGN KEY ( writer ) REFERENCES c_member ( id ) ON DELETE CASCADE
+);
+CREATE TABLE c_car (
+    owner          VARCHAR2(20) UNIQUE,
+    license        VARCHAR2(100) NOT NULL,
+    number_plate   VARCHAR2(20) NOT NULL,
+    mileage        NUMBER NOT NULL,
+    age            DATE NOT NULL,
+    car_name       VARCHAR2(20) NOT NULL,
+    car_size       NUMBER NOT NULL,
+    CONSTRAINT car_fk FOREIGN KEY ( owner ) REFERENCES c_member ( id ) ON DELETE CASCADE
+);
+CREATE SEQUENCE seq_c_board1 START WITH 1 INCREMENT BY 1 MAXVALUE 9999 NOCACHE;
+CREATE SEQUENCE seq_c_board2 START WITH 1 INCREMENT BY 1 MAXVALUE 9999 NOCACHE;
+INSERT INTO c_member VALUES (
+    'admin',
+    'admin',
+    '°ü¸®ÀÚ',
+    'admin@kitri.re.kr',
+    '010-1111-2222',
+    'default_profile.jpg',
+    0,
+    0,
+    0
+);
+INSERT INTO c_member VALUES (
+    'driver',
+    'driver',
+    'driver',
+    'driver@kitri.re.kr',
+    '010-3333-4444',
+    'default_profile.jpg',
+    1,
+    0,
+    0
+);
+INSERT INTO c_member VALUES (
+    'passenger1',
+    'passenger1',
+    'passenger1',
+    'passenger1@kitri.re.kr',
+    '010-5555-6666',
+    'default_profile.jpg',
+    2,
+    0,
+    0
+);
+INSERT INTO c_member VALUES (
+    'passenger2',
+    'passenger2',
+    'passenger2',
+    'passenger2@kitri.re.kr',
+    '010-7777-8888',
+    'default_profile.jpg',
+    2,
+    0,
+    0
+);
+INSERT INTO c_member VALUES (
+    'passenger3',
+    'passenger3',
+    'passenger3',
+    'passenger3@kitri.re.kr',
+    '010-1234-4567',
+    'default_profile.jpg',
+    2,
+    0,
+    0
+);
+commit;
+
+------------------------------------------------------------------
+
+drop table c_car;
+drop table c_board2;
+drop table c_board1;
+drop table c_member;
+drop sequence seq_c_board1;
+drop sequence seq_c_board2;
+commit;
