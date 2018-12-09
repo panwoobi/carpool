@@ -1,36 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.kitri.sns.calender.CalenderDao">
+<mapper namespace="com.kitri.carpool.boardP.BoardPDao">
 
-	<resultMap id="calenderResult" type="com.kitri.sns.calender.Calender">
+	<resultMap id="boardPResult" type="com.kitri.carpool.boardP.BoardP">
 		<result column="num" property="num" />
-		<result column="writer" property="writer" />
-		<result column="title" property="title" />
-		<result column="content" property="content" />
-		<result column="w_date" property="w_date" />
-		<result column="path1" property="path1" />
-		<result column="path2" property="path2" />
-		<result column="path3" property="path3" />
-		<result column="path4" property="path4" />
-		<result column="limit" property="limit" />
-		<result column="liked" property="liked" />
+		<result column="type" property="type" />
 		<result column="cate" property="cate" />
+		<result column="w_date" property="w_date" />
+		<result column="startTime" property="startTime" />
+		<result column="startPosi" property="startPosi" />
+		<result column="endPosi" property="endPosi" />
+		<result column="startX" property="startX" />
+		<result column="startY" property="startY" />
+		<result column="endX" property="endX" />
+		<result column="endY" property="endY" />
+		<result column="price" property="price" />
+		<result column="content" property="content" />
+		<result column="title" property="title" />
+		<result column="seat" property="seat" />
+		<result column="maxSeat" property="maxSeat" />
+		<result column="writer" property="writer" />
+		<result column="driver" property="driver" />
+		<result column="passenger1" property="passenger1" />
+		<result column="passenger2" property="passenger2" />
+		<result column="passenger3" property="passenger3" />
+		<result column="profile" property="profile" />
 	</resultMap>
 	
-	<insert id="insert" parameterType="com.kitri.sns.calender.Calender">
-		insert into sns_calender values(sns_calender_no.nextval, #{writer}, #{title}, #{content}, sysdate, #{path1}, #{path2}, #{path3}, #{path4}, #{limit}, #{liked}, #{cate})
+	<insert id="insert" parameterType="com.kitri.carpool.boardP.BoardP">
+		insert into c_BoardP values(c_BoardP_no.nextval,
+		#{type}, #{cate}, sysdate, #{startTime}, #{startPosi},
+		#{endPosi}, #{startX}, #{startY}, #{endX}, #{endY},
+		#{price}, #{content}, #{title}, #{seat}, #{maxSeat},
+		#{writer}, #{driver}, #{passenger1}, #{passenger2}, #{passenger3}, #{profile}
+		)
 	</insert>
-	<update id="update" parameterType="com.kitri.sns.calender.Calender">
-		update sns_calender set title=#{title}, content=#{content}, w_date=#{w_date}, path1=#{path1}, path2=#{path2}, path3=#{path3}, path4=#{path4}, limit=#{limit}, liked=#{liked}, cate=#{cate} where num=#{num}
+	<update id="update" parameterType="com.kitri.carpool.boardP.BoardP">
+		update c_BoardP set  type=#{type},
+		cate=#{cate}, w_date=#{w_date}, startTime=#{startTime}, startPosi=#{startPosi},
+		endPosi=#{endPosi}, startX=#{startX}, startY=#{startY}, endX=#{endX}, endY=#{endY},
+		price=#{price}, content=#{content}, startY=#{startY}, title=#{title}, seat=#{seat}, 
+		maxSeat=#{maxSeat}, writer=#{writer}, driver=#{driver}, passenger1=#{passenger1}, passenger2=#{passenger2},
+		passenger3=#{passenger3}, profile=#{profile} where num=#{num}
+		
 	</update>
 	<delete id="delete" parameterType="int">
-		delete sns_calender where num=#{num}
+		delete c_BoardP where num=#{num}
 	</delete>
-	<select id="select" parameterType="int" resultMap="calenderResult">
-		select * from sns_calender where num=#{num}
+	<select id="select" parameterType="int" resultMap="boardPResult">
+		select * from c_BoardP where num=#{num}
 	</select>
-	<select id="selectAll" resultMap="calenderResult">
-		select * from sns_calender order by num
+	<select id="selectAll" resultMap="boardPResult">
+		select * from c_BoardP order by num
 	</select>
 
 </mapper>
