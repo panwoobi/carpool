@@ -1,36 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.kitri.sns.calender.CalenderDao">
+<mapper namespace="com.kitri.carpool.member.MemberDao">
 
-	<resultMap id="calenderResult" type="com.kitri.sns.calender.Calender">
-		<result column="num" property="num" />
-		<result column="writer" property="writer" />
-		<result column="title" property="title" />
-		<result column="content" property="content" />
-		<result column="w_date" property="w_date" />
-		<result column="path1" property="path1" />
-		<result column="path2" property="path2" />
-		<result column="path3" property="path3" />
-		<result column="path4" property="path4" />
-		<result column="limit" property="limit" />
-		<result column="liked" property="liked" />
-		<result column="cate" property="cate" />
+	<resultMap id="memberResult" type="com.kitri.carpool.member.Member">
+		<result column="id" property="id" />
+		<result column="pw" property="pw" />
+		<result column="name" property="name" />
+		<result column="email" property="email" />
+		<result column="tel" property="tel" />
+		<result column="profile" property="profile" />
+		<result column="type" property="type" />
+		<result column="sex" property="sex" />
+		<result column="isSmoke" property="isSmoke" />
 	</resultMap>
 	
-	<insert id="insert" parameterType="com.kitri.sns.calender.Calender">
-		insert into sns_calender values(sns_calender_no.nextval, #{writer}, #{title}, #{content}, sysdate, #{path1}, #{path2}, #{path3}, #{path4}, #{limit}, #{liked}, #{cate})
+	<insert id="insert" parameterType="com.kitri.carpool.member.Member">
+		insert into c_member values(#{id}, #{pw}, #{name}, #{email}, #{tel}, #{profile}, #{type}, #{sex}, #{isSmoke})
 	</insert>
-	<update id="update" parameterType="com.kitri.sns.calender.Calender">
-		update sns_calender set title=#{title}, content=#{content}, w_date=#{w_date}, path1=#{path1}, path2=#{path2}, path3=#{path3}, path4=#{path4}, limit=#{limit}, liked=#{liked}, cate=#{cate} where num=#{num}
+	<update id="update" parameterType="com.kitri.carpool.member.Member">
+		update c_member set pw=#{pw}, name=#{name}, #email={email}, tel=#{tel}, profile=#{profile}, type=#{type}, sex=#{sex}, isSmoke=#{isSmoke} where id=#{id}
 	</update>
-	<delete id="delete" parameterType="int">
-		delete sns_calender where num=#{num}
+	<delete id="delete" parameterType="String">
+		delete c_member where id=#{id}
 	</delete>
-	<select id="select" parameterType="int" resultMap="calenderResult">
-		select * from sns_calender where num=#{num}
+	<select id="select" parameterType="String" resultMap="memberResult">
+		select * from c_member where id=#{id}
 	</select>
-	<select id="selectAll" resultMap="calenderResult">
-		select * from sns_calender order by num
+	<select id="selectAll" resultMap="memberResult">
+		select * from c_member
 	</select>
 
 </mapper>
