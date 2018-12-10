@@ -3,10 +3,10 @@ package com.kitri.carpool.member;
 import java.util.ArrayList;
 
 public interface MemberService {
-	public boolean join(Member m);
+	public void join(Member m);
 	public boolean login(String id, String pw);
 	public boolean out(String id, String pw);
-	public boolean editInfo(Member m);
+	public void editInfo(Member m);
 	public Member getMember(String id);
 	public ArrayList<Member> getByName(String name);
 	public ArrayList<Member> getByIsSmoke(int isSmoke);

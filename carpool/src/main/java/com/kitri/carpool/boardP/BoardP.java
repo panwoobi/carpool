@@ -5,7 +5,6 @@ import java.sql.Date;
 public class BoardP {
 
 	private int num;
-	private int type;
 	private String cate;
 	private Date w_date;
 	private String startTime;
@@ -31,13 +30,11 @@ public class BoardP {
 		
 	}
 	
-	public BoardP(int num, int type, String cate, Date w_date, String startTime, String startPosi, String endPosi,
-			double startX, double startY, double endX, double endY, int price, String content, String title, int seat,
-			int maxSeat, String writer, String driver, String passenger1, String passenger2, String passenger3,
-			String profile) {
+	public BoardP(int num, String cate, Date w_date, String startTime, String startPosi, String endPosi, double startX,
+			double startY, double endX, double endY, int price, String content, String title, int seat, int maxSeat,
+			String writer, String driver, String passenger1, String passenger2, String passenger3, String profile) {
 		super();
 		this.num = num;
-		this.type = type;
 		this.cate = cate;
 		this.w_date = w_date;
 		this.startTime = startTime;
@@ -62,10 +59,6 @@ public class BoardP {
 
 	public int getNum() {
 		return num;
-	}
-
-	public int getType() {
-		return type;
 	}
 
 	public String getCate() {
@@ -152,10 +145,6 @@ public class BoardP {
 		this.num = num;
 	}
 
-	public void setType(int type) {
-		this.type = type;
-	}
-
 	public void setCate(String cate) {
 		this.cate = cate;
 	}
@@ -238,7 +227,7 @@ public class BoardP {
 
 	@Override
 	public String toString() {
-		return "BoardP [num=" + num + ", type=" + type + ", cate=" + cate + ", w_date=" + w_date + ", startTime="
+		return "BoardP [num=" + num + ", cate=" + cate + ", w_date=" + w_date + ", startTime="
 				+ startTime + ", startPosi=" + startPosi + ", endPosi=" + endPosi + ", startX=" + startX + ", startY="
 				+ startY + ", endX=" + endX + ", endY=" + endY + ", price=" + price + ", content=" + content
 				+ ", title=" + title + ", seat=" + seat + ", maxSeat=" + maxSeat + ", writer=" + writer + ", driver="

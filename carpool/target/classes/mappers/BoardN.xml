@@ -4,7 +4,6 @@
 
 	<resultMap id="boardNResult" type="com.kitri.carpool.boardN.BoardN">
 		<result column="num" property="num" />
-		<result column="type" property="type" />
 		<result column="w_date" property="w_date" />
 		<result column="title" property="title" />
 		<result column="content" property="content" />
@@ -12,10 +11,10 @@
 	</resultMap>
 	
 	<insert id="insert" parameterType="com.kitri.carpool.boardN.BoardN">
-		insert into c_BoardN values(c_BoardN_no.nextval, #{type}, sysdate, #{title}, #{content},#{writer})
+		insert into c_BoardN values(c_BoardN_no.nextval, sysdate, #{title}, #{content},#{writer})
 	</insert>
 	<update id="update" parameterType="com.kitri.carpool.boardN.BoardN">
-		update c_BoardN type=#{type}, w_date=#{w_date}, set title=#{title}, content=#{content}, writer=#{writer}
+		update c_BoardN  w_date=#{w_date}, set title=#{title}, content=#{content}, writer=#{writer}
 		where num=#{num}
 	</update>
 	<delete id="delete" parameterType="int">

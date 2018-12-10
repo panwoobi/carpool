@@ -61,10 +61,6 @@ public class Member {
 		return sex;
 	}
 
-	public int getisSmoke() {
-		return isSmoke;
-	}
-	
 	public int getIsSmoke() {
 		return isSmoke;
 	}
@@ -104,5 +100,6 @@ public class Member {
 	public void setIsSmoke(int isSmoke) {
 		this.isSmoke = isSmoke;
 	}
+
 	
 }

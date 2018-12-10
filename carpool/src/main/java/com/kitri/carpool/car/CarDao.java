@@ -3,11 +3,11 @@ package com.kitri.carpool.car;
 import java.util.ArrayList;
 
 public interface CarDao {
-	public boolean insert(Car c);
+	public void insert(Car c);
 
-	public boolean delete(String owner);
+	public void delete(String owner);
 
-	public boolean update(Car c);
+	public void update(Car c);
 
 	public Car select(String owner);
 

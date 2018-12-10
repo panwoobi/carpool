@@ -11,9 +11,9 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
-	public boolean join(Member m) {
+	public void join(Member m) {
 		// TODO Auto-generated method stub
-		return dao.insert(m);
+		dao.insert(m);
 	}
 
 	@Override
@@ -44,31 +44,36 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public Member getMember(String id) {
 		// TODO Auto-generated method stub
-		return dao.selectById(id);
+		return null;
+//		dao.selectById(id);
 	}
 
 	@Override
 	public ArrayList<Member> getByName(String name) {
 		// TODO Auto-generated method stub
-		return dao.selectByName(name);
+		return null;
+//		dao.selectByName(name);
 	}
 
 	@Override
 	public ArrayList<Member> getByIsSmoke(int isSmoke) {
 		// TODO Auto-generated method stub
-		return dao.selectByIsSmoke(isSmoke);
+		return null;
+//		dao.selectByIsSmoke(isSmoke);
 	}
 
 	@Override
 	public ArrayList<Member> getByType(int type) {
 		// TODO Auto-generated method stub
-		return dao.selectByType(type);
+		return null;
+//		dao.selectByType(type);
 	}
 
 	@Override
 	public ArrayList<Member> getBySex(int sex) {
 		// TODO Auto-generated method stub
-		return dao.selectBySex(sex);
+		return null;
+//		dao.selectBySex(sex);
 	}
 
 	@Override
@@ -78,8 +83,8 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
-	public boolean editInfo(Member m) {
+	public void editInfo(Member m) {
 		// TODO Auto-generated method stub
-		return dao.update(m);
+		dao.update(m);
 	}
 }

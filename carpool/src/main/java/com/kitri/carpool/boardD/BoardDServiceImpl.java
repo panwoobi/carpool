@@ -11,15 +11,15 @@ public class BoardDServiceImpl implements BoardDService {
 	}
 	
 	@Override
-	public boolean add(BoardD b) {
+	public void add(BoardD b) {
 		// TODO Auto-generated method stub
-		return dao.insert(b);
+		dao.insert(b);
 	}
 
 	@Override
-	public boolean edit(BoardD b) {
+	public void edit(BoardD b) {
 		// TODO Auto-generated method stub
-		return dao.update(b);
+		dao.update(b);
 	}
 
 	@Override
@@ -71,15 +71,9 @@ public class BoardDServiceImpl implements BoardDService {
 	}
 
 	@Override
-	public boolean remove(int num) {
+	public void remove(int num) {
 		// TODO Auto-generated method stub
-		return dao.delete(num);
-	}
-
-	@Override
-	public ArrayList<BoardD> getByType(int type) {
-		// TODO Auto-generated method stub
-		return dao.selectByType(type);
+		dao.delete(num);
 	}
 	
 	@Override
@@ -88,9 +82,9 @@ public class BoardDServiceImpl implements BoardDService {
 	}
 
 	@Override
-	public boolean editPassenger(BoardD b) {
+	public void editPassenger(BoardD b) {
 		// TODO Auto-generated method stub
-		return dao.updatePassenger(b);
+		dao.updatePassenger(b);
 	}
 
 	@Override
@@ -106,8 +100,8 @@ public class BoardDServiceImpl implements BoardDService {
 	}
 
 	@Override
-	public boolean editDriver(BoardD b) {
+	public void editDriver(BoardD b) {
 		// TODO Auto-generated method stub
-		return dao.updateDriver(b);
+		dao.updateDriver(b);
 	}
 }

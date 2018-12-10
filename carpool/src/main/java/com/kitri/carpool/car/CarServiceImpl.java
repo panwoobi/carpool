@@ -10,21 +10,21 @@ public class CarServiceImpl implements CarService {
 	}
 
 	@Override
-	public boolean insertCar(Car c) {
+	public void insertCar(Car c) {
 		// TODO Auto-generated method stub
-		return dao.insert(c);
+		dao.insert(c);
 	}
 
 	@Override
-	public boolean delCar(String owner) {
+	public void delCar(String owner) {
 		// TODO Auto-generated method stub
-		return dao.delete(owner);
+		dao.delete(owner);
 	}
 
 	@Override
-	public boolean updateCar(Car c) {
+	public void updateCar(Car c) {
 		// TODO Auto-generated method stub
-		return dao.update(c);
+		dao.update(c);
 	}
 
 	@Override

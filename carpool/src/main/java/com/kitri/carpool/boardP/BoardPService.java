@@ -4,9 +4,9 @@ import java.util.ArrayList;
 
 public interface BoardPService {
 	
-	public boolean add(BoardP b);
+	public void add(BoardP b);
 
-	public boolean edit(BoardP b);
+	public void edit(BoardP b);
 
 	public BoardP getByNum(int num);
 
@@ -18,7 +18,6 @@ public interface BoardPService {
 
 	public ArrayList<BoardP> getByEndPosi(String endPosi);
 
-	public ArrayList<BoardP> getByType(int type);
 
 	public ArrayList<BoardP> getByPrice(int price);
 
@@ -26,11 +25,11 @@ public interface BoardPService {
 
 	public ArrayList<BoardP> getAll();
 	
-	public boolean remove(int num);
+	public void remove(int num);
 	
-	public boolean editPassenger(BoardP b);
+	public void editPassenger(BoardP b);
 	
-	public boolean editDriver(BoardP b);
+	public void editDriver(BoardP b);
 
 	public ArrayList<BoardP> getByStartEnd(String start_posi, String end_posi);
 

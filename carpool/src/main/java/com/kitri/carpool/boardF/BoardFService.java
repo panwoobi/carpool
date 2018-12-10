@@ -4,17 +4,15 @@ import java.util.ArrayList;
 
 public interface BoardFService {
 	
-	public boolean add(BoardF b);
+	public void add(BoardF b);
 
-	public boolean edit(BoardF b);
+	public void edit(BoardF b);
 
 	public BoardF gettByNum(int num);
-
-	public ArrayList<BoardF> getByType(int type);
 	
 	public ArrayList<BoardF> getByWriter(String writer);
 
 	public ArrayList<BoardF> getAll();
 	
-	public boolean remove(int num);
+	public void remove(int num);
 }

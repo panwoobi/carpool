@@ -4,13 +4,11 @@ import java.util.ArrayList;
 
 public interface BoardDDao {
 
-	public boolean insert(BoardD b);
+	public void insert(BoardD b);
 
-	public boolean update(BoardD b);
+	public void update(BoardD b);
 
 	public BoardD selectByNum(int num);
-
-	public ArrayList<BoardD> selectByType(int type);
 
 	public ArrayList<BoardD> selectByCate(String cate);
 
@@ -26,11 +24,11 @@ public interface BoardDDao {
 
 	public ArrayList<BoardD> selectAll();
 
-	public boolean updatePassenger(BoardD b);
+	public void updatePassenger(BoardD b);
 
-	public boolean updateDriver(BoardD b);
+	public void updateDriver(BoardD b);
 	
-	public boolean delete(int num);
+	public void delete(int num);
 
 	public ArrayList<BoardD> selectByStartEnd(String start_posi, String end_posi);
 

@@ -11,27 +11,21 @@ public class BoardFServiceImpl implements BoardFService {
 	}
 	
 	@Override
-	public boolean add(BoardF b) {
+	public void add(BoardF b) {
 		// TODO Auto-generated method stub
-		return dao.insert(b);
+		dao.insert(b);
 	}
 
 	@Override
-	public boolean edit(BoardF b) {
+	public void edit(BoardF b) {
 		// TODO Auto-generated method stub
-		return dao.update(b);
+		dao.update(b);
 	}
 
 	@Override
 	public BoardF gettByNum(int num) {
 		// TODO Auto-generated method stub
 		return dao.selectByNum(num);
-	}
-
-	@Override
-	public ArrayList<BoardF> getByType(int type) {
-		// TODO Auto-generated method stub
-		return dao.selectByType(type);
 	}
 
 	@Override
@@ -47,9 +41,9 @@ public class BoardFServiceImpl implements BoardFService {
 	}
 
 	@Override
-	public boolean remove(int num) {
+	public void remove(int num) {
 		// TODO Auto-generated method stub
-		return dao.delete(num);
+		dao.delete(num);
 	}
 
 }
