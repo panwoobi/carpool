@@ -10,8 +10,8 @@
 <script type="text/javascript" src="//code.jquery.com/jquery-3.3.1.min.js"></script>
 <script type="text/javascript">
   $('document').ready(function() {
-    $('#div1').append("<iframe id='m' src='${pageContext.request.contextPath }/content/map.jsp' scrolling='no' frameborder='0' framespacing='0' margin='0' padding='0' vspace='0'></iframe>");
-    $('#div2').append("<iframe id='m' src='${pageContext.request.contextPath }/content/map2.jsp' scrolling='no' frameborder='0' framespacing='0' margin='0' padding='0' vspace='0'></iframe>");
+    $('#div1').append("<iframe id='m' src='${pageContext.request.contextPath }/map' scrolling='no' frameborder='0' framespacing='0' margin='0' padding='0' vspace='0'></iframe>");
+    $('#div2').append("<iframe id='m' src='${pageContext.request.contextPath }/map2' scrolling='no' frameborder='0' framespacing='0' margin='0' padding='0' vspace='0'></iframe>");
 
     $('#car').click(function() {
       window.open("${pageContext.request.contextPath}/CarDetailController?owner=" + $('#w').val(), "", "width=740, height=130, top=100, left=100, scrollbars=no");
@@ -116,11 +116,11 @@
       $('#info').submit();
     });
     $('#out').click(function() {
-      $('#info').attr("action", "${pageContext.request.contextPath }/content/out.jsp");
+      $('#info').attr("action", "${pageContext.request.contextPath }/out");
       $('#info').submit();
     });
     $('#edit').click(function() {
-      $('#info').attr("action", "${pageContext.request.contextPath }/content/editInfo.jsp");
+      $('#info').attr("action", "${pageContext.request.contextPath }/editInfo");
       $('#info').submit();
     });
     $('#partner').click(function() {
@@ -138,7 +138,7 @@
   function menuClick(num) {
     switch (num) {
     case 1:
-      window.location.href = "${pageContext.request.contextPath }/content/intro.jsp";
+      window.location.href = "${pageContext.request.contextPath }/intro";
       break;
     case 2:
       window.location.href = "${pageContext.request.contextPath }/Board1PassengerListController";
@@ -160,7 +160,7 @@
    <div id="container">
        <div class="row">
          <div class="col-md-10" >               
-         <a href="${pageContext.request.contextPath }/content/main.jsp"><i class="fa fa-car" aria-hidden="true" style="font-size:35px"> Carpool</i></a>
+         <a href="${pageContext.request.contextPath }"><i class="fa fa-car" aria-hidden="true" style="font-size:35px"> Carpool</i></a>
       </div>
        <div class="col-md-2" >
                 <c:choose>

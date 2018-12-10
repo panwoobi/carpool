@@ -52,42 +52,6 @@
 	</div>
 
 
-	<div class="card-group">
-		<div class="card">
-	<div class="card" style="width: 18rem;">
-		<a href="${pageContext.request.contextPath }/CarChkController"><img class="card-img-top" src="${pageContext.request.contextPath }/resources/img/registration.png" alt="Card image cap"></a>
-		<div class="card-body">
-			<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-		</div>
-	</div>
-	</div>
-
-		<div class="card">
-	<div class="card" style="width: 18rem;">
-		<a href="${pageContext.request.contextPath }/CarChkController"><img class="card-img-top" src="${pageContext.request.contextPath }/resources/img/recruit1.png" alt="Card image cap"></a>
-		<div class="card-body">
-			<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-		</div>
-	</div>
-	</div>
-
-		<div class="card">
-	<div class="card" style="width: 18rem;">
-		<a href="${pageContext.request.contextPath }/CarChkController"><img class="card-img-top" src="${pageContext.request.contextPath }/resources/img/introduce.png" alt="Card image cap"></a>
-		<div class="card-body">
-			<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-		</div>
-	</div>
-	</div>
-		<div class="card">
-	<div class="card" style="width: 18rem;">
-		<a href="${pageContext.request.contextPath }/CarChkController"><img class="card-img-top" src="${pageContext.request.contextPath }/resources/img/introduce.png" alt="Card image cap"></a>
-		<div class="card-body">
-			<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-		</div>
-	</div>
-	</div>
-	</div>
 	<td style="background-color: #333f50; width: 20%; text-align: center; text-size: 30pt; color: #ffffff">Quick Menu</td>
 	<td style="background-color: #e0e9f3; width: 20%; text-align: center; margin-top: 20px"><a href="intro.jsp"><img src="../img/introduce.png"></a></td>
 	<td style="background-color: #e0e9f3; width: 20%; text-align: center"></td>
@@ -96,60 +60,39 @@
 
 	<div class="card-group">
 		<div class="card">
-			<div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
-				<div class="card-header">Header</div>
-				<div class="card-body">
-					<h5 class="card-title">Primary card title</h5>
-					<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-				</div>
-			</div>
-		</div>
-
-		<div class="card">
-			<div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
-				<div class="card-header">Header</div>
-				<div class="card-body">
-					<h5 class="card-title">Secondary card title</h5>
-					<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-				</div>
-			</div>
-
-		</div>
-		<div class="card">
-			<div class="card text-white bg-success mb-3" style="max-width: 18rem;">
-				<div class="card-header">Header</div>
-				<div class="card-body">
-					<h5 class="card-title">Success card title</h5>
-					<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-				</div>
+			<a href="${pageContext.request.contextPath }/CarChkController"><img class="card-img-top" src="${pageContext.request.contextPath }/resources/img/registration.png" alt="Card image cap"></a>
+			<div class="card-body">
+				<h5 class="card-title">운전자 차량등록</h5>
+				<p class="card-text">지금 바로 차량을 등록하여 </p>
 			</div>
 		</div>
 		<div class="card">
-			<div class="card text-white bg-success mb-3" style="max-width: 18rem;">
-				<div class="card-header">Header</div>
-				<div class="card-body">
-					<h5 class="card-title">Success card title</h5>
-					<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-				</div>
+			<a href="${pageContext.request.contextPath }/CarChkController"><img class="card-img-top" src="${pageContext.request.contextPath }/resources/img/introduce.png" alt="Card image cap"></a>
+			<div class="card-body">
+				<h5 class="card-title">Card title</h5>
+				<p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+			</div>
+		</div>
+		<div class="card">
+			<a href="${pageContext.request.contextPath }/CarChkController"><img class="card-img-top" src="${pageContext.request.contextPath }/resources/img/introduce.png" alt="Card image cap"></a>
+			<div class="card-body">
+				<h5 class="card-title">Card title</h5>
+				<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+			</div>
+		</div>
+		<div class="card">
+			<a href="${pageContext.request.contextPath }/CarChkController"><img class="card-img-top" src="${pageContext.request.contextPath }/resources/img/registration.png" alt="Card image cap"></a>
+			<div class="card-body">
+				<h5 class="card-title">Card title</h5>
+				<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
 			</div>
 		</div>
 	</div>
 
 
 
-
-
-
-
-	</div>
-	<!-- /.container --> <!-- FOOTER --> <footer class="container">
-		<p class="float-right">
-			<a href="#">Back to top</a>
-		</p>
-		<p>
-			&copy; 2017-2018 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a>
-		</p>
-	</footer> </main>
+	</main>
+	<%@ include file="/resources/footer/footer.jsp"%>
 
 
 
@@ -173,6 +116,5 @@
 			</tr>
 		</table>
 	</div>
-	<%@ include file="/resources/footer/footer.jsp"%>
 </body>
 </html>
