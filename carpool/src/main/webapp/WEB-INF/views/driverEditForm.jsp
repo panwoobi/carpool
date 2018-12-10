@@ -2,7 +2,6 @@
 	pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
 <html>
-<%@ include file="/resources/header/header.jsp"%>
 <link rel="stylesheet" href="//mugifly.github.io/jquery-simple-datetimepicker/jquery.simple-dtpicker.css">
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 <script src="//mugifly.github.io/jquery-simple-datetimepicker/jquery.simple-dtpicker.js"></script>	
@@ -231,5 +230,4 @@
 	</form>
 	<br><br>
 </body>
-<%@ include file="/resources/footer/footer.jsp"%>
 </html>

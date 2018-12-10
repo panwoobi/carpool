@@ -2,7 +2,6 @@
 	pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
 <html>
-<%@ include file="/resources/header/header.jsp"%>
 <script type="text/javascript">
 $('document').ready(function() {
 	if(${chk != true} ) {
@@ -38,5 +37,4 @@ $('document').ready(function() {
 		<br>
 	</form>
 </body>
-<%@ include file="/resources/footer/footer.jsp"%>
 </html>

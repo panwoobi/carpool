@@ -2,7 +2,6 @@
 	pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
 <html>
-<%@ include file="/resources/header/header.jsp"%>
 <body>
 	<table id="boardTable">
 		<tr>
@@ -80,5 +79,4 @@
 	<br>
 	<br>
 </body>
-<%@ include file="/resources/footer/footer.jsp"%>
 </html>

@@ -2,7 +2,6 @@
 	pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
 <html>
-<%@ include file="/resources/header/header.jsp"%>
 <body>
 	<form action="${pageContext.request.contextPath }/MemberEditController" method="post" enctype="multipart/form-data">
 	<br>
@@ -33,5 +32,4 @@
 	<br>
 	</form>
 </body>
-<%@ include file="/resources/footer/footer.jsp"%>
 </html>
