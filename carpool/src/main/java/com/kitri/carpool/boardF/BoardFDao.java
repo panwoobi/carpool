@@ -10,8 +10,6 @@ public interface BoardFDao {
 
 	public BoardF selectByNum(int num);
 	
-	public ArrayList<BoardF> selectByType(int type);
-
 	public ArrayList<BoardF> selectByWriter(String writer);
 
 	public ArrayList<BoardF> selectAll();

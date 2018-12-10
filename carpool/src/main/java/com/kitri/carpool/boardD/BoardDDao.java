@@ -10,8 +10,6 @@ public interface BoardDDao {
 
 	public BoardD selectByNum(int num);
 
-	public ArrayList<BoardD> selectByType(int type);
-
 	public ArrayList<BoardD> selectByCate(String cate);
 
 	public ArrayList<BoardD> selectByTime(String startTime);

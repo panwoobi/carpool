@@ -29,12 +29,6 @@ public class BoardFServiceImpl implements BoardFService {
 	}
 
 	@Override
-	public ArrayList<BoardF> getByType(int type) {
-		// TODO Auto-generated method stub
-		return dao.selectByType(type);
-	}
-
-	@Override
 	public ArrayList<BoardF> getByWriter(String writer) {
 		// TODO Auto-generated method stub
 		return dao.selectByWriter(writer);

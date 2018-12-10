@@ -18,8 +18,6 @@ public interface BoardDService {
 
 	public ArrayList<BoardD> getByEndPosi(String endPosi);
 
-	public ArrayList<BoardD> getByType(int type);
-
 	public ArrayList<BoardD> getByPrice(int price);
 
 	public ArrayList<BoardD> getByWriter(String writer);

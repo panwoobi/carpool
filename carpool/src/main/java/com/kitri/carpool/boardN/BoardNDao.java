@@ -9,8 +9,6 @@ public interface BoardNDao {
 	public boolean update(BoardN b);
 
 	public BoardN selectByNum(int num);
-	
-	public ArrayList<BoardN> selectByType(int type);
 
 	public ArrayList<BoardN> selectByWriter(String writer);
 

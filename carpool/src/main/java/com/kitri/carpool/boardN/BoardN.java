@@ -5,7 +5,6 @@ import java.sql.Date;
 public class BoardN {
 
 	private int num;
-	private int type;
 	private Date w_date;
 	private String title;
 	private String content;
@@ -15,10 +14,9 @@ public class BoardN {
 		
 	}
 
-	public BoardN(int num, int type, Date w_date, String title, String content, String writer) {
+	public BoardN(int num, Date w_date, String title, String content, String writer) {
 		super();
 		this.num = num;
-		this.type = type;
 		this.w_date = w_date;
 		this.title = title;
 		this.content = content;
@@ -27,10 +25,6 @@ public class BoardN {
 
 	public int getNum() {
 		return num;
-	}
-
-	public int getType() {
-		return type;
 	}
 
 	public Date getW_date() {
@@ -53,10 +47,6 @@ public class BoardN {
 		this.num = num;
 	}
 
-	public void setType(int type) {
-		this.type = type;
-	}
-
 	public void setW_date(Date w_date) {
 		this.w_date = w_date;
 	}
@@ -75,7 +65,7 @@ public class BoardN {
 
 	@Override
 	public String toString() {
-		return "Board2 [num=" + num + ", type=" + type + ", w_date=" + w_date + ", title=" + title + ", content="
+		return "Board2 [num=" + num + ", w_date=" + w_date + ", title=" + title + ", content="
 				+ content + ", writer=" + writer + "]";
 	}
 }

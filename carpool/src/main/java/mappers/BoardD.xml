@@ -4,7 +4,6 @@
 
 	<resultMap id="boardDResult" type="com.kitri.carpool.boardD.BoardD">
 		<result column="num" property="num" />
-		<result column="type" property="type" />
 		<result column="cate" property="cate" />
 		<result column="w_date" property="w_date" />
 		<result column="startTime" property="startTime" />
@@ -29,13 +28,13 @@
 
 	<insert id="insert" parameterType="com.kitri.carpool.boardD.BoardD">
 		insert into c_BoardD values(c_BoardD_no.nextval,
-		#{type}, #{cate}, sysdate, #{startTime}, #{startPosi},
+		#{cate}, sysdate, #{startTime}, #{startPosi},
 		#{endPosi}, #{startX}, #{startY}, #{endX}, #{endY},
 		#{price}, #{content}, #{title}, #{seat}, #{maxSeat},
 		#{writer}, #{driver}, #{passenger1}, #{passenger2}, #{passenger3}, #{profile})
 	</insert>
 	<update id="update" parameterType="com.kitri.carpool.boardD.BoardD">
-		update c_BoardD set type=#{type},
+		update c_BoardD set
 		cate=#{cate}, w_date=#{w_date}, startTime=#{startTime}, startPosi=#{startPosi},
 		endPosi=#{endPosi}, startX=#{startX}, startY=#{startY}, endX=#{endX}, endY=#{endY},
 		price=#{price}, content=#{content}, startY=#{startY}, title=#{title}, seat=#{seat}, 

@@ -18,7 +18,6 @@ public interface BoardPService {
 
 	public ArrayList<BoardP> getByEndPosi(String endPosi);
 
-	public ArrayList<BoardP> getByType(int type);
 
 	public ArrayList<BoardP> getByPrice(int price);
 

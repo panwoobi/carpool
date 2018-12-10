@@ -29,12 +29,6 @@ public class BoardNServiceImpl implements BoardNService {
 	}
 
 	@Override
-	public ArrayList<BoardN> getByType(int type) {
-		// TODO Auto-generated method stub
-		return dao.selectByType(type);
-	}
-
-	@Override
 	public ArrayList<BoardN> getByWriter(String writer) {
 		// TODO Auto-generated method stub
 		return dao.selectByWriter(writer);

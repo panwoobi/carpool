@@ -9,8 +9,6 @@ public interface BoardFService {
 	public boolean edit(BoardF b);
 
 	public BoardF gettByNum(int num);
-
-	public ArrayList<BoardF> getByType(int type);
 	
 	public ArrayList<BoardF> getByWriter(String writer);
 

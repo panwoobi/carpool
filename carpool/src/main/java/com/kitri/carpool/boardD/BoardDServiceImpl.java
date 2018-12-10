@@ -75,12 +75,6 @@ public class BoardDServiceImpl implements BoardDService {
 		// TODO Auto-generated method stub
 		return dao.delete(num);
 	}
-
-	@Override
-	public ArrayList<BoardD> getByType(int type) {
-		// TODO Auto-generated method stub
-		return dao.selectByType(type);
-	}
 	
 	@Override
 	public ArrayList<BoardD> getByStartEnd(String start_posi, String end_posi) {
