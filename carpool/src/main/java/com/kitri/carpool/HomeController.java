@@ -14,10 +14,12 @@ public class HomeController {
 		
 		return "main.tiles";
 	}
-	
-	@RequestMapping(value = "/", method = RequestMethod.GET)
+
+	@RequestMapping(value = "/driver", method = RequestMethod.GET)
 	public String driver() {
 		
 		return "driver.tiles";
 	}
+
+	
 }
