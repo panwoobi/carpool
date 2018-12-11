@@ -2,7 +2,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/carpool.css">
 </head>
 <body>
 	<main role="main">
@@ -53,10 +52,9 @@
 		</div>
 		<div class="card">
 			<i class="fa fa-question" style="font-size: 100pt; text-align: center;"></i>
-			<%-- 			<a href="${pageContext.request.contextPath }/CarChkController"><img class="card-img-top" src="${pageContext.request.contextPath }/resources/img/introduce.png" alt="Card image cap"></a> --%>
 			<div class="card-body">
-				<h5 class="card-title">What is Carpool?</h5>
-				<p class="card-text">카풀이 무엇인지 궁금하시다구요? 지금 확인해보세요!</p>
+				<h5 class="card-title" >What is Carpool?</h5>
+				<p class="card-text" >카풀이 무엇인지 궁금하시다구요? 지금 확인해보세요!</p>
 			</div>
 		</div>
 		<div class="card">
