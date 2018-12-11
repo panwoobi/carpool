@@ -15,6 +15,7 @@ public class HomeController {
 		return "main.tiles";
 	}
 	
+
 	@RequestMapping(value = "/intro", method = RequestMethod.GET)
 	public String intro() {
 		
@@ -25,5 +26,11 @@ public class HomeController {
 	public String recruit() {
 		
 		return "recruit.tiles";
+	}
+
+	@RequestMapping(value = "/", method = RequestMethod.GET)
+	public String driver() {
+		
+		return "driver.tiles";
 	}
 }
