@@ -79,7 +79,7 @@
       $('#f').submit();
     });
     $('#driverList').click(function() {
-      $('#f').attr("action", "${pageContext.request.contextPath}/Board1DriverListController");
+      $('#f').attr("action", "${pageContext.request.contextPath}/driver");
       $('#f').submit();
     });
 
@@ -140,7 +140,7 @@
       window.location.href = "${pageContext.request.contextPath }/Board1PassengerListController";
       break;
     case 3:
-      window.location.href = "${pageContext.request.contextPath }/Board1DriverListController";
+      window.location.href = "${pageContext.request.contextPath }/driver";
       break;
     case 4:
       window.location.href = "${pageContext.request.contextPath }/Board2NoticeListController";
