@@ -2,23 +2,34 @@ package com.kitri.carpool.member;
 
 import java.util.ArrayList;
 
+import javax.annotation.Resource;
+
+import org.apache.ibatis.session.SqlSession;
+import org.springframework.stereotype.Component;
+
+
+@Component("memberService")
 public class MemberServiceImpl implements MemberService {
 	
+	@Resource(name="sqlSession")
+	private SqlSession sqlSession;
 	private MemberDao dao;
 	
-	public MemberServiceImpl(MemberDao dao) {
-		this.dao = dao;
+	public void setSqlSession(SqlSession sqlSession) {
+		this.sqlSession = sqlSession;
 	}
 
 	@Override
 	public void join(Member m) {
 		// TODO Auto-generated method stub
+		dao = sqlSession.getMapper(MemberDao.class);
 		dao.insert(m);
 	}
 
 	@Override
 	public boolean login(String id, String pw) {
 		// TODO Auto-generated method stub
+		dao = sqlSession.getMapper(MemberDao.class);
 		Member m = dao.selectById(id);
 		if(m == null) {
 			return false;
@@ -31,6 +42,7 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public boolean out(String id, String pw) {
 		// TODO Auto-generated method stub
+		dao = sqlSession.getMapper(MemberDao.class);
 		Member m = dao.selectById(id);
 		if(m == null) {
 			return false;
@@ -44,6 +56,7 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public Member getMember(String id) {
 		// TODO Auto-generated method stub
+		dao = sqlSession.getMapper(MemberDao.class);
 		return null;
 //		dao.selectById(id);
 	}
@@ -51,6 +64,7 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public ArrayList<Member> getByName(String name) {
 		// TODO Auto-generated method stub
+		dao = sqlSession.getMapper(MemberDao.class);
 		return null;
 //		dao.selectByName(name);
 	}
@@ -58,6 +72,7 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public ArrayList<Member> getByIsSmoke(int isSmoke) {
 		// TODO Auto-generated method stub
+		dao = sqlSession.getMapper(MemberDao.class);
 		return null;
 //		dao.selectByIsSmoke(isSmoke);
 	}
@@ -65,6 +80,7 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public ArrayList<Member> getByType(int type) {
 		// TODO Auto-generated method stub
+		dao = sqlSession.getMapper(MemberDao.class);
 		return null;
 //		dao.selectByType(type);
 	}
@@ -72,6 +88,7 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public ArrayList<Member> getBySex(int sex) {
 		// TODO Auto-generated method stub
+		dao = sqlSession.getMapper(MemberDao.class);
 		return null;
 //		dao.selectBySex(sex);
 	}
@@ -79,12 +96,14 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public ArrayList<Member> getAll() {
 		// TODO Auto-generated method stub
+		dao = sqlSession.getMapper(MemberDao.class);
 		return dao.selectAll();
 	}
 
 	@Override
 	public void editInfo(Member m) {
 		// TODO Auto-generated method stub
+		dao = sqlSession.getMapper(MemberDao.class);
 		dao.update(m);
 	}
 }
