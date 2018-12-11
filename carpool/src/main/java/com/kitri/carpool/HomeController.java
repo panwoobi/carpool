@@ -15,6 +15,7 @@ public class HomeController {
 		return "main.tiles";
 	}
 	
+<<<<<<< HEAD
 
 	@RequestMapping(value = "/intro", method = RequestMethod.GET)
 	public String intro() {
@@ -29,6 +30,9 @@ public class HomeController {
 	}
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
+=======
+	@RequestMapping(value = "/driver", method = RequestMethod.GET)
+>>>>>>> branch 'master' of https://github.com/panwoobi/carpool.git
 	public String driver() {
 		
 		return "driver.tiles";
