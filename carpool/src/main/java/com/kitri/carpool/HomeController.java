@@ -9,10 +9,24 @@ import org.springframework.web.bind.annotation.RequestMethod;
  */
 @Controller
 public class HomeController {
+
+	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String main() {
-		
 		return "main.tiles";
+	}
+
+	@RequestMapping(value = "/intro", method = RequestMethod.GET)
+	public String intro() {
+		
+		return "intro.tiles";
+	}
+	
+	@RequestMapping(value = "/recruit", method = RequestMethod.GET)
+	public String recruit() {
+		
+		return "recruit.tiles";
+
 	}
 
 	@RequestMapping(value = "/driver", method = RequestMethod.GET)
