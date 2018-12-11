@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
  */
 @Controller
 public class HomeController {
+
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String main() {
@@ -25,6 +26,7 @@ public class HomeController {
 	public String recruit() {
 		
 		return "recruit.tiles";
+
 	}
 
 	@RequestMapping(value = "/driver", method = RequestMethod.GET)
@@ -32,4 +34,6 @@ public class HomeController {
 		
 		return "driver.tiles";
 	}
+
+	
 }

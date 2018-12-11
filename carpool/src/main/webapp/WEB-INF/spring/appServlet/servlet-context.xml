@@ -66,8 +66,6 @@
 	<beans:bean id="multipartResolver"
 		class="org.springframework.web.multipart.commons.CommonsMultipartResolver" />
 
-
-
 	<!-- For Tiles Tag -->
 	<beans:bean id="tilesConfigurer"
 		class="org.springframework.web.servlet.view.tiles2.TilesConfigurer">
@@ -85,9 +83,8 @@
 			value="org.springframework.web.servlet.view.tiles2.TilesView" />
 	</beans:bean>
 	<!-- /For Tiles Tag -->
-	
-	<beans:bean id="jacksonMessageConverter" class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter"/>
 
+<!-- 	<beans:bean id="jacksonMessageConverter" class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter"/> -->
 
 </beans:beans>
 

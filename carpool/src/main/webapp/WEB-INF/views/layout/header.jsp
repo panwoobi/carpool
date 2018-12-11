@@ -146,7 +146,7 @@
       window.location.href = "${pageContext.request.contextPath }/noticeList";
       break;
     case 5:
-      window.location.href = "${pageContext.request.contextPath }/freeBoardList";
+      window.location.href = "${pageContext.request.contextPath }/boardFList";
       break;
     }
   };
