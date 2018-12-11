@@ -101,5 +101,11 @@ public class Member {
 		this.isSmoke = isSmoke;
 	}
 
+	@Override
+	public String toString() {
+		return "Member [id=" + id + ", pw=" + pw + ", name=" + name + ", email=" + email + ", tel=" + tel + ", profile="
+				+ profile + ", type=" + type + ", sex=" + sex + ", isSmoke=" + isSmoke + "]";
+	}
+
 	
 }

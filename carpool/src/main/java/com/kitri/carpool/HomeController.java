@@ -12,11 +12,24 @@ public class HomeController {
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String main() {
-		
 		return "main.tiles";
 	}
-//	@RequestMapping(value = "/map", method = RequestMethod.GET)
-//	public String map() {
-//		return "map";
-//	}
+
+	@RequestMapping(value = "/intro", method = RequestMethod.GET)
+	public String intro() {
+		
+		return "intro.tiles";
+	}
+	
+	@RequestMapping(value = "/recruit", method = RequestMethod.GET)
+	public String recruit() {
+		
+		return "recruit.tiles";
+	}
+
+	@RequestMapping(value = "/driver", method = RequestMethod.GET)
+	public String driver() {
+		
+		return "driver.tiles";
+	}
 }
