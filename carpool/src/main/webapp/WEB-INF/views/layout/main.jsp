@@ -6,13 +6,7 @@
 </head>
 <body>
 
-
-
-
 	<main role="main">
-
-
-
 
 	<div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
 		<div class="carousel-inner">
