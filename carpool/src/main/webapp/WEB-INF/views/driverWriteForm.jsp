@@ -1,9 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
 <html>
-<!-- <link rel="stylesheet" href="//mugifly.github.io/jquery-simple-datetimepicker/jquery.simple-dtpicker.css"> -->
-<!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script> -->
-<!-- <script src="//mugifly.github.io/jquery-simple-datetimepicker/jquery.simple-dtpicker.js"></script> -->
 <head>
 <script type="text/javascript">
   $(function() {
@@ -25,7 +22,10 @@
 /* Bootstrap 수정 */
 .table {
 	width: 85%;
-	margin:auto;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:50px;
+	margin-bottom:50px;
 }
 .table>thead {
 	background-color: #b3c6ff;
@@ -64,8 +64,10 @@ div>#paging {
 <body>
 	<div id="container">
 		<form id="f" action="" method="post">
-			<input type="hidden" id="spx" name="spx"> <input type="hidden" id="spy" name="spy"> <input type="hidden" id="epx" name="epx"> <input type="hidden" id="epy" name="epy">
-
+			<input type="hidden" id="spx" name="spx">
+			<input type="hidden" id="spy" name="spy">
+			<input type="hidden" id="epx" name="epx">
+			<input type="hidden" id="epy" name="epy">
 			<table class="table table-striped table-bordered">
 				<tr>
 					<th style="width: 10%">유형</th>
@@ -76,7 +78,11 @@ div>#paging {
 							<option value="여행">여행</option>
 							<option value="기타">기타</option>
 					</select></th>
-					<th style="width: 50%" rowspan="10"><div id=div1></div></th>
+					<th style="width: 50%" rowspan="10">
+<!-- 						<div id="div1"></div> -->
+
+						<%@ include file="map.jsp"%>
+					</th>
 				</tr>
 				<tr>
 					<td>제목</td>

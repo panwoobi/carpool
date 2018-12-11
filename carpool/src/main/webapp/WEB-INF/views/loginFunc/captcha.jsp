@@ -28,7 +28,7 @@
     
     setTimeout(function() {
       //alert($('#capt').attr("path"));
-      $('#capt').attr("src", "img/" + $('#capt').attr("path"));
+      $('#capt').attr("src", "${pageContext.request.contextPath}/resources/img/" + $('#capt').attr("path"));
     }, 5000);
   });
 </script>

@@ -9,15 +9,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
  */
 @Controller
 public class HomeController {
+	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String main() {
 		
 		return "main.tiles";
 	}
-	
-	@RequestMapping(value = "/driver", method = RequestMethod.GET)
-	public String driver() {
-		
-		return "driver.tiles";
-	}
+//	@RequestMapping(value = "/map", method = RequestMethod.GET)
+//	public String map() {
+//		return "map";
+//	}
 }
