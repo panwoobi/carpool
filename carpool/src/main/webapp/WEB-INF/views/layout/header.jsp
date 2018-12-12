@@ -8,109 +8,109 @@
 
 <script type="text/javascript">
   $('document').ready(function() {
-    $('#div1').append("<iframe id='m' src='${pageContext.request.contextPath }/map' scrolling='no' frameborder='0' framespacing='0' margin='0' padding='0' vspace='0'></iframe>");
-    $('#div2').append("<iframe id='m' src='${pageContext.request.contextPath }/map2' scrolling='no' frameborder='0' framespacing='0' margin='0' padding='0' vspace='0'></iframe>");
+    $('#div1').append("<iframe id='m' src='map' scrolling='no' frameborder='0' framespacing='0' margin='0' padding='0' vspace='0'></iframe>");
+    $('#div2').append("<iframe id='m' src='map2' scrolling='no' frameborder='0' framespacing='0' margin='0' padding='0' vspace='0'></iframe>");
 
     $('#car').click(function() {
-      window.open("${pageContext.request.contextPath}/CarDetailController?owner=" + $('#w').val(), "", "width=740, height=130, top=100, left=100, scrollbars=no");
+      window.open("${pageContext.request.contextPath}/carDetail?owner=" + $('#w').val(), "", "width=740, height=130, top=100, left=100, scrollbars=no");
     });
 
     $('#noticeWrite').click(function() {
-      $('#f').attr("action", "${pageContext.request.contextPath}/Board2NoticeAddController");
+      $('#f').attr("action", "${pageContext.request.contextPath}/noticeWrite");
       $('#f').submit();
     });
     $('#noticeEdit').click(function() {
-      $('#f').attr("action", "${pageContext.request.contextPath}/Board2NoticeEditController");
+      $('#f').attr("action", "${pageContext.request.contextPath}/noticeEdit");
       $('#f').submit();
     });
     $('#noticeDel').click(function() {
-      $('#f').attr("action", "${pageContext.request.contextPath}/Board2NoticeDelController");
+      $('#f').attr("action", "${pageContext.request.contextPath}/noticeDel");
       $('#f').submit();
     });
     $('#noticeList').click(function() {
-      $('#f').attr("action", "${pageContext.request.contextPath}/Board2NoticeListController");
+      $('#f').attr("action", "${pageContext.request.contextPath}/noticeList");
       $('#f').submit();
     });
 
     $('#freeBoardWrite').click(function() {
-      $('#f').attr("action", "${pageContext.request.contextPath}/Board2FreeBoardAddController");
+      $('#f').attr("action", "${pageContext.request.contextPath}/freeBoardWrite");
       $('#f').submit();
     });
     $('#freeBoardEdit').click(function() {
-      $('#f').attr("action", "${pageContext.request.contextPath}/Board2FreeBoardEditController");
+      $('#f').attr("action", "${pageContext.request.contextPath}/freeBoardEdit");
       $('#f').submit();
     });
     $('#freeBoardDel').click(function() {
-      $('#f').attr("action", "${pageContext.request.contextPath}/Board2FreeBoardDelController");
+      $('#f').attr("action", "${pageContext.request.contextPath}/freeBoardDel");
       $('#f').submit();
     });
     $('#freeBoardList').click(function() {
-      $('#f').attr("action", "${pageContext.request.contextPath}/Board2FreeBoardListController");
+      $('#f').attr("action", "${pageContext.request.contextPath}/freeBoardList");
       $('#f').submit();
     });
 
     $('#passengerWrite').click(function() {
-      $('#f').attr("action", "${pageContext.request.contextPath}/Board1PassengerAddController");
+      $('#f').attr("action", "${pageContext.request.contextPath}/passengerWrite");
       $('#f').submit();
     });
     $('#passengerList').click(function() {
-      $('#f').attr("action", "${pageContext.request.contextPath}/Board1PassengerListController");
+      $('#f').attr("action", "${pageContext.request.contextPath}/passengerList");
       $('#f').submit();
     });
     $('#passengerDel').click(function() {
-      $('#f').attr("action", "${pageContext.request.contextPath}/Board1PassengerDelController");
+      $('#f').attr("action", "${pageContext.request.contextPath}/passengerDel");
       $('#f').submit();
     });
     $('#passengerEdit').click(function() {
-      $('#f').attr("action", "${pageContext.request.contextPath}/Board1PassengerEditController");
+      $('#f').attr("action", "${pageContext.request.contextPath}/passengerEdit");
       $('#f').submit();
     });
 
     $('#driverWrite').click(function() {
-      $('#f').attr("action", "${pageContext.request.contextPath}/Board1DriverAddController");
+      $('#f').attr("action", "${pageContext.request.contextPath}/driverWrite");
       $('#f').submit();
     });
     $('#driverEdit').click(function() {
-      $('#f').attr("action", "${pageContext.request.contextPath}/Board1DriverEditController");
+      $('#f').attr("action", "${pageContext.request.contextPath}/driverEdit");
       $('#f').submit();
     });
     $('#driverDel').click(function() {
-      $('#f').attr("action", "${pageContext.request.contextPath}/Board1DriverDelController");
+      $('#f').attr("action", "${pageContext.request.contextPath}/driverDel");
       $('#f').submit();
     });
     $('#driverList').click(function() {
-      $('#f').attr("action", "${pageContext.request.contextPath}/driver");
+      $('#f').attr("action", "${pageContext.request.contextPath}/driverList");
       $('#f').submit();
     });
 
     $('#driverRequestAdd').click(function() {
-      $('#f').attr("action", "${pageContext.request.contextPath}/Board1DriverRequestAddController");
+      $('#f').attr("action", "${pageContext.request.contextPath}/driverRequestAdd");
       $('#f').submit();
     });
     $('#driverRequestDel').click(function() {
-      $('#f').attr("action", "${pageContext.request.contextPath}/Board1DriverRequestDelController");
+      $('#f').attr("action", "${pageContext.request.contextPath}/driverRequestDel");
       $('#f').submit();
     });
 
     $('#passengerRequestAdd').click(function() {
-      $('#f').attr("action", "${pageContext.request.contextPath}/Board1PassengerRequestAddController");
+      $('#f').attr("action", "${pageContext.request.contextPath}/passengerRequestAdd");
       $('#f').submit();
     });
     $('#passengerRequestDel').click(function() {
-      $('#f').attr("action", "${pageContext.request.contextPath}/Board1PassengerRequestDelController");
+      $('#f').attr("action", "${pageContext.request.contextPath}/passengerRequestDel");
       $('#f').submit();
     });
 
     $('#logout').click(function() {
-      $('#info').attr("action", "${pageContext.request.contextPath }/MemberLogoutController");
+      $('#info').attr("action", "${pageContext.request.contextPath }/logout");
       $('#info').submit();
     });
     $('#carAdd').click(function() {
-      $('#info').attr("action", "${pageContext.request.contextPath }/CarChkController");
+      $('#info').attr("action", "${pageContext.request.contextPath }/carChk");
       $('#info').submit();
     });
     $('#carDel').click(function() {
-      $('#info').attr("action", "${pageContext.request.contextPath }/CarDelController");
+      $('#info').attr("action", "${pageContext.request.contextPath }/carDel");
       $('#info').submit();
     });
     $('#out').click(function() {
@@ -122,12 +122,12 @@
       $('#info').submit();
     });
     $('#partner').click(function() {
-      $('#info').attr("action", "${pageContext.request.contextPath }/Board1PartnerListController");
+      $('#info').attr("action", "${pageContext.request.contextPath }/partnerList");
       $('#info').submit();
     });
     
     $('#partnerList').click(function() {
-      window.location.href = "${pageContext.request.contextPath }/Board1PartnerListController";
+      window.location.href = "${pageContext.request.contextPath }/partnerList";
     });
   });
 
@@ -137,13 +137,17 @@
       window.location.href = "${pageContext.request.contextPath }/intro";
       break;
     case 2:
-      window.location.href = "${pageContext.request.contextPath }/Board1PassengerListController";
+      window.location.href = "${pageContext.request.contextPath }/passengerList";
       break;
     case 3:
-      window.location.href = "${pageContext.request.contextPath }/driver";
+      window.location.href = "${pageContext.request.contextPath }/driverList";
       break;
     case 4:
+<<<<<<< HEAD
       window.location.href = "${pageContext.request.contextPath }/notice";
+=======
+      window.location.href = "${pageContext.request.contextPath }/noticeList";
+>>>>>>> branch 'master' of https://github.com/panwoobi/carpool.git
       break;
     case 5:
       window.location.href = "${pageContext.request.contextPath }/boardFList";

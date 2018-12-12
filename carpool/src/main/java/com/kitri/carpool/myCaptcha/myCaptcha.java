@@ -3,6 +3,7 @@ package com.kitri.carpool.myCaptcha;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
@@ -12,6 +13,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 import org.json.simple.JSONObject;
@@ -19,17 +21,30 @@ import org.json.simple.parser.JSONParser;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.kitri.carpool.member.Member;
+import com.kitri.carpool.member.MemberService;
+
+import DesignPattern.PathInfo;
 
 @Controller
 public class myCaptcha {
 
 	private static String key;
+	private PathInfo pi;
+
+	public myCaptcha() {
+		pi = PathInfo.getInstance();
+	}
 	
+	@Resource(name="memberService")
+	private MemberService service;
+	
+
 	@RequestMapping("/captchaImg")
 	@ResponseBody
-	public Map<String,String> getCaptcha() {
+	public Map<String, String> getCaptcha() {
 
 		Map<String, String> map = new HashMap<String, String>();
 		key = CaptchaNkey();
@@ -49,46 +64,59 @@ public class myCaptcha {
 
 //		System.out.println("key는 " + key);
 //		System.out.println("img는 " + img);
-		map.put("img", img);		
-		
+		map.put("img", img);
 		return map;
 	}
-	
-	
-	
-	
 
 	@RequestMapping("/captchaResult")
-	public String captcahResult(Member m , HttpServletRequest request) {
+	public String captcahResult(Member m, HttpServletRequest request) {
 
-		String path="";
-		
+		String path = "";
+
 		// index 페이지에서 가져온 값
 		String input = (String) request.getParameter("input");
-
 		String result = CaptchaNkeyResult(key, input);
 		boolean b = false;
 
-		
 		System.out.println(m);
-		System.out.println("input: "+input);
 		try {
 			// result 또한 JSON형식이므로 파싱 하여 boolean값 b에 할당
 			JSONParser jsonParser = new JSONParser();
 			JSONObject jsonObj = (JSONObject) jsonParser.parse(result);
 			b = (Boolean) jsonObj.get("result");
-			System.out.println("boolean: "+b);
+			System.out.println("boolean: " + b);
 		} catch (Exception e) {
 			System.out.println("파싱안댐");
 		}
-		if (b == true) {
-			path = "redirect:/";
-			request.setAttribute("chk", true);
 
-		} else {
+		if (b == true) { // 캡차 성공시
+
+			MultipartFile f = m.getFile();
+			if (f != null) {
+				String fileName = m.getFile().getOriginalFilename();
+				File newFile = new File(pi.getPath() + fileName);
+				try {
+					f.transferTo(newFile);
+				} catch (IllegalStateException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				m.setProfile("/profile/" + fileName);
+			}
+			
+			path = "redirect:/";
+			request.setAttribute("join", true);
+			
+
+		} else { // 캡차 비성공시
+			request.setAttribute("join", false);
 			path = "redirect:/";
 
 		}
+		System.out.println(m);
 		return path;
 	}
 
@@ -132,13 +160,13 @@ public class myCaptcha {
 		String clientId = "6AGmgCe30U75KRn0vAQg";// 애플리케이션 클라이언트 아이디값";
 		String clientSecret = "x39LuzMU2M";// 애플리케이션 클라이언트 시크릿값";
 		String img = "";
-		String path="";
-		String apiURL="";
+		String path = "";
+		String apiURL = "";
 		try {
 			// https://openapi.naver.com/v1/captcha/nkey
 			// 호출로 받은 키값으로 이미지를 생성하는 과정
 			// 절대경로로 캡차 이미지가 생성되는곳 지정
-			
+
 			apiURL = "https://openapi.naver.com/v1/captcha/ncaptcha.bin?key=" + key;
 			URL url = new URL(apiURL);
 			HttpURLConnection con = (HttpURLConnection) url.openConnection();
@@ -154,8 +182,8 @@ public class myCaptcha {
 
 				// 랜덤한 이름으로 파일 생성
 				String tempname = Long.valueOf(new Date().getTime()).toString();
-				System.out.println(tempname);
-				
+				// System.out.println(tempname);
+
 				File f = new File(path + tempname + ".jpg");
 				f.createNewFile();
 				OutputStream outputStream = new FileOutputStream(f);
@@ -179,7 +207,7 @@ public class myCaptcha {
 		} catch (Exception e) {
 //			System.out.println(e);
 		}
-		
+
 		return apiURL;
 		// 이게 이미지이름이 됩니다.
 	}

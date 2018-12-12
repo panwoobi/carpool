@@ -1,6 +1,3 @@
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-wto-fit=no">
-
 <!-- Bootstrap CSS -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
@@ -9,10 +6,10 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 
 <title>KITRI Carpool</title>
-<link rel="shortcut icon" href="${pageContext.request.contextPath }/img/favicon.ico" type="image/x-icon" />
-<link rel="icon" href="${pageContext.request.contextPath }/img/favicon.ico" type="image/x-icon" />
-<link rel="stylesheet" href="${pageContext.request.contextPath }/css/view.css">
-<script type="text/javascript" src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+<link rel="shortcut icon" href="${pageContext.request.contextPath }/resources/img/favicon.ico" type="image/x-icon" />
+<link rel="icon" href="${pageContext.request.contextPath }/resources/img/favicon.ico" type="image/x-icon" />
+<%-- <link rel="stylesheet" href="${pageContext.request.contextPath }/css/view.css"> --%>
+<!-- <script type="text/javascript" src="//code.jquery.com/jquery-3.3.1.min.js"></script> -->
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -20,3 +17,10 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+
+<link rel="stylesheet" href="//mugifly.github.io/jquery-simple-datetimepicker/jquery.simple-dtpicker.css">
+<script src="//mugifly.github.io/jquery-simple-datetimepicker/jquery.simple-dtpicker.js"></script>
+
+
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/carpool.css">
