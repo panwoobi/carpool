@@ -87,7 +87,7 @@
 	</beans:bean>
 	<!-- /For Tiles Tag -->
 	
-	<beans:bean id="jacksonMessageConverter" class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter"/>
+<!-- 	<beans:bean id="jacksonMessageConverter" class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter"/> -->
 
 
 </beans:beans>

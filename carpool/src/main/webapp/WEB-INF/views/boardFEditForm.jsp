@@ -1,14 +1,26 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+    pageEncoding="EUC-KR"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
+<style>
+.table {
+  width: 85%;
+  margin-left:auto;
+  margin-right:auto;
+  margin-top:50px;
+  margin-bottom:50px;
+}
+
+</style>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+</head>
 <body>
-	<br>
-	<br>
-	<form class="border border-primary" name="f" action="boardFEdit" method="post">
-		<table id="table">
-			<tr>
+	<form class="border border-primary" action="boardFEdit" method="post" name="f" >
+		<table class="table">
+		    <tr>
 				<th scope="row">글번호</th>
 				<td><input type="hidden" name="num" value="${b.num }" readonly>${b.num }</td>
 			</tr>

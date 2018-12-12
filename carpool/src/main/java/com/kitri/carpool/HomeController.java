@@ -16,24 +16,24 @@ public class HomeController {
 		return "main.tiles";
 	}
 
-	@RequestMapping(value = "/intro", method = RequestMethod.GET)
-	public String intro() {
-		
-		return "intro.tiles";
-	}
-	
-	@RequestMapping(value = "/recruit", method = RequestMethod.GET)
-	public String recruit() {
-		
-		return "recruit.tiles";
-
-	}
-
-	@RequestMapping(value = "/driver", method = RequestMethod.GET)
-	public String driver() {
-		
-		return "driver.tiles";
-	}
+//	@RequestMapping(value = "/intro", method = RequestMethod.GET)
+//	public String intro() {
+//		
+//		return "intro.tiles";
+//	}
+//	
+//	@RequestMapping(value = "/recruit", method = RequestMethod.GET)
+//	public String recruit() {
+//		
+//		return "recruit.tiles";
+//
+//	}
+//
+//	@RequestMapping(value = "/driver", method = RequestMethod.GET)
+//	public String driver() {
+//		
+//		return "driver.tiles";
+//	}
 
 	
 }

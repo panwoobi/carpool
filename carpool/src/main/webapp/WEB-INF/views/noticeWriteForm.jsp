@@ -2,31 +2,41 @@
 	pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
 <html>
+<style>
+.table {
+  width: 85%;
+  margin-left:auto;
+  margin-right:auto;
+  margin-top:50px;
+  margin-bottom:50px;
+}
+
+</style>
 <body>
-	<br><br>
-	<form id="f" action="" method="post">
-		<table id="board2">
+	<form class="border border-primary" action="noticeWrite" method="post" name="f">
+			<table class="table">
 			<tr>
-				<td style="width:20%">작성자</td>
-				<td style="width:80%; text-align:left"><input type="hidden" name="writer"
-					name="id" value="${sessionScope.m.id }">${sessionScope.m.id}</td>
+				<th scope="row">작성자</th>
+				  <td><input type="text" name="writer"></td>
+<!-- 				<td><input type="hidden" name="writer" -->
+<%-- 					value="${sessionScope.m.id }">${sessionScope.m.id}</td> --%>
 			</tr>
 			<tr>
-				<td style="width:20%">제목</td>
-				<td style="width:80%"><input type="text" name="title"></td>
+				<th scope="row">제목</th>
+				<td><textarea class="form-control" rows="1"  name="title"></textarea></td>
 			</tr>
 			<tr>
-				<td style="width:20%">내용</td>
-				<td style="width:80%"><textarea style="resize: none;" name="content" rows="15"></textarea></td>
+				<th scope="row">내용</th>
+				<td><textarea class="form-control" rows="5"  name="content"> </textarea></td>
 			</tr>
 			<tr>
 				<td colspan="2">
-					<input type="button" id="noticeWrite" value="작성">
-					<input type="button" id="noticeList" value="목록">
-				</td>
+				<input class="btn btn-primary" type="submit"value="작성"> 
+				<input class="btn btn-default" type="button"value="목록"></td>
 			</tr>
 		</table>
 	</form>
-	<br><br>
+	<br>
+	<br>
 </body>
 </html>

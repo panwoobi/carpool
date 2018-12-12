@@ -143,7 +143,7 @@
       window.location.href = "${pageContext.request.contextPath }/driver";
       break;
     case 4:
-      window.location.href = "${pageContext.request.contextPath }/Board2NoticeListController";
+      window.location.href = "${pageContext.request.contextPath }/notice";
       break;
     case 5:
       window.location.href = "${pageContext.request.contextPath }/boardFList";

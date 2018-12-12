@@ -15,21 +15,22 @@
 </style>
 <body>
 <form class="border border-primary">
-	<table class="table table-hover">
+	<table class="table table-borderless">
 		<tr>
-			<td style="text-align: left; font-size: 16pt; font-weight: bold"><br>
+			<td style="text-align: left; font-size: 16pt; font-weight: bold">
 				<span class="glyphicon">&#x2709;</span>FreeBoard</td>
 		</tr>
 		<tr>
-			<c:if test="${!empty sessionScope.m.type }">
-				<td colspan="4" style="text-align: right"><a
-					href="${pageContext.request.contextPath }/content/freeBoardWriteForm.jsp">
-						<img src="${pageContext.request.contextPath }/img/write.png">
-				</a></td>
-			</c:if>
+		    <td colspan="4" style="text-align: right">
+<%-- 			<c:if test="${!empty sessionScope.m.type }"> --%>
+				<a href="${pageContext.request.contextPath }/boardFAdd">
+				<button type="button" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-pencil"></span> write </button>
+				</a>
+<%-- 			</c:if> --%>
+			</td>
 		</tr>
 		<tr>
-			<td>
+		<td>
 				<table class="table table-hover">
 					<thead class="thead-light">
 						<tr>
