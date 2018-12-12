@@ -18,12 +18,8 @@ public class PathInfo {
 //	±èÀç¹Î
 //	private String path = "C:\\Users\\panwo\\eclipse-workspace\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp3\\webapps\\carpool\\";
 	
-//	ÀÓÁ¾Çö
-//	private String path = "C:\\Users\\KITRI\\Desktop\\workspace\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp2\\webapps\\carpool\\";
+	private String path = "C:\\Users\\KITRI\\Desktop\\workspace\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp2\\webapps\\carpool\\";
 
-	HttpServletRequest request;
-	ServletContext context = request.getSession().getServletContext();
-	private String path = context.getRealPath("/");
 //	¿À½ÂÈ¯
 //	private String path = "";
 	

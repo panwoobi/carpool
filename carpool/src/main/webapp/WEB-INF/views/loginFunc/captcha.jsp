@@ -1,3 +1,4 @@
+
 <div class="container">
 	<!-- Modal -->
 	<div class="modal fade" id="joinProc" role="dialog">
@@ -6,7 +7,25 @@
 			<div class="modal-content">
 
 				<div class="modal-body" style="padding: 40px 50px;">
-					<form action="${pageContext.request.contextPath }/captchaResult" method="post">
+					<form action="${pageContext.request.contextPath }/captchaResult" method="post" enctype="multipart/form-data">
+
+
+						<div class="form-group row">
+							<div class="container">
+									<div style="width: 200px; height: 200px; overflow: hidden border-radius: 100px; margin-left: auto; margin-right: auto; display: block;">
+										<img id="pf" class="rounded-circle" src="${pageContext.request.contextPath }/resources/img/default_profile.jpg" style="width: 200px; height: 200px; margin-left: auto; margin-right: auto; display: block;">
+									</div>
+							</div>
+						</div>
+
+
+						<div class="form-group row">
+							<label class="col-sm-2 col-form-label">Profile</label>
+							<div class="col-sm-10">
+								<input type="file"  name="profile">
+							</div>
+						</div>
+
 
 
 						<div class="form-group row">
@@ -59,7 +78,7 @@
 
 							</div>
 						</div>
-						
+
 						<div class="form-group">
 							<div class="row">
 								<label class="col-sm-2 col-form-label">Sex</label>
@@ -72,7 +91,7 @@
 
 							</div>
 						</div>
-						
+
 						<div class="form-group">
 							<div class="row">
 								<label class="col-sm-2 col-form-label">Type</label>
@@ -125,7 +144,7 @@
       });
 
       $("#joinProc").modal({
-        refresh: true
+        refresh : true
       });
 
       setTimeout(function() {
@@ -133,5 +152,26 @@
         $('#capt').attr("src", img);
       }, 1000);
     });
+
+    var readURL = function(input) {
+      if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function(e) {
+          $('#pf').attr('src', e.target.result);
+        }
+
+        reader.readAsDataURL(input.files[0]);
+      }
+    }
+
+    $(".custom-file-input").on('change', function() {
+      readURL(this);
+    });
+
+    $(".upload-button").on('click', function() {
+      $(".file-upload").click();
+    });
+
   });
 </script>
