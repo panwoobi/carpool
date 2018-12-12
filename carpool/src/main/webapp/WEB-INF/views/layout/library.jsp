@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <!-- Bootstrap CSS -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
@@ -11,7 +11,7 @@
 <link rel="shortcut icon" href="${pageContext.request.contextPath }/resources/img/favicon.ico" type="image/x-icon" />
 <link rel="icon" href="${pageContext.request.contextPath }/resources/img/favicon.ico" type="image/x-icon" />
 
-<!-- ¼¼·Î½ºÅ©·ÑÀ» °­Á¦·Î È°¼ºÈ­ÇÏ°í °¡·Î½ºÅ©·ÑÀ» ¾î¶°ÇÑ°æ¿ì¿¡µµ Ç¥½ÃÇÏÁö ¾Ê½À´Ï´Ù. ÇÊ¼ö. -->
+<!-- ì„¸ë¡œìŠ¤í¬ë¡¤ì„ ê°•ì œë¡œ í™œì„±í™”í•˜ê³  ê°€ë¡œìŠ¤í¬ë¡¤ì„ ì–´ë– í•œê²½ìš°ì—ë„ í‘œì‹œí•˜ì§€ ì•ŠìŠµë‹ˆë‹¤. í•„ìˆ˜. -->
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/scroll.css">
 
 <meta name="viewport" content="width=device-width, initial-scale=1">

@@ -3,7 +3,7 @@ package com.kitri.carpool.member;
 import java.util.ArrayList;
 
 public interface MemberService {
-	public void join(Member m);
+	public boolean join(Member m);
 	public boolean login(String id, String pw);
 	public boolean out(String id, String pw);
 	public void editInfo(Member m);

@@ -20,10 +20,17 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
-	public void join(Member m) {
+	public boolean join(Member m) {
 		// TODO Auto-generated method stub
 		dao = sqlSession.getMapper(MemberDao.class);
-		dao.insert(m);
+		Member mm = dao.selectById(m.getId());
+		if(mm==null) {
+			dao.insert(m);
+			return true;
+		}else {
+			System.out.println("이미있는 아이디");
+			return false;
+		}
 	}
 
 	@Override
@@ -57,7 +64,7 @@ public class MemberServiceImpl implements MemberService {
 	public Member getMember(String id) {
 		// TODO Auto-generated method stub
 		dao = sqlSession.getMapper(MemberDao.class);
-		return null;
+		return dao.selectById(id);
 //		dao.selectById(id);
 	}
 
