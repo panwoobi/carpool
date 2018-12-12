@@ -1,0 +1,6 @@
+@charset "EUC-KR";
+
+html {
+  overflow-y: scroll;
+  overflow-x: hidden;
+}

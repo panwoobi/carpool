@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
+
 <!-- Bootstrap CSS -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
@@ -8,8 +10,9 @@
 <title>KITRI Carpool</title>
 <link rel="shortcut icon" href="${pageContext.request.contextPath }/resources/img/favicon.ico" type="image/x-icon" />
 <link rel="icon" href="${pageContext.request.contextPath }/resources/img/favicon.ico" type="image/x-icon" />
-<%-- <link rel="stylesheet" href="${pageContext.request.contextPath }/css/view.css"> --%>
-<!-- <script type="text/javascript" src="//code.jquery.com/jquery-3.3.1.min.js"></script> -->
+
+<!-- 세로스크롤을 강제로 활성화하고 가로스크롤을 어떠한경우에도 표시하지 않습니다. 필수. -->
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/scroll.css">
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">

@@ -1,7 +1,5 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<!DOCTYPE tiles-definitions PUBLIC
-       "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
-       "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
 <tiles-definitions>
 	<definition name="layouts-tiles" template="/WEB-INF/views/layout/layouts.jsp">
 		<put-attribute name="library" value="/WEB-INF/views/layout/library.jsp" />
