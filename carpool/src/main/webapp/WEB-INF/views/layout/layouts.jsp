@@ -2,7 +2,6 @@
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
 <html>
 <head>
-<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/carpool.css">
 <tiles:insertAttribute name="library" />
 <title>Carpool</title>
 </head>

@@ -20,7 +20,6 @@ public class BoardFServiceImpl implements BoardFService {
 	
 	@Override
 	public void add(BoardF b) {
-		// TODO Auto-generated method stub
 		dao = sqlSession.getMapper(BoardFDao.class);
 		dao.insert(b);
 	}

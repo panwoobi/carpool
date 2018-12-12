@@ -12,7 +12,7 @@
 <!-- <script src='http://dev.openapi.map.naver.com/openapi/maps3.max.js?submodules=drawing'></script> -->
 <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?clientId=xXLVpp7s9U_1DSsciPkB&amp;submodules=drawing"></script>
 <script type="text/javascript" src="//code.jquery.com/jquery-3.3.1.min.js"></script>
-<link rel="stylesheet" href="${pageContext.request.contextPath }/css/map.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/map.css">
 </head>
 <div id="wrap" class="section">
 	<div id="map" style="width: 100%; height: 600px;">
@@ -72,11 +72,11 @@
       });
 
       mark1.setIcon({
-      url : '../img/start.png',
+      url : '${pageContext.request.contextPath}/resources/img/start.png',
       size : new naver.maps.Size(70, 60),
       });
       mark2.setIcon({
-      url : '../img/end.png',
+	  url : '${pageContext.request.contextPath}/resources/img/end.png',
       size : new naver.maps.Size(70, 60),
       });
     }
