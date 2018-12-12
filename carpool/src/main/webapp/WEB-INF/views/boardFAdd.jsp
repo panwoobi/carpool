@@ -12,10 +12,27 @@
 }
 
 </style>
+<script type="text/javascript"
+	src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+<script type="text/javascript">
+(function() {
+  'use strict';
+
+  window.addEventListener('load', function() {
+    var form = document.getElementById('needs-validation');
+    form.addEventListener('submit', function(event) {
+      if (form.checkValidity() === false) {
+        event.preventDefault();
+        event.stopPropagation();
+      }
+      form.classList.add('was-validated');
+    }, false);
+  }, false);
+})();
+</script>
+
 <body>
-	<br>
-	<br>
-	<form class="border border-primary" action="boardFAdd" method="post" name="f" >
+	<form class="border border-primary" action="boardFAdd" method="post" name="f"  id="needs-validation" novalidate >
 		<table class="table">
 			<tr>
 				<th scope="row">累己磊</th>
@@ -24,8 +41,10 @@
 <%-- 					value="${sessionScope.m.id }">${sessionScope.m.id}</td> --%>
 			</tr>
 			<tr>
-				<th scope="row">力格</th>
-				<td><textarea class="form-control" rows="1"  name="title"></textarea></td>
+				<label for="validationCustom03"><th scope="row">力格</th></label>
+				<td><textarea class="form-control" rows="1"  name="title" id="validationCustom03"></textarea>
+				<div class="invalid-feedback"> Please provide a valid title</div>
+       </td>
 			</tr>
 			<tr>
 				<th scope="row">郴侩</th>

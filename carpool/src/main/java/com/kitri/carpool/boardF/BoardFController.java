@@ -52,9 +52,12 @@ public class BoardFController {
 
 	}
 
+	
+	
+	
 	@RequestMapping("/boardFEdit")
-	public String edit(BoardF f) {
-		service.edit(f);
+	public String edit(BoardF b) {
+		service.edit(b);
 		return "redirect:/boardFList";
 	}
 

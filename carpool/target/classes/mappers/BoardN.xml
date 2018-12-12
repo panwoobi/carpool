@@ -11,7 +11,7 @@
 	</resultMap>
 	
 	<insert id="insert" parameterType="com.kitri.carpool.boardN.BoardN">
-		insert into c_BoardN values(c_BoardN_no.nextval, sysdate, #{title}, #{content},#{writer})
+		insert into c_BoardN values(seq_c_boardn.nextval, sysdate, #{title}, #{content},#{writer})
 	</insert>
 	<update id="update" parameterType="com.kitri.carpool.boardN.BoardN">
 		update c_BoardN  w_date=#{w_date}, set title=#{title}, content=#{content}, writer=#{writer}
@@ -20,7 +20,7 @@
 	<delete id="delete" parameterType="int">
 		delete c_BoardN where num=#{num}
 	</delete>
-	<select id="select" parameterType="int" resultMap="boardNResult">
+	<select id="selectByNum" parameterType="int" resultMap="boardNResult">
 		select * from c_BoardN where num=#{num}
 	</select>
 	<select id="selectAll" resultMap="boardNResult">
