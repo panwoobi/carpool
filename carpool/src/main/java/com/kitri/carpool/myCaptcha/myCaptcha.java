@@ -53,7 +53,6 @@ public class myCaptcha {
 			JSONObject jsonObj = (JSONObject) jsonParser.parse(key);
 			key = (String) jsonObj.get("key");
 		} catch (Exception e) {
-			System.out.println("�Ľ̾ȴ�");
 		}
 		String img = CaptchaImage(key);
 
@@ -65,13 +64,12 @@ public class myCaptcha {
 
 	@RequestMapping("/captchaResult")
 	public String captcahResult(Member m, HttpServletRequest request, @RequestParam("ff") MultipartFile file) {
-
+		
 		String path = "";
 		File newFile = null;
 		String input = (String) request.getParameter("input");
 		String result = CaptchaNkeyResult(key, input);
 		boolean b = false;
-
 		try {
 			JSONParser jsonParser = new JSONParser();
 			JSONObject jsonObj = (JSONObject) jsonParser.parse(result);
@@ -147,7 +145,6 @@ public class myCaptcha {
 		return nkey;
 	}
 
-	// ĸ�� �̹��� ����
 	public static String CaptchaImage(String key) {
 
 		String clientId = "6AGmgCe30U75KRn0vAQg";
@@ -155,8 +152,8 @@ public class myCaptcha {
 		String img = "";
 		String path = "";
 		String apiURL = "";
+		
 		try {
-
 			apiURL = "https://openapi.naver.com/v1/captcha/ncaptcha.bin?key=" + key;
 			URL url = new URL(apiURL);
 			HttpURLConnection con = (HttpURLConnection) url.openConnection();
