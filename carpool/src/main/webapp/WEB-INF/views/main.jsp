@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,12 +7,12 @@
 	<main role="main">
 	<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
 		<div class="carousel-inner">
-			<!-- 			<div class="carousel-item active"> -->
-			<div class="item active">
+						<div class="carousel-item active">
+<!-- 			<div class="item active"> -->
 				<img class="d-block w-100" src="${pageContext.request.contextPath}/resources/img/title1.png" alt="First slide">
 				<div class="container">
 					<!-- 					<div class="carousel-caption text-left"> -->
-					<!-- 						<h1>°°Àº±æ, ÇÔ²²°¡´Â Áñ°Å¿ò KITRI Carpool</h1> -->
+					<!-- 						<h1>ê°™ì€ê¸¸, í•¨ê»˜ê°€ëŠ” ì¦ê±°ì›€ KITRI Carpool</h1> -->
 					<!-- 						<p>You are happy to have a co-worker to accompany me on my way to work.</p> -->
 					<!-- 						<p> -->
 					<!-- 							<a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a> -->
@@ -20,12 +20,12 @@
 					<!-- 					</div> -->
 				</div>
 			</div>
-			<!-- 			<div class="carousel-item"> -->
-			<div class="item">
+						<div class="carousel-item">
+<!-- 			<div class="item"> -->
 				<img class="d-block w-100" src="${pageContext.request.contextPath}/resources/img/title2.png" alt="Second slide">
 				<div class="container">
 					<!-- 					<div class="carousel-caption"> -->
-					<!-- 						<h1>¾ðÁ¦ ¾îµð¼­µç, 24½Ã°£ ¸ÅÄª ¼­ºñ½º Áö¿ø</h1> -->
+					<!-- 						<h1>ì–¸ì œ ì–´ë””ì„œë“ , 24ì‹œê°„ ë§¤ì¹­ ì„œë¹„ìŠ¤ ì§€ì›</h1> -->
 					<!-- 						<p>Select the desired origin and destination and click on the matching option.</p> -->
 					<!-- 						<p> -->
 					<!-- 							<a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a> -->
@@ -33,8 +33,8 @@
 					<!-- 					</div> -->
 				</div>
 			</div>
-			<!-- 			<div class="carousel-item"> -->
-			<div class="item">
+						<div class="carousel-item">
+<!-- 			<div class="item"> -->
 				<img class="d-block w-100" src="${pageContext.request.contextPath}/resources/img/title3.png" alt="Third slide">
 			</div>
 		</div>
@@ -50,14 +50,14 @@
 			<%-- 			<a href="${pageContext.request.contextPath }/CarChkController"><img class="card-img-top" src="${pageContext.request.contextPath }/resources/img/registration.png" alt="Card image cap"></a> --%>
 			<div class="card-body">
 				<h5 class="card-title">Driver Vehicle Registration</h5>
-				<p class="card-text">Áö±Ý ¹Ù·Î Â÷·®À» µî·ÏÇÏ¿© ¿îÀüÀÚ·Î¼­ Ä«Ç® ½Ã½ºÅÛÀ» ¸¸³£ÇÏ¼¼¿ä!</p>
+				<p class="card-text">ì§€ê¸ˆ ë°”ë¡œ ì°¨ëŸ‰ì„ ë“±ë¡í•˜ì—¬ ìš´ì „ìžë¡œì„œ ì¹´í’€ ì‹œìŠ¤í…œì„ ë§Œë½í•˜ì„¸ìš”!</p>
 			</div>
 		</div>
 		<div class="card">
 			<i class="fa fa-question" style="font-size: 100pt; text-align: center;"></i>
 			<div class="card-body">
 				<h5 class="card-title" >What is Carpool?</h5>
-				<p class="card-text" >Ä«Ç®ÀÌ ¹«¾ùÀÎÁö ±Ã±ÝÇÏ½Ã´Ù±¸¿ä? Áö±Ý È®ÀÎÇØº¸¼¼¿ä!</p>
+				<p class="card-text" >ì¹´í’€ì´ ë¬´ì—‡ì¸ì§€ ê¶ê¸ˆí•˜ì‹œë‹¤êµ¬ìš”? ì§€ê¸ˆ í™•ì¸í•´ë³´ì„¸ìš”!</p>
 			</div>
 		</div>
 		<div class="card">
@@ -65,7 +65,7 @@
 			<%-- 			<a href="${pageContext.request.contextPath }/CarChkController"><img class="card-img-top" src="${pageContext.request.contextPath }/resources/img/introduce.png" alt="Card image cap"></a> --%>
 			<div class="card-body">
 				<h5 class="card-title">Community</h5>
-				<p class="card-text">»ç¿ëÀÚµé°ú ÀÇ»ç¼ÒÅëÀ» ÇÒ ¼ö ÀÖ½À´Ï´Ù!</p>
+				<p class="card-text">ì‚¬ìš©ìžë“¤ê³¼ ì˜ì‚¬ì†Œí†µì„ í•  ìˆ˜ ìžˆìŠµë‹ˆë‹¤!</p>
 			</div>
 		</div>
 		<div class="card">
@@ -73,7 +73,7 @@
 			<%-- 			<a href="${pageContext.request.contextPath }/CarChkController"><img class="card-img-top" src="${pageContext.request.contextPath }/resources/img/registration.png" alt="Card image cap"></a> --%>
 			<div class="card-body">
 				<h5 class="card-title">Recruit</h5>
-				<p class="card-text">KITRI Carpool ¿¡¼­ ÇÔ²² ÀÏÇÏ°í ½ÍÀ¸½Å°¡¿ä?</p>
+				<p class="card-text">KITRI Carpool ì—ì„œ í•¨ê»˜ ì¼í•˜ê³  ì‹¶ìœ¼ì‹ ê°€ìš”?</p>
 			</div>
 		</div>
 	</div>

@@ -27,11 +27,7 @@
 	</resultMap>
 
 	<insert id="insert" parameterType="com.kitri.carpool.boardD.BoardD">
-		insert into c_BoardD values(c_BoardD_no.nextval,
-		#{cate}, sysdate, #{startTime}, #{startPosi},
-		#{endPosi}, #{startX}, #{startY}, #{endX}, #{endY},
-		#{price}, #{content}, #{title}, #{seat}, #{maxSeat},
-		#{writer}, #{driver}, #{passenger1}, #{passenger2}, #{passenger3}, #{profile})
+		insert into c_boardd values(seq_c_boardd.nextval, #{cate}, sysdate, TO_DATE(#{startTime},'yyyy-mm-dd hh24:mi'), #{startPosi}, #{endPosi}, #{startX}, #{startY}, #{endX}, #{endY}, #{price}, #{content}, #{title}, #{seat}, #{maxSeat}, #{writer}, #{driver}, #{passenger1}, #{passenger2}, #{passenger3}, #{profile})
 	</insert>
 	<update id="update" parameterType="com.kitri.carpool.boardD.BoardD">
 		update c_BoardD set

@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <style>
@@ -16,23 +15,23 @@
 	<form class="border border-primary" action="noticeWrite" method="post" name="f">
 			<table class="table">
 			<tr>
-				<th scope="row">ÀÛ¼ºÀÚ</th>
+				<th scope="row">ìž‘ì„±ìž</th>
 				  <td><input type="text" name="writer"></td>
 <!-- 				<td><input type="hidden" name="writer" -->
 <%-- 					value="${sessionScope.m.id }">${sessionScope.m.id}</td> --%>
 			</tr>
 			<tr>
-				<th scope="row">Á¦¸ñ</th>
+				<th scope="row">ì œëª©</th>
 				<td><textarea class="form-control" rows="1"  name="title"></textarea></td>
 			</tr>
 			<tr>
-				<th scope="row">³»¿ë</th>
+				<th scope="row">ë‚´ìš©</th>
 				<td><textarea class="form-control" rows="5"  name="content"> </textarea></td>
 			</tr>
 			<tr>
 				<td colspan="2">
-				<input class="btn btn-primary" type="submit"value="ÀÛ¼º"> 
-				<input class="btn btn-default" type="button"value="¸ñ·Ï"></td>
+				<input class="btn btn-primary" type="submit"value="ìž‘ì„±"> 
+				<input class="btn btn-default" type="button"value="ëª©ë¡"></td>
 			</tr>
 		</table>
 	</form>

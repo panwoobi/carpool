@@ -1,4 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 
@@ -143,11 +144,7 @@
       window.location.href = "${pageContext.request.contextPath }/driverList";
       break;
     case 4:
-<<<<<<< HEAD
       window.location.href = "${pageContext.request.contextPath }/notice";
-=======
-      window.location.href = "${pageContext.request.contextPath }/noticeList";
->>>>>>> branch 'master' of https://github.com/panwoobi/carpool.git
       break;
     case 5:
       window.location.href = "${pageContext.request.contextPath }/boardFList";
@@ -172,24 +169,24 @@
 						<c:choose>
 							<c:when test="${empty sessionScope.c}">
 								<form id="info" action="" method="post">
-									${sessionScope.m.name } (${sessionScope.m.id })´Ô ¾È³çÇÏ¼¼¿ä.<br> ${sessionScope.c.carName } Â÷·®Á¤º¸°¡ ¾ø½À´Ï´Ù. Â÷·®À» µî·ÏÇØÁÖ¼¼¿ä.<br> <br> <input type="button" id="partner" value="Partner"> <input type="button" id="carAdd" value="CarAdd"> <input type="button" id="edit" value="Edit"> <input type="button" id="out" value="Out"> <input type="button" id="logout" value="Logout">
+									${sessionScope.m.name } (${sessionScope.m.id })ë‹˜ ì•ˆë…•í•˜ì„¸ìš”.<br> ${sessionScope.c.carName } ì°¨ëŸ‰ì •ë³´ê°€ ì—†ìŠµë‹ˆë‹¤. ì°¨ëŸ‰ì„ ë“±ë¡í•´ì£¼ì„¸ìš”.<br> <br> <input type="button" id="partner" value="Partner"> <input type="button" id="carAdd" value="CarAdd"> <input type="button" id="edit" value="Edit"> <input type="button" id="out" value="Out"> <input type="button" id="logout" value="Logout">
 								</form>
 							</c:when>
 							<c:when test="${!empty sessionScope.c}">
 								<form id="info" action="" method="post">
-									${sessionScope.m.name } (${sessionScope.m.id })´Ô ¾È³çÇÏ¼¼¿ä.<br> Â÷·®Á¤º¸ [¹øÈ£ : ${sessionScope.c.numberPlate} / ¿¬½Ä : ${sessionScope.c.age}³â / Â÷¸í : ${sessionScope.c.carName}]<br> <br> <input type="button" id="partner" value="Partner"> <input type="button" id="carDel" value="CarDel"> <input type="button" id="edit" value="Edit"> <input type="button" id="out" value="Out"> <input type="button" id="logout" value="Logout">
+									${sessionScope.m.name } (${sessionScope.m.id })ë‹˜ ì•ˆë…•í•˜ì„¸ìš”.<br> ì°¨ëŸ‰ì •ë³´ [ë²ˆí˜¸ : ${sessionScope.c.numberPlate} / ì—°ì‹ : ${sessionScope.c.age}ë…„ / ì°¨ëª… : ${sessionScope.c.carName}]<br> <br> <input type="button" id="partner" value="Partner"> <input type="button" id="carDel" value="CarDel"> <input type="button" id="edit" value="Edit"> <input type="button" id="out" value="Out"> <input type="button" id="logout" value="Logout">
 								</form>
 							</c:when>
 						</c:choose>
 					</c:when>
 					<c:when test="${!empty sessionScope.m && sessionScope.m.type eq 0}">
 						<form id="info" action="" method="post">
-							${sessionScope.m.name } (${sessionScope.m.id })´Ô ¾È³çÇÏ¼¼¿ä.<br> <br> <input type="button" id="edit" value="Edit"> <input type="button" id="out" value="Out"> <input type="button" id="logout" value="Logout">
+							${sessionScope.m.name } (${sessionScope.m.id })ë‹˜ ì•ˆë…•í•˜ì„¸ìš”.<br> <br> <input type="button" id="edit" value="Edit"> <input type="button" id="out" value="Out"> <input type="button" id="logout" value="Logout">
 						</form>
 					</c:when>
 					<c:when test="${!empty sessionScope.m && sessionScope.m.type eq 2}">
 						<form id="info" action="" method="post">
-							${sessionScope.m.name } (${sessionScope.m.id })´Ô ¾È³çÇÏ¼¼¿ä.<br> <br> <input type="button" id="partner" value="Partner"> <input type="button" id="edit" value="Edit"> <input type="button" id="out" value="Out"> <input type="button" id="logout" value="Logout">
+							${sessionScope.m.name } (${sessionScope.m.id })ë‹˜ ì•ˆë…•í•˜ì„¸ìš”.<br> <br> <input type="button" id="partner" value="Partner"> <input type="button" id="edit" value="Edit"> <input type="button" id="out" value="Out"> <input type="button" id="logout" value="Logout">
 						</form>
 					</c:when>
 				</c:choose>

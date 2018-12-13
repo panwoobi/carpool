@@ -1,10 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <html>
 <head>
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
-<title>°£´ÜÇÑ Áöµµ Ç¥½ÃÇÏ±â</title>
+<title>ê°„ë‹¨í•œ ì§€ë„ í‘œì‹œí•˜ê¸°</title>
 <!-- <script type="text/javascript" src="../../docs/js/examples-base.js"></script> -->
 <!-- <script type="text/javascript" src="../../docs/js/highlight.min.js"></script> -->
 <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?clientId=xXLVpp7s9U_1DSsciPkB&amp;submodules=panorama"></script>
@@ -17,8 +17,8 @@
 <div id="wrap" class="section">
 	<div id="map" style="width: 100%; height: 600px;">
 		<div class="buttons">
-			<input id="startM" type="button" value="Ãâ¹ßÁö·Î" class="control-btn" /> 
-			<input id="endM" type="button" value="µµÂøÁö·Î" class="control-btn" />
+			<input id="startM" type="button" value="ì¶œë°œì§€ë¡œ" class="control-btn" /> 
+			<input id="endM" type="button" value="ë„ì°©ì§€ë¡œ" class="control-btn" />
 		</div>
 	</div>
 	<code id="snippet" class="snippet"></code>

@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <body>
@@ -13,20 +12,20 @@
 			<td>
 				<table id="list">
 					<tr>
-						<td id="listSubject" style="width: 10%">Á¦¸ñ</td>
-						<td id="listSubject" style="width: 15%">Ãâ¹ß</td>
-						<td id="listSubject" style="width: 15%">µµÂø</td>
-						<td id="listSubject" style="width: 10%">Ãâ¹ß½Ã°£</td>
-						<td id="listSubject" style="width: 10%">¿îÀüÀÚ</td>
-						<td id="listSubject" style="width: 10%">Å¾½ÂÀÚ1</td>
-						<td id="listSubject" style="width: 10%">Å¾½ÂÀÚ2</td>
-						<td id="listSubject" style="width: 10%">Å¾½ÂÀÚ3</td>
-						<td id="listSubject" style="width: 10%">±Ý¾×</td>
+						<td id="listSubject" style="width: 10%">ì œëª©</td>
+						<td id="listSubject" style="width: 15%">ì¶œë°œ</td>
+						<td id="listSubject" style="width: 15%">ë„ì°©</td>
+						<td id="listSubject" style="width: 10%">ì¶œë°œì‹œê°„</td>
+						<td id="listSubject" style="width: 10%">ìš´ì „ìž</td>
+						<td id="listSubject" style="width: 10%">íƒ‘ìŠ¹ìž1</td>
+						<td id="listSubject" style="width: 10%">íƒ‘ìŠ¹ìž2</td>
+						<td id="listSubject" style="width: 10%">íƒ‘ìŠ¹ìž3</td>
+						<td id="listSubject" style="width: 10%">ê¸ˆì•¡</td>
 					</tr>
 					<c:choose>
 						<c:when test="${empty list }">
 							<tr>
-								<td colspan="9">ÆÄÆ®³Ê°¡ ¾ø½À´Ï´Ù.</td>
+								<td colspan="9">íŒŒíŠ¸ë„ˆê°€ ì—†ìŠµë‹ˆë‹¤.</td>
 							</tr>
 						</c:when>
 						<c:when test="${!empty list }">
@@ -67,7 +66,7 @@
 											<td>-</td>
 										</c:when>
 									</c:choose>
-									<td>${b.price}¿ø</td>
+									<td>${b.price}ì›</td>
 								</tr>
 							</c:forEach>
 						</c:when>
