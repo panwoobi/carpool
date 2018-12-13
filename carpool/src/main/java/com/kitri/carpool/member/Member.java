@@ -1,7 +1,5 @@
 package com.kitri.carpool.member;
 
-import org.springframework.web.multipart.MultipartFile;
-
 public class Member {
 	private String id;
 	private String pw;
@@ -12,20 +10,10 @@ public class Member {
 	private int type;
 	private int sex;
 	private int isSmoke;
-	private MultipartFile file;
 	
 	public Member() {
 		
 	}
-
-	public MultipartFile getFile() {
-		return file;
-	}
-
-	public void setFile(MultipartFile file) {
-		this.file = file;
-	}
-
 
 	public Member(String id, String pw, String name, String email, String tel, String profile, int type, int sex,
 			int isSmoke) {
@@ -116,7 +104,7 @@ public class Member {
 	@Override
 	public String toString() {
 		return "Member [id=" + id + ", pw=" + pw + ", name=" + name + ", email=" + email + ", tel=" + tel + ", profile="
-				+ profile + ", type=" + type + ", sex=" + sex + ", isSmoke=" + isSmoke + ", file=" + file + "]";
+				+ profile + ", type=" + type + ", sex=" + sex + ", isSmoke=" + isSmoke  + "]";
 	}
 
 	

@@ -22,7 +22,7 @@
 						<div class="form-group row">
 							<label class="col-sm-2 col-form-label">Profile</label>
 							<div class="col-sm-10">
-								<input type="file"  name="profile">
+								<input type="file" id="f"  name="f">
 							</div>
 						</div>
 
@@ -165,7 +165,7 @@
       }
     }
 
-    $(".custom-file-input").on('change', function() {
+    $("#f").on('change', function() {
       readURL(this);
     });
 
