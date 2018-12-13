@@ -125,7 +125,7 @@
       $('#info').attr("action", "${pageContext.request.contextPath }/partnerList");
       $('#info').submit();
     });
-
+    
 
   });
 

@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <body>
@@ -12,13 +11,13 @@
 		<tr>
 			<td style="text-align: left">
 				<form action="${pageContext.request.contextPath }/Board1SearchController?t=1" method="post">
-					<input type="text" name="startPosi" placeholder="Ãâ¹ßÁö¿ª"> 
-					<input type="text" name="endPosi" placeholder="µµÂøÁö¿ª">
+					<input type="text" name="startPosi" placeholder="ì¶œë°œì§€ì—­"> 
+					<input type="text" name="endPosi" placeholder="ë„ì°©ì§€ì—­">
 					<input type="submit" value="Search">
 				</form>
 			</td>
 		</tr>
-		<%--¿©±âºÎÅÍ --%>
+		<%--ì—¬ê¸°ë¶€í„° --%>
 		<c:choose>
 			<c:when test="${sessionScope.m.type eq 2 }">
 				<tr>
@@ -30,25 +29,25 @@
 				</tr>
 			</c:when>
 		</c:choose>
-		<%--¿©±â±îÁö --%>
+		<%--ì—¬ê¸°ê¹Œì§€ --%>
 		<tr>
 			<td>
 				<table id="list">
 					<tr>
-						<td id="listSubject" style="width:5%">¹øÈ£</td>
-						<td id="listSubject" style="width:10%">ÀÛ¼ºÀÚ</td>
-						<td id="listSubject" style="width:20%">Á¦¸ñ</td>
-						<td id="listSubject" style="width:15%">Ãâ¹ß</td>
-						<td id="listSubject" style="width:15%">µµÂø</td>
-						<td id="listSubject" style="width:10%">À¯Çü</td>
-						<td id="listSubject" style="width:5%">ÀÚ¸®</td>
-						<td id="listSubject" style="width:10%">±Ý¾×</td>
-						<td id="listSubject" style="width:10%">ÀÛ¼ºÀÏ</td>
+						<td id="listSubject" style="width:5%">ë²ˆí˜¸</td>
+						<td id="listSubject" style="width:10%">ìž‘ì„±ìž</td>
+						<td id="listSubject" style="width:20%">ì œëª©</td>
+						<td id="listSubject" style="width:15%">ì¶œë°œ</td>
+						<td id="listSubject" style="width:15%">ë„ì°©</td>
+						<td id="listSubject" style="width:10%">ìœ í˜•</td>
+						<td id="listSubject" style="width:5%">ìžë¦¬</td>
+						<td id="listSubject" style="width:10%">ê¸ˆì•¡</td>
+						<td id="listSubject" style="width:10%">ìž‘ì„±ì¼</td>
 					</tr>
 					<c:choose>
 						<c:when test="${empty list }">
 							<tr>
-								<td colspan="9">°Ô½Ã±ÛÀÌ ¾ø½À´Ï´Ù.</td>
+								<td colspan="9">ê²Œì‹œê¸€ì´ ì—†ìŠµë‹ˆë‹¤.</td>
 							</tr>
 						</c:when>
 						<c:when test="${!empty list }">
@@ -61,7 +60,7 @@
 									<td>${b.endPosi}</td>
 									<td>${b.cate}</td>
 									<td>${b.seat} / ${b.maxSeat}</td>
-									<td>${b.price}¿ø</td>
+									<td>${b.price}ì›</td>
 									<td>${b.w_date}</td>
 								</tr>
 							</c:forEach>

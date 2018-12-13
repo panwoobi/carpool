@@ -71,7 +71,6 @@ public class myCaptcha {
 		String input = (String) request.getParameter("input");
 		String result = CaptchaNkeyResult(key, input);
 		boolean b = false;
-//		System.out.println("path:" + request.getContextPath()+"\\src\\main\\webapp\\resources\\");
 		try {
 			JSONParser jsonParser = new JSONParser();
 			JSONObject jsonObj = (JSONObject) jsonParser.parse(result);

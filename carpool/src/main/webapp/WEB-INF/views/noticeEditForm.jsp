@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
@@ -13,8 +12,6 @@
 }
 </style>
 <head>
-<meta charset="EUC-KR">
-<title>Insert title here</title>
 </head>
 <body>
 	<br>
@@ -22,35 +19,35 @@
 	<form class="border border-primary" action="noticeEdit" method="post" name="f" >
 		<table class="table">
 		    <tr>
-				<th scope="row">±Û¹øÈ£</th>
+				<th scope="row">ê¸€ë²ˆí˜¸</th>
 				<td><input type="hidden" name="num" value="${b.num }" readonly>${b.num }</td>
 			</tr>
 			<tr>
-				<th scope="row">ÀÛ¼ºÀÚ</th>
+				<th scope="row">ì‘ì„±ì</th>
 				<td><input type="hidden" name="writer" value="${b.writer }"readonly>${b.writer }</td>
 			</tr>
 			<tr>
-				<th scope="row">ÀÛ¼ºÀÏ</th>
+				<th scope="row">ì‘ì„±ì¼</th>
 				<td><input type="hidden" name="w_date" value="${b.w_date }"readonly>${b.w_date }</td>
 			</tr>
 			<tr>
-				<th scope="row">Á¦¸ñ</th>
+				<th scope="row">ì œëª©</th>
 				<td><textarea class="form-control" rows="1" name="title">${b.title }</textarea></td>
 			</tr>
 			<tr>
-				<th scope="row">³»¿ë</th>
+				<th scope="row">ë‚´ìš©</th>
 				<td><textarea class="form-control" rows="5" name="content">${b.content}</textarea></td>
 			</tr>
 			<tr>
 				<td colspan="10">
 				     <c:choose>
 						<c:when test="${sessionScope.m.id==b.writer}">
-							<input class="btn btn-primary" type="submit" value="ÀÛ¼º">
-							<a href="${pageContext.request.contextPath }/noticeDel?num=${b.num }"><input class="btn btn-default" type="button" value="»èÁ¦"></a>
-							<input class="btn btn-default" type="button" value="¸ñ·Ï">
+							<input class="btn btn-primary" type="submit" value="ì‘ì„±">
+							<a href="${pageContext.request.contextPath }/noticeDel?num=${b.num }"><input class="btn btn-default" type="button" value="ì‚­ì œ"></a>
+							<input class="btn btn-default" type="button" value="ëª©ë¡">
 						</c:when>
 						<c:when test="${sessionScope.m.id!=b.writer}">
-							<input class="btn btn-default" type="button" value="¸ñ·Ï">
+							<input class="btn btn-default" type="button" value="ëª©ë¡">
 						</c:when>
 					</c:choose></td>
 			</tr>

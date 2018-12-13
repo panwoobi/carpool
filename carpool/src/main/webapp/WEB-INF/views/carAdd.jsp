@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <script type="text/javascript">
@@ -14,16 +13,16 @@ $('document').ready(function() {
 	<br>
 		<table id="joinTable">
 			<tr>
-				<td style="width: 150px">¶óÀÌ¼¾½º ¹øÈ£<br>Â÷·®¹øÈ£<br>ÁÖÇà°Å¸®(km)<br>±¸ÀÔ³âµµ<br>Â÷¸í<br>Â÷Á¾</td>
+				<td style="width: 150px">ë¼ì´ì„¼ìŠ¤ ë²ˆí˜¸<br>ì°¨ëŸ‰ë²ˆí˜¸<br>ì£¼í–‰ê±°ë¦¬(km)<br>êµ¬ìž…ë…„ë„<br>ì°¨ëª…<br>ì°¨ì¢…</td>
 				<td>
-				<input type="text" name="license" placeholder="¼­¿ï11-111111-11"><br> 
-				<input type="text" name="numberPlate" placeholder="11°¡1234"><br>
+				<input type="text" name="license" placeholder="ì„œìš¸11-111111-11"><br> 
+				<input type="text" name="numberPlate" placeholder="11ê°€1234"><br>
 				<input type="text" name="mileage" placeholder="1000"> km<br>
-				<input type="text" name="age" placeholder="1900"> ³â<br>
-				<input type="text" name="carName" placeholder="¾Æ¹Ý¶¼"><br>
-				<input type="radio" name="carSize" value="0">¼ÒÇü
-				<input type="radio" name="carSize" value="1">ÁßÇü
-				<input type="radio" name="carSize" value="2">´ëÇü<br>
+				<input type="text" name="age" placeholder="1900"> ë…„<br>
+				<input type="text" name="carName" placeholder="ì•„ë°˜ë–¼"><br>
+				<input type="radio" name="carSize" value="0">ì†Œí˜•
+				<input type="radio" name="carSize" value="1">ì¤‘í˜•
+				<input type="radio" name="carSize" value="2">ëŒ€í˜•<br>
 				</td>
 			</tr>
 			<tr>

@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <style>
@@ -35,25 +34,28 @@
 	<form class="border border-primary" action="boardFAdd" method="post" name="f"  id="needs-validation" novalidate >
 		<table class="table">
 			<tr>
-				<th scope="row">ÀÛ¼ºÀÚ</th>
+				<th scope="row">ì‘ì„±ì</th>
 				  <td><input type="text" name="writer"></td>
 <!-- 				<td><input type="hidden" name="writer" -->
 <%-- 					value="${sessionScope.m.id }">${sessionScope.m.id}</td> --%>
 			</tr>
 			<tr>
-				<label for="validationCustom03"><th scope="row">Á¦¸ñ</th></label>
+<<<<<<< HEAD
+				<label for="validationCustom03"><th scope="row">ì œëª©</th></label>
+=======
+				<th scope="row">Á¦¸ñ</th>
+>>>>>>> branch 'master' of https://github.com/panwoobi/carpool.git
 				<td><textarea class="form-control" rows="1"  name="title" id="validationCustom03"></textarea>
-				<div class="invalid-feedback"> Please provide a valid title</div>
        </td>
 			</tr>
 			<tr>
-				<th scope="row">³»¿ë</th>
+				<th scope="row">ë‚´ìš©</th>
 				<td><textarea class="form-control" rows="5"  name="content"> </textarea></td>
 			</tr>
 			<tr>
 				<td colspan="2">
-				<input class="btn btn-primary" type="submit"value="ÀÛ¼º"> 
-				<input class="btn btn-default" type="button"value="¸ñ·Ï"></td>
+				<input class="btn btn-primary" type="submit"value="ì‘ì„±"> 
+				<input class="btn btn-default" type="button"value="ëª©ë¡"></td>
 			</tr>
 		</table>
 	</form>

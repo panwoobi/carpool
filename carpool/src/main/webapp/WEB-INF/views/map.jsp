@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-   pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?clientId=xXLVpp7s9U_1DSsciPkB&submodules=geocoder"></script>
 <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?clientId=xXLVpp7s9U_1DSsciPkB&amp;submodules=drawing"></script>
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/map.css">
@@ -8,15 +7,15 @@
          <div class="search" style="">
 			<div class="input-group mb-3">
 				<div class="input-group-prepend">
-					<input type="text" id="address1" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" placeholder="Ãâ¹ßÇÒ ÁÖ¼Ò" value="" />
-					<input id="submit1" class="btn btn-info" type="button" value="ÁÖ¼Ò °Ë»ö" />
+					<input type="text" id="address1" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" placeholder="ì¶œë°œí•  ì£¼ì†Œ" value="" />
+					<input id="submit1" class="btn btn-info" type="button" value="ì£¼ì†Œ ê²€ìƒ‰" />
 				</div>
 				<div class="input-group-prepend">
-					<input id="address2" type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" placeholder="µµÂøÇÒ ÁÖ¼Ò" value="" />
-            		<input id="submit2" class="btn btn-info" type="button" value="ÁÖ¼Ò °Ë»ö" />
+					<input id="address2" type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" placeholder="ë„ì°©í•  ì£¼ì†Œ" value="" />
+            		<input id="submit2" class="btn btn-info" type="button" value="ì£¼ì†Œ ê²€ìƒ‰" />
 				</div>
 				<div class="input-group-prepend">
-            		<input id="submit3" class="btn btn-info" type="button" value="ÁÖ¼Ò»ç¿ëÇÏ±â" />
+            		<input id="submit3" class="btn btn-info" type="button" value="ì£¼ì†Œì‚¬ìš©í•˜ê¸°" />
             		<input type="hidden" id="s_x"><input type="hidden" id="s_y">
             		<input type="hidden" id="e_x"><input type="hidden" id="e_y">
 				</div>
@@ -42,14 +41,14 @@
         address : address
       }, function(status, response) {
         if (status === naver.maps.Service.Status.ERROR) {
-          return alert('°Ë»ö°á°ú°¡ ¾ø½À´Ï´Ù');
+          return alert('ê²€ìƒ‰ê²°ê³¼ê°€ ì—†ìŠµë‹ˆë‹¤');
         }
 
         var item = response.result.items[0];
-        var addrType = item.isRoadAddress ? '[µµ·Î¸í ÁÖ¼Ò]' : '[Áö¹ø ÁÖ¼Ò]';
+        var addrType = item.isRoadAddress ? '[ë„ë¡œëª… ì£¼ì†Œ]' : '[ì§€ë²ˆ ì£¼ì†Œ]';
         var point = new naver.maps.Point(item.point.x, item.point.y);
 
-        infoWindow.setContent([ '<div style="padding:10px;min-width:200px;line-height:150%;">', '<h4 style="margin-top:5px;">°Ë»ö ÁÖ¼Ò : ' + response.result.userquery + '</h4><br />', addrType + ' ' + item.address + '<br />', '</div>' ].join('\n'));
+        infoWindow.setContent([ '<div style="padding:10px;min-width:200px;line-height:150%;">', '<h4 style="margin-top:5px;">ê²€ìƒ‰ ì£¼ì†Œ : ' + response.result.userquery + '</h4><br />', addrType + ' ' + item.address + '<br />', '</div>' ].join('\n'));
         map.setCenter(point);
         infoWindow.open(map, point);
 
@@ -95,7 +94,7 @@
         }
 
         if ($('#src2').val() == "" || $('#des2').val() == "") {
-          alert("°æ·Î¼³Á¤ ¿À·ù");
+          alert("ê²½ë¡œì„¤ì • ì˜¤ë¥˜");
           return;
 
         } else {
@@ -159,7 +158,7 @@
         $(top.document).find("#epx").attr("value", $('#e_x').val());
         $(top.document).find("#epy").attr("value", $('#e_y').val());
 
-        //alert("°Å¸®´Â"+distance);
+        //alert("ê±°ë¦¬ëŠ”"+distance);
       });
     }
 

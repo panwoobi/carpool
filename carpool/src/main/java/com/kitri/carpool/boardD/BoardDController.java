@@ -1,10 +1,6 @@
 package com.kitri.carpool.boardD;
 
-import java.io.IOException;
-
 import javax.annotation.Resource;
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -44,21 +40,21 @@ public class BoardDController {
 
 		HttpSession session = request.getSession(false);
 
-		if (session.getAttribute("m") == null) {
-			request.setAttribute("msg", "¼¼¼ÇÀÌ ¸¸·áµÇ¾ú½À´Ï´Ù. ·Î±×ÀÎÀ» ÇØÁÖ¼¼¿ä.");
-			RequestDispatcher rd = request.getRequestDispatcher("/msg");
-			if (rd != null) {
-				try {
-					rd.forward(request, response);
-				} catch (ServletException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			}
-		}
+//		if (session.getAttribute("m") == null) {
+//			request.setAttribute("msg", "å ì™ì˜™å ì™ì˜™å ì™ì˜™ å ì™ì˜™å ì™ì˜™í“¸å ì™ì˜™å ì™ì˜™æ±‚å ï¿½. å ì‹¸ê¹ì˜™å ì™ì˜™å ì™ì˜™ å ì™ì˜™å ìŒì‡½ì˜™å ì™ì˜™.");
+//			RequestDispatcher rd = request.getRequestDispatcher("/msg");
+//			if (rd != null) {
+//				try {
+//					rd.forward(request, response);
+//				} catch (ServletException e) {
+//					// TODO Auto-generated catch block
+//					e.printStackTrace();
+//				} catch (IOException e) {
+//					// TODO Auto-generated catch block
+//					e.printStackTrace();
+//				}
+//			}
+//		}
 		Member m = (Member)session.getAttribute("m");
 		
 		String cate = request.getParameter("cate");
@@ -70,27 +66,31 @@ public class BoardDController {
 		String title = request.getParameter("title");
 		int maxSeat = Integer.parseInt(request.getParameter("maxSeat"));
 		int seat = 0;
-		String path = "";
+//		String path = "";
 
 		Double s_x = Double.valueOf(request.getParameter("spx"));
 		Double s_y = Double.valueOf(request.getParameter("spy"));
 		Double e_x = Double.valueOf(request.getParameter("epx"));
 		Double e_y = Double.valueOf(request.getParameter("epy"));
+			
+//		TEST
+//		BoardD b = new BoardD(0, cate, null, startTime, startPosi, endPosi, s_x, s_y, e_x, e_y, price, content, title, seat, maxSeat, "driver", "driver", "passenger1", "passenger2", "passenger3", "ã…");
+
 		String profile = m.getProfile();
 		BoardD b = new BoardD(0, cate, null, startTime, startPosi, endPosi, s_x, s_y, e_x, e_y, price, content, title, seat, maxSeat, m.getId(), m.getId(), null, null, null, profile);
-
+		System.out.println(b);
 		service.add(b);
 		
 //		if(service.add(b)) {
 //			path = request.getContextPath() + "/driverList";
 //			response.sendRedirect(path);
 //		} else {
-//			request.setAttribute("msg", "±Û¾²±â¿¡ ½ÇÆĞÇÏ¿´½À´Ï´Ù.");
+//			request.setAttribute("msg", "å ìŒœì–µì˜™å ì©ì— å ì™ì˜™å ì™ì˜™å ì‹¹ìš¸ì˜™å ì™ì˜™å ì‹¹ëŒì˜™.");
 //			RequestDispatcher rd = request.getRequestDispatcher("/msg");
 //			if (rd != null) {
 //				rd.forward(request, response);
 //			}
 //		}
-		return "driver.tiles";
+		return "redirect:/driverList";
 	}
 }

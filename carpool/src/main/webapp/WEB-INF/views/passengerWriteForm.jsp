@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
 <link rel="stylesheet" href="//mugifly.github.io/jquery-simple-datetimepicker/jquery.simple-dtpicker.css">
@@ -20,49 +20,49 @@
 		<input type="hidden" id="epy" name="epy">
 		<table id="board1">
 			<tr>
-				<td style="width:10%">À¯Çü</td>
+				<td style="width:10%">ìœ í˜•</td>
 				<td style="width:40%;text-align: left">
 					<select name="cate" id="cate">
-						<option value="Ãâ±Ù" selected>Ãâ±Ù</option>
-						<option value="Åð±Ù">Åð±Ù</option>
-						<option value="¿©°¡">¿©°¡</option>
-						<option value="¿©Çà">¿©Çà</option>
-						<option value="±âÅ¸">±âÅ¸</option>
+						<option value="ì¶œê·¼" selected>ì¶œê·¼</option>
+						<option value="í‡´ê·¼">í‡´ê·¼</option>
+						<option value="ì—¬ê°€">ì—¬ê°€</option>
+						<option value="ì—¬í–‰">ì—¬í–‰</option>
+						<option value="ê¸°íƒ€">ê¸°íƒ€</option>
 					</select>
 				</td>
 				<td style="width:50%" rowspan="9"><div id=div1></div></td>
 			</tr>
 			<tr>
-				<td>Á¦¸ñ</td>
-				<td><input type="text" name="title" placeholder="Á¦¸ñ"></td>
+				<td>ì œëª©</td>
+				<td><input type="text" name="title" placeholder="ì œëª©"></td>
 			</tr>
 			<tr>
-				<td>³»¿ë</td>
-				<td><textarea rows="10" name="content" style="resize: none" placeholder="EX) Áñ°Å¿î Ä«Ç® ¿øÇØ¿ä"></textarea></td>
+				<td>ë‚´ìš©</td>
+				<td><textarea rows="10" name="content" style="resize: none" placeholder="EX) ì¦ê±°ìš´ ì¹´í’€ ì›í•´ìš”"></textarea></td>
 			</tr>
 			<tr>
-				<td>Ãâ¹ß À§Ä¡</td>
-				<td><input type="text" name="startPosi" id="sp1" placeholder="¿·ÀÇ Áöµµ¿¡¼­ ¼±ÅÃÇÏ¼¼¿ä" readonly>
+				<td>ì¶œë°œ ìœ„ì¹˜</td>
+				<td><input type="text" name="startPosi" id="sp1" placeholder="ì˜†ì˜ ì§€ë„ì—ì„œ ì„ íƒí•˜ì„¸ìš”" readonly>
 				</td>
 			</tr>
 			<tr>
-				<td>µµÂø À§Ä¡</td>
+				<td>ë„ì°© ìœ„ì¹˜</td>
 				<td>
-				<input type="text" name="endPosi" id="ep1" placeholder="¿·ÀÇ Áöµµ¿¡¼­ ¼±ÅÃÇÏ¼¼¿ä" readonly>
+				<input type="text" name="endPosi" id="ep1" placeholder="ì˜†ì˜ ì§€ë„ì—ì„œ ì„ íƒí•˜ì„¸ìš”" readonly>
 				</td>
 			</tr>
 			<tr>
-				<td>Ãâ¹ß ½Ã°£</td>
+				<td>ì¶œë°œ ì‹œê°„</td>
 				<td><input type="text" class="datetimepicker" name="startTime"></td>
 			</tr>
 			<tr>
-				<td>°¡°Ý</td>
-				<td><input type="text" name="price" placeholder="¿ø"></td>
+				<td>ê°€ê²©</td>
+				<td><input type="text" name="price" placeholder="ì›"></td>
 			</tr>
 			<tr>
 				<td colspan="2">
-					<input type="button" id="passengerWrite" value="ÀÛ¼º">
-					<input type="button" id="passengerList" value="¸ñ·Ï">
+					<input type="button" id="passengerWrite" value="ìž‘ì„±">
+					<input type="button" id="passengerList" value="ëª©ë¡">
 				</td>
 			</tr>
 		</table>
