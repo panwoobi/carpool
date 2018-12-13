@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 
@@ -126,9 +126,7 @@
       $('#info').submit();
     });
 
-    $('#partnerList').click(function() {
-      window.location.href = "${pageContext.request.contextPath }/partnerList";
-    });
+
   });
 
   function menuClick(num) {
@@ -158,42 +156,31 @@
 			<div class="col-md-9">
 				<a href="${pageContext.request.contextPath }"><i class="fa fa-car" aria-hidden="true" style="font-size: 35px"> Carpool</i></a>
 			</div>
-			<div class="col-md-3">
+			<div class="col-md-3" style="text-align:right">
 				<c:choose>
 					<c:when test="${empty sessionScope.m }">
 						<button type="button" class="btn btn-default " id="login">Sign in</button>
 						<button type="button" class="btn btn-default " id="join">Sign up</button>
 					</c:when>
 					<c:when test="${!empty sessionScope.m && sessionScope.m.type eq 1}">
-						<c:choose>
-							<c:when test="${empty sessionScope.c}">
-								<form id="info" action="" method="post">
-									${sessionScope.m.name } (${sessionScope.m.id })´Ô ¾È³çÇÏ¼¼¿ä.<br> ${sessionScope.c.carName } Â÷·®Á¤º¸°¡ ¾ø½À´Ï´Ù. Â÷·®À» µî·ÏÇØÁÖ¼¼¿ä.<br> <br> <a href="#" class="badge badge-primary">Partner</a> <a href="#" class="badge badge-primary">CarAdd</a> <a href="#" class="badge badge-primary">Edit</a> <a href="#" class="badge badge-primary">Out</a> <a href="#" class="badge badge-primary">Logout</a>
-								</form>
-							</c:when>
-							<c:when test="${!empty sessionScope.c}">
-								<form id="info" action="" method="post">
-									${sessionScope.m.name } (${sessionScope.m.id })´Ô ¾È³çÇÏ¼¼¿ä.<br> Â÷·®Á¤º¸ [¹øÈ£ : ${sessionScope.c.numberPlate} / ¿¬½Ä : ${sessionScope.c.age}³â / Â÷¸í : ${sessionScope.c.carName}]<br> <br> <a href="#" class="badge badge-primary">Partner</a> <a href="#" class="badge badge-primary">CarDel</a> <a href="#" class="badge badge-primary">Edit</a> <a href="#" class="badge badge-primary">Out</a> <a href="#" class="badge badge-primary">Logout</a>
-								</form>
-							</c:when>
-						</c:choose>
+					<form id="info" action="" method="post">
+							<p style="font-size:18px"><a href="${pageContext.request.contextPath }/menu">${sessionScope.m.name } (${sessionScope.m.id })</a>ë‹˜ ì•ˆë…•í•˜ì„¸ìš”.</p><a href="#" class="badge badge-primary" id="logout">Logout</a>
+					</form>
 					</c:when>
 					<c:when test="${!empty sessionScope.m && sessionScope.m.type eq 0}">
 						<form id="info" action="" method="post">
-							${sessionScope.m.name } (${sessionScope.m.id })´Ô ¾È³çÇÏ¼¼¿ä.<br> <a href="#" class="badge badge-primary">Edit</a> <a href="#" class="badge badge-primary">Out</a> <a href="#" class="badge badge-primary">Logout</a>
-						</form>
+							${sessionScope.m.name } (${sessionScope.m.id })ë‹˜ ì•ˆë…•í•˜ì„¸ìš”.
+							</form>
 					</c:when>
 					<c:when test="${!empty sessionScope.m && sessionScope.m.type eq 2}">
 						<form id="info" action="" method="post">
-							${sessionScope.m.name } (${sessionScope.m.id })´Ô ¾È³çÇÏ¼¼¿ä.<br> <a href="#" class="badge badge-primary">Partner</a>  <a href="#" class="badge badge-primary">Edit</a> <a href="#" class="badge badge-primary">Out</a> <a href="#" class="badge badge-primary">Logout</a>
+							${sessionScope.m.name } (${sessionScope.m.id })ë‹˜ ì•ˆë…•í•˜ì„¸ìš”.<br> <a href="#" class="badge badge-primary">Partner</a>  <a href="#" class="badge badge-primary">Edit</a> <a href="#" id="out" class="badge badge-primary">Out</a> <a href="#" class="badge badge-primary" id="logout">Logout</a>
 						</form>
 					</c:when>
 				</c:choose>
 			</div>
 		</div>
 		<br>
-
-
 		<nav class="nav nav-pills flex-column flex-md-row" style="font-size: 18px; background-color: #e3f2fd;">
 			<a class="flex-md-fill text-md-center nav-link" href="#" onclick="menuClick(1)">Carpool?</a> <a class="flex-md-fill text-md-center nav-link" href="#" onclick="menuClick(2)">Passenger</a> <a class="flex-md-fill text-md-center nav-link" href="#" onclick="menuClick(3)">Driver</a> <a class="flex-md-fill text-md-center nav-link" href="#" onclick="menuClick(4)">Notice</a> <a class="flex-md-fill text-md-center nav-link" href="#" onclick="menuClick(5)">Board</a>
 		</nav>

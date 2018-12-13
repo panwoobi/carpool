@@ -8,21 +8,21 @@
 	<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
 		<div class="carousel-inner">
 			<!-- 			<div class="carousel-item active"> -->
-			<div class="item active">
+			<div class="carousel-item active">
 				<img class="d-block w-100" src="${pageContext.request.contextPath}/resources/img/title1.png" alt="First slide">
 				<div class="container">
 
 				</div>
 			</div>
 
-			<div class="item">
+			<div class="carousel-item">
 				<img class="d-block w-100" src="${pageContext.request.contextPath}/resources/img/title2.png" alt="Second slide">
 				<div class="container">
 
 				</div>
 			</div>
 
-			<div class="item">
+			<div class="carousel-item">
 				<img class="d-block w-100" src="${pageContext.request.contextPath}/resources/img/title3.png" alt="Third slide">
 			</div>
 		</div>
