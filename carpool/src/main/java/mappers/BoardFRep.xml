@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	<mapper namespace="com.kitri.carpool.boardFRep.BoardFRepDao">
+
+	<resultMap id="boardFRepResult" type="com.kitri.carpool.boardFRep.BoardFRep">
+		<result column="num" property="num" />
+		<result column="writer" property="writer" />
+		<result column="board_num" property="board_num" />
+		<result column="content" property="content" />	
+	</resultMap>
+
+	<insert id="insert" parameterType="com.kitri.carpool.boardFRep.BoardFRep">
+		insert into c_boardf_rep values(seq_c_boardf_rep.nextval, #{writer}, #{board_num}, #{content})
+	</insert>
+	
+	<update id="update" parameterType="com.kitri.carpool.boardFRep.BoardFRep">
+		update c_boardf_rep set content=#{content} where num=#{num}
+	</update>
+
+	<delete id="delete" parameterType="int">
+		delete c_boardf_rep where num=#{num}
+	</delete>
+
+    <select id="selectByBoardFNum" parameterType="int" resultMap="boardFRepResult">
+		select * from c_boardf_rep where board_num=#{board_num}
+	</select>
+</mapper>

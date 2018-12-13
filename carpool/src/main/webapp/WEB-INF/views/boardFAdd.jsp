@@ -40,9 +40,12 @@
 <%-- 					value="${sessionScope.m.id }">${sessionScope.m.id}</td> --%>
 			</tr>
 			<tr>
+<<<<<<< HEAD
 				<label for="validationCustom03"><th scope="row">ì œëª©</th></label>
+=======
+				<th scope="row">Á¦¸ñ</th>
+>>>>>>> branch 'master' of https://github.com/panwoobi/carpool.git
 				<td><textarea class="form-control" rows="1"  name="title" id="validationCustom03"></textarea>
-				<div class="invalid-feedback"> Please provide a valid title</div>
        </td>
 			</tr>
 			<tr>
