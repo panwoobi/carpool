@@ -20,6 +20,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -37,10 +38,9 @@ public class myCaptcha {
 	public myCaptcha() {
 		pi = PathInfo.getInstance();
 	}
-	
-	@Resource(name="memberService")
+
+	@Resource(name = "memberService")
 	private MemberService service;
-	
 
 	@RequestMapping("/captchaImg")
 	@ResponseBody
@@ -49,83 +49,77 @@ public class myCaptcha {
 		Map<String, String> map = new HashMap<String, String>();
 		key = CaptchaNkey();
 
-		// 모든 값이 JSON형식의 String으로 오기때문에 파싱해서 데이터얻는 것.
-		// 라이브러리에 SimpleJSon을 추가해야 에러가 안납니다.
 		try {
-			// Key값을 파싱해서 얻음. Key값이란 각 캡차의 이미지를 생성하기위해 구분자로 사용.
 			JSONParser jsonParser = new JSONParser();
 			JSONObject jsonObj = (JSONObject) jsonParser.parse(key);
 			key = (String) jsonObj.get("key");
 		} catch (Exception e) {
-			System.out.println("파싱안댐");
+			System.out.println("占식싱안댐옙");
 		}
-		// Key값을 통해서 이미지를 생성하고 파일이름을 img에 담음
 		String img = CaptchaImage(key);
 
-//		System.out.println("key는 " + key);
-//		System.out.println("img는 " + img);
+//		System.out.println("key " + key);
+//		System.out.println("img " + img);
 		map.put("img", img);
 		return map;
 	}
 
 	@RequestMapping("/captchaResult")
-	public String captcahResult(Member m, HttpServletRequest request) {
+	public String captcahResult(Member m, HttpServletRequest request, @RequestParam("ff") MultipartFile file) {
 
 		String path = "";
-
-		// index 페이지에서 가져온 값
+		File newFile = null;
 		String input = (String) request.getParameter("input");
 		String result = CaptchaNkeyResult(key, input);
 		boolean b = false;
 
-		System.out.println(m);
 		try {
-			// result 또한 JSON형식이므로 파싱 하여 boolean값 b에 할당
 			JSONParser jsonParser = new JSONParser();
 			JSONObject jsonObj = (JSONObject) jsonParser.parse(result);
 			b = (Boolean) jsonObj.get("result");
 			System.out.println("boolean: " + b);
 		} catch (Exception e) {
-			System.out.println("파싱안댐");
 		}
 
-		if (b == true) { // 캡차 성공시
+		if (b == true) { 
 
-			MultipartFile f = m.getFile();
+			MultipartFile f = file;
 			if (f != null) {
-				String fileName = m.getFile().getOriginalFilename();
-				File newFile = new File(pi.getPath() + fileName);
-				try {
-					f.transferTo(newFile);
-				} catch (IllegalStateException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
+				String fileName = f.getOriginalFilename();
+				if (fileName.equals("") || fileName == null) {
+					m.setProfile("/profile/default_profile.jpg");
+				} else {
+					String t = fileName.split("\\.")[1];
+					newFile = new File(pi.getPath() + "profile\\" + m.getId() + "." + t);
+
+					try {
+						f.transferTo(newFile);
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					m.setProfile("/profile/" + m.getId() + "." + t);
 				}
-				m.setProfile("/profile/" + fileName);
 			}
-			
 			path = "redirect:/";
 			request.setAttribute("join", true);
-			
 
-		} else { // 캡차 비성공시
+		} else { 
 			request.setAttribute("join", false);
 			path = "redirect:/";
 
 		}
+		service.join(m);
 		System.out.println(m);
 		return path;
 	}
 
 	public static String CaptchaNkey() {
 		String nkey = "";
-		String clientId = "6AGmgCe30U75KRn0vAQg";// 애플리케이션 클라이언트 아이디값";
-		String clientSecret = "TDh2gn2WDr";// 애플리케이션 클라이언트 시크릿값";
+		String clientId = "6AGmgCe30U75KRn0vAQg";
+		String clientSecret = "TDh2gn2WDr";
 		try {
-			String code = "0"; // 키 발급시 0, 캡차 이미지 비교시 1로 세팅
+			String code = "0";
 			String apiURL = "https://openapi.naver.com/v1/captcha/nkey?code=" + code;
 			URL url = new URL(apiURL);
 			HttpURLConnection con = (HttpURLConnection) url.openConnection();
@@ -134,9 +128,9 @@ public class myCaptcha {
 			con.setRequestProperty("X-Naver-Client-Secret", clientSecret);
 			int responseCode = con.getResponseCode();
 			BufferedReader br;
-			if (responseCode == 200) { // 정상 호출
+			if (responseCode == 200) { 
 				br = new BufferedReader(new InputStreamReader(con.getInputStream()));
-			} else { // 에러 발생
+			} else { // 占쏙옙占쏙옙 占쌩삼옙
 				br = new BufferedReader(new InputStreamReader(con.getErrorStream()));
 			}
 			String inputLine;
@@ -154,18 +148,15 @@ public class myCaptcha {
 		return nkey;
 	}
 
-	// 캡차 이미지 수신
+	// 캡占쏙옙 占싱뱄옙占쏙옙 占쏙옙占쏙옙
 	public static String CaptchaImage(String key) {
 
-		String clientId = "6AGmgCe30U75KRn0vAQg";// 애플리케이션 클라이언트 아이디값";
-		String clientSecret = "x39LuzMU2M";// 애플리케이션 클라이언트 시크릿값";
+		String clientId = "6AGmgCe30U75KRn0vAQg";
+		String clientSecret = "x39LuzMU2M";
 		String img = "";
 		String path = "";
 		String apiURL = "";
 		try {
-			// https://openapi.naver.com/v1/captcha/nkey
-			// 호출로 받은 키값으로 이미지를 생성하는 과정
-			// 절대경로로 캡차 이미지가 생성되는곳 지정
 
 			apiURL = "https://openapi.naver.com/v1/captcha/ncaptcha.bin?key=" + key;
 			URL url = new URL(apiURL);
@@ -175,12 +166,10 @@ public class myCaptcha {
 			con.setRequestProperty("X-Naver-Client-Secret", clientSecret);
 			int responseCode = con.getResponseCode();
 			BufferedReader br;
-			if (responseCode == 200) { // 정상 호출
+			if (responseCode == 200) {
 				InputStream is = con.getInputStream();
 				int read = 0;
 				byte[] bytes = new byte[1024];
-
-				// 랜덤한 이름으로 파일 생성
 				String tempname = Long.valueOf(new Date().getTime()).toString();
 				// System.out.println(tempname);
 
@@ -193,7 +182,7 @@ public class myCaptcha {
 				is.close();
 				outputStream.close();
 				img = tempname + ".jpg";
-			} else { // 에러 발생
+			} else { 
 				br = new BufferedReader(new InputStreamReader(con.getErrorStream()));
 				String inputLine;
 				StringBuffer sb = new StringBuffer();
@@ -209,17 +198,14 @@ public class myCaptcha {
 		}
 
 		return apiURL;
-		// 이게 이미지이름이 됩니다.
 	}
 
 	public static String CaptchaNkeyResult(String key, String value) {
 		String result = "";
-		String clientId = "6AGmgCe30U75KRn0vAQg";// 애플리케이션 클라이언트 아이디값";
-		String clientSecret = "TDh2gn2WDr";// 애플리케이션 클라이언트 시크릿값";
+		String clientId = "6AGmgCe30U75KRn0vAQg";;
+		String clientSecret = "TDh2gn2WDr";
 		try {
-			String code = "1"; // 키 발급시 0, 캡차 이미지 비교시 1로 세팅
-			// 캡차 키 발급시 받은 키값
-			// 사용자가 입력한 캡차 이미지 글자값
+			String code = "1"; 
 			String apiURL = "https://openapi.naver.com/v1/captcha/nkey?code=" + code + "&key=" + key + "&value="
 					+ value;
 			URL url = new URL(apiURL);
@@ -229,9 +215,9 @@ public class myCaptcha {
 			con.setRequestProperty("X-Naver-Client-Secret", clientSecret);
 			int responseCode = con.getResponseCode();
 			BufferedReader br;
-			if (responseCode == 200) { // 정상 호출
+			if (responseCode == 200) { 
 				br = new BufferedReader(new InputStreamReader(con.getInputStream()));
-			} else { // 에러 발생
+			} else {
 				br = new BufferedReader(new InputStreamReader(con.getErrorStream()));
 			}
 			String inputLine;

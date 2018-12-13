@@ -7,14 +7,14 @@
       <div class="modal-content">
 
         <div class="modal-body" style="padding:40px 50px;">
-          <form role="form">
+          <form action="${pageContext.request.contextPath}/myLogin" method="post">
             <div class="form-group">
               <label for="id"><span class="glyphicon glyphicon-user"></span> Username</label>
-              <input type="text" class="form-control" id="id" placeholder="Enter email">
+              <input type="text" class="form-control" name="id" placeholder="Enter email">
             </div>
             <div class="form-group">
               <label for="pw"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
-              <input type="text" class="form-control" id="pw" placeholder="Enter password">
+              <input type="text" class="form-control" name="pw" placeholder="Enter password">
             </div>
             <div>
               <label>Forgot <a href="#">Password?</a></label>

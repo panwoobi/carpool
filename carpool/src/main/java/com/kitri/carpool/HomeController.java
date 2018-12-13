@@ -21,6 +21,12 @@ public class HomeController {
 		
 		return "intro.tiles";
 	}
+
+	@RequestMapping(value = "/driver", method = RequestMethod.GET)
+	public String driver() {
+		
+		return "driver.tiles";
+	}
 	
 	@RequestMapping(value = "/recruit", method = RequestMethod.GET)
 	public String recruit() {

@@ -13,7 +13,7 @@
 		<result column="sex" property="sex" />
 		<result column="isSmoke" property="isSmoke" />
 	</resultMap>
-	
+
 	<insert id="insert" parameterType="com.kitri.carpool.member.Member">
 		insert into c_member values(#{id}, #{pw}, #{name}, #{email}, #{tel}, #{profile}, #{type}, #{sex}, #{isSmoke})
 	</insert>
