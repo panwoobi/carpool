@@ -1,10 +1,6 @@
 package com.kitri.carpool.boardD;
 
-import java.io.IOException;
-
 import javax.annotation.Resource;
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -76,11 +72,12 @@ public class BoardDController {
 		Double s_y = Double.valueOf(request.getParameter("spy"));
 		Double e_x = Double.valueOf(request.getParameter("epx"));
 		Double e_y = Double.valueOf(request.getParameter("epy"));
-				
-		BoardD b = new BoardD(0, cate, null, startTime, startPosi, endPosi, s_x, s_y, e_x, e_y, price, content, title, seat, maxSeat, "driver", "driver", "passenger1", "passenger2", "passenger3", "ㅎ");
+			
+//		TEST
+//		BoardD b = new BoardD(0, cate, null, startTime, startPosi, endPosi, s_x, s_y, e_x, e_y, price, content, title, seat, maxSeat, "driver", "driver", "passenger1", "passenger2", "passenger3", "ㅎ");
 
-		//		String profile = m.getProfile();
-//		BoardD b = new BoardD(0, cate, null, startTime, startPosi, endPosi, s_x, s_y, e_x, e_y, price, content, title, seat, maxSeat, m.getId(), m.getId(), null, null, null, profile);
+		String profile = m.getProfile();
+		BoardD b = new BoardD(0, cate, null, startTime, startPosi, endPosi, s_x, s_y, e_x, e_y, price, content, title, seat, maxSeat, m.getId(), m.getId(), null, null, null, profile);
 		System.out.println(b);
 		service.add(b);
 		
