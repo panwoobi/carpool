@@ -143,11 +143,7 @@
       window.location.href = "${pageContext.request.contextPath }/driverList";
       break;
     case 4:
-<<<<<<< HEAD
       window.location.href = "${pageContext.request.contextPath }/notice";
-=======
-      window.location.href = "${pageContext.request.contextPath }/noticeList";
->>>>>>> branch 'master' of https://github.com/panwoobi/carpool.git
       break;
     case 5:
       window.location.href = "${pageContext.request.contextPath }/boardFList";

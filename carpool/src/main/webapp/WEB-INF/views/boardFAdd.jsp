@@ -41,9 +41,8 @@
 <%-- 					value="${sessionScope.m.id }">${sessionScope.m.id}</td> --%>
 			</tr>
 			<tr>
-				<label for="validationCustom03"><th scope="row">力格</th></label>
+				<th scope="row">力格</th>
 				<td><textarea class="form-control" rows="1"  name="title" id="validationCustom03"></textarea>
-				<div class="invalid-feedback"> Please provide a valid title</div>
        </td>
 			</tr>
 			<tr>

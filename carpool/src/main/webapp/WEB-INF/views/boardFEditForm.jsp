@@ -11,7 +11,6 @@
   margin-top:50px;
   margin-bottom:50px;
 }
-
 </style>
 <head>
 <meta charset="EUC-KR">
@@ -53,7 +52,10 @@
 						</c:when>
 					</c:choose></td>
 			</tr>
-		</table>
+			</table>
+			<tr>
+			<%@ include file="boardFRep.jsp"%>
+			</tr>
 	</form>
 	<br>
 	<br>
