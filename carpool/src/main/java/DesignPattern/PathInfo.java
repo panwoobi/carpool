@@ -1,26 +1,24 @@
 package DesignPattern;
 
-import javax.servlet.ServletContext;
-import javax.servlet.http.HttpServletRequest;
-
 public class PathInfo {
 	
 	private static PathInfo pi = new PathInfo();
 	
-	// ÇÁ·ÎÇÊ »çÁø°æ·Î : ¾Æ·¡ ±âº»°æ·Î + profile
+//	 í”„ë¡œí•„ ì‚¬ì§„ ì €ì¥ ê²½ë¡œ : path + profile
 	
-//	ÀÌÁö¿¬
+//	ì´ì§€ì—°
 //	private String path = "";
 	
-//	ÇÑ½ÂÈÆ
+//	í•œìŠ¹í›ˆ
 //	private String path = "";
 	
-//	±èÀç¹Î
-//	private String path = "C:\\Users\\panwo\\eclipse-workspace\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp3\\webapps\\carpool\\";
+//	ê¹€ì¬ë¯¼
+	private String path = "C:\\Users\\panwo\\eclipse-workspace\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp1\\webapps\\carpool\\";
 	
-	private String path = "C:\\Users\\KITRI\\Desktop\\workspace\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp2\\webapps\\carpool\\";
+//	ì„ì¢…í˜„
+//	private String path = "C:\\Users\\KITRI\\Desktop\\workspace\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp2\\webapps\\carpool\\";
 
-//	¿À½ÂÈ¯
+//	ì˜¤ìŠ¹í™˜
 //	private String path = "";
 	
 	public PathInfo() {
