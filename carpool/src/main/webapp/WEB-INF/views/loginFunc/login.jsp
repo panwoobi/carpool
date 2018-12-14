@@ -38,7 +38,7 @@
 						<button type="submit" class="btn btn-success btn-block">
 							<span class="glyphicon glyphicon-off"></span> Login
 						</button>
-						<div style="padding: 3px;"></div>
+						<div style="padding: 10px;"></div>
 						<div class="g-signin2" data-onsuccess="onSignIn" style="height: 36px; width: 398px;"></div>
 					</form>
 				</div>

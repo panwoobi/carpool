@@ -14,7 +14,7 @@
 		insert into c_BoardN values(seq_c_boardn.nextval, sysdate, #{title}, #{content},#{writer})
 	</insert>
 	<update id="update" parameterType="com.kitri.carpool.boardN.BoardN">
-		update c_BoardN  w_date=#{w_date}, set title=#{title}, content=#{content}, writer=#{writer}
+		update c_BoardN set title=#{title}, content=#{content}, writer=#{writer}
 		where num=#{num}
 	</update>
 	<delete id="delete" parameterType="int">

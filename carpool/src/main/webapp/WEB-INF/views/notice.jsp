@@ -17,15 +17,15 @@
 	<table class="table table-borderless">
 		<tr>
 			<td style="text-align: left; font-size: 16pt; font-weight: bold">
-				<span class="glyphicon">&#xe135;</span>Notice</td>
+				<span class="glyphicon">&#x2709;</span>Notice</td>
 		</tr>
 		<tr>
-<%-- 			<c:if test="${sessionScope.m.type == 0}"> --%>
+			<c:if test="${sessionScope.m.type == 0}">
 				<td colspan="4" style="text-align: right"><a href="${pageContext.request.contextPath }/noticeWrite">
 				<button type="button" class="btn btn-default btn-sm">
           <span class="glyphicon glyphicon-pencil"></span> write </button></a>
 				</td>
-<%-- 			</c:if> --%>
+			</c:if>
 		</tr>
 		<tr>
 			<td>

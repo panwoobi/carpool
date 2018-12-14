@@ -55,18 +55,32 @@
 	$("#profileCommit").click(function(){
 	    alert("Profile Change Commit");
 	  });
-
+	
+	$('#re').click(function(){
+	    location.reload();
+	});
+	
 	$("#deleteDriver").click(function(){
 	  
 	  	var pwd =$('#deletePwd').val();
+	    var obj = new Object();
+        obj.input = pwd;
+        var jsonData = JSON.stringify(obj);
 
 	    $.ajax({
-	      url : "${pageContext.request.contextPath }/deleteDriver",
+	      url : "${pageContext.request.contextPath }/delete",
 	      type : "POST",
 	      dataType: "json",
+	      data: jsonData,
 	      contentType : "application/json",
 	      success : function(responseData) {
 	       
+	       	if(responseData==true){
+	       	  alert("Success");
+	       	 window.location.href = "${pageContext.request.contextPath }/";
+	       	}else{
+	           alert("Not Correct Password");
+	       	}
 	      }
 	    });
 	});
@@ -87,7 +101,7 @@
 						<div class="form-group row">
 							<div class="container">
 									<div style="width: 140px; height: 140px; overflow: hidden border-radius: 70px; margin-left: auto; margin-right: auto; display: block;">
-										<img id="editProfile" class="rounded-circle" src="${sessionScope.m.profile }" style="width: 140px; height: 140px; margin-left: auto; margin-right: auto; display: block;">
+										<img id="editProfile" class="rounded-circle" src="/profile/${sessionScope.m.id }.jpg" style="width: 140px; height: 140px; margin-left: auto; margin-right: auto; display: block;">
 									</div>
 									<form action="${pageContext.request.contextPath }/editProfile" method="POST" enctype="multipart/form-data">
 									<input type="file" id="editProfileBtn" name="editProfileBtn" style="display: none;">
