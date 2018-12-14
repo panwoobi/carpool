@@ -147,40 +147,40 @@
 </script>
 
 <header>
-	<div id="container">
-		<div class="row">
-			<div class="col-md-9">
-				<a href="${pageContext.request.contextPath }"><i class="fa fa-car" aria-hidden="true" style="font-size: 35px"> Carpool</i></a>
-			</div>
-			<div class="col-md-3" style="text-align:right">
-				<c:choose>
-					<c:when test="${empty sessionScope.m }">
-						<button type="button" class="btn btn-default " id="login">Sign in</button>
-						<button type="button" class="btn btn-default " id="join">Sign up</button>
-					</c:when>
-					<c:when test="${!empty sessionScope.m && sessionScope.m.type eq 1}">
-					<form id="info" action="" method="post">
-							<p style="font-size:18px"><a href="${pageContext.request.contextPath }/menu">${sessionScope.m.name } (${sessionScope.m.id })</a>님 안녕하세요.</p><a href="#" class="badge badge-primary" id="logout">Logout</a>
-					</form>
-					</c:when>
-					<c:when test="${!empty sessionScope.m && sessionScope.m.type eq 0}">
-						<form id="info" action="" method="post">
-							${sessionScope.m.name } (${sessionScope.m.id })님 안녕하세요.
-							</form>
-					</c:when>
-					<c:when test="${!empty sessionScope.m && sessionScope.m.type eq 2}">
-						<form id="info" action="" method="post">
-							${sessionScope.m.name } (${sessionScope.m.id })님 안녕하세요.<br> <a href="#" class="badge badge-primary">Partner</a>  <a href="#" class="badge badge-primary">Edit</a> <a href="#" id="out" class="badge badge-primary">Out</a> <a href="#" class="badge badge-primary" id="logout">Logout</a>
-						</form>
-					</c:when>
-				</c:choose>
-			</div>
-		</div>
-		<br>
-		<nav class="nav nav-pills flex-column flex-md-row" style="font-size: 18px; background-color: #e3f2fd;">
-			<a class="flex-md-fill text-md-center nav-link" href="#" onclick="menuClick(1)">Carpool?</a> <a class="flex-md-fill text-md-center nav-link" href="#" onclick="menuClick(2)">Passenger</a> <a class="flex-md-fill text-md-center nav-link" href="#" onclick="menuClick(3)">Driver</a> <a class="flex-md-fill text-md-center nav-link" href="#" onclick="menuClick(4)">Notice</a> <a class="flex-md-fill text-md-center nav-link" href="#" onclick="menuClick(5)">Board</a>
-		</nav>
+   <div id="container">
+      <div class="row">
+         <div class="col-md-9">
+            <a href="${pageContext.request.contextPath }"><i class="fa fa-car" aria-hidden="true" style="font-size: 35px; margin-left:30px;"> Carpool</i></a>
+         </div>
+         <div class="col-md-3" style="text-align:right">
+            <c:choose>
+               <c:when test="${empty sessionScope.m }">
+                  <button type="button" class="btn btn-default " id="login">Sign in</button>
+                  <button type="button" class="btn btn-default " id="join" style="margin-right:10px;">Sign up</button>
+               </c:when>
+               <c:when test="${!empty sessionScope.m && sessionScope.m.type eq 1}">
+               <form id="info" action="" method="post">
+                     <p style="font-size:18px"><a href="${pageContext.request.contextPath }/menu">${sessionScope.m.name } (${sessionScope.m.id })</a>님 안녕하세요.</p><a href="#" class="badge badge-primary" id="logout">Logout</a>
+               </form>
+               </c:when>
+               <c:when test="${!empty sessionScope.m && sessionScope.m.type eq 0}">
+                  <form id="info" action="" method="post">
+                     ${sessionScope.m.name } (${sessionScope.m.id })님 안녕하세요.
+                     </form>
+               </c:when>
+               <c:when test="${!empty sessionScope.m && sessionScope.m.type eq 2}">
+                  <form id="info" action="" method="post">
+                     ${sessionScope.m.name } (${sessionScope.m.id })님 안녕하세요.<br> <a href="#" class="badge badge-primary">Partner</a>  <a href="#" class="badge badge-primary">Edit</a> <a href="#" id="out" class="badge badge-primary">Out</a> <a href="#" class="badge badge-primary" id="logout">Logout</a>
+                  </form>
+               </c:when>
+            </c:choose>
+         </div>
+      </div>
+      <br>
+      <nav class="nav nav-pills flex-column flex-md-row" style="font-size: 18px; background-color: #e3f2fd;">
+         <a class="flex-md-fill text-md-center nav-link" href="#" onclick="menuClick(1)">Carpool?</a> <a class="flex-md-fill text-md-center nav-link" href="#" onclick="menuClick(2)">Passenger</a> <a class="flex-md-fill text-md-center nav-link" href="#" onclick="menuClick(3)">Driver</a> <a class="flex-md-fill text-md-center nav-link" href="#" onclick="menuClick(4)">Notice</a> <a class="flex-md-fill text-md-center nav-link" href="#" onclick="menuClick(5)">Board</a>
+      </nav>
 
-	</div>
+   </div>
 
 </header>

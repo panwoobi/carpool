@@ -20,7 +20,7 @@
 
 
 						<div class="form-group row">
-							<label class="col-sm-2 col-form-label">Profile</label>
+							<label class="col-sm-2 col-form-label">프로필</label>
 							<div class="col-sm-10">
 								<input type="file" id="ff"  name="ff">
 							</div>
@@ -31,21 +31,21 @@
 						<div class="form-group row">
 							<label class="col-sm-2 col-form-label">ID</label>
 							<div class="col-sm-10">
-								<input type="text" class="form-control" name="id" placeholder="ID">
+								<input type="text" class="form-control" name="id" placeholder="사용하실 ID를 입력하세요">
 							</div>
 						</div>
 
 						<div class="form-group row">
 							<label class="col-sm-2 col-form-label">Password</label>
 							<div class="col-sm-10">
-								<input type="password" class="form-control" name="pw" placeholder="Password">
+								<input type="password" class="form-control" name="pw" placeholder="영어와 숫자 조합, 특수문자 반드시 포함, 8자 이상">
 							</div>
 						</div>
 
 						<div class="form-group row">
 							<label class="col-sm-2 col-form-label">Name</label>
 							<div class="col-sm-10">
-								<input type="text" class="form-control" name="name" placeholder="Name">
+								<input type="text" class="form-control" name="name" placeholder="홍길동">
 							</div>
 						</div>
 
@@ -59,20 +59,20 @@
 
 
 						<div class="form-group row">
-							<label class="col-sm-2 col-form-label">Tel</label>
+							<label class="col-sm-2 col-form-label">연락처</label>
 							<div class="col-sm-10">
-								<input type="text" class="form-control" name="tel" placeholder="Tel">
+								<input type="text" class="form-control" name="tel" placeholder="'-'를 제외한 숫자만 입력">
 							</div>
 						</div>
 
 
 						<div class="form-group">
 							<div class="row">
-								<label class="col-sm-2 col-form-label">IsSmoke</label>
+								<label class="col-sm-2 col-form-label">흡연여부</label>
 								<div class="col-sm-10">
 									<select name="isSmoke" class="form-control">
-										<option selected value="0">No</option>
-										<option value="1">Yes</option>
+										<option selected value="0">비흡연</option>
+										<option value="1">흡연</option>
 									</select>
 								</div>
 
@@ -81,11 +81,11 @@
 
 						<div class="form-group">
 							<div class="row">
-								<label class="col-sm-2 col-form-label">Sex</label>
+								<label class="col-sm-2 col-form-label">성별</label>
 								<div class="col-sm-10">
 									<select name="sex" class="form-control">
-										<option selected value="0">Man</option>
-										<option value="1">Woman</option>
+										<option selected value="0">남자</option>
+										<option value="1">여자</option>
 									</select>
 								</div>
 
@@ -94,7 +94,7 @@
 
 						<div class="form-group">
 							<div class="row">
-								<label class="col-sm-2 col-form-label">Type</label>
+								<label class="col-sm-2 col-form-label">유형</label>
 								<div class="col-sm-10">
 									<select name="type" class="form-control">
 										<option selected value="1">Passenger</option>
