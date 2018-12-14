@@ -23,8 +23,74 @@
 			'locale' : 'ko'
 		});
 	});
+
+	$(document).ready(function() {
+		$("#car").click(function() {
+			$("#carDetailProc").modal();
+		});
+	});
 </script>
 <body>
+	<div class="container">
+		<!-- Modal -->
+		<div class="modal fade" id="carDetailProc" role="dialog">
+			<div class="modal-dialog">
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-body" style="padding: 40px 50px;">
+					
+<!-- 					개인정보 문제로 출력 안할지? -->
+<!-- 						<div class="form-group row"> -->
+<!-- 							<label class="col-4 col-form-label">License</label> -->
+<!-- 							<div class="col-8"> -->
+<%-- 								<input value="${c.license }" class="form-control here" type="text" readonly> --%>
+<!-- 							</div> -->
+<!-- 						</div> -->
+						<div class="form-group row">
+							<label class="col-4 col-form-label">Number Plate</label>
+							<div class="col-8">
+								<input value="${c.number_plate }" class="form-control here" type="text" readonly>
+							</div>
+						</div>
+						<div class="form-group row">
+							<label class="col-4 col-form-label">Mileage</label>
+							<div class="col-8">
+								<input value="${c.mileage }" class="form-control here" type="text" readonly>
+							</div>
+						</div>
+						<div class="form-group row">
+							<label class="col-4 col-form-label">Age</label>
+							<div class="col-8">
+								<input value="${c.age }" class="form-control here" type="text" readonly>
+							</div>
+						</div>
+						<div class="form-group row">
+							<label class="col-4 col-form-label">Car Name</label>
+							<div class="col-8">
+								<input value="${c.car_name }" class="form-control here" type="text" readonly>
+							</div>
+						</div>
+						<div class="form-group row">
+							<label class="col-4 col-form-label">Car Size</label>
+							<div class="col-8">
+								<c:choose>
+									<c:when test="${c.car_size eq 1}">
+										<input value="소형" class="form-control here" type="text" readonly>
+									</c:when>
+									<c:when test="${c.car_size eq 2}">
+										<input value="중형" class="form-control here" type="text" readonly>
+									</c:when>
+									<c:when test="${c.car_size eq 3}">
+										<input value="대형" class="form-control here" type="text" readonly>
+									</c:when>
+								</c:choose>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 	<c:if test="${!(sessionScope.m.id eq b.writer)}">
 		<c:set var="readonly" value="readonly" />
 	</c:if>
@@ -34,7 +100,7 @@
 			<table class="table table-striped table-bordered">
 				<tr>
 					<td style="width: 10%">작성자</td>
-					<td style="width: 40%; text-align: left">${b.writer } <input type="button" class="btn btn-info" value="차량보기" id="car"></td>
+					<td style="width: 40%; text-align: left">${b.writer }</td>
 					<td style="width: 50%" rowspan="11"><c:choose>
 							<c:when test="${sessionScope.m.id eq b.writer}">
 								<%@ include file="map.jsp"%>
@@ -127,7 +193,7 @@
 				</tr>
 				<tr>
 					<td>수용 인원</td>
-					<td style="text-align: left">${b.seat} / <c:choose>
+					<td style="text-align: left">${b.seat}/<c:choose>
 							<c:when test="${sessionScope.m.id eq b.writer}">
 								<c:choose>
 									<c:when test="${b.maxSeat eq 1}">
@@ -213,7 +279,7 @@
 							<c:when test="${ !empty sessionScope.m && ((sessionScope.m.id eq b.passenger1) || (sessionScope.m.id eq b.passenger2) || (sessionScope.m.id eq b.passenger3))}">
 								<input type="button" class="btn btn-info" id="driverRequestDel" value="신청취소">
 							</c:when>
-						</c:choose> <input type="button" class="btn btn-info" id="driverList" value="목록"></td>
+						</c:choose><input type="button" class="btn btn-info" id="driverList" value="목록"> <input type="button" class="btn btn-info" value="차량보기" id="car"></td>
 				</tr>
 			</table>
 		</form>

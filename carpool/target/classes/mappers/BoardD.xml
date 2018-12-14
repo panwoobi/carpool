@@ -30,7 +30,11 @@
 		insert into c_boardd values(seq_c_boardd.nextval, #{cate}, sysdate, TO_DATE(#{start_time},'yyyy-mm-dd hh24:mi'), #{start_posi}, #{end_posi}, #{start_x}, #{start_y}, #{end_x}, #{end_y}, #{price}, #{content}, #{title}, #{seat}, #{maxSeat}, #{writer}, #{driver}, #{passenger1}, #{passenger2}, #{passenger3}, #{profile})
 	</insert>
 	<update id="update" parameterType="com.kitri.carpool.boardD.BoardD">
-		update c_BoardD set cate=#{cate}, w_date=#{w_date}, start_time=#{start_time}, start_posi=#{start_posi}, end_posi=#{end_posi}, start_x=#{start_x}, start_y=#{start_y}, end_x=#{end_x}, end_y=#{end_y}, price=#{price}, content=#{content}, title=#{title}, seat=#{seat},	maxSeat=#{maxSeat}, writer=#{writer}, driver=#{driver}, passenger1=#{passenger1}, passenger2=#{passenger2},	passenger3=#{passenger3}, profile=#{profile} where num=#{num}</update>
+		update c_BoardD set cate=#{cate}, w_date=#{w_date}, start_time=#{start_time}, start_posi=#{start_posi}, end_posi=#{end_posi}, start_x=#{start_x}, start_y=#{start_y}, end_x=#{end_x}, end_y=#{end_y}, price=#{price}, content=#{content}, title=#{title}, seat=#{seat},	maxSeat=#{maxSeat}, writer=#{writer}, driver=#{driver}, passenger1=#{passenger1}, passenger2=#{passenger2},	passenger3=#{passenger3}, profile=#{profile} where num=#{num}
+	</update>
+	<update id="updatePassenger" parameterType="com.kitri.carpool.boardD.BoardD">
+		update c_BoardD set passenger1=#{passenger1}, passenger2=#{passenger2}, passenger3=#{passenger3}, seat=#{seat} where num=#{num}
+	</update>
 	<delete id="delete" parameterType="int">
 		delete c_BoardD where num=#{num}
 	</delete>

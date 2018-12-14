@@ -6,6 +6,8 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.kitri.carpool.member.Member;
 
@@ -40,5 +42,16 @@ public class CarController {
 		
 		return "/userMenu/driver.tiles";
 	}
-	
+
+//	@RequestMapping(value="/carDetail", method=RequestMethod.GET)
+//	public ModelAndView carDetail(HttpServletRequest req) {
+//
+//		ModelAndView mav = new ModelAndView();
+//		String owner = req.getParameter("owner");
+//		Car c = service.getCar(owner);
+//
+//		mav.setViewName("carDetail");
+//		mav.addObject("c", c);
+//		return mav;
+//	}
 }

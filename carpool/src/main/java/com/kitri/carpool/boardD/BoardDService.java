@@ -31,7 +31,7 @@ public interface BoardDService {
 	
 	public void editDriver(BoardD b);
 
-	public ArrayList<BoardD> getByStartEnd(Map map);
+	public ArrayList<BoardD> getByStartEnd(Map<String, String> map);
 
 	public ArrayList<BoardD> getByDriver(String driver);
 

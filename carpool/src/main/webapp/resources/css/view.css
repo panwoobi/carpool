@@ -1,6 +1,6 @@
-/* µðÀÚÀÎ ÇÊµ¶ÇÏ¼¼¿ä. */
-/* ¿¬ÇÑ ¹ÙÅÁ»ö »ö»óÄÚµå : #e0e9f3 */
-/* ÁøÇÑ ¹ÙÅÁ»ö »ö»óÄÚµå : #333f50 */
+/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Êµï¿½ï¿½Ï¼ï¿½ï¿½ï¿½. */
+/* ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½ : #e0e9f3 */
+/* ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½ : #333f50 */
 @charset "EUC-KR";
 
 a:link {
@@ -165,7 +165,7 @@ body {
 	padding: 0px;
 	margin-top: 189px;
 	background-color: #ffffff;
-	scrollbar: yes;
+	padding-right: 0 !important;
 }
 
 #viewProfile {
@@ -245,7 +245,7 @@ img {
 	background-color: #d9d9d9;
 }
 
-/* ½ÂÈÆ¾¾ */
+/* ï¿½ï¿½ï¿½Æ¾ï¿½ */
 table#list {
 	width: 100%;
 	text-align: center;

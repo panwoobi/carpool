@@ -97,7 +97,7 @@ public class BoardDServiceImpl implements BoardDService {
 	}
 	
 	@Override
-	public ArrayList<BoardD> getByStartEnd(Map map) {
+	public ArrayList<BoardD> getByStartEnd(Map<String, String> map) {
 		dao = sqlSession.getMapper(BoardDDao.class);
 		return dao.selectByStartEnd(map);
 	}

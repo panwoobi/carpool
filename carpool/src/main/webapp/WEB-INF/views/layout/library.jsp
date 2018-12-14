@@ -24,4 +24,4 @@
 
 <!-- 세로스크롤을 강제로 활성화하고 가로스크롤을 어떠한경우에도 표시하지 않습니다. 필수. -->
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/scroll.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/carpool.css">
+<%-- <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/carpool.css"> --%>

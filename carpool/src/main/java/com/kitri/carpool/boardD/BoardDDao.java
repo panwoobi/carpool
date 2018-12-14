@@ -31,7 +31,7 @@ public interface BoardDDao {
 	
 	public void delete(int num);
 
-	public ArrayList<BoardD> selectByStartEnd(Map map);
+	public ArrayList<BoardD> selectByStartEnd(Map<String, String> map);
 
 	public ArrayList<BoardD> selectByPassenger(String passenger);
 
