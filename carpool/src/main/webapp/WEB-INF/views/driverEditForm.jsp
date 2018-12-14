@@ -37,10 +37,10 @@
 					<td style="width: 40%; text-align: left">${b.writer } <input type="button" class="btn btn-info" value="차량보기" id="car"></td>
 					<td style="width: 50%" rowspan="11"><c:choose>
 							<c:when test="${sessionScope.m.id eq b.writer}">
-								<div id=div1></div>
+								<%@ include file="map.jsp"%>
 							</c:when>
 							<c:otherwise>
-								<div id=div2></div>
+								<%@ include file="map2.jsp"%>
 							</c:otherwise>
 						</c:choose></td>
 				</tr>
