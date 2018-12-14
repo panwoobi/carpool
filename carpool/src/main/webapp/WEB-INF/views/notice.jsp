@@ -18,7 +18,7 @@
 	<table class="table table-borderless">
 		<tr>
 			<td style="text-align: left; font-size: 16pt; font-weight: bold">
-				<span class="glyphicon">&#xe135;</span>Notice</td>
+				<span class="glyphicon">&#x2709;</span>Notice</td>
 		</tr>
 		<tr>
 <%-- 			<c:if test="${sessionScope.m.type == 0}"> --%>

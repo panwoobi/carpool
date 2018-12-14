@@ -4,57 +4,51 @@
 <html>
 <style>
 .table {
-  width: 85%;
-  margin-left:auto;
-  margin-right:auto;
-  margin-top:50px;
-  margin-bottom:50px;
+	width: 85%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 50px;
+	margin-bottom: 50px;
 }
-
 </style>
-<script type="text/javascript"
-	src="//code.jquery.com/jquery-3.3.1.min.js"></script>
-<script type="text/javascript">
-(function() {
-  'use strict';
 
-  window.addEventListener('load', function() {
-    var form = document.getElementById('needs-validation');
-    form.addEventListener('submit', function(event) {
-      if (form.checkValidity() === false) {
-        event.preventDefault();
-        event.stopPropagation();
-      }
-      form.classList.add('was-validated');
-    }, false);
-  }, false);
-})();
-</script>
+<script type="text/javascript" src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote-lite.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote-lite.js"></script>
 
 <body>
-	<form class="border border-primary" action="boardFAdd" method="post" name="f"  id="needs-validation" novalidate >
+	<form class="border border-primary" action="boardFAdd" method="post" name="f" >
 		<table class="table">
 			<tr>
 				<th scope="row">작성자</th>
-				  <td><input type="text" name="writer"></td>
-<!-- 				<td><input type="hidden" name="writer" -->
-<%-- 					value="${sessionScope.m.id }">${sessionScope.m.id}</td> --%>
+				<td><input type="text" name="writer"></td>
+				<!-- 				<td><input type="hidden" name="writer" -->
+				<%-- 					value="${sessionScope.m.id }">${sessionScope.m.id}</td> --%>
 			</tr>
 			<tr>
-				<th scope="row">제목</th>
-				<td><textarea class="form-control" rows="1"  name="title" id="validationCustom03"></textarea>
-       </td>
+				<label for="validationCustom01"><th scope="row">제목</th></label>
+				<td><textarea class="form-control" rows="1" name="title" id="validationCustom01" required></textarea>
+					<div class="invalid-feedback">Please provide a valid title.</div></td>
 			</tr>
 			<tr>
-				<th scope="row">내용</th>
-				<td><textarea class="form-control" rows="5"  name="content"> </textarea></td>
+				<label for="validationCustom02"><th scope="row">내용</th></label>
+				<td><textarea class="form-control" rows="5" name="content" id="validationCustom02" required></textarea>
+					<div class="invalid-feedback">Please provide a valid content.</div></td>
+				
 			</tr>
 			<tr>
 				<td colspan="2">
-				<input class="btn btn-primary" type="submit"value="작성"> 
-				<input class="btn btn-default" type="button"value="목록"></td>
+				<input class="btn btn-primary" type="submit" value="작성"> 
+				<a href="${pageContext.request.contextPath }/boardFList"><input class="btn btn-default" type="button" value="목록"></a></td>
 			</tr>
 		</table>
+		 <script>
+      $('#validationCustom02').summernote({
+        placeholder: '내용을 작성하세요',
+        tabsize: 2,
+        height: 100
+      });
+    </script>
 	</form>
 	<br>
 	<br>

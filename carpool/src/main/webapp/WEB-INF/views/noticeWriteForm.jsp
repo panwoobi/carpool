@@ -12,6 +12,13 @@
 }
 
 </style>
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/jquery.cleditor.css"/>
+<script type="text/javascript" src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="resources/js/jquery.cleditor.min.js">
+$(document).ready(function () {
+	$('textarea#validationCustom04').cleditor(); 
+});
+</script>
 <body>
 	<form class="border border-primary" action="noticeWrite" method="post" name="f">
 			<table class="table">
@@ -22,17 +29,19 @@
 <%-- 					value="${sessionScope.m.id }">${sessionScope.m.id}</td> --%>
 			</tr>
 			<tr>
-				<th scope="row">力格</th>
-				<td><textarea class="form-control" rows="1"  name="title"></textarea></td>
+				<label for="validationCustom03"><th scope="row">力格</th></label>
+				<td><textarea class="form-control" rows="1"  name="title" id="validationCustom03" required></textarea>
+				<div class="invalid-feedback">Please provide a valid title.</div></td>
 			</tr>
 			<tr>
-				<th scope="row">郴侩</th>
-				<td><textarea class="form-control" rows="5"  name="content"> </textarea></td>
+				<label for="validationCustom04"><th scope="row">郴侩</th></label>
+				<td><textarea class="form-control" rows="5"  name="content"  id="validationCustom04" required></textarea>
+				<div class="invalid-feedback">Please provide a valid content.</div></td>
 			</tr>
 			<tr>
 				<td colspan="2">
 				<input class="btn btn-primary" type="submit"value="累己"> 
-				<input class="btn btn-default" type="button"value="格废"></td>
+				<a href="${pageContext.request.contextPath }/notice"><input class="btn btn-default" type="button"value="格废"></a></td>
 			</tr>
 		</table>
 	</form>
