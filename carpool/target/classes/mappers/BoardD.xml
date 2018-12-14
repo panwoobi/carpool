@@ -34,7 +34,7 @@
 	<delete id="delete" parameterType="int">
 		delete c_BoardD where num=#{num}
 	</delete>
-	<select id="select" parameterType="int" resultMap="boardDResult">
+	<select id="selectByNum" parameterType="int" resultMap="boardDResult">
 		select * from c_BoardD where num=#{num}
 	</select>
 	<select id="selectAll" resultMap="boardDResult">

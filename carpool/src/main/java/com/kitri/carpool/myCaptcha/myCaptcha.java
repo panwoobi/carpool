@@ -149,7 +149,7 @@ public class myCaptcha {
 
 		String clientId = "6AGmgCe30U75KRn0vAQg";
 		String clientSecret = "x39LuzMU2M";
-		String img = "";
+//		String img = "";
 		String path = "";
 		String apiURL = "";
 		
@@ -177,7 +177,7 @@ public class myCaptcha {
 				}
 				is.close();
 				outputStream.close();
-				img = tempname + ".jpg";
+//				img = tempname + ".jpg";
 			} else { 
 				br = new BufferedReader(new InputStreamReader(con.getErrorStream()));
 				String inputLine;
