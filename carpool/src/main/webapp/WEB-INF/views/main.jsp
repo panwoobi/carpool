@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,14 +29,14 @@
 			<%-- 			<a href="${pageContext.request.contextPath }/CarChkController"><img class="card-img-top" src="${pageContext.request.contextPath }/resources/img/registration.png" alt="Card image cap"></a> --%>
 			<div class="card-body">
 				<h5 class="card-title">Driver Vehicle Registration</h5>
-				<p class="card-text">지금 바로 차량을 등록하여 운전자로서 카풀 시스템을 만끽하세요!</p>
+				<p class="card-text">吏�湲� 諛�濡� 李⑤���� �깅����� �댁����濡��� 移댄�� ���ㅽ���� 留��쏀���몄��!</p>
 			</div>
 		</div>
 		<div class="card">
 			<i class="fa fa-question" style="font-size: 100pt; text-align: center;"></i>
 			<div class="card-body">
 				<h5 class="card-title" >What is Carpool?</h5>
-				<p class="card-text" >카풀이 무엇인지 궁금하시다구요? 지금 확인해보세요!</p>
+				<p class="card-text" >移댄���� 臾댁���몄� 沅�湲������ㅺ뎄��? 吏�湲� ���명�대낫�몄��!</p>
 			</div>
 		</div>
 		<div class="card">
@@ -44,7 +44,7 @@
 			<%-- 			<a href="${pageContext.request.contextPath }/CarChkController"><img class="card-img-top" src="${pageContext.request.contextPath }/resources/img/introduce.png" alt="Card image cap"></a> --%>
 			<div class="card-body">
 				<h5 class="card-title">Community</h5>
-				<p class="card-text">사용자들과 의사소통을 할 수 있습니다!</p>
+				<p class="card-text">�ъ�⑹���ㅺ낵 ���ъ���듭�� �� �� ���듬����!</p>
 			</div>
 		</div>
 		<div class="card">
@@ -52,7 +52,7 @@
 			<%-- 			<a href="${pageContext.request.contextPath }/CarChkController"><img class="card-img-top" src="${pageContext.request.contextPath }/resources/img/registration.png" alt="Card image cap"></a> --%>
 			<div class="card-body">
 				<h5 class="card-title">Recruit</h5>
-				<p class="card-text">KITRI Carpool 에서 함께 일하고 싶으신가요?</p>
+				<p class="card-text">KITRI Carpool ���� �④� �쇳��怨� �띠�쇱��媛���?</p>
 			</div>
 		</div>
 	</div>

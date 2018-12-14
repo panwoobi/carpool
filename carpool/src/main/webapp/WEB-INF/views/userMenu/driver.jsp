@@ -36,6 +36,26 @@
 	    $('#enrollCarProc').show();
 	  });
 	  
+    var read = function(input) {
+      if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function(e) {
+          $('#editProfile').attr('src', e.target.result);
+        }
+
+        reader.readAsDataURL(input.files[0]);
+      }
+    }
+
+    $("#editProfileBtn").on('change', function() {
+      read(this);
+    });
+	  
+	  $("#profileCommit").click(function(){
+	    alert("Profile Change Commit");
+	  });
+
 	});
 
 
@@ -48,6 +68,20 @@
 	<div class="row">
 		<div class="col-md-3 ">
 		     <div class="list-group">
+		    
+						<div class="form-group row">
+							<div class="container">
+									<div style="width: 140px; height: 140px; overflow: hidden border-radius: 70px; margin-left: auto; margin-right: auto; display: block;">
+										<img id="editProfile" class="rounded-circle" src="${sessionScope.m.profile }" style="width: 140px; height: 140px; margin-left: auto; margin-right: auto; display: block;">
+									</div>
+									<form action="${pageContext.request.contextPath }/editProfile" method="POST" enctype="multipart/form-data">
+									<input type="file" id="editProfileBtn" name="editProfileBtn" style="display: none;">
+									<input type="button" value="Profile Change"  class="btn btn-link" style="float:left;" onclick="document.getElementById('editProfileBtn').click();" />
+									<input type="submit"  class="btn btn-link" id="profileCommit" value="Save" style="float:right;">
+									</form>
+							</div>
+						</div>
+			  
               <h5>MENU</h5>
               <a href="#" id="1" class="list-group-item list-group-item-action">My Info</a>
               <a href="#" id="2" class="list-group-item list-group-item-action">Partner</a>
@@ -96,7 +130,7 @@
                                <div class="form-group row">
                                 <label class="col-4 col-form-label">User Type</label> 
                                 <div class="col-8">
-                                  <input value="Man" class="form-control here" type="text" readonly>
+                                  <input value="Driver" class="form-control here" type="text" readonly>
                                 </div>
                               </div>
                               
@@ -134,10 +168,6 @@
                                 </c:choose>                               
                                  </div>
                               </div>
-                         
-                          
-                           
-                            </form>
 		                </div>
 		            </div>
 		            
@@ -158,6 +188,8 @@
 
 		              <div class="row">
 		              	  <div class="col-md-12">
+		                  <form action="${pageContext.request.contextPath}/deleteCar" method="post">
+		              	  
 		                		<c:choose>
 		                			<c:when test="${empty sessionScope.c }">
 		                			<h3>There Is No Your Car<br><br>
@@ -167,7 +199,7 @@
 						               		 <div class="form-group row">
 				                               <label class="col-4 col-form-label">Owner</label> 
 				                                <div class="col-8">
-				                                  <input value="${sessionScope.m.name }" class="form-control here" type="text" readonly>
+				                                  <input value="${sessionScope.m.id }" class="form-control here" type="text" readonly>
 				                                </div>
 				                            </div>
 				                            <div class="form-group row">
@@ -206,8 +238,14 @@
 				                                  <input value="${sessionScope.c.car_size }" class="form-control here" type="text" readonly>
 				                                </div>
 				                            </div>
+				                             <div class="form-group row">
+                                				 <div class="offset-8 col-4">
+                                  					<input value="DELETE" class="form-control here" type="submit">
+                                					</div>
+                               				</div>
 		                			</c:otherwise>
 		                		</c:choose>
+		                		</form>
 		               		</div>
 		               </div>
 		            </div>
@@ -240,19 +278,70 @@
 		                    <hr>
 		                </div>
 		            </div>
+						
+					 <div class="row">
+		                <div class="col-md-12">
+		                    <form action="${pageContext.request.contextPath }/editInfo" method="post">
+                              <div class="form-group row">
+                                <label class="col-4 col-form-label">User Name</label> 
+                                <div class="col-8">
+                                  <input name="name" class="form-control here" type="text">
+                                </div>
+                              </div>
+
+                                <div class="form-group row">
+                                <label class="col-4 col-form-label">User Password</label> 
+                                <div class="col-8">
+                                  <input name="pw" class="form-control here" type="password" >
+                                </div>
+                              </div>
+                               <div class="form-group row">
+                                <label class="col-4 col-form-label">User Email</label> 
+                                <div class="col-8">
+                                  <input name="email" class="form-control here" type="email">
+                                </div>
+                              </div>
+                               <div class="form-group row">
+                                <label class="col-4 col-form-label">User Tel</label> 
+                                <div class="col-8">
+                                  <input name="tel" class="form-control here" type="text" >
+                                </div>
+                              </div>
+   
+                               <div class="form-group row">
+                                <label class="col-4 col-form-label">IsSmoke</label> 
+                                <div class="col-8">
+                                    <select name="isSmoke" class="form-control">
+                                  		<option selected value="0">No</option>
+										<option value="1">Yes</option>
+									</select>
+                                 </div>
+                              </div>
+                               <div class="form-group row">
+                                 <div class="offset-8 col-4">
+                                  <input value="Edit" class="form-control here" type="submit">
+                                </div>
+                               </div>
+                                </form>
+		                </div>
+		                </div>
+
+		            </div>
+	
+	
+	
 	
 		            
 		        </div>
-		    </div>
 		    
 		<!-- Edit end -->
 		
 		<!-- Delete start -->
 		    <div class="card" id="delete">
 		        <div class="card-body">
-		            <div class="row">
+ 					<div class="row">
 		                <div class="col-md-12">
-		                    <h4>Delte Account</h4>
+		                    <h4>Car Enroll</h4>
 		                    <hr>
 		                </div>
 		            </div>
@@ -279,7 +368,7 @@
                            <div class="form-group row">
                                <label class="col-4 col-form-label">Owner</label> 
                                 <div class="col-8">
-                                  <input value="${sessionScope.m.name }" class="form-control here" type="text" readonly>
+                                  <input value="${sessionScope.m.id }" name="owner" class="form-control here" type="text" readonly>
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -291,19 +380,24 @@
                             <div class="form-group row">
                                <label class="col-4 col-form-label">Number Plate</label> 
                                 <div class="col-8">
-                                  <input name="number_plate" class="form-control here" type="text">
+                                  <input name="number_plate" class="form-control here" type="text" >
                                 </div>
                             </div>
                             <div class="form-group row">
                                <label class="col-4 col-form-label">Mileage</label> 
                                 <div class="col-8">
-                                  <input name="number_plate"class="form-control here" type="text" >
+                                  <input name="mileage"class="form-control here" type="text" >
                                 </div>
                             </div>
                             <div class="form-group row">
                                <label class="col-4 col-form-label">Age</label> 
                                 <div class="col-8">
-                                  <input name="age" class="form-control here" type="text" >
+                                  <select name="age" class="form-control">
+                                  		<option selected value="1970">1970</option>
+                                  		<c:forEach begin="1971" end="2030" varStatus="status">
+										<option value="${status.index }">${status.index }</option>
+										</c:forEach>
+									</select>
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -315,7 +409,11 @@
                             <div class="form-group row">
                                <label class="col-4 col-form-label">Car Size</label> 
                                 <div class="col-8">
-                                  <input name="car_size" class="form-control here" type="text" >
+                                    <select name="car_size" class="form-control">
+                                  		<option selected value="1">Small</option>
+										<option value="2">Medium</option>
+										<option value="2">Large</option>
+									</select>
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -339,5 +437,5 @@
 		</div>
 	
 	</div>
+	</div>
 		<br><br>
-</div>

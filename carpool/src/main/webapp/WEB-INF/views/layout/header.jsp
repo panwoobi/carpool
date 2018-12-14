@@ -117,10 +117,6 @@
       $('#info').attr("action", "${pageContext.request.contextPath }/out");
       $('#info').submit();
     });
-    $('#edit').click(function() {
-      $('#info').attr("action", "${pageContext.request.contextPath }/editInfo");
-      $('#info').submit();
-    });
     $('#partner').click(function() {
       $('#info').attr("action", "${pageContext.request.contextPath }/partnerList");
       $('#info').submit();

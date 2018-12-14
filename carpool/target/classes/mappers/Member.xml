@@ -18,7 +18,7 @@
 		insert into c_member values(#{id}, #{pw}, #{name}, #{email}, #{tel}, #{profile}, #{type}, #{sex}, #{isSmoke})
 	</insert>
 	<update id="update" parameterType="com.kitri.carpool.member.Member">
-		update c_member set pw=#{pw}, name=#{name}, email=#{email}, tel=#{tel}, profile=#{profile}, type=#{type}, sex=#{sex}, isSmoke=#{isSmoke} where id=#{id}
+		update c_member set pw=#{pw}, name=#{name}, email=#{email}, tel=#{tel}, isSmoke=#{isSmoke} where id=#{id}
 	</update>
 	<delete id="delete" parameterType="String">
 		delete c_member where id=#{id}
@@ -29,5 +29,9 @@
 	<select id="selectAll" resultMap="memberResult">
 		select * from c_member
 	</select>
+	
+	<update id="updateProfile" parameterType="com.kitri.carpool.member.Member">
+		update c_member set profile=#{profile} where id=#{id}
+	</update>
 
 </mapper>
