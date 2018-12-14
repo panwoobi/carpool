@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
 <body>
@@ -10,11 +10,11 @@
 				src="${pageContext.request.contextPath }/resources/img/a1.jpg"
 				style="width: 250px; height: 150px">
 				<div class="media-body">
-					<h3 class="mt-0">ÀÚÀ², È¿À²ÀÇ ±Ù¹« È¯°æÀ» ÁöÇâÇÕ´Ï´Ù</h3>
+					<h3 class="mt-0">ìžìœ¨, íš¨ìœ¨ì˜ ê·¼ë¬´ í™˜ê²½ì„ ì§€í–¥í•©ë‹ˆë‹¤</h3>
 					<br>
 					<p class="mb-0">
-						- Åº·ÂÀûÀÎ ÃâÅð±Ù Á¦µµ<br /> - ¿ø°Ý ±Ù¹« °¡´É<br /> - º°µµ ½ÂÀÎ ¾øÀÌ ÈÞ°¡ ¹«Á¦ÇÑ»ç¿ë<br />
-						- ±Ù¼Ó 3³â¸¶´Ù ¸®ÇÁ·¹½Ã ÈÞ°¡ 1°³¿ù<br /> - ¸Å¿ù ¸¶Áö¸· ±Ý¿äÀÏÀº Àü»ç ÈÞ½Ä
+						- íƒ„ë ¥ì ì¸ ì¶œí‡´ê·¼ ì œë„<br /> - ì›ê²© ê·¼ë¬´ ê°€ëŠ¥<br /> - ë³„ë„ ìŠ¹ì¸ ì—†ì´ íœ´ê°€ ë¬´ì œí•œì‚¬ìš©<br />
+						- ê·¼ì† 3ë…„ë§ˆë‹¤ ë¦¬í”„ë ˆì‹œ íœ´ê°€ 1ê°œì›”<br /> - ë§¤ì›” ë§ˆì§€ë§‰ ê¸ˆìš”ì¼ì€ ì „ì‚¬ íœ´ì‹
 					</p>
 				</div></li>
 			<br/>
@@ -23,12 +23,12 @@
 				src="${pageContext.request.contextPath }/resources/img/a2.jpg"
 				style="width: 250px; height: 150px">
 				<div class="media-body">
-					<h3 class="mt-0">¾÷¹«¿Í ¼ºÀå¿¡ ¸ôµÎÇÒ ¼ö ÀÖµµ·Ï Áö¿øÇÕ´Ï´Ù</h3>
+					<h3 class="mt-0">ì—…ë¬´ì™€ ì„±ìž¥ì— ëª°ë‘í•  ìˆ˜ ìžˆë„ë¡ ì§€ì›í•©ë‹ˆë‹¤</h3>
 					<br>
 					<p class="mb-0">
-						- ¾÷¹« °ü·Ã ºñ¿ë 100%<br /> - Áö¿ø ÃÖ°í±Þ ÇÏµå¿þ¾î ¹× ¾÷¹«½Ã ÇÊ¿äÇÑ ¼ÒÇÁÆ®¿þ¾î Á¦°ø<br /> -
-						Á÷Àå´ÜÃ¼º¸Çè(°¡Á·Æ÷ÇÔ) ¹× °¢Á¾ °æÁ¶»çºñ Áö¿ø<br /> - ¸Å¿ù Ã¼·Â´Ü·Ãºñ / Åë½Åºñ Áö¿ø<br /> - ÁÖÅÃÀÚ±Ý
-						¹«ÀÌÀÚ 1¾ï »ç³» ´ëÃâ
+						- ì—…ë¬´ ê´€ë ¨ ë¹„ìš© 100%<br /> - ì§€ì› ìµœê³ ê¸‰ í•˜ë“œì›¨ì–´ ë° ì—…ë¬´ì‹œ í•„ìš”í•œ ì†Œí”„íŠ¸ì›¨ì–´ ì œê³µ<br /> -
+						ì§ìž¥ë‹¨ì²´ë³´í—˜(ê°€ì¡±í¬í•¨) ë° ê°ì¢… ê²½ì¡°ì‚¬ë¹„ ì§€ì›<br /> - ë§¤ì›” ì²´ë ¥ë‹¨ë ¨ë¹„ / í†µì‹ ë¹„ ì§€ì›<br /> - ì£¼íƒìžê¸ˆ
+						ë¬´ì´ìž 1ì–µ ì‚¬ë‚´ ëŒ€ì¶œ
 					</p>
 				</div></li>
 			<br/>
@@ -38,11 +38,11 @@
 				style="width: 250px; height: 150px">
 				<div class="media-body">
 
-					<h3 class="mt-0">¸Ô°í ¸¶½Ã´Â °Í, È¸»ç°¡ Ã¥ÀÓÁý´Ï´Ù</h3>
+					<h3 class="mt-0">ë¨¹ê³  ë§ˆì‹œëŠ” ê²ƒ, íšŒì‚¬ê°€ ì±…ìž„ì§‘ë‹ˆë‹¤</h3>
 					<br>
 					<p class="mb-0">
-						- Á¡½É, Àú³á ½Ä»çºñ 100% Áö¿ø<br /> - ¹Ù¸®½ºÅ¸°¡ ÀÖ´Â »ç³» Ä«Æä ¿î¿µ<br /> - ´Ù¾çÇÑ - °£½Ä
-						»ó½Ã ±¸ºñ<br /> - ¾î¶² °£½ÄÀÌµç ½ÅÃ»ÇÏ¸é ±¸ºñ
+						- ì ì‹¬, ì €ë… ì‹ì‚¬ë¹„ 100% ì§€ì›<br /> - ë°”ë¦¬ìŠ¤íƒ€ê°€ ìžˆëŠ” ì‚¬ë‚´ ì¹´íŽ˜ ìš´ì˜<br /> - ë‹¤ì–‘í•œ - ê°„ì‹
+						ìƒì‹œ êµ¬ë¹„<br /> - ì–´ë–¤ ê°„ì‹ì´ë“  ì‹ ì²­í•˜ë©´ êµ¬ë¹„
 					</p>
 				</div></li>
 		</ul>

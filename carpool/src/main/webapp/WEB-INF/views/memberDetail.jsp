@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <body>
@@ -48,8 +47,8 @@
 		</tr>
 		<tr>
 			<td colspan="2" style="text-align: right">
-			<c:if test="${chkCar eq true }"><input type="hidden" id="w" value="${m.id}"><input type="button" id="car" value="Â÷·®º¸±â"> </c:if>
-			<input type="button" id="partnerList" value="¸ñ·Ï"></td>
+			<c:if test="${chkCar eq true }"><input type="hidden" id="w" value="${m.id}"><input type="button" id="car" value="ì°¨ëŸ‰ë³´ê¸°"> </c:if>
+			<input type="button" id="partnerList" value="ëª©ë¡"></td>
 		</tr>
 	</table>
 	<br>

@@ -1,31 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.21.0/moment.min.js" type="text/javascript"></script>
-<link href="${pageContext.request.contextPath }/resources/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
-<script src="${pageContext.request.contextPath }/resources/js/bootstrap-datetimepicker.min.js"></script>
-<script type="text/javascript">
-$(function () {
-    $('#datetimepicker1').datetimepicker();
-});
-</script>
-<script type="text/javascript">
-
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-36251023-1']);
-  _gaq.push(['_setDomainName', 'jqueryscript.net']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-</script>
+<link rel="stylesheet" href="//mugifly.github.io/jquery-simple-datetimepicker/jquery.simple-dtpicker.css">
+<script src="//mugifly.github.io/jquery-simple-datetimepicker/jquery.simple-dtpicker.js"></script>
 <style>
 
-/* Bootstrap ¼öÁ¤ */
+/* Bootstrap ìˆ˜ì • */
 .table {
 	width: 85%;
 	margin-left: auto;
@@ -35,54 +16,59 @@ $(function () {
 }
 </style>
 </head>
+<script>
+
+$(function() {
+  $('#datetimepicker').appendDtpicker({
+    'locale' : 'ko'
+  });
+});
+</script>
 <body>
 	<div id="container">
 		<form id="f" action="" method="post">
 			<input type="hidden" id="spx" name="spx"> <input type="hidden" id="spy" name="spy"> <input type="hidden" id="epx" name="epx"> <input type="hidden" id="epy" name="epy">
 			<table class="table table-striped table-bordered">
 				<tr>
-					<td style="width: 10%">À¯Çü</td>
+					<td style="width: 10%">ìœ í˜•</td>
 					<td style="width: 40%; text-align: left"><select name="cate" id="cate" class="form-control">
-							<option value="Ãâ±Ù" selected>Ãâ±Ù</option>
-							<option value="Åğ±Ù">Åğ±Ù</option>
-							<option value="¿©°¡">¿©°¡</option>
-							<option value="¿©Çà">¿©Çà</option>
-							<option value="±âÅ¸">±âÅ¸</option>
+							<option value="ì¶œê·¼" selected>ì¶œê·¼</option>
+							<option value="í‡´ê·¼">í‡´ê·¼</option>
+							<option value="ì—¬ê°€">ì—¬ê°€</option>
+							<option value="ì—¬í–‰">ì—¬í–‰</option>
+							<option value="ê¸°íƒ€">ê¸°íƒ€</option>
 					</select></td>
 					<td style="width: 50%" rowspan="10">
 					<%@ include file="map.jsp"%></td>
 				</tr>
 				<tr>
-					<td>Á¦¸ñ</td>
-					<td><input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name="title" placeholder="Á¦¸ñ"></td>
+					<td>ì œëª©</td>
+					<td><input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name="title" placeholder="ì œëª©"></td>
 				</tr>
 				<tr>
-					<td>³»¿ë</td>
-					<td><textarea class="form-control" rows="10" name="content" style="resize: none" placeholder="EX) Áñ°Å¿î Ä«Ç® ¿øÇØ¿ä"></textarea></td>
+					<td>ë‚´ìš©</td>
+					<td><textarea class="form-control" rows="10" name="content" style="resize: none" placeholder="EX) ì¦ê±°ìš´ ì¹´í’€ ì›í•´ìš”"></textarea></td>
 				</tr>
 				<tr>
-					<td>Ãâ¹ß À§Ä¡</td>
-					<td><input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" type="text" name="startPosi" id="sp1" placeholder="¿·ÀÇ Áöµµ¿¡¼­ ¼±ÅÃÇÏ¼¼¿ä" readonly></td>
+					<td>ì¶œë°œ ìœ„ì¹˜</td>
+					<td><input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name="start_posi" id="sp1" placeholder="ì˜†ì˜ ì§€ë„ì—ì„œ ì„ íƒí•˜ì„¸ìš”" readonly></td>
 				</tr>
 				<tr>
-					<td>µµÂø À§Ä¡</td>
-					<td><input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name="endPosi" id="ep1" placeholder="¿·ÀÇ Áöµµ¿¡¼­ ¼±ÅÃÇÏ¼¼¿ä" readonly></td>
+					<td>ë„ì°© ìœ„ì¹˜</td>
+					<td><input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name="end_posi" id="ep1" placeholder="ì˜†ì˜ ì§€ë„ì—ì„œ ì„ íƒí•˜ì„¸ìš”" readonly></td>
 				</tr>
 				<tr>
-					<td>Ãâ¹ß ½Ã°£</td>
+					<td>ì¶œë°œ ì‹œê°„</td>
 					<td>
-						<div class='input-group date' id='datetimepicker1'>
-							<input type='text' class="form-control" name="startTime" /> <span class="input-group-addon"> <span class="glyphicon glyphicon-calendar"></span>
-							</span>
-						</div>
+						<input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" id="datetimepicker" name="start_time">
 					</td>
 				</tr>
 				<tr>
-					<td>°¡°İ</td>
-					<td><input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name="price" placeholder="¿ø"></td>
+					<td>ê°€ê²©</td>
+					<td><input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name="price" placeholder="ì›"></td>
 				</tr>
 				<tr>
-					<td>¼ö¿ë ÀÎ¿ø</td>
+					<td>ìˆ˜ìš© ì¸ì›</td>
 					<td style="text-align: left">
 							<select name="maxSeat" class="form-control">
 							<option value="1" selected>1</option>
@@ -91,7 +77,7 @@ $(function () {
 					</select></td>
 				</tr>
 				<tr>
-					<td colspan="2"><input type="button" class="btn btn-info" id="driverWrite" value="ÀÛ¼º"> <input type="button" class="btn btn-info" id="driverList" value="¸ñ·Ï"></td>
+					<td colspan="2"><input type="button" class="btn btn-info" id="driverWrite" value="ì‘ì„±"> <input type="button" class="btn btn-info" id="driverList" value="ëª©ë¡"></td>
 				</tr>
 			</table>
 		</form>

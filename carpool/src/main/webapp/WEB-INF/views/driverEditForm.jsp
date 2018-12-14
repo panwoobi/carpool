@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <link rel="stylesheet" href="//mugifly.github.io/jquery-simple-datetimepicker/jquery.simple-dtpicker.css">
@@ -30,8 +29,8 @@
 		<input type="hidden" id="ey" name="epy" value="${b.endY }">
 		<table id="board1">
 			<tr>
-				<td style="width:10%">ÀÛ¼ºÀÚ</td>
-				<td style="width:40%;text-align: left">${b.writer } <input type= "button" value="Â÷·®º¸±â"  id= car></td>
+				<td style="width:10%">ì‘ì„±ì</td>
+				<td style="width:40%;text-align: left">${b.writer } <input type= "button" value="ì°¨ëŸ‰ë³´ê¸°"  id= car></td>
 				<td style="width:50%" rowspan="11"><c:choose>
 						<c:when test="${sessionScope.m.id eq b.writer}">
 							<div id=div1></div>
@@ -42,45 +41,45 @@
 					</c:choose></td>
 			</tr>
 			<tr>
-				<td>À¯Çü</td>
+				<td>ìœ í˜•</td>
 				<td style="text-align: left"><c:choose>
 						<c:when test="${sessionScope.m.id eq b.writer}">
 							<select name="cate" id="cate">
 								<c:choose>
-									<c:when test="${b.cate eq 'Ãâ±Ù'}">
-										<option value="Ãâ±Ù" selected>Ãâ±Ù</option>
-										<option value="Åğ±Ù">Åğ±Ù</option>
-										<option value="¿©°¡">¿©°¡</option>
-										<option value="¿©Çà">¿©Çà</option>
-										<option value="±âÅ¸">±âÅ¸</option>
+									<c:when test="${b.cate eq 'ì¶œê·¼'}">
+										<option value="ì¶œê·¼" selected>ì¶œê·¼</option>
+										<option value="í‡´ê·¼">í‡´ê·¼</option>
+										<option value="ì—¬ê°€">ì—¬ê°€</option>
+										<option value="ì—¬í–‰">ì—¬í–‰</option>
+										<option value="ê¸°íƒ€">ê¸°íƒ€</option>
 									</c:when>
-									<c:when test="${b.cate eq 'Åğ±Ù'}">
-										<option value="Ãâ±Ù">Ãâ±Ù</option>
-										<option value="Åğ±Ù" selected>Åğ±Ù</option>
-										<option value="¿©°¡">¿©°¡</option>
-										<option value="¿©Çà">¿©Çà</option>
-										<option value="±âÅ¸">±âÅ¸</option>
+									<c:when test="${b.cate eq 'í‡´ê·¼'}">
+										<option value="ì¶œê·¼">ì¶œê·¼</option>
+										<option value="í‡´ê·¼" selected>í‡´ê·¼</option>
+										<option value="ì—¬ê°€">ì—¬ê°€</option>
+										<option value="ì—¬í–‰">ì—¬í–‰</option>
+										<option value="ê¸°íƒ€">ê¸°íƒ€</option>
 									</c:when>
-									<c:when test="${b.cate eq '¿©°¡'}">
-										<option value="Ãâ±Ù">Ãâ±Ù</option>
-										<option value="Åğ±Ù">Åğ±Ù</option>
-										<option value="¿©°¡" selected>¿©°¡</option>
-										<option value="¿©Çà">¿©Çà</option>
-										<option value="±âÅ¸">±âÅ¸</option>
+									<c:when test="${b.cate eq 'ì—¬ê°€'}">
+										<option value="ì¶œê·¼">ì¶œê·¼</option>
+										<option value="í‡´ê·¼">í‡´ê·¼</option>
+										<option value="ì—¬ê°€" selected>ì—¬ê°€</option>
+										<option value="ì—¬í–‰">ì—¬í–‰</option>
+										<option value="ê¸°íƒ€">ê¸°íƒ€</option>
 									</c:when>
-									<c:when test="${b.cate eq '¿©Çà'}">
-										<option value="Ãâ±Ù">Ãâ±Ù</option>
-										<option value="Åğ±Ù">Åğ±Ù</option>
-										<option value="¿©°¡">¿©°¡</option>
-										<option value="¿©Çà" selected>¿©Çà</option>
-										<option value="±âÅ¸">±âÅ¸</option>
+									<c:when test="${b.cate eq 'ì—¬í–‰'}">
+										<option value="ì¶œê·¼">ì¶œê·¼</option>
+										<option value="í‡´ê·¼">í‡´ê·¼</option>
+										<option value="ì—¬ê°€">ì—¬ê°€</option>
+										<option value="ì—¬í–‰" selected>ì—¬í–‰</option>
+										<option value="ê¸°íƒ€">ê¸°íƒ€</option>
 									</c:when>
-									<c:when test="${b.cate eq '±âÅ¸'}">
-										<option value="Ãâ±Ù">Ãâ±Ù</option>
-										<option value="Åğ±Ù">Åğ±Ù</option>
-										<option value="¿©°¡">¿©°¡</option>
-										<option value="¿©Çà">¿©Çà</option>
-										<option value="±âÅ¸" selected>±âÅ¸</option>
+									<c:when test="${b.cate eq 'ê¸°íƒ€'}">
+										<option value="ì¶œê·¼">ì¶œê·¼</option>
+										<option value="í‡´ê·¼">í‡´ê·¼</option>
+										<option value="ì—¬ê°€">ì—¬ê°€</option>
+										<option value="ì—¬í–‰">ì—¬í–‰</option>
+										<option value="ê¸°íƒ€" selected>ê¸°íƒ€</option>
 									</c:when>
 								</c:choose>
 							</select>
@@ -91,27 +90,27 @@
 					</c:choose></td>
 			</tr>
 			<tr>
-				<td>Á¦¸ñ</td>
-				<td><input type="text" name="title" value="${b.title }" placeholder="Á¦¸ñ" ${readonly}></td>
+				<td>ì œëª©</td>
+				<td><input type="text" name="title" value="${b.title }" placeholder="ì œëª©" ${readonly}></td>
 			</tr>
 			<tr>
-				<td>³»¿ë</td>
+				<td>ë‚´ìš©</td>
 				<td><textarea rows="10" name="content"
-						style="resize: none" placeholder="EX) Áñ°Å¿î Ä«Ç® ¿øÇØ¿ä" ${readonly}>${b.content }</textarea></td>
+						style="resize: none" placeholder="EX) ì¦ê±°ìš´ ì¹´í’€ ì›í•´ìš”" ${readonly}>${b.content }</textarea></td>
 			</tr>
 			<tr>
-				<td>Ãâ¹ß À§Ä¡</td>
-				<td><input type="text" name="startPosi" value="${b.startPosi }"	id="sp1" placeholder="¿·ÀÇ Áöµµ¿¡¼­ ¼±ÅÃÇÏ¼¼¿ä" readonly>
+				<td>ì¶œë°œ ìœ„ì¹˜</td>
+				<td><input type="text" name="startPosi" value="${b.startPosi }"	id="sp1" placeholder="ì˜†ì˜ ì§€ë„ì—ì„œ ì„ íƒí•˜ì„¸ìš”" readonly>
 				</td>
 			</tr>
 			<tr>
-				<td>µµÂø À§Ä¡</td>
+				<td>ë„ì°© ìœ„ì¹˜</td>
 				<td>
-				<input type="text" name="endPosi" id="ep1" value="${b.endPosi }" placeholder="¿·ÀÇ Áöµµ¿¡¼­ ¼±ÅÃÇÏ¼¼¿ä" readonly>
+				<input type="text" name="endPosi" id="ep1" value="${b.endPosi }" placeholder="ì˜†ì˜ ì§€ë„ì—ì„œ ì„ íƒí•˜ì„¸ìš”" readonly>
 				</td>
 			</tr>
 			<tr>
-				<td>Ãâ¹ß ½Ã°£</td>
+				<td>ì¶œë°œ ì‹œê°„</td>
 				<td><c:choose>
 						<c:when test="${sessionScope.m.id eq b.writer}">
 							<input type="text" class="datetimepicker" name="startTime"
@@ -125,12 +124,12 @@
 					</c:choose></td>
 			</tr>
 			<tr>
-				<td>°¡°İ</td>
-				<td><input type="text" name="price" placeholder="¿ø"
+				<td>ê°€ê²©</td>
+				<td><input type="text" name="price" placeholder="ì›"
 					value="${b.price }" ${readonly}></td>
 			</tr>
 			<tr>
-				<td>¼ö¿ë ÀÎ¿ø</td>
+				<td>ìˆ˜ìš© ì¸ì›</td>
 				<td style="text-align: left">${b.seat} / <c:choose>
 						<c:when test="${sessionScope.m.id eq b.writer}">
 							<c:choose>
@@ -197,14 +196,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td>½ÅÃ»ÀÚ</td>
+				<td>ì‹ ì²­ì</td>
 				<td style="text-align: left">
-					½ÅÃ»ÀÚ 1 : ${b.passenger1}
+					ì‹ ì²­ì 1 : ${b.passenger1}
 					<c:if test="${b.maxSeat > 1}">
-						<br>½ÅÃ»ÀÚ 2 : ${b.passenger2}
+						<br>ì‹ ì²­ì 2 : ${b.passenger2}
 					</c:if>
 					<c:if test="${b.maxSeat > 2}">
-						<br>½ÅÃ»ÀÚ 3 : ${b.passenger3}
+						<br>ì‹ ì²­ì 3 : ${b.passenger3}
 					</c:if>
 				</td>
 			</tr>
@@ -212,18 +211,18 @@
 				<td colspan="2">
 					<c:choose>
 						<c:when test="${sessionScope.m.id eq b.writer}">
-							<input type="button" id="driverEdit" value="¼öÁ¤">
-							<input type="button" id="driverDel" value="»èÁ¦">
+							<input type="button" id="driverEdit" value="ìˆ˜ì •">
+							<input type="button" id="driverDel" value="ì‚­ì œ">
 						</c:when>
 						<c:when
 							test="${(sessionScope.m.type eq 2) && (b.seat < b.maxSeat) && !((sessionScope.m.id eq b.passenger1) || (sessionScope.m.id eq b.passenger2) || (sessionScope.m.id eq b.passenger3))}">
-							<input type="button" id="driverRequestAdd" value="½ÅÃ»">
+							<input type="button" id="driverRequestAdd" value="ì‹ ì²­">
 						</c:when>
 						<c:when
 							test="${ !empty sessionScope.m && ((sessionScope.m.id eq b.passenger1) || (sessionScope.m.id eq b.passenger2) || (sessionScope.m.id eq b.passenger3))}">
-							<input type="button" id="driverRequestDel" value="½ÅÃ»Ãë¼Ò">
+							<input type="button" id="driverRequestDel" value="ì‹ ì²­ì·¨ì†Œ">
 						</c:when>
-					</c:choose> <input type="button" id="driverList" value="¸ñ·Ï">
+					</c:choose> <input type="button" id="driverList" value="ëª©ë¡">
 				</td>
 			</tr>
 		</table>

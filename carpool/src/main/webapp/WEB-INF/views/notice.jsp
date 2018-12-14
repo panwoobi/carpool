@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
@@ -21,29 +20,29 @@
 				<span class="glyphicon">&#x2709;</span>Notice</td>
 		</tr>
 		<tr>
-<%-- 			<c:if test="${sessionScope.m.type == 0}"> --%>
+			<c:if test="${sessionScope.m.type == 0}">
 				<td colspan="4" style="text-align: right"><a href="${pageContext.request.contextPath }/noticeWrite">
 				<button type="button" class="btn btn-default btn-sm">
           <span class="glyphicon glyphicon-pencil"></span> write </button></a>
 				</td>
-<%-- 			</c:if> --%>
+			</c:if>
 		</tr>
 		<tr>
 			<td>
 				<table class="table table-hover">
 					<thead class="thead-light">
 						<tr>
-							<th scope="col">¹øÈ£</th>
-							<th scope="col">ÀÛ¼ºÀÚ</th>
-							<th scope="col">Á¦¸ñ</th>
-							<th scope="col">ÀÛ¼ºÀÏ</th>
+							<th scope="col">ë²ˆí˜¸</th>
+							<th scope="col">ìž‘ì„±ìž</th>
+							<th scope="col">ì œëª©</th>
+							<th scope="col">ìž‘ì„±ì¼</th>
 						</tr>
 					</thead>
 					<tbody>
 						<c:choose>
 							<c:when test="${empty list }">
 								<tr>
-									<td colspan="4">°Ô½Ã±ÛÀÌ ¾ø½À´Ï´Ù.</td>
+									<td colspan="4">ê²Œì‹œê¸€ì´ ì—†ìŠµë‹ˆë‹¤.</td>
 								</tr>
 							</c:when>
 							<c:when test="${!empty list }">

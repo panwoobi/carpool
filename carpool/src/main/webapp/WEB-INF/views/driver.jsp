@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
@@ -13,7 +13,7 @@
 	text-align: right;
 }
 
-/* Bootstrap ¼öÁ¤ */
+/* Bootstrap ìˆ˜ì • */
 .table {
 	width: 85%;
 	margin:auto;
@@ -47,7 +47,7 @@ div>#paging {
 	animation-duration: 1.5s;
 	animation-timing-function: ease;
 	animation-iteration-count: infinite;
-	/* À§ ¼Ó¼ºµéÀ» ÇÑ ÁÙ·Î Ç¥±âÇÏ±â */
+	/* ìœ„ ì†ì„±ë“¤ì„ í•œ ì¤„ë¡œ í‘œê¸°í•˜ê¸° */
 	/* -webkit-animation: blink 1.5s ease infinite; */
 }
 </style>
@@ -55,8 +55,8 @@ div>#paging {
 <body>
 	<div id="container">
 		<div align="right">
-			<!-- Login °ËÁõ -->
-			<!-- jstlÀÇ if¹®Àº else°¡ ¾ø¾î¼­ µû·Î °ËÁõÇØ¾ßÇÔ. -->
+			<!-- Login ê²€ì¦ -->
+			<!-- jstlì˜ ifë¬¸ì€ elseê°€ ì—†ì–´ì„œ ë”°ë¡œ ê²€ì¦í•´ì•¼í•¨. -->
 			<c:if test="${!empty sessionScope.m}">
 				<%-- <%@include file="loginOk.jsp" %> --%>
 			</c:if>
@@ -66,78 +66,78 @@ div>#paging {
 		</div>
 
 
-		<form action="${pageContext.request.contextPath }/Board1SearchController?t=0" method="post">
-			<input type="text" name="startPosi" placeholder="Ãâ¹ßÁö¿ª"> <input type="text" name="endPosi" placeholder="µµÂøÁö¿ª"> <input type="submit" value="Search">
+		<form action="${pageContext.request.contextPath }/driverListSearch" method="post">
+			<input type="text" name="startPosi" placeholder="ì¶œë°œì§€ì—­"> <input type="text" name="endPosi" placeholder="ë„ì°©ì§€ì—­"> <input type="submit" value="Search">
 		</form>
 
 		<div id="list">
-			<b>°Ô½ÃÆÇ (ÀüÃ¼ ±Û: ${totalCount})</b>
+			<b>ê²Œì‹œíŒ (ì „ì²´ ê¸€: ${totalCount})</b>
 		</div>
 
 		<div id="write">
-			<a href="${pageContext.request.contextPath }/driverWriteForm">±Û¾²±â</a>
+			<a href="${pageContext.request.contextPath }/driverWriteForm">ê¸€ì“°ê¸°</a>
 		</div>
 
 		<div>
 			<table class="table table-striped table-bordered table-hover">
 				<thead>
 					<tr>
-						<th width="5%">¹øÈ£</th>
-						<th width="10%">ÀÛ¼ºÀÚ</th>
-						<th width="20%">Á¦¸ñ</th>
-						<th width="15%">Ãâ¹ß</th>
-						<th width="15%">µµÂø</th>
-						<th width="10%">À¯Çü</th>
-						<th width="5%">ÀÚ¸®</th>
-						<th width="10%">±İ¾×</th>
-						<th width="10%">ÀÛ¼ºÀÏ</th>
+						<th width="5%">ë²ˆí˜¸</th>
+						<th width="10%">ì‘ì„±ì</th>
+						<th width="20%">ì œëª©</th>
+						<th width="15%">ì¶œë°œ</th>
+						<th width="15%">ë„ì°©</th>
+						<th width="10%">ìœ í˜•</th>
+						<th width="5%">ìë¦¬</th>
+						<th width="10%">ê¸ˆì•¡</th>
+						<th width="10%">ì‘ì„±ì¼</th>
 					</tr>
 				</thead>
 				<tbody>
-					<c:forEach var="article" items="${articles}" varStatus="status">
-						<tr>
-							<td>${article.articleNumber}</td>
-							<td id="title">
-								<c:if test="${article.depth > 0}">
-	                  				&nbsp;&nbsp;
-	                  			</c:if>
-	                  			<a href="/bbs/content.bbs?articleNumber=${article.articleNumber}&pageNum=${pageNum}">${article.title}</a>
+<%-- 					<c:forEach var="article" items="${articles}" varStatus="status"> --%>
+<!-- 						<tr> -->
+<%-- 							<td>${article.articleNumber}</td> --%>
+<!-- 							<td id="title"> -->
+<%-- 								<c:if test="${article.depth > 0}"> --%>
+<!-- 	                  				&nbsp;&nbsp; -->
+<%-- 	                  			</c:if> --%>
+<%-- 	                  			<a href="/bbs/content.bbs?articleNumber=${article.articleNumber}&pageNum=${pageNum}">${article.title}</a> --%>
 <%-- 	                  			<c:if test="${article.hit >= 20}"> --%>
 <!-- 									<span class="hit">hit!</span> -->
 <%-- 								</c:if> --%>
-							</td>
-							<td>${article.id}</td>
-							<td>${article.writeDate}</td>
-							<td>${article.hit}</td>
-							
-							
-					<c:choose>
-						<c:when test="${empty list }">
-							<tr>
-								<td colspan="9">°Ô½Ã±ÛÀÌ ¾ø½À´Ï´Ù.</td>
-							</tr>
-						</c:when>
-						<c:when test="${!empty list }">
-							<c:forEach var="b" items="${list }" varStatus="status">
+<!-- 							</td> -->
+<%-- 							<td>${article.id}</td> --%>
+<%-- 							<td>${article.writeDate}</td> --%>
+<%-- 							<td>${article.hit}</td> --%>
+<!-- 						</tr> -->
+						
+						<c:choose>
+							<c:when test="${empty list }">
 								<tr>
-									<td>${b.num}</td>
-									<td><img id="viewProfile" src="${pageContext.request.contextPath }/img/${b.profile }"><br>${b.writer}</td>
-									<td><a href="${pageContext.request.contextPath }/Board1DriverDetailController?num=${b.num }">${b.title}</a></td>
-									<td>${b.startPosi}</td>
-									<td>${b.endPosi}</td>
-									<td>${b.cate}</td>
-									<td>${b.seat}/ ${b.maxSeat}</td>
-									<td>${b.price}¿ø</td>
-									<td>${b.w_date}</td>
+									<td colspan="9">ê²Œì‹œê¸€ì´ ì—†ìŠµë‹ˆë‹¤.</td>
 								</tr>
-							</c:forEach>
-						</c:when>
-					</c:choose>
-					</c:forEach>
+							</c:when>
+							<c:when test="${!empty list }">
+								<c:forEach var="b" items="${list }" varStatus="status">
+									<tr>
+										<td>${b.num}</td>
+										<td><img id="viewProfile" src="${b.profile }" class="img-thumbnail"><br>${b.writer}</td>
+										<td><a href="${pageContext.request.contextPath }/driverDetail?num=${b.num }">${b.title}</a></td>
+										<td>${b.start_posi}</td>
+										<td>${b.end_posi}</td>
+										<td>${b.cate}</td>
+										<td>${b.seat}/ ${b.maxSeat}</td>
+										<td>${b.price}ì›</td>
+										<td>${b.w_date}</td>
+									</tr>
+								</c:forEach>
+							</c:when>
+						</c:choose>
+<%-- 					</c:forEach> --%>
 				</tbody>
 			</table>
 
-			<!-- Paging Ã³¸® -->
+			<!-- Paging ì²˜ë¦¬ -->
 			<div id="paging">${pageCode}</div>
 		</div>
 

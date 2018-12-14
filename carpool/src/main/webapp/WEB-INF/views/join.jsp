@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <script type="text/javascript">
@@ -14,11 +13,11 @@ $('document').ready(function() {
 	<br>
 		<table id="joinTable">
 			<tr>
-				<td style="width: 150px">¾ÆÀÌµð<br>ºñ¹Ð¹øÈ£<br>ÀÌ¸§<br>ÀÌ¸ÞÀÏ<br>ÀüÈ­¹øÈ£<br>»çÁø<br>°¡ÀÔÀ¯Çü<br>¼ºº°<br>Èí¿¬¿©ºÎ</td>
+				<td style="width: 150px">ì•„ì´ë””<br>ë¹„ë°€ë²ˆí˜¸<br>ì´ë¦„<br>ì´ë©”ì¼<br>ì „í™”ë²ˆí˜¸<br>ì‚¬ì§„<br>ê°€ìž…ìœ í˜•<br>ì„±ë³„<br>í¡ì—°ì—¬ë¶€</td>
 				<td>
 				<input type="text" name="id" placeholder="hong"><br> 
 				<input type="password" name="pwd" placeholder="****"><br>
-				<input type="text" name="name" placeholder="È«±æµ¿"><br> 
+				<input type="text" name="name" placeholder="í™ê¸¸ë™"><br> 
 				<input type="email" name="email" placeholder="a@a.com"><br>
 				<input type="tel" name="tel" placeholder="010-1111-1111"><br>
 				<input type="file" name="profile"><br>

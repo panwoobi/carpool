@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <style>
@@ -19,32 +18,30 @@
 <body>
 	<form class="border border-primary" action="boardFAdd" method="post" name="f" >
 		<table class="table">
-			<tr>
-				<th scope="row">ÀÛ¼ºÀÚ</th>
-				<td><input type="text" name="writer"></td>
-				<!-- 				<td><input type="hidden" name="writer" -->
-				<%-- 					value="${sessionScope.m.id }">${sessionScope.m.id}</td> --%>
+				<tr>
+				<th scope="row">ì‘ì„±ì</th>
+				<td><input type="hidden" name="writer" value="${sessionScope.m.id }">${sessionScope.m.id}</td>
 			</tr>
 			<tr>
-				<label for="validationCustom01"><th scope="row">Á¦¸ñ</th></label>
+				<label for="validationCustom01"><th scope="row">ì œëª©</th></label>
 				<td><textarea class="form-control" rows="1" name="title" id="validationCustom01" required></textarea>
 					<div class="invalid-feedback">Please provide a valid title.</div></td>
 			</tr>
 			<tr>
-				<label for="validationCustom02"><th scope="row">³»¿ë</th></label>
+				<label for="validationCustom02"><th scope="row">ë‚´ìš©</th></label>
 				<td><textarea class="form-control" rows="5" name="content" id="validationCustom02" required></textarea>
 					<div class="invalid-feedback">Please provide a valid content.</div></td>
 				
 			</tr>
 			<tr>
 				<td colspan="2">
-				<input class="btn btn-primary" type="submit" value="ÀÛ¼º"> 
-				<a href="${pageContext.request.contextPath }/boardFList"><input class="btn btn-default" type="button" value="¸ñ·Ï"></a></td>
+				<input class="btn btn-primary" type="submit" value="ì‘ì„±"> 
+				<a href="${pageContext.request.contextPath }/boardFList"><input class="btn btn-default" type="button" value="ëª©ë¡"></a></td>
 			</tr>
 		</table>
 		 <script>
       $('#validationCustom02').summernote({
-        placeholder: '³»¿ëÀ» ÀÛ¼ºÇÏ¼¼¿ä',
+        placeholder: 'ë‚´ìš©ì„ ì…ë ¥í•˜ì„¸ìš”',
         tabsize: 2,
         height: 100
       });

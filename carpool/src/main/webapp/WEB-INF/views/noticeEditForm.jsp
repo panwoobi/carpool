@@ -1,60 +1,105 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <style>
 .table {
-  width: 85%;
-  margin-left:auto;
-  margin-right:auto;
-  margin-top:50px;
-  margin-bottom:50px;
+	width: 85%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 50px;
+	margin-bottom: 50px;
 }
 </style>
 <head>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
+<script type="text/javascript"
+	src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+<link
+	href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote-lite.css"
+	rel="stylesheet">
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote-lite.js"></script>
 </head>
 <body>
 	<br>
 	<br>
-	<form class="border border-primary" action="noticeEdit" method="post" name="f" >
+	<form class="border border-primary" action="noticeEdit" method="post" name="f">
+	<c:choose>
+	   <c:when test="${sessionScope.m.id==b.writer}">
 		<table class="table">
-		    <tr>
-				<th scope="row">±Û¹øÈ£</th>
-				<td><input type="hidden" name="num" value="${b.num }" readonly>${b.num }</td>
-			</tr>
-			<tr>
-				<th scope="row">ÀÛ¼ºÀÚ</th>
-				<td><input type="hidden" name="writer" value="${b.writer }"readonly>${b.writer }</td>
-			</tr>
-			<tr>
-				<th scope="row">ÀÛ¼ºÀÏ</th>
-				<td><input type="hidden" name="w_date" value="${b.w_date }"readonly>${b.w_date }</td>
-			</tr>
-			<tr>
-				<th scope="row">Á¦¸ñ</th>
-				<td><textarea class="form-control" rows="1" name="title">${b.title }</textarea></td>
-			</tr>
-			<tr>
-				<th scope="row">³»¿ë</th>
-				<td><textarea class="form-control" rows="5" name="content">${b.content}</textarea></td>
-			</tr>
-			<tr>
-				<td colspan="10">
-				     <c:choose>
-						<c:when test="${sessionScope.m.id==b.writer}">
-							<input class="btn btn-primary" type="submit" value="ÀÛ¼º">
-							<a href="${pageContext.request.contextPath }/noticeDel?num=${b.num }"><input class="btn btn-default" type="button" value="»èÁ¦"></a>
-							<input class="btn btn-default" type="button" value="¸ñ·Ï">
-						</c:when>
-						<c:when test="${sessionScope.m.id!=b.writer}">
-							<input class="btn btn-default" type="button" value="¸ñ·Ï">
-						</c:when>
-					</c:choose></td>
-			</tr>
-		</table>
+			
+					<tr>
+						<th scope="row">ê¸€ë²ˆí˜¸</th>
+						<td><input type="hidden" name="num" value="${b.num }" readonly>${b.num }</td>
+					</tr>
+					<tr>
+						<th scope="row">ì‘ì„±ì</th>
+						<td><input type="hidden" name="writer" value="${b.writer }" readonly>${b.writer }</td>
+					</tr>
+					<tr>
+						<th scope="row">ì‘ì„±ì¼</th>
+						<td><input type="hidden" name="w_date" value="${b.w_date }" readonly>${b.w_date }</td>
+					</tr>
+					<tr>
+						<label for="validationCustom01"><th scope="row">ì œëª©</th></label>
+						<td><textarea class="form-control" rows="1" id="validationCustom01" name="title" required>${b.title }</textarea></td>
+					</tr>
+					<tr>
+						<label for="validationCustom02"><th scope="row">ë‚´ìš©</th></label>
+						<td><textarea class="form-control" rows="5" id="validationCustom02" name="content" required>${b.content}</textarea></td>
+					</tr>
+					<tr>
+						<td colspan="10">
+						<input class="btn btn-primary" type="submit" value="ìˆ˜ì •"> 
+						<a href="${pageContext.request.contextPath }/noticeDel?num=${b.num }"><input class="btn btn-default" type="button" value="ì‚­ì œ"></a> 
+						<a href="${pageContext.request.contextPath }/notice"><input class="btn btn-default" type="button" value="ëª©ë¡"></a>
+						</td>
+					</tr>
+		         </table>
+				</c:when>
+				<c:when test="${sessionScope.m.id!=b.writer}">
+				<table class="table">
+
+					<tr>
+						<th scope="row">ê¸€ë²ˆí˜¸</th>
+						<td><input type="hidden" name="num" value="${b.num }" readonly>${b.num }</td>
+					</tr>
+					<tr>
+						<th scope="row">ì‘ì„±ì</th>
+						<td><input type="hidden" name="writer" value="${b.writer }" readonly>${b.writer }</td>
+					</tr>
+					<tr>
+						<th scope="row">ì‘ì„±ì¼</th>
+						<td><input type="hidden" name="w_date" value="${b.w_date }" readonly>${b.w_date }</td>
+					</tr>
+					<tr>
+						<th scope="row">ì œëª©</th>
+						<td><c:out value="${b.title}" escapeXml="false"><textarea class="form-control" rows="1" name="title" readonly>${b.title }</textarea></c:out></td>
+					</tr>
+					<tr>
+					    <th scope="row">ë‚´ìš©</th>
+						<td><c:out value="${b.content}" escapeXml="false"><textarea class="form-control" rows="5" name="content"  value="${b.content}" readonly></textarea></c:out></td>
+					</tr>
+					<tr>
+						<td colspan="10">
+						<a href="${pageContext.request.contextPath }/notice"><input class="btn btn-default" type="button" value="ëª©ë¡"></a>
+						</td>
+					</tr>
+		         </table>
+
+				</c:when>
+			</c:choose>
+			
+		<script>
+			$('#validationCustom02').summernote({
+				placeholder : 'ë‚´ìš©ì„ ì‘ì„±í•˜ì„¸ìš”',
+				tabsize : 2,
+				height : 100
+			});
+		</script>
 	</form>
 	<br>
 	<br>

@@ -1,8 +1,5 @@
 package com.kitri.carpool;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -24,19 +21,17 @@ public class HomeController {
 		
 		return "intro.tiles";
 	}
-//	
-//	@RequestMapping(value = "/recruit", method = RequestMethod.GET)
-//	public String recruit() {
-//		
-//		return "recruit.tiles";
-//
-//	}
-//
-//	@RequestMapping(value = "/driver", method = RequestMethod.GET)
-//	public String driver() {
-//		
-//		return "driver.tiles";
-//	}
 
+	@RequestMapping(value = "/driver", method = RequestMethod.GET)
+	public String driver() {
+		
+		return "driver.tiles";
+	}
 	
+	@RequestMapping(value = "/recruit", method = RequestMethod.GET)
+	public String recruit() {
+		
+		return "recruit.tiles";
+
+	}	
 }

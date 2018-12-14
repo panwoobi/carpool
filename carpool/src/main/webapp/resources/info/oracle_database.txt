@@ -154,13 +154,15 @@ commit;
 
 ------------------------------------------------------------------
 
-drop table c_reps;
-drop table c_car;
-drop table c_board2;
-drop table c_board1;
-drop table c_member;
 drop sequence seq_c_boardd;
 drop sequence seq_c_boardf;
 drop sequence seq_c_boardn;
 drop sequence seq_c_boardp;
+drop table c_reps;
+drop table c_car;
+drop table c_boardd;
+drop table c_boardf;
+drop table c_boardn;
+drop table c_boardp;
+drop table c_member;
 commit;

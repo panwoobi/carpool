@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <style>
@@ -12,38 +11,38 @@
 }
 
 </style>
-<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/jquery.cleditor.css"/>
 <script type="text/javascript" src="//code.jquery.com/jquery-3.3.1.min.js"></script>
-<script src="resources/js/jquery.cleditor.min.js">
-$(document).ready(function () {
-	$('textarea#validationCustom04').cleditor(); 
-});
-</script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote-lite.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote-lite.js"></script>
 <body>
 	<form class="border border-primary" action="noticeWrite" method="post" name="f">
 			<table class="table">
 			<tr>
-				<th scope="row">ÀÛ¼ºÀÚ</th>
-				  <td><input type="text" name="writer"></td>
-<!-- 				<td><input type="hidden" name="writer" -->
-<%-- 					value="${sessionScope.m.id }">${sessionScope.m.id}</td> --%>
+				<th scope="row">ì‘ì„±ì</th>
+				<td><input type="hidden" name="writer" value="${sessionScope.m.id }">${sessionScope.m.id}</td>
 			</tr>
 			<tr>
-				<label for="validationCustom03"><th scope="row">Á¦¸ñ</th></label>
+				<label for="validationCustom03"><th scope="row">ì œëª©</th></label>
 				<td><textarea class="form-control" rows="1"  name="title" id="validationCustom03" required></textarea>
 				<div class="invalid-feedback">Please provide a valid title.</div></td>
 			</tr>
-			<tr>
-				<label for="validationCustom04"><th scope="row">³»¿ë</th></label>
+				<label for="validationCustom04"><th scope="row">ë‚´ìš©</th></label>
 				<td><textarea class="form-control" rows="5"  name="content"  id="validationCustom04" required></textarea>
 				<div class="invalid-feedback">Please provide a valid content.</div></td>
 			</tr>
 			<tr>
 				<td colspan="2">
-				<input class="btn btn-primary" type="submit"value="ÀÛ¼º"> 
-				<a href="${pageContext.request.contextPath }/notice"><input class="btn btn-default" type="button"value="¸ñ·Ï"></a></td>
+				<input class="btn btn-primary" type="submit"value="ì‘ì„±"> 
+				<a href="${pageContext.request.contextPath }/notice"><input class="btn btn-default" type="button"value="ëª©ë¡"></a></td>
 			</tr>
 		</table>
+		 <script>
+      $('#validationCustom04').summernote({
+        placeholder: 'ë‚´ìš©ì„ ì…ë ¥í•˜ì„¸ìš”',
+        tabsize: 2,
+        height: 100
+      });
+    </script>
 	</form>
 	<br>
 	<br>

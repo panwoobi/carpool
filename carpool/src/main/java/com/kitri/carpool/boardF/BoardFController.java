@@ -22,7 +22,6 @@ public class BoardFController {
 	
 	@RequestMapping(value = "/boardFAdd", method = RequestMethod.GET)
 	public String boardFAdd() {
-		System.out.println("컨트롤러입니다.");
 		return "boardFAdd.tiles";
 	}
 
@@ -51,10 +50,6 @@ public class BoardFController {
 		return mav;
 
 	}
-
-	
-	
-	
 	@RequestMapping("/boardFEdit")
 	public String edit(BoardF b) {
 		service.edit(b);
