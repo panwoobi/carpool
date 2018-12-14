@@ -165,12 +165,12 @@
 					</c:when>
 					<c:when test="${!empty sessionScope.m && sessionScope.m.type eq 0}">
 						<form id="info" action="" method="post">
-							${sessionScope.m.name } (${sessionScope.m.id })님 안녕하세요.
+							<p style="font-size:18px"><a href="${pageContext.request.contextPath }/menu">${sessionScope.m.name } (${sessionScope.m.id })</a>님 안녕하세요.</p><a href="#" class="badge badge-primary" id="logout">Logout</a>
 							</form>
 					</c:when>
 					<c:when test="${!empty sessionScope.m && sessionScope.m.type eq 2}">
 						<form id="info" action="" method="post">
-							${sessionScope.m.name } (${sessionScope.m.id })님 안녕하세요.<br> <a href="#" class="badge badge-primary">Partner</a>  <a href="#" class="badge badge-primary">Edit</a> <a href="#" id="out" class="badge badge-primary">Out</a> <a href="#" class="badge badge-primary" id="logout">Logout</a>
+							<p style="font-size:18px"><a href="${pageContext.request.contextPath }/menu">${sessionScope.m.name } (${sessionScope.m.id })</a>님 안녕하세요.</p><a href="#" class="badge badge-primary" id="logout">Logout</a>
 						</form>
 					</c:when>
 				</c:choose>

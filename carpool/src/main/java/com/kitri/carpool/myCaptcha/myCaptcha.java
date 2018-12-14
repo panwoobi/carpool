@@ -106,6 +106,7 @@ public class myCaptcha {
 			path = "redirect:/";
 
 		}
+		System.out.println(m.getProfile());
 		service.join(m);
 		System.out.println(m);
 		return path;

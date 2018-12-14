@@ -23,7 +23,7 @@ public class BoardFRepController {
 	public ModelAndView add(BoardFRep br) {
 		service.add(br);
 		ArrayList<BoardFRep> list = service.getByBoardNum(br.getBoard_num());
-		ModelAndView mav = new ModelAndView("boardFList.tiles");
+		ModelAndView mav = new ModelAndView("boardFRep.tiles");
 		mav.addObject("list", list);
 		return mav;
 	}

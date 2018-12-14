@@ -7,15 +7,15 @@
 		<result column="num" property="num" />
 		<result column="writer" property="writer" />
 		<result column="board_num" property="board_num" />
-		<result column="content" property="content" />	
+		<result column="comment" property="comment" />	
 	</resultMap>
 
 	<insert id="insert" parameterType="com.kitri.carpool.boardFRep.BoardFRep">
-		insert into c_boardf_rep values(seq_c_boardf_rep.nextval, #{writer}, #{board_num}, #{content})
+		insert into c_boardf_rep values(seq_c_boardf_rep.nextval, #{writer}, #{board_num}, #{comment})
 	</insert>
 	
 	<update id="update" parameterType="com.kitri.carpool.boardFRep.BoardFRep">
-		update c_boardf_rep set content=#{content} where num=#{num}
+		update c_boardf_rep set content=#{comment} where num=#{num}
 	</update>
 
 	<delete id="delete" parameterType="int">

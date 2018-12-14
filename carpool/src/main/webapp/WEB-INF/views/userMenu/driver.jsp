@@ -52,13 +52,42 @@
       read(this);
     });
 	  
-	  $("#profileCommit").click(function(){
+	$("#profileCommit").click(function(){
 	    alert("Profile Change Commit");
 	  });
-
+	
+	$('#re').click(function(){
+	    location.reload();
 	});
+	
+	$("#deleteDriver").click(function(){
+	  
+	  	var pwd =$('#deletePwd').val();
+	    var obj = new Object();
+        obj.input = pwd;
+        var jsonData = JSON.stringify(obj);
 
-
+	    $.ajax({
+	      url : "${pageContext.request.contextPath }/delete",
+	      type : "POST",
+	      dataType: "json",
+	      data: jsonData,
+	      contentType : "application/json",
+	      success : function(responseData) {
+	       
+	       	if(responseData==true){
+	       	  alert("Success");
+	       	 window.location.href = "${pageContext.request.contextPath }/";
+	       	}else{
+	           alert("Not Correct Password");
+	       	}
+	      }
+	    });
+	});
+	
+	
+	
+	});
 </script>
 
 
@@ -72,7 +101,7 @@
 						<div class="form-group row">
 							<div class="container">
 									<div style="width: 140px; height: 140px; overflow: hidden border-radius: 70px; margin-left: auto; margin-right: auto; display: block;">
-										<img id="editProfile" class="rounded-circle" src="${sessionScope.m.profile }" style="width: 140px; height: 140px; margin-left: auto; margin-right: auto; display: block;">
+										<img id="editProfile" class="rounded-circle" src="/profile/${sessionScope.m.id }.jpg" style="width: 140px; height: 140px; margin-left: auto; margin-right: auto; display: block;">
 									</div>
 									<form action="${pageContext.request.contextPath }/editProfile" method="POST" enctype="multipart/form-data">
 									<input type="file" id="editProfileBtn" name="editProfileBtn" style="display: none;">
@@ -341,11 +370,26 @@
 		        <div class="card-body">
  					<div class="row">
 		                <div class="col-md-12">
-		                    <h4>Car Enroll</h4>
+		                    <h4>Delete Account</h4>
 		                    <hr>
 		                </div>
 		            </div>
-	
+	 				<div class="row">
+		                <div class="col-md-12">
+		                    Once you delete your account, there is no going back. Please be certain.<br>
+							All Information you write will be remove.<br><br>
+							Confirm your password<br><br>
+							<input type="password" id="deletePwd" placeholder="Password"><br><br>
+							If you conform notice, please click the "OUT" button<br><br>
+		                </div>
+		                <div class="form-group row">
+                              <div class="col-md-12">
+                              <div class="container">
+                                  <input id="deleteDriver" value="Out" class="form-control here" type="button">
+                              </div>
+                              </div>
+                        </div>
+		            </div>
 		            
 		        </div>
 		    </div>

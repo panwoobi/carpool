@@ -1,14 +1,17 @@
 package com.kitri.carpool.member;
 
 import java.io.File;
+import java.util.Map;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.kitri.carpool.car.Car;
@@ -68,14 +71,20 @@ public class MemberController {
 		return "redirect:/";
 	}
 
-	@RequestMapping("/out")
-	public String out() {
-		return "loginFunc/out.tiles";
-	}
-
 	@RequestMapping("/menu")
-	public String menu() {
-		return "/userMenu/driver.tiles";
+	public String menu(HttpServletRequest req) {
+		String path = "";
+		HttpSession session = req.getSession(false);
+		Member m = (Member) session.getAttribute("m");
+		if (m.getType() == 0) {
+			path = "/userMenu/admin.tiles";
+		} else if (m.getType() == 1) {
+			path = "/userMenu/driver.tiles";
+		} else if (m.getType() == 2) {
+			path = "/userMenu/passenger.tiles";
+		}
+
+		return path;
 	}
 
 	@RequestMapping("/editInfo")
@@ -112,8 +121,30 @@ public class MemberController {
 			m.setProfile("/profile/" + m.getId() + "." + t);
 
 		}
+		session.setAttribute("m", m);
 		service.editProfile(m);
-		return "/userMenu/driver.tiles";
+		return "redirect:/menu";
+	}
+
+	@RequestMapping("/delete")
+	@ResponseBody
+	public Boolean deleteDriver(@RequestBody Map<String, String> map, HttpServletRequest req) {
+
+		String input = map.get("input");
+		HttpSession session = req.getSession(false);
+		Member m = (Member) session.getAttribute("m");
+		Boolean b = service.out(m.getId(), input);
+		if (b == true) {
+			session.removeAttribute("m");
+			session.removeAttribute("c");
+			session.invalidate();
+
+			if (!m.getProfile().equals("/profile/default_profile.jpg")) {
+				File f = new File(pi.getPath() + m.getProfile());
+				f.delete();
+			}
+		}
+		return b;
 	}
 
 }
