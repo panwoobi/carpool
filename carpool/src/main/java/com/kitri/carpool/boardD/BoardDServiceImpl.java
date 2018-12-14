@@ -1,6 +1,7 @@
 package com.kitri.carpool.boardD;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 import javax.annotation.Resource;
 
@@ -96,9 +97,9 @@ public class BoardDServiceImpl implements BoardDService {
 	}
 	
 	@Override
-	public ArrayList<BoardD> getByStartEnd(String start_posi, String end_posi) {
+	public ArrayList<BoardD> getByStartEnd(Map map) {
 		dao = sqlSession.getMapper(BoardDDao.class);
-		return dao.selectByStartEnd(start_posi, end_posi);
+		return dao.selectByStartEnd(map);
 	}
 
 	@Override

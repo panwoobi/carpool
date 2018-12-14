@@ -1,6 +1,7 @@
 package com.kitri.carpool.boardD;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 public interface BoardDService {
 	
@@ -30,7 +31,7 @@ public interface BoardDService {
 	
 	public void editDriver(BoardD b);
 
-	public ArrayList<BoardD> getByStartEnd(String start_posi, String end_posi);
+	public ArrayList<BoardD> getByStartEnd(Map map);
 
 	public ArrayList<BoardD> getByDriver(String driver);
 

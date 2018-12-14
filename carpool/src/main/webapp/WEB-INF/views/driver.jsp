@@ -66,10 +66,9 @@ div>#paging {
 			<b>게시판 (전체 글: ${totalCount})</b>
 		</div>
 
-
 		<div>
-			<table class="table table-striped table-bordered table-hover">
-				<thead>
+			<table class="table table-hover">
+				<thead class="thead-light">
 					<tr>
 						<th width="7%">번호</th>
 						<th width="10%">작성자</th>

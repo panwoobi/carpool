@@ -32,26 +32,19 @@ public class BoardDController {
 		ModelAndView mav = new ModelAndView();
 		
 		ArrayList<BoardD> list = new ArrayList<BoardD>();
+		int totalCount;
 		String start_posi = req.getParameter("start_posi");
 		String end_posi = req.getParameter("end_posi");
 		
-		if(start_posi == null || start_posi == "") {
-			// 엔드로 검색
-			list = service.getByEndPosi(end_posi);
-		} else if (end_posi == null || end_posi == "") {
-			// 스타스로 검색
-			list = service.getByStartPosi(start_posi);
-		} else {
-			Map<String, String> map = new HashMap<String, String>();
-			map.put("start_posi", start_posi);
-			map.put("end_posi", end_posi);
-			// 둘다 있음
-		}
+		Map<String, String> map = new HashMap<>();
+		map.put("0", start_posi);
+		map.put("1", end_posi);
+		list = service.getByStartEnd(map);
+		
+		totalCount = service.getAll().size();
 		mav.setViewName("driver.tiles");
 		mav.addObject("list", list);
-//		ArrayList<BoardD> list1 = service.getByStartPosi(start_posi);
-//		ArrayList<BoardD> list2 = service.getByEndPosi(end_posi);
-//		ArrayList<BoardD> list3 = service.getByStartEnd(start_posi, end_posi);
+		mav.addObject("totalCount", totalCount);
 		
 		return mav;
 	}
