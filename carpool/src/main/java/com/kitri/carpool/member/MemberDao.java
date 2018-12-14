@@ -12,4 +12,5 @@ public interface MemberDao {
 	public ArrayList<Member> selectByType(int type);
 	public ArrayList<Member> selectBySex(int sex);
 	public ArrayList<Member> selectAll();
+	public void updateProfile(Member m);
 }
