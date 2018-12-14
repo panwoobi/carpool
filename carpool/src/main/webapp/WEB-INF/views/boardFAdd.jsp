@@ -20,7 +20,8 @@
 		<table class="table">
 			<tr>
 				<th scope="row">작성자</th>
-				<td><input type="hidden" name="writer" value="${sessionScope.m.id }">${sessionScope.m.id}</td>
+<!-- 				<td><input name="writer" type="text"></td> -->
+          <td><input type="hidden" name="writer" value="${sessionScope.m.id }">${sessionScope.m.id}</td> 
 			</tr>
 			<tr>
 				<th scope="row"><label for="validationCustom01">제목</label></th>
