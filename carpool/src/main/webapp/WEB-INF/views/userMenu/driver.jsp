@@ -52,13 +52,28 @@
       read(this);
     });
 	  
-	  $("#profileCommit").click(function(){
+	$("#profileCommit").click(function(){
 	    alert("Profile Change Commit");
 	  });
 
+	$("#deleteDriver").click(function(){
+	  
+	  	var pwd =$('#deletePwd').val();
+
+	    $.ajax({
+	      url : "${pageContext.request.contextPath }/deleteDriver",
+	      type : "POST",
+	      dataType: "json",
+	      contentType : "application/json",
+	      success : function(responseData) {
+	       
+	      }
+	    });
 	});
-
-
+	
+	
+	
+	});
 </script>
 
 
@@ -341,11 +356,26 @@
 		        <div class="card-body">
  					<div class="row">
 		                <div class="col-md-12">
-		                    <h4>Car Enroll</h4>
+		                    <h4>Delete Account</h4>
 		                    <hr>
 		                </div>
 		            </div>
-	
+	 				<div class="row">
+		                <div class="col-md-12">
+		                    Once you delete your account, there is no going back. Please be certain.<br>
+							All Information you write will be remove.<br><br>
+							Confirm your password<br><br>
+							<input type="password" id="deletePwd" placeholder="Password"><br><br>
+							If you conform notice, please click the "OUT" button<br><br>
+		                </div>
+		                <div class="form-group row">
+                              <div class="col-md-12">
+                              <div class="container">
+                                  <input id="deleteDriver" value="Out" class="form-control here" type="button">
+                              </div>
+                              </div>
+                        </div>
+		            </div>
 		            
 		        </div>
 		    </div>

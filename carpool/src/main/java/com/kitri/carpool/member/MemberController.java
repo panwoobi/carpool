@@ -29,17 +29,15 @@ public class MemberController {
 	@Resource(name = "carService")
 	private CarService cservice;
 
-	
 	private PathInfo pi;
 
 	public MemberController() {
 		pi = PathInfo.getInstance();
 	}
-	
+
 	public void setService(MemberService service) {
 		this.service = service;
 	}
-	
 
 	@RequestMapping("/myLogin")
 	public String myLogin(Member m, HttpServletRequest req) {
@@ -74,11 +72,6 @@ public class MemberController {
 		return "redirect:/";
 	}
 
-	@RequestMapping("/out")
-	public String out() {
-		return "loginFunc/out.tiles";
-	}
-
 	@RequestMapping("/menu")
 	public String menu() {
 		return "/userMenu/driver.tiles";
@@ -100,7 +93,7 @@ public class MemberController {
 
 	@RequestMapping("/editProfile")
 	public String editProfile(@RequestParam("editProfileBtn") MultipartFile file, HttpServletRequest req) {
-		
+
 		HttpSession session = req.getSession(false);
 		Member m = (Member) session.getAttribute("m");
 		MultipartFile f = file;
@@ -120,6 +113,11 @@ public class MemberController {
 		}
 		service.editProfile(m);
 		return "/userMenu/driver.tiles";
+	}
+
+	@RequestMapping("/deleteDriver")
+	public void deleteDriver() {
+
 	}
 
 }
