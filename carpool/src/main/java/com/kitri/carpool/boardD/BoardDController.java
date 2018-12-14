@@ -25,13 +25,27 @@ public class BoardDController {
 	}
 	
 	@RequestMapping(value = "/driverList", method = RequestMethod.GET)
-	public ModelAndView list() {
+	public ModelAndView list(HttpServletRequest req) {
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("driver.tiles");
-		ArrayList<BoardD> list = service.getAll();
-		int totalCount = list.size();
+		ArrayList<BoardD> list = service.getAll();		
 		mav.addObject("list", list);
-		mav.addObject("totalCount", totalCount);
+		mav.setViewName("driver.tiles");
+		return mav;
+	}
+	
+	@RequestMapping(value = "/driverList", method = RequestMethod.POST)
+	public String listPOST(HttpServletRequest req) {
+		return "redirect:driverList";
+	}
+	
+	@RequestMapping(value = "/driverDetail", method = RequestMethod.GET)
+	public ModelAndView edit(HttpServletRequest req) {
+		ModelAndView mav = new ModelAndView();
+		int num = Integer.parseInt(req.getParameter("num"));
+		System.out.println(num);
+		BoardD b = service.getByNum(num);		
+		mav.addObject("b", b);
+		mav.setViewName("driverEditForm.tiles");
 		return mav;
 	}
 
@@ -52,23 +66,30 @@ public class BoardDController {
 		
 		Member m = (Member)session.getAttribute("m");
 		
-		String cate = request.getParameter("cate");
-		String start_time = request.getParameter("start_time");
-		String start_posi = request.getParameter("start_posi");
-		String end_posi = request.getParameter("end_posi");
-		int price = Integer.parseInt(request.getParameter("price"));
-		String content = request.getParameter("content");
-		String title = request.getParameter("title");
-		int maxSeat = Integer.parseInt(request.getParameter("maxSeat"));
-		int seat = 0;
-		String profile = "/profile/" + m.getProfile();
-		Double s_x = Double.valueOf(request.getParameter("spx"));
-		Double s_y = Double.valueOf(request.getParameter("spy"));
-		Double e_x = Double.valueOf(request.getParameter("epx"));
-		Double e_y = Double.valueOf(request.getParameter("epy"));
+		BoardD b = new BoardD();
 		
-		BoardD b = new BoardD(0, cate, null, start_time, start_posi, end_posi, s_x, s_y, e_x, e_y, price, content, title, seat, maxSeat, m.getId(), m.getId(), "", "", "", profile);
-		System.out.println(b);
+		b.setNum(0);
+		b.setCate(request.getParameter("cate"));
+		b.setW_date(null);
+		b.setStart_time(request.getParameter("start_time"));
+		b.setStart_posi(request.getParameter("start_posi"));
+		b.setEnd_posi(request.getParameter("end_posi"));
+		b.setStart_x(Double.valueOf(request.getParameter("spx")));
+		b.setStart_y(Double.valueOf(request.getParameter("spy")));
+		b.setEnd_x(Double.valueOf(request.getParameter("epx")));
+		b.setEnd_y(Double.valueOf(request.getParameter("epy")));
+		b.setPrice(Integer.parseInt(request.getParameter("price")));
+		b.setContent(request.getParameter("content"));
+		b.setTitle(request.getParameter("title"));
+		b.setSeat(0);
+		b.setMaxSeat(Integer.parseInt(request.getParameter("maxSeat")));
+		b.setWriter(m.getId());
+		b.setDriver(m.getId());
+		b.setPassenger1("");
+		b.setPassenger2("");
+		b.setPassenger3("");
+		b.setProfile("/profile/" + m.getProfile());
+		
 		service.add(b);
 		
 		return "redirect:/driverList";

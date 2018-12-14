@@ -39,15 +39,15 @@
 							readonly>${b.w_date }</td>
 					</tr>
 					<tr>
-						<label for="validationCustom01">
-						<th scope="row">제목</th>
-						</label>
+						
+						<th scope="row"><label for="validationCustom01">제목</label></th>
+						
 						<td><textarea class="form-control" rows="1" id="validationCustom01" name="title" required>${b.title }</textarea></td>
 					</tr>
 					<tr>
-						<label for="validationCustom02">
-						<th scope="row">내용</th>
-						</label>
+						
+						<th scope="row"><label for="validationCustom02">내용</label></th>
+						
 						<td><textarea class="form-control" rows="5" id="validationCustom02" name="content" required>${b.content}</textarea></td>
 					</tr>
 					<tr>
@@ -76,11 +76,11 @@
 					</tr>
 					<tr>
 						<th scope="row">제목</th>
-						<td><c:out value="${b.title}" escapeXml="false"><textarea class="form-control" rows="1" name="title" value="${b.title }" readonly></textarea></c:out></td>
+						<td><c:out value="${b.title}" escapeXml="false"><textarea class="form-control" rows="1" name="title" readonly>${b.title }</textarea></c:out></td>
 					</tr>
 					<tr>
 						<th scope="row">내용</th>
-						<td><c:out value="${b.content}" escapeXml="false"><textarea class="form-control" rows="5" name="content" value="${b.content }" readonly></textarea></c:out></td>
+						<td><c:out value="${b.content}" escapeXml="false"><textarea class="form-control" rows="5" name="content" readonly>${b.content }</textarea></c:out></td>
 					</tr>
 					<tr>
 					<td colspan="10">
@@ -97,10 +97,9 @@
 				height : 100
 			});
 		</script>
-
-</form>
         <div>
 			<%@ include file="boardFRep.jsp"%>
 		</div>
+</form>
 </body>
 </html>

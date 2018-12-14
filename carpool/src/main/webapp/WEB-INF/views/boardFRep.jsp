@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,7 +23,7 @@ $(document).ready(function(){
 <!-- <link rel="stylesheet" href="/carpool/resources/css/bootstrap.css"> -->
 </head>
 <body>
-<!-- ¥Ò±€¿€º∫ -->
+<!-- ÎåìÍ∏ÄÏûëÏÑ± -->
 	<div class="container">
 		<form id="commentForm" name="commentForm" method="post">
 			<div>
@@ -35,10 +34,10 @@ $(document).ready(function(){
 					<table class="table">
 						<tr>
 							<td><textarea class="form-control" rows="3" cols="30"
-									id="content_${b.num }" name="comment" placeholder="¥Ò±€¿ª ¿‘∑¬«œººø‰"></textarea>
+									id="content_${b.num }" name="comment" placeholder="ÎåìÍ∏ÄÏùÑ ÏûÖÎ†•ÌïòÏÑ∏Ïöî"></textarea>
 								<br>
 								<div>
-									<a href='#' id="btnRep" class="btn pull-right btn btn-primary" num="${b.num }">µÓ∑œ</a>
+									<a href='#' id="btnRep" class="btn pull-right btn btn-primary" num="${b.num }">Îì±Î°ù</a>
 								</div></td>
 						</tr>
 					</table>
@@ -48,7 +47,7 @@ $(document).ready(function(){
 			<input type="hidden" id="b_code" name="b_code" value="${result.code }" />
 		</form>
 	</div>
-<!-- 	 ¥Ò±€¿€º∫≥ªøÎ ª—∑¡¡÷¥¬ ∞¯∞£ -->
+<!-- 	 ÎåìÍ∏ÄÏûëÏÑ±ÎÇ¥Ïö© ÎøåÎ†§Ï£ºÎäî Í≥µÍ∞Ñ -->
 	<div class="container"> 
 		<form id="commentListForm" name="commentListForm" method="post">
 			<div id="r_${i.num }"></div>

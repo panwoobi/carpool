@@ -22,11 +22,12 @@
 				<td><input type="hidden" name="writer" value="${sessionScope.m.id }">${sessionScope.m.id}</td>
 			</tr>
 			<tr>
-				<label for="validationCustom03"><th scope="row">제목</th></label>
+			<th scope="row">	<label for="validationCustom03">제목</label></th>
 				<td><textarea class="form-control" rows="1"  name="title" id="validationCustom03" required></textarea>
 				<div class="invalid-feedback">Please provide a valid title.</div></td>
 			</tr>
-				<label for="validationCustom04"><th scope="row">내용</th></label>
+			<tr>
+			<th scope="row">	<label for="validationCustom04">내용</label></th>
 				<td><textarea class="form-control" rows="5"  name="content"  id="validationCustom04" required></textarea>
 				<div class="invalid-feedback">Please provide a valid content.</div></td>
 			</tr>

@@ -1,18 +1,14 @@
 package com.kitri.carpool.member;
 
 import java.io.File;
-import java.util.Map;
 
 import javax.annotation.Resource;
-import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.kitri.carpool.car.Car;
@@ -29,17 +25,15 @@ public class MemberController {
 	@Resource(name = "carService")
 	private CarService cservice;
 
-	
 	private PathInfo pi;
 
 	public MemberController() {
 		pi = PathInfo.getInstance();
 	}
-	
+
 	public void setService(MemberService service) {
 		this.service = service;
 	}
-	
 
 	@RequestMapping("/myLogin")
 	public String myLogin(Member m, HttpServletRequest req) {
@@ -100,7 +94,7 @@ public class MemberController {
 
 	@RequestMapping("/editProfile")
 	public String editProfile(@RequestParam("editProfileBtn") MultipartFile file, HttpServletRequest req) {
-		
+
 		HttpSession session = req.getSession(false);
 		Member m = (Member) session.getAttribute("m");
 		MultipartFile f = file;

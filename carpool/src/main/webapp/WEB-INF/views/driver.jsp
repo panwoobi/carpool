@@ -4,7 +4,6 @@
 <html>
 <head>
 <style>
-
 #list {
 	text-align: center;
 }
@@ -16,8 +15,9 @@
 /* Bootstrap 수정 */
 .table {
 	width: 85%;
-	margin:auto;
+	margin: auto;
 }
+
 .table>thead {
 	background-color: #b3c6ff;
 }
@@ -54,18 +54,6 @@ div>#paging {
 </head>
 <body>
 	<div id="container">
-		<div align="right">
-			<!-- Login 검증 -->
-			<!-- jstl의 if문은 else가 없어서 따로 검증해야함. -->
-			<c:if test="${!empty sessionScope.m}">
-				<%-- <%@include file="loginOk.jsp" %> --%>
-			</c:if>
-			<c:if test="${empty sessionScope.m}">
-				<%-- <%@include file="login.jsp" %> --%>
-			</c:if>
-		</div>
-
-
 		<form action="${pageContext.request.contextPath }/driverListSearch" method="post">
 			<input type="text" name="startPosi" placeholder="출발지역"> <input type="text" name="endPosi" placeholder="도착지역"> <input type="submit" value="Search">
 		</form>
@@ -75,7 +63,7 @@ div>#paging {
 		</div>
 
 		<div id="write">
-			<a href="${pageContext.request.contextPath }/driverWriteForm">글쓰기</a>
+			<a class="btn btn-default right" href="${pageContext.request.contextPath }/driverWriteForm">글쓰기</a>
 		</div>
 
 		<div>
@@ -94,53 +82,31 @@ div>#paging {
 					</tr>
 				</thead>
 				<tbody>
-<%-- 					<c:forEach var="article" items="${articles}" varStatus="status"> --%>
-<!-- 						<tr> -->
-<%-- 							<td>${article.articleNumber}</td> --%>
-<!-- 							<td id="title"> -->
-<%-- 								<c:if test="${article.depth > 0}"> --%>
-<!-- 	                  				&nbsp;&nbsp; -->
-<%-- 	                  			</c:if> --%>
-<%-- 	                  			<a href="/bbs/content.bbs?articleNumber=${article.articleNumber}&pageNum=${pageNum}">${article.title}</a> --%>
-<%-- 	                  			<c:if test="${article.hit >= 20}"> --%>
-<!-- 									<span class="hit">hit!</span> -->
-<%-- 								</c:if> --%>
-<!-- 							</td> -->
-<%-- 							<td>${article.id}</td> --%>
-<%-- 							<td>${article.writeDate}</td> --%>
-<%-- 							<td>${article.hit}</td> --%>
-<!-- 						</tr> -->
-						
-						<c:choose>
-							<c:when test="${empty list }">
+					<c:choose>
+						<c:when test="${empty list }">
+							<tr>
+								<td colspan="9">게시글이 없습니다.</td>
+							</tr>
+						</c:when>
+						<c:when test="${!empty list }">
+							<c:forEach var="b" items="${list }" varStatus="status">
 								<tr>
-									<td colspan="9">게시글이 없습니다.</td>
+									<td>${b.num}</td>
+									<td><img id="viewProfile" src="${b.profile }" class="img-thumbnail"><br>${b.writer}</td>
+									<td><a href="${pageContext.request.contextPath }/driverDetail?num=${b.num }">${b.title}</a></td>
+									<td>${b.start_posi}</td>
+									<td>${b.end_posi}</td>
+									<td>${b.cate}</td>
+									<td>${b.seat}/${b.maxSeat}</td>
+									<td>${b.price}원</td>
+									<td>${b.w_date}</td>
 								</tr>
-							</c:when>
-							<c:when test="${!empty list }">
-								<c:forEach var="b" items="${list }" varStatus="status">
-									<tr>
-										<td>${b.num}</td>
-										<td><img id="viewProfile" src="${b.profile }" class="img-thumbnail"><br>${b.writer}</td>
-										<td><a href="${pageContext.request.contextPath }/driverDetail?num=${b.num }">${b.title}</a></td>
-										<td>${b.start_posi}</td>
-										<td>${b.end_posi}</td>
-										<td>${b.cate}</td>
-										<td>${b.seat}/ ${b.maxSeat}</td>
-										<td>${b.price}원</td>
-										<td>${b.w_date}</td>
-									</tr>
-								</c:forEach>
-							</c:when>
-						</c:choose>
-<%-- 					</c:forEach> --%>
+							</c:forEach>
+						</c:when>
+					</c:choose>
 				</tbody>
 			</table>
-
-			<!-- Paging 처리 -->
-			<div id="paging">${pageCode}</div>
 		</div>
-
 	</div>
 </body>
 </html>

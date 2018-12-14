@@ -21,11 +21,11 @@
 		</tr>
 		<tr>
 		    <td colspan="4" style="text-align: right">
-<%-- 			<c:if test="${!empty sessionScope.m.type }"> --%>
+			<c:if test="${!empty sessionScope.m.type }">
 				<a href="${pageContext.request.contextPath }/boardFAdd">
 				<button type="button" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-pencil"></span> write </button>
 				</a>
-<%-- 			</c:if> --%>
+			</c:if>
 			</td>
 		</tr>
 		<tr>

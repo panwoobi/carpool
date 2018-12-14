@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class HomeController {
 
-	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String main() {
 		return "main.tiles";
@@ -18,20 +17,26 @@ public class HomeController {
 
 	@RequestMapping(value = "/intro", method = RequestMethod.GET)
 	public String intro() {
-		
 		return "intro.tiles";
 	}
 
 	@RequestMapping(value = "/driver", method = RequestMethod.GET)
 	public String driver() {
-		
 		return "driver.tiles";
 	}
-	
+
 	@RequestMapping(value = "/recruit", method = RequestMethod.GET)
 	public String recruit() {
-		
 		return "recruit.tiles";
+	}
 
-	}	
+	@RequestMapping(value = "/terms", method = RequestMethod.GET)
+	public String terms() {
+		return "terms.tiles";
+	}
+
+	@RequestMapping(value = "/privacy", method = RequestMethod.GET)
+	public String privacy() {
+		return "privacy.tiles";
+	}
 }
