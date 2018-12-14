@@ -36,7 +36,7 @@ public class BoardDController {
 		String start_posi = req.getParameter("start_posi");
 		String end_posi = req.getParameter("end_posi");
 		
-		Map<String, String> map = new HashMap<>();
+		Map<String, String> map = new HashMap<String, String>();
 		map.put("0", start_posi);
 		map.put("1", end_posi);
 		list = service.getByStartEnd(map);
