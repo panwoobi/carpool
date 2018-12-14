@@ -97,6 +97,10 @@
 				height : 100
 			});
 		</script>
+
 </form>
+        <div>
+			<%@ include file="boardFRep.jsp"%>
+		</div>
 </body>
 </html>
