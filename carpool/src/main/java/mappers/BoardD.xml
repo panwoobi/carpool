@@ -40,5 +40,15 @@
 	<select id="selectAll" resultMap="boardDResult">
 		select * from c_BoardD order by num
 	</select>
+	<select id="selectByStartPosi" parameterType="String" resultMap="boardDResult">
+		select * from c_boardd where start_posi like '%'||#{start_posi}||'%' order by num desc 
+	</select>
+	<select id="selectByEndPosi" parameterType="String" resultMap="boardDResult">
+		select * from c_boardd where end_posi like '%'||#{end_posi}||'%' order by num desc 
+	</select>
+	<select id="selectByStartEnd" parameterType="String" resultMap="boardDResult">
+		
+	</select>
 
+<!-- 	public ArrayList<BoardD> getByStartEnd(String start_posi, String end_posi); -->
 </mapper>

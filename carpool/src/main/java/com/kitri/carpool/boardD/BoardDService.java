@@ -12,11 +12,11 @@ public interface BoardDService {
 
 	public ArrayList<BoardD> getByCate(String cate);
 
-	public ArrayList<BoardD> getByTime(String startTime);
+	public ArrayList<BoardD> getByTime(String start_time);
 
-	public ArrayList<BoardD> getByStartPosi(String startPosi);
+	public ArrayList<BoardD> getByStartPosi(String start_posi);
 
-	public ArrayList<BoardD> getByEndPosi(String endPosi);
+	public ArrayList<BoardD> getByEndPosi(String end_posi);
 
 	public ArrayList<BoardD> getByPrice(int price);
 

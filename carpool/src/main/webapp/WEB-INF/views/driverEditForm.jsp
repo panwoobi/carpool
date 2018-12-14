@@ -117,7 +117,7 @@
 							</c:when>
 							<c:otherwise>
 								<input type="hidden" id="datetimepicker" name="start_time" value="${b.start_time }">
-								<input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" id="datetimepicker" value="${b.start_time }" readonly>
+								<input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" value="${b.start_time }" readonly>
 							</c:otherwise>
 						</c:choose></td>
 				</tr>

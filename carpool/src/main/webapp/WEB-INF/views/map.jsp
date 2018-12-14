@@ -3,22 +3,22 @@
 <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?clientId=xXLVpp7s9U_1DSsciPkB&amp;submodules=drawing"></script>
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/map.css">
    <div id="wrap" class="section">
-      <div id="map" style="width: 100%; height: 620px;">
-         <div class="search" style="">
-			<div class="input-group mb-3">
-				<div class="input-group-prepend">
-					<input type="text" id="address1" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" placeholder="출발할 주소" value="" />
-					<input id="submit1" class="btn btn-info" type="button" value="주소 검색" />
-				</div>
-				<div class="input-group-prepend">
-					<input id="address2" type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" placeholder="도착할 주소" value="" />
-            		<input id="submit2" class="btn btn-info" type="button" value="주소 검색" />
-				</div>
-				<div class="input-group-prepend">
-            		<input id="submit3" class="btn btn-info" type="button" value="주소사용하기" />
-            		<input type="hidden" id="s_x"><input type="hidden" id="s_y">
-            		<input type="hidden" id="e_x"><input type="hidden" id="e_y">
-				</div>
+      <div id="map" style="width: 100%; height: 800px;">
+         <div class="search">
+			<div class="input-group-prepend">
+				<input type="text" id="address1" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" placeholder="출발할 주소" value="" />
+				<input id="submit1" class="btn btn-info" type="button" value="주소 검색" />
+			</div>
+			<div style="padding-top:5px"></div>
+			<div class="input-group-prepend">
+				<input id="address2" type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" placeholder="도착할 주소" value="" />
+            	<input id="submit2" class="btn btn-info" type="button" value="주소 검색" />
+			</div>
+			<div style="padding-top:5px"></div>
+			<div class="input-group-prepend">
+            	<input id="submit3" class="btn btn-info" type="button" value="주소사용하기" />
+            	<input type="hidden" id="s_x"><input type="hidden" id="s_y">
+            	<input type="hidden" id="e_x"><input type="hidden" id="e_y">
 			</div>
          </div>
       </div>

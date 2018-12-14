@@ -47,24 +47,24 @@ public class BoardDServiceImpl implements BoardDService {
 	}
 
 	@Override
-	public ArrayList<BoardD> getByTime(String startTime) {
+	public ArrayList<BoardD> getByTime(String start_time) {
 		// TODO Auto-generated method stub
 		dao = sqlSession.getMapper(BoardDDao.class);
-		return dao.selectByTime(startTime);
+		return dao.selectByTime(start_time);
 	}
 
 	@Override
-	public ArrayList<BoardD> getByStartPosi(String startPosi) {
+	public ArrayList<BoardD> getByStartPosi(String start_posi) {
 		// TODO Auto-generated method stub
 		dao = sqlSession.getMapper(BoardDDao.class);
-		return dao.selectByStartPosi(startPosi);
+		return dao.selectByStartPosi(start_posi);
 	}
 
 	@Override
-	public ArrayList<BoardD> getByEndPosi(String endPosi) {
+	public ArrayList<BoardD> getByEndPosi(String end_posi) {
 		// TODO Auto-generated method stub
 		dao = sqlSession.getMapper(BoardDDao.class);
-		return dao.selectByEndPosi(endPosi);
+		return dao.selectByEndPosi(end_posi);
 	}
 
 	@Override

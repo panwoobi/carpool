@@ -1,6 +1,8 @@
 package com.kitri.carpool.boardD;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -24,10 +26,42 @@ public class BoardDController {
 		this.service = service;
 	}
 	
+	@RequestMapping(value = "/driverSearchList", method = RequestMethod.POST)
+	public ModelAndView searchList(HttpServletRequest req) {
+
+		ModelAndView mav = new ModelAndView();
+		
+		ArrayList<BoardD> list = new ArrayList<BoardD>();
+		String start_posi = req.getParameter("start_posi");
+		String end_posi = req.getParameter("end_posi");
+		
+		if(start_posi == null || start_posi == "") {
+			// 엔드로 검색
+			list = service.getByEndPosi(end_posi);
+		} else if (end_posi == null || end_posi == "") {
+			// 스타스로 검색
+			list = service.getByStartPosi(start_posi);
+		} else {
+			Map<String, String> map = new HashMap<String, String>();
+			map.put("start_posi", start_posi);
+			map.put("end_posi", end_posi);
+			// 둘다 있음
+		}
+		mav.setViewName("driver.tiles");
+		mav.addObject("list", list);
+//		ArrayList<BoardD> list1 = service.getByStartPosi(start_posi);
+//		ArrayList<BoardD> list2 = service.getByEndPosi(end_posi);
+//		ArrayList<BoardD> list3 = service.getByStartEnd(start_posi, end_posi);
+		
+		return mav;
+	}
+	
 	@RequestMapping(value = "/driverList", method = RequestMethod.GET)
 	public ModelAndView list(HttpServletRequest req) {
 		ModelAndView mav = new ModelAndView();
-		ArrayList<BoardD> list = service.getAll();		
+		ArrayList<BoardD> list = service.getAll();
+		int totalCount = list.size();
+		mav.addObject("totalCount", totalCount);
 		mav.addObject("list", list);
 		mav.setViewName("driver.tiles");
 		return mav;

@@ -54,31 +54,32 @@ div>#paging {
 </head>
 <body>
 	<div id="container">
-		<form action="${pageContext.request.contextPath }/driverListSearch" method="post">
-			<input type="text" name="startPosi" placeholder="출발지역"> <input type="text" name="endPosi" placeholder="도착지역"> <input type="submit" value="Search">
-		</form>
-
+		<div class="form-inline">
+			<form action="${pageContext.request.contextPath }/driverSearchList" method="post">
+				<input type="text" class="form-control" aria-label="Default" name="start_posi" placeholder="출발지역">
+				<input type="text" class="form-control" aria-label="Default" name="end_posi" placeholder="도착지역">
+				<input type="submit" class="btn btn-outline-primary" value="Search">
+				<a class="btn btn-outline-primary right" href="${pageContext.request.contextPath }/driverWriteForm">글쓰기</a>
+			</form>
+		</div>
 		<div id="list">
 			<b>게시판 (전체 글: ${totalCount})</b>
 		</div>
 
-		<div id="write">
-			<a class="btn btn-default right" href="${pageContext.request.contextPath }/driverWriteForm">글쓰기</a>
-		</div>
 
 		<div>
 			<table class="table table-striped table-bordered table-hover">
 				<thead>
 					<tr>
-						<th width="5%">번호</th>
+						<th width="7%">번호</th>
 						<th width="10%">작성자</th>
-						<th width="20%">제목</th>
-						<th width="15%">출발</th>
-						<th width="15%">도착</th>
-						<th width="10%">유형</th>
-						<th width="5%">자리</th>
+						<th width="15%">제목</th>
+						<th width="16%">출발</th>
+						<th width="16%">도착</th>
+						<th width="7%">유형</th>
+						<th width="7%">자리</th>
 						<th width="10%">금액</th>
-						<th width="10%">작성일</th>
+						<th width="12%">작성일</th>
 					</tr>
 				</thead>
 				<tbody>
