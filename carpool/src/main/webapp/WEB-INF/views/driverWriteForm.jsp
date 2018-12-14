@@ -51,23 +51,16 @@ $(function() {
 				</tr>
 				<tr>
 					<td>출발 위치</td>
-					<td><input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" type="text" name="startPosi" id="sp1" placeholder="옆의 지도에서 선택하세요" readonly></td>
+					<td><input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name="start_posi" id="sp1" placeholder="옆의 지도에서 선택하세요" readonly></td>
 				</tr>
 				<tr>
 					<td>도착 위치</td>
-					<td><input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name="endPosi" id="ep1" placeholder="옆의 지도에서 선택하세요" readonly></td>
+					<td><input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name="end_posi" id="ep1" placeholder="옆의 지도에서 선택하세요" readonly></td>
 				</tr>
 				<tr>
 					<td>출발 시간</td>
 					<td>
-<!-- 		                <div class="input-group date" id="datetimepicker2" data-target-input="nearest"> -->
-<!-- 		                    <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker2" name="startTime"/> -->
-<!-- 		                    <div class="input-group-append" data-target="#datetimepicker2" data-toggle="datetimepicker"> -->
-<!-- 		                        <div class="input-group-text"><i class="fa fa-calendar"></i></div> -->
-<!-- 		                    </div> -->
-<!-- 		                </div> -->
-						<input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" id="datetimepicker" name="startTime">
-
+						<input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" id="datetimepicker" name="start_time">
 					</td>
 				</tr>
 				<tr>

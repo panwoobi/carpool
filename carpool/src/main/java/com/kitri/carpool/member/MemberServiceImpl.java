@@ -28,7 +28,7 @@ public class MemberServiceImpl implements MemberService {
 			dao.insert(m);
 			return true;
 		}else {
-			System.out.println("ÀÌ¹ÌÀÖ´Â ¾ÆÀÌµð");
+			System.out.println("ï¿½Ì¹ï¿½ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½Ìµï¿½");
 			return false;
 		}
 	}
@@ -112,5 +112,12 @@ public class MemberServiceImpl implements MemberService {
 		// TODO Auto-generated method stub
 		dao = sqlSession.getMapper(MemberDao.class);
 		dao.update(m);
+	}
+
+	@Override
+	public void editProfile(Member m) {
+		// TODO Auto-generated method stub
+		dao = sqlSession.getMapper(MemberDao.class);
+		dao.updateProfile(m);
 	}
 }

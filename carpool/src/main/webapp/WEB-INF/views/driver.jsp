@@ -66,7 +66,7 @@ div>#paging {
 		</div>
 
 
-		<form action="${pageContext.request.contextPath }/Board1SearchController?t=0" method="post">
+		<form action="${pageContext.request.contextPath }/driverListSearch" method="post">
 			<input type="text" name="startPosi" placeholder="출발지역"> <input type="text" name="endPosi" placeholder="도착지역"> <input type="submit" value="Search">
 		</form>
 
@@ -94,46 +94,46 @@ div>#paging {
 					</tr>
 				</thead>
 				<tbody>
-					<c:forEach var="article" items="${articles}" varStatus="status">
-						<tr>
-							<td>${article.articleNumber}</td>
-							<td id="title">
-								<c:if test="${article.depth > 0}">
-	                  				&nbsp;&nbsp;
-	                  			</c:if>
-	                  			<a href="/bbs/content.bbs?articleNumber=${article.articleNumber}&pageNum=${pageNum}">${article.title}</a>
+<%-- 					<c:forEach var="article" items="${articles}" varStatus="status"> --%>
+<!-- 						<tr> -->
+<%-- 							<td>${article.articleNumber}</td> --%>
+<!-- 							<td id="title"> -->
+<%-- 								<c:if test="${article.depth > 0}"> --%>
+<!-- 	                  				&nbsp;&nbsp; -->
+<%-- 	                  			</c:if> --%>
+<%-- 	                  			<a href="/bbs/content.bbs?articleNumber=${article.articleNumber}&pageNum=${pageNum}">${article.title}</a> --%>
 <%-- 	                  			<c:if test="${article.hit >= 20}"> --%>
 <!-- 									<span class="hit">hit!</span> -->
 <%-- 								</c:if> --%>
-							</td>
-							<td>${article.id}</td>
-							<td>${article.writeDate}</td>
-							<td>${article.hit}</td>
-							
-							
-					<c:choose>
-						<c:when test="${empty list }">
-							<tr>
-								<td colspan="9">게시글이 없습니다.</td>
-							</tr>
-						</c:when>
-						<c:when test="${!empty list }">
-							<c:forEach var="b" items="${list }" varStatus="status">
+<!-- 							</td> -->
+<%-- 							<td>${article.id}</td> --%>
+<%-- 							<td>${article.writeDate}</td> --%>
+<%-- 							<td>${article.hit}</td> --%>
+<!-- 						</tr> -->
+						
+						<c:choose>
+							<c:when test="${empty list }">
 								<tr>
-									<td>${b.num}</td>
-									<td><img id="viewProfile" src="${pageContext.request.contextPath }/img/${b.profile }"><br>${b.writer}</td>
-									<td><a href="${pageContext.request.contextPath }/Board1DriverDetailController?num=${b.num }">${b.title}</a></td>
-									<td>${b.startPosi}</td>
-									<td>${b.endPosi}</td>
-									<td>${b.cate}</td>
-									<td>${b.seat}/ ${b.maxSeat}</td>
-									<td>${b.price}원</td>
-									<td>${b.w_date}</td>
+									<td colspan="9">게시글이 없습니다.</td>
 								</tr>
-							</c:forEach>
-						</c:when>
-					</c:choose>
-					</c:forEach>
+							</c:when>
+							<c:when test="${!empty list }">
+								<c:forEach var="b" items="${list }" varStatus="status">
+									<tr>
+										<td>${b.num}</td>
+										<td><img id="viewProfile" src="${b.profile }" class="img-thumbnail"><br>${b.writer}</td>
+										<td><a href="${pageContext.request.contextPath }/driverDetail?num=${b.num }">${b.title}</a></td>
+										<td>${b.start_posi}</td>
+										<td>${b.end_posi}</td>
+										<td>${b.cate}</td>
+										<td>${b.seat}/ ${b.maxSeat}</td>
+										<td>${b.price}원</td>
+										<td>${b.w_date}</td>
+									</tr>
+								</c:forEach>
+							</c:when>
+						</c:choose>
+<%-- 					</c:forEach> --%>
 				</tbody>
 			</table>
 

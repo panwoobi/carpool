@@ -7,6 +7,7 @@ public interface MemberService {
 	public boolean login(String id, String pw);
 	public boolean out(String id, String pw);
 	public void editInfo(Member m);
+	public void editProfile(Member m);
 	public Member getMember(String id);
 	public ArrayList<Member> getByName(String name);
 	public ArrayList<Member> getByIsSmoke(int isSmoke);

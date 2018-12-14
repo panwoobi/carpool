@@ -13,7 +13,7 @@
 	</resultMap>
 	
 	<insert id="insert" parameterType="com.kitri.carpool.car.Car">
-		insert into c_car values(#{owner}, #{license}, #{numner_plate}, #{mileage}, #{age}, #{car_name}, #{car_size})
+		insert into c_car values(#{owner}, #{license}, #{number_plate}, #{mileage}, TO_DATE(#{age},'yyyy'), #{car_name}, #{car_size})
 	</insert>
 	<update id="update" parameterType="com.kitri.carpool.car.Car">
 		update c_car set title=#{title}, license=#{license}, number_plate=#{numner_plate}, mileage=#{mileage}, age=#{age}, car_name=#{car_name}, car_size=#{car_size} where owner=#{owner}
