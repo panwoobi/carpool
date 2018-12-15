@@ -1,3 +1,4 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <script>
 	$(document).ready(function(){
@@ -314,26 +315,26 @@
                               <div class="form-group row">
                                 <label class="col-4 col-form-label">User Name</label> 
                                 <div class="col-8">
-                                  <input name="name" class="form-control here" type="text">
+                                  <input name="name" class="form-control here" type="text" value="${sessionScope.m.name }" required oninvalid="this.setCustomValidity('닉네임을 입력하세요')" oninput="setCustomValidity('')">
                                 </div>
                               </div>
 
                                 <div class="form-group row">
                                 <label class="col-4 col-form-label">User Password</label> 
                                 <div class="col-8">
-                                  <input name="pw" class="form-control here" type="password" >
+                                  <input name="pw" class="form-control here" type="password" value="${sessionScope.m.pw }"required oninvalid="this.setCustomValidity('password를 입력하세요')" oninput="setCustomValidity('')" >
                                 </div>
                               </div>
                                <div class="form-group row">
                                 <label class="col-4 col-form-label">User Email</label> 
                                 <div class="col-8">
-                                  <input name="email" class="form-control here" type="email">
+                                  <input name="email" class="form-control here" type="email" value="${sessionScope.m.email }" required oninvalid="this.setCustomValidity('email을 입력하세요')" oninput="setCustomValidity('')">
                                 </div>
                               </div>
                                <div class="form-group row">
                                 <label class="col-4 col-form-label">User Tel</label> 
                                 <div class="col-8">
-                                  <input name="tel" class="form-control here" type="text" >
+                                  <input name="tel" class="form-control here" type="text" value="${sessionScope.m.tel }" required oninvalid="this.setCustomValidity('연락처를 입력하세요')" oninput="setCustomValidity('')">
                                 </div>
                               </div>
    
@@ -418,19 +419,19 @@
                             <div class="form-group row">
                                <label class="col-4 col-form-label">License</label> 
                                 <div class="col-8">
-                                  <input name="license" class="form-control here" type="text" >
+                                  <input name="license" class="form-control here" type="password" required oninvalid="this.setCustomValidity('Licence번호를 입력하세요')" oninput="setCustomValidity('')" >
                                 </div>
                             </div>
                             <div class="form-group row">
                                <label class="col-4 col-form-label">Number Plate</label> 
                                 <div class="col-8">
-                                  <input name="number_plate" class="form-control here" type="text" >
+                                  <input name="number_plate" class="form-control here" type="text" required oninvalid="this.setCustomValidity('number plate를 입력하세요')" oninput="setCustomValidity('')">
                                 </div>
                             </div>
                             <div class="form-group row">
                                <label class="col-4 col-form-label">Mileage</label> 
                                 <div class="col-8">
-                                  <input name="mileage"class="form-control here" type="text" >
+                                  <input name="mileage"class="form-control here" type="text" required oninvalid="this.setCustomValidity('마일리지를 입력하세요')" oninput="setCustomValidity('')">
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -447,7 +448,7 @@
                             <div class="form-group row">
                                <label class="col-4 col-form-label">Car Name</label> 
                                 <div class="col-8">
-                                  <input name="car_name" class="form-control here" type="text" >
+                                  <input name="car_name" class="form-control here" type="text" required oninvalid="this.setCustomValidity('차 종을 입력하세요')" oninput="setCustomValidity('')">
                                 </div>
                             </div>
                             <div class="form-group row">
