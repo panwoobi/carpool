@@ -15,7 +15,7 @@ $('document').ready(function() {
 			<tr>
 				<td style="width: 150px">아이디<br>비밀번호<br>이름<br>이메일<br>전화번호<br>사진<br>가입유형<br>성별<br>흡연여부</td>
 				<td>
-				<input type="text" name="id" placeholder="hong"><br> 
+				<input type="text" name="id" placeholder="hong" required><br> 
 				<input type="password" name="pwd" placeholder="****"><br>
 				<input type="text" name="name" placeholder="홍길동"><br> 
 				<input type="email" name="email" placeholder="a@a.com"><br>
