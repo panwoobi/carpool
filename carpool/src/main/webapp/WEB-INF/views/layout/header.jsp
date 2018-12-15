@@ -42,34 +42,17 @@
       $('#f').attr("action", "${pageContext.request.contextPath}/freeBoardList");
       $('#f').submit();
     });
-
-    $('#passengerWrite').click(function() {
-      $('#f').attr("action", "${pageContext.request.contextPath}/passengerWrite");
-      $('#f').submit();
-    });
     $('#passengerList').click(function() {
       $('#f').attr("action", "${pageContext.request.contextPath}/passengerList");
       $('#f').submit();
     });
     $('#passengerDel').click(function() {
-      $('#f').attr("action", "${pageContext.request.contextPath}/passengerDel");
-      $('#f').submit();
-    });
-    $('#passengerEdit').click(function() {
-      $('#f').attr("action", "${pageContext.request.contextPath}/passengerEdit");
+      $('#f').attr("action", "${pageContext.request.contextPath}/passengerDelete");
       $('#f').submit();
     });
 
-    $('#driverWrite').click(function() {
-      $('#f').attr("action", "${pageContext.request.contextPath}/driverWrite");
-      $('#f').submit();
-    });
-    $('#driverEdit').click(function() {
-      $('#f').attr("action", "${pageContext.request.contextPath}/driverEdit");
-      $('#f').submit();
-    });
     $('#driverDel').click(function() {
-      $('#f').attr("action", "${pageContext.request.contextPath}/driverDel");
+      $('#f').attr("action", "${pageContext.request.contextPath}/driverDelete");
       $('#f').submit();
     });
     $('#driverList').click(function() {

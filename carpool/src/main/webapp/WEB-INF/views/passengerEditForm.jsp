@@ -1,157 +1,223 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
+<head>
 <link rel="stylesheet" href="//mugifly.github.io/jquery-simple-datetimepicker/jquery.simple-dtpicker.css">
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-<script src="//mugifly.github.io/jquery-simple-datetimepicker/jquery.simple-dtpicker.js"></script>	
+<script src="//mugifly.github.io/jquery-simple-datetimepicker/jquery.simple-dtpicker.js"></script>
+<style>
+
+/* Bootstrap 수정 */
+.table {
+	width: 85%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+</style>
+</head>
 <script type="text/javascript">
-  $(function() {
-    $('.datetimepicker').appendDtpicker({
-      'locale' : 'ko'
-    });
-  });
+	$(function() {
+		$('#datetimepicker').appendDtpicker({
+			'locale' : 'ko'
+		});
+	});
+
+	$(document).ready(function() {
+		$("#car").click(function() {
+			$("#carDetailProc").modal();
+		});
+	});
 </script>
 <body>
+
+
+	<!-- passenger 에서 신청한 driver 의 차량 정보를 보여줄지 고민 -->
+	<div class="container">
+		<!-- Modal -->
+		<div class="modal fade" id="carDetailProc" role="dialog">
+			<div class="modal-dialog">
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-body" style="padding: 40px 50px;">
+
+						<!-- 					개인정보 문제로 출력 안할지? -->
+						<!-- 						<div class="form-group row"> -->
+						<!-- 							<label class="col-4 col-form-label">License</label> -->
+						<!-- 							<div class="col-8"> -->
+						<%-- 								<input value="${c.license }" class="form-control here" type="text" readonly> --%>
+						<!-- 							</div> -->
+						<!-- 						</div> -->
+						<div class="form-group row">
+							<label class="col-4 col-form-label">Number Plate</label>
+							<div class="col-8">
+								<input value="${bc.number_plate }" class="form-control here" type="text" readonly>
+							</div>
+						</div>
+						<div class="form-group row">
+							<label class="col-4 col-form-label">Mileage</label>
+							<div class="col-8">
+								<input value="${bc.mileage }" class="form-control here" type="text" readonly>
+							</div>
+						</div>
+						<div class="form-group row">
+							<label class="col-4 col-form-label">Age</label>
+							<div class="col-8">
+								<input value="${bc.age }" class="form-control here" type="text" readonly>
+							</div>
+						</div>
+						<div class="form-group row">
+							<label class="col-4 col-form-label">Car Name</label>
+							<div class="col-8">
+								<input value="${bc.car_name }" class="form-control here" type="text" readonly>
+							</div>
+						</div>
+						<div class="form-group row">
+							<label class="col-4 col-form-label">Car Size</label>
+							<div class="col-8">
+								<c:choose>
+									<c:when test="${bc.car_size eq 1}">
+										<input value="소형" class="form-control here" type="text" readonly>
+									</c:when>
+									<c:when test="${bc.car_size eq 2}">
+										<input value="중형" class="form-control here" type="text" readonly>
+									</c:when>
+									<c:when test="${bc.car_size eq 3}">
+										<input value="대형" class="form-control here" type="text" readonly>
+									</c:when>
+								</c:choose>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 	<c:if test="${!(sessionScope.m.id eq b.writer)}">
 		<c:set var="readonly" value="readonly" />
 	</c:if>
-	<br><br>
-	<form id="f" action="" method="post">
-		<input type="hidden" name="num" value="${b.num }">
-		<input type="hidden" name="writer" value="${b.writer }">
-		<input type="hidden" name="driver" value="${b.driver }">
-		<input type="hidden" id="sx" name="spx" value="${b.startX }">
-		<input type="hidden" id="sy" name="spy" value="${b.startY }">
-		<input type="hidden" id="ex" name="epx" value="${b.endX }">
-		<input type="hidden" id="ey" name="epy" value="${b.endY }">
-		<table id="board1">
-			<tr>
-				<td style="width:10%">작성자</td>
-				<td style="width:40%;text-align: left">${b.writer }</td>
-				<td style="width:50%" rowspan="10"><c:choose>
-						<c:when test="${sessionScope.m.id eq b.writer}">
-							<div id=div1></div>
-						</c:when>
-						<c:otherwise>
-							<div id=div2></div>
-						</c:otherwise>
-					</c:choose></td>
-			</tr>
-			<tr>
-				<td>유형</td>
-				<td style="text-align: left"><c:choose>
-						<c:when test="${sessionScope.m.id eq b.writer}">
-							<select name="cate" id="cate">
-								<c:choose>
-									<c:when test="${b.cate eq '출근'}">
-										<option value="출근" selected>출근</option>
-										<option value="퇴근">퇴근</option>
-										<option value="여가">여가</option>
-										<option value="여행">여행</option>
-										<option value="기타">기타</option>
-									</c:when>
-									<c:when test="${b.cate eq '퇴근'}">
-										<option value="출근">출근</option>
-										<option value="퇴근" selected>퇴근</option>
-										<option value="여가">여가</option>
-										<option value="여행">여행</option>
-										<option value="기타">기타</option>
-									</c:when>
-									<c:when test="${b.cate eq '여가'}">
-										<option value="출근">출근</option>
-										<option value="퇴근">퇴근</option>
-										<option value="여가" selected>여가</option>
-										<option value="여행">여행</option>
-										<option value="기타">기타</option>
-									</c:when>
-									<c:when test="${b.cate eq '여행'}">
-										<option value="출근">출근</option>
-										<option value="퇴근">퇴근</option>
-										<option value="여가">여가</option>
-										<option value="여행" selected>여행</option>
-										<option value="기타">기타</option>
-									</c:when>
-									<c:when test="${b.cate eq '기타'}">
-										<option value="출근">출근</option>
-										<option value="퇴근">퇴근</option>
-										<option value="여가">여가</option>
-										<option value="여행">여행</option>
-										<option value="기타" selected>기타</option>
-									</c:when>
-								</c:choose>
-							</select>
-						</c:when>
-						<c:otherwise>
+	<div id="container">
+		<form id="f" action="${pageContext.request.contextPath}/passengerEdit" method="post">
+			<input type="hidden" name="num" value="${b.num }"> <input type="hidden" name="writer" value="${b.writer }"> <input type="hidden" name="driver" value="${b.driver }"> <input type="hidden" id="sx" name="spx" value="${b.start_x }"> <input type="hidden" id="sy" name="spy" value="${b.start_y }"> <input type="hidden" id="ex" name="epx" value="${b.end_x }"> <input type="hidden" id="ey" name="epy" value="${b.end_y }">
+			<table class="table table-striped table-bordered">
+				<tr>
+					<td style="width: 10%">작성자</td>
+					<td style="width: 40%; text-align: left">${b.writer }</td>
+					<td style="width: 50%" rowspan="10"><c:choose>
+							<c:when test="${sessionScope.m.id eq b.writer}">
+								<%@ include file="map.jsp"%>
+							</c:when>
+							<c:otherwise>
+								<%@ include file="map2.jsp"%>
+							</c:otherwise>
+						</c:choose></td>
+				</tr>
+				<tr>
+					<td>유형</td>
+					<td style="text-align: left"><c:choose>
+							<c:when test="${sessionScope.m.id eq b.writer}">
+								<select name="cate" id="cate">
+									<c:choose>
+										<c:when test="${b.cate eq '출근'}">
+											<option value="출근" selected>출근</option>
+											<option value="퇴근">퇴근</option>
+											<option value="여가">여가</option>
+											<option value="여행">여행</option>
+											<option value="기타">기타</option>
+										</c:when>
+										<c:when test="${b.cate eq '퇴근'}">
+											<option value="출근">출근</option>
+											<option value="퇴근" selected>퇴근</option>
+											<option value="여가">여가</option>
+											<option value="여행">여행</option>
+											<option value="기타">기타</option>
+										</c:when>
+										<c:when test="${b.cate eq '여가'}">
+											<option value="출근">출근</option>
+											<option value="퇴근">퇴근</option>
+											<option value="여가" selected>여가</option>
+											<option value="여행">여행</option>
+											<option value="기타">기타</option>
+										</c:when>
+										<c:when test="${b.cate eq '여행'}">
+											<option value="출근">출근</option>
+											<option value="퇴근">퇴근</option>
+											<option value="여가">여가</option>
+											<option value="여행" selected>여행</option>
+											<option value="기타">기타</option>
+										</c:when>
+										<c:when test="${b.cate eq '기타'}">
+											<option value="출근">출근</option>
+											<option value="퇴근">퇴근</option>
+											<option value="여가">여가</option>
+											<option value="여행">여행</option>
+											<option value="기타" selected>기타</option>
+										</c:when>
+									</c:choose>
+								</select>
+							</c:when>
+							<c:otherwise>
 						${b.cate}
 						</c:otherwise>
-					</c:choose></td>
-			</tr>
-			<tr>
-				<td>제목</td>
-				<td><input type="text" name="title" value="${b.title }" placeholder="제목" ${readonly}></td>
-			</tr>
-			<tr>
-				<td>내용</td>
-				<td><textarea rows="10" name="content"
-						style="resize: none" placeholder="EX) 즐거운 카풀 원해요" ${readonly}>${b.content }</textarea></td>
-			</tr>
-			<tr>
-				<td>출발 위치</td>
-				<td><input type="text" name="startPosi" value="${b.startPosi }"	id="sp1" placeholder="옆의 지도에서 선택하세요" readonly>
-				</td>
-			</tr>
-			<tr>
-				<td>도착 위치</td>
-				<td>
-				<input type="text" name="endPosi" id="ep1" value="${b.endPosi }" placeholder="옆의 지도에서 선택하세요" readonly>
-				</td>
-			</tr>
-			<tr>
-				<td>출발 시간</td>
-				<td><c:choose>
-						<c:when test="${sessionScope.m.id eq b.writer}">
-							<input type="text" class="datetimepicker" name="startTime"
-								value="${b.startTime }">
-						</c:when>
-						<c:otherwise>
-							<input type="hidden" class="datetimepicker" name="startTime"
-								value="${b.startTime }">
-							<input type="text" value="${b.startTime }" readonly>
-						</c:otherwise>
-					</c:choose></td>
-			</tr>
-			<tr>
-				<td>가격</td>
-				<td><input type="text" name="price" placeholder="원"
-					value="${b.price }" ${readonly}></td>
-			</tr>
-			<tr>
-				<td>신청자</td>
-				<td style="text-align: left">
-					${b.driver}
-				</td>
-			</tr>
-			<tr>
-				<td colspan="2">
-					<c:choose>
-						<c:when test="${sessionScope.m.id eq b.writer}">
-							<input type="button" id="passengerEdit" value="수정">
-							<input type="button" id="passengerDel" value="삭제">
-						</c:when>
-						<c:when
-							test="${(sessionScope.m.type eq 1) && (b.seat < b.maxSeat) && !(sessionScope.m.id eq b.driver)}">
-							<input type="button" id="passengerRequestAdd" value="신청">
-						</c:when>
-						<c:when
-							test="${ !empty sessionScope.m && sessionScope.m.id eq b.driver}">
-							<input type="button" id="passengerRequestDel" value="신청취소">
-						</c:when>
-					</c:choose> <input type="button" id="passengerList" value="목록">
-				</td>
-			</tr>
-		</table>
-	</form>
-	<br><br>
+						</c:choose></td>
+				</tr>
+				<tr>
+					<td>제목</td>
+					<td><input type="text" class="form-control" aria-label="Default" name="title" value="${b.title }" placeholder="제목" ${readonly} required></td>
+				</tr>
+				<tr>
+					<td>내용</td>
+					<td><textarea class="form-control" rows="10" name="content" style="resize: none" placeholder="EX) 즐거운 카풀 원해요" ${readonly} required>${b.content }</textarea></td>
+				</tr>
+				<tr>
+					<td>출발 위치</td>
+					<td><input type="text" class="form-control" aria-label="Default" name="start_posi" value="${b.start_posi }" id="sp1" placeholder="옆의 지도에서 선택하세요" readonly></td>
+				</tr>
+				<tr>
+					<td>도착 위치</td>
+					<td><input type="text" class="form-control" aria-label="Default" name="end_posi" id="ep1" value="${b.end_posi }" placeholder="옆의 지도에서 선택하세요" readonly></td>
+				</tr>
+				<tr>
+					<td>출발 시간</td>
+					<td><c:choose>
+							<c:when test="${sessionScope.m.id eq b.writer}">
+								<input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" id="datetimepicker" name="start_time" value="${b.start_time }" required>
+							</c:when>
+							<c:otherwise>
+								<input type="hidden" id="datetimepicker" name="start_time" value="${b.start_time }">
+								<input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" value="${b.start_time }" readonly>
+							</c:otherwise>
+						</c:choose></td>
+				</tr>
+				<tr>
+					<td>가격</td>
+					<td><input type="text" class="form-control" aria-label="Default" name="price" placeholder="원" value="${b.price }" ${readonly} required></td>
+				</tr>
+				<tr>
+					<td>신청자</td>
+					<td style="text-align: left">${b.driver}</td>
+				</tr>
+				<tr>
+					<td colspan="2"><c:choose>
+							<c:when test="${sessionScope.m.id eq b.writer}">
+								<input type="submit" class="btn btn-info" id="passengerEdit" value="수정">
+								<input type="button" class="btn btn-info" id="passengerDel" value="삭제">
+							</c:when>
+							<c:when test="${(sessionScope.m.type eq 1) && (b.seat < b.maxSeat) && !(sessionScope.m.id eq b.driver)}">
+								<input type="button" class="btn btn-info" id="passengerRequestAdd" value="신청">
+							</c:when>
+							<c:when test="${ !empty sessionScope.m && sessionScope.m.id eq b.driver}">
+								<input type="button" class="btn btn-info" id="passengerRequestDel" value="신청취소">
+							</c:when>
+						</c:choose> <input type="button" class="btn btn-info" id="passengerList" value="목록">
+						<c:if test="${!empty bc}">
+							<input type="button" class="btn btn-info" value="신청자 차량보기" id="car">
+						</c:if>
+						</td>
+				</tr>
+			</table>
+		</form>
+	</div>
 </body>
 </html>

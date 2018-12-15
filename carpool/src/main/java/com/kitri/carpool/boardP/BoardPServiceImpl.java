@@ -1,16 +1,16 @@
 package com.kitri.carpool.boardP;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 import javax.annotation.Resource;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Component;
 
-
 @Component("boardPService")
 public class BoardPServiceImpl implements BoardPService {
-
+    
 	@Resource(name="sqlSession")
 	private SqlSession sqlSession;
 	private BoardPDao dao;
@@ -18,7 +18,7 @@ public class BoardPServiceImpl implements BoardPService {
 	public void setSqlSession(SqlSession sqlSession) {
 		this.sqlSession = sqlSession;
 	}
-	
+
 	@Override
 	public void add(BoardP b) {
 		// TODO Auto-generated method stub
@@ -48,24 +48,24 @@ public class BoardPServiceImpl implements BoardPService {
 	}
 
 	@Override
-	public ArrayList<BoardP> getByTime(String startTime) {
+	public ArrayList<BoardP> getByTime(String start_time) {
 		// TODO Auto-generated method stub
 		dao = sqlSession.getMapper(BoardPDao.class);
-		return dao.selectByTime(startTime);
+		return dao.selectByTime(start_time);
 	}
 
 	@Override
-	public ArrayList<BoardP> getByStartPosi(String startPosi) {
+	public ArrayList<BoardP> getByStartPosi(String start_posi) {
 		// TODO Auto-generated method stub
 		dao = sqlSession.getMapper(BoardPDao.class);
-		return dao.selectByStartPosi(startPosi);
+		return dao.selectByStartPosi(start_posi);
 	}
 
 	@Override
-	public ArrayList<BoardP> getByEndPosi(String endPosi) {
+	public ArrayList<BoardP> getByEndPosi(String end_posi) {
 		// TODO Auto-generated method stub
 		dao = sqlSession.getMapper(BoardPDao.class);
-		return dao.selectByEndPosi(endPosi);
+		return dao.selectByEndPosi(end_posi);
 	}
 
 	@Override
@@ -95,10 +95,11 @@ public class BoardPServiceImpl implements BoardPService {
 		dao = sqlSession.getMapper(BoardPDao.class);
 		dao.delete(num);
 	}
+	
 	@Override
-	public ArrayList<BoardP> getByStartEnd(String start_posi, String end_posi) {
+	public ArrayList<BoardP> getByStartEnd(Map<String, String> map) {
 		dao = sqlSession.getMapper(BoardPDao.class);
-		return dao.selectByStartEnd(start_posi, end_posi);
+		return dao.selectByStartEnd(map);
 	}
 
 	@Override

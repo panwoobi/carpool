@@ -58,8 +58,10 @@ div>#paging {
 			<form action="${pageContext.request.contextPath }/driverSearchList" method="post">
 				<input type="text" class="form-control" aria-label="Default" name="start_posi" placeholder="출발지역">
 				<input type="text" class="form-control" aria-label="Default" name="end_posi" placeholder="도착지역">
-				<input type="submit" class="btn btn-outline-primary" value="Search">
+				<input type="submit" class="btn btn-outline-primary" value="Search">				
+			<c:if test="${(sessionScope.m.type eq 1) && (!empty sessionScope.c)}">
 				<a class="btn btn-outline-primary right" href="${pageContext.request.contextPath }/driverWriteForm">글쓰기</a>
+			</c:if>
 			</form>
 		</div>
 		<div id="list">
