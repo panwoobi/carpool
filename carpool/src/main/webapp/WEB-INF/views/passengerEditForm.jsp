@@ -52,38 +52,38 @@
 						<div class="form-group row">
 							<label class="col-4 col-form-label">Number Plate</label>
 							<div class="col-8">
-								<input value="${bc.number_plate }" class="form-control here" type="text" readonly>
+								<input value="${cc.number_plate }" class="form-control here" type="text" readonly>
 							</div>
 						</div>
 						<div class="form-group row">
 							<label class="col-4 col-form-label">Mileage</label>
 							<div class="col-8">
-								<input value="${bc.mileage }" class="form-control here" type="text" readonly>
+								<input value="${cc.mileage }" class="form-control here" type="text" readonly>
 							</div>
 						</div>
 						<div class="form-group row">
 							<label class="col-4 col-form-label">Age</label>
 							<div class="col-8">
-								<input value="${bc.age }" class="form-control here" type="text" readonly>
+								<input value="${cc.age }" class="form-control here" type="text" readonly>
 							</div>
 						</div>
 						<div class="form-group row">
 							<label class="col-4 col-form-label">Car Name</label>
 							<div class="col-8">
-								<input value="${bc.car_name }" class="form-control here" type="text" readonly>
+								<input value="${cc.car_name }" class="form-control here" type="text" readonly>
 							</div>
 						</div>
 						<div class="form-group row">
 							<label class="col-4 col-form-label">Car Size</label>
 							<div class="col-8">
 								<c:choose>
-									<c:when test="${bc.car_size eq 1}">
+									<c:when test="${cc.car_size eq 1}">
 										<input value="소형" class="form-control here" type="text" readonly>
 									</c:when>
-									<c:when test="${bc.car_size eq 2}">
+									<c:when test="${cc.car_size eq 2}">
 										<input value="중형" class="form-control here" type="text" readonly>
 									</c:when>
-									<c:when test="${bc.car_size eq 3}">
+									<c:when test="${cc.car_size eq 3}">
 										<input value="대형" class="form-control here" type="text" readonly>
 									</c:when>
 								</c:choose>
@@ -211,7 +211,7 @@
 								<input type="button" class="btn btn-info" id="passengerRequestDel" value="신청취소">
 							</c:when>
 						</c:choose> <input type="button" class="btn btn-info" id="passengerList" value="목록">
-						<c:if test="${!empty bc}">
+						<c:if test="${!empty cc}">
 							<input type="button" class="btn btn-info" value="신청자 차량보기" id="car">
 						</c:if>
 						</td>

@@ -41,6 +41,12 @@
 	<select id="selectByNum" parameterType="int" resultMap="boardPResult">
 		select * from c_BoardP where num=#{num}
 	</select>
+	<select id="selectByDriver" parameterType="String" resultMap="boardPResult">
+		select * from c_BoardP where driver=#{driver} order by num desc
+	</select>
+	<select id="selectByPassenger" parameterType="String" resultMap="boardPResult">
+		select * from c_BoardP where passenger1=#{passenger} or passenger2=#{passenger} or passenger3=#{passenger} order by num desc
+	</select>
 	<select id="selectAll" resultMap="boardPResult">
 		select * from c_BoardP order by num desc
 	</select>

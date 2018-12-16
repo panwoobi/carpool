@@ -36,7 +36,6 @@ public class BoardNController {
 	public ModelAndView list() {
 		ModelAndView mav = new ModelAndView("notice.tiles");
 		ArrayList<BoardN> list = service.getAll();
-		System.out.println(list);
 		mav.addObject("list", list);
 		return mav;
 	}

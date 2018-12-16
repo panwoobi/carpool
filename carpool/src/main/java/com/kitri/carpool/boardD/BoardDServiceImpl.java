@@ -117,6 +117,19 @@ public class BoardDServiceImpl implements BoardDService {
 	}
 
 	@Override
+	public ArrayList<BoardD> getByDriverPartnerList(String driver) {
+		// TODO Auto-generated method stub
+		dao = sqlSession.getMapper(BoardDDao.class);
+		ArrayList<BoardD> list = dao.selectByDriver(driver);
+		for(int i=0; i < list.size(); i++) {
+			if(list.get(i).getPassenger1() == null || list.get(i).getPassenger1() == "") {
+				list.remove(i);
+			}
+		}
+		return list;
+	}
+
+	@Override
 	public ArrayList<BoardD> getByPassenger(String passenger) {
 		// TODO Auto-generated method stub
 		dao = sqlSession.getMapper(BoardDDao.class);

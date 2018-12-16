@@ -36,4 +36,6 @@ public interface BoardPService {
 	public ArrayList<BoardP> getByDriver(String driver);
 
 	public ArrayList<BoardP> getByPassenger(String passenger);
+
+	public ArrayList<BoardP> getByPassengerPartnerList(String driver);
 }

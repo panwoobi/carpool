@@ -195,7 +195,7 @@ public class BoardDController {
 
 		if(c != null) {
 			c.setAge(c.getAge().split("-")[0]);
-			mav.addObject("c", c);
+			mav.addObject("cc", c);
 		}
 		mav.addObject("b", b);
 		mav.setViewName("driverEditForm.tiles");
@@ -256,7 +256,7 @@ public class BoardDController {
 		b.setPassenger1("");
 		b.setPassenger2("");
 		b.setPassenger3("");
-		b.setProfile("/profile/" + m.getProfile());
+		b.setProfile(m.getProfile());
 		
 		service.add(b);
 		
@@ -287,7 +287,7 @@ public class BoardDController {
 		b.setEnd_y(Double.valueOf(req.getParameter("epy")));
 		String writer = req.getParameter("writer");
 		Member m = mService.getMember(writer);
-		b.setProfile("/profile/" + m.getProfile());
+		b.setProfile(m.getProfile());
 		
 		if(b.getPassenger1() == null)
 			b.setPassenger1("");
@@ -298,10 +298,6 @@ public class BoardDController {
 		if(b.getDriver() == null)
 			b.setDriver("");
 		
-//		BoardD b = new BoardD(num, 0, cate, "", startTime, startPosi, endPosi, s_x, s_y, e_x, e_y, price, content, title, seat, maxSeat, writer, writer, passenger1, passenger2, passenger3, profile);
-
-//		b = sortPassenger(b);
-		System.out.println(b);
 		service.edit(b);
 		return "redirect:/driverList";
 	}

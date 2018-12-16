@@ -65,7 +65,6 @@ public class BoardPController {
 				b.setSeat(1);
 		}
 
-		System.out.println(b);
 		service.editDriver(b);
 		
 		return "redirect:passengerDetail?num=" + b.getNum();
@@ -150,7 +149,7 @@ public class BoardPController {
 		if(b.getDriver() != null && b.getDriver() != "") {		
 			Car c =  cService.getCar(service.getByNum(num).getDriver());
 			c.setAge(c.getAge().split("-")[0]);
-			mav.addObject("bc", c);
+			mav.addObject("cc", c);
 		}
 		mav.addObject("b", b);
 		mav.setViewName("passengerEditForm.tiles");
@@ -211,7 +210,7 @@ public class BoardPController {
 		b.setPassenger1(m.getId());
 		b.setPassenger2("");
 		b.setPassenger3("");
-		b.setProfile("/profile/" + m.getProfile());
+		b.setProfile(m.getProfile());
 		
 		service.add(b);
 		
@@ -241,7 +240,7 @@ public class BoardPController {
 		b.setEnd_y(Double.valueOf(req.getParameter("epy")));
 		String writer = req.getParameter("writer");
 		Member m = mService.getMember(writer);
-		b.setProfile("/profile/" + m.getProfile());
+		b.setProfile(m.getProfile());
 		
 		if(b.getPassenger1() == null)
 			b.setPassenger1("");
@@ -257,10 +256,6 @@ public class BoardPController {
 		else
 			b.setSeat(1);
 		
-//		BoardP b = new BoardP(num, 0, cate, "", startTime, startPosi, endPosi, s_x, s_y, e_x, e_y, price, content, title, seat, maxSeat, writer, writer, passenger1, passenger2, passenger3, profile);
-
-//		b = sortPassenger(b);
-		System.out.println(b);
 		service.edit(b);
 		return "redirect:/passengerList";
 	}

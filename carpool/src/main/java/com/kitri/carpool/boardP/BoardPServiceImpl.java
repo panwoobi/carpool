@@ -129,4 +129,17 @@ public class BoardPServiceImpl implements BoardPService {
 		dao = sqlSession.getMapper(BoardPDao.class);
 		dao.updateDriver(b);
 	}
+
+	@Override
+	public ArrayList<BoardP> getByPassengerPartnerList(String driver) {
+		// TODO Auto-generated method stub
+		dao = sqlSession.getMapper(BoardPDao.class);
+		ArrayList<BoardP> list = dao.selectByDriver(driver);
+		for(int i=0; i < list.size(); i++) {
+			if(list.get(i).getDriver() == null || list.get(i).getDriver() == "") {
+				list.remove(i);
+			}
+		}
+		return list;
+	}
 }

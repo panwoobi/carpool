@@ -25,7 +25,6 @@ public class CarController {
 	
 	@RequestMapping("/enrollCar")
 	public String enrollCar(Car c, HttpServletRequest req) {
-		System.out.println(c);
 		service.insertCar(c);
 		HttpSession session = req.getSession(false);
 		session.setAttribute("c", c);
@@ -42,16 +41,4 @@ public class CarController {
 		
 		return "/userMenu/driver.tiles";
 	}
-
-//	@RequestMapping(value="/carDetail", method=RequestMethod.GET)
-//	public ModelAndView carDetail(HttpServletRequest req) {
-//
-//		ModelAndView mav = new ModelAndView();
-//		String owner = req.getParameter("owner");
-//		Car c = service.getCar(owner);
-//
-//		mav.setViewName("carDetail");
-//		mav.addObject("c", c);
-//		return mav;
-//	}
 }

@@ -1,6 +1,7 @@
 package com.kitri.carpool.member;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.Map;
 
 import javax.annotation.Resource;
@@ -13,7 +14,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 
+import com.kitri.carpool.boardD.BoardD;
+import com.kitri.carpool.boardD.BoardDService;
+import com.kitri.carpool.boardP.BoardP;
+import com.kitri.carpool.boardP.BoardPService;
 import com.kitri.carpool.car.Car;
 import com.kitri.carpool.car.CarService;
 
@@ -28,14 +34,23 @@ public class MemberController {
 	@Resource(name = "carService")
 	private CarService cservice;
 
+	@Resource(name = "boardDService")
+	private BoardDService dService;
+	
+	@Resource(name = "boardPService")
+	private BoardPService pService;
+
 	private PathInfo pi;
 
 	public MemberController() {
 		pi = PathInfo.getInstance();
 	}
 
-	public void setService(MemberService service) {
+	public void setService(MemberService service, CarService cservice, BoardDService dService, BoardPService pService) {
 		this.service = service;
+		this.cservice = cservice;
+		this.dService = dService;
+		this.pService = pService;
 	}
 
 	@RequestMapping("/myLogin")
@@ -72,19 +87,51 @@ public class MemberController {
 	}
 
 	@RequestMapping("/menu")
-	public String menu(HttpServletRequest req) {
-		String path = "";
+	public ModelAndView menu(HttpServletRequest req) {
+		ModelAndView mav = new ModelAndView();
 		HttpSession session = req.getSession(false);
 		Member m = (Member) session.getAttribute("m");
-		if (m.getType() == 0) {
-			path = "/userMenu/admin.tiles";
-		} else if (m.getType() == 1) {
-			path = "/userMenu/driver.tiles";
+
+		ArrayList<BoardD> Dlist = new ArrayList<BoardD>();
+		ArrayList<BoardP> Plist = new ArrayList<BoardP>();
+		
+		if(m.getType() == 1) {
+			Dlist = dService.getByDriverPartnerList(m.getId());
+			Plist = pService.getByDriver(m.getId());
 		} else if (m.getType() == 2) {
-			path = "/userMenu/passenger.tiles";
+			Dlist = dService.getByPassenger(m.getId());
+			Plist = pService.getByPassenger(m.getId());
+		}
+		
+		mav.addObject("Dlist", Dlist);
+		mav.addObject("Plist", Plist);
+		
+		if (m.getType() == 0) {
+			mav.setViewName("/userMenu/admin.tiles");
+		} else if (m.getType() == 1) {
+			mav.setViewName("/userMenu/driver.tiles");
+		} else if (m.getType() == 2) {
+			mav.setViewName("/userMenu/passenger.tiles");
 		}
 
-		return path;
+		return mav;
+	}
+	
+	@RequestMapping("/memberDetail")
+	public ModelAndView detail(HttpServletRequest req) {
+		ModelAndView mav = new ModelAndView();
+		
+		String id = req.getParameter("id");
+
+		Member m = service.getMember(id);
+		mav.setViewName("memberDetail.tiles");
+		mav.addObject("m", m);
+		
+		if(m.getType() == 1) {
+			Car c = cservice.getCar(m.getId());
+			mav.addObject("cc", c);
+		}
+		return mav;
 	}
 
 	@RequestMapping("/editInfo")
@@ -97,7 +144,6 @@ public class MemberController {
 		m.setType(loginMember.getType());
 		session.setAttribute("m", m);
 		service.editInfo(m);
-		System.out.println(m);
 		return "/userMenu/driver.tiles";
 	}
 
