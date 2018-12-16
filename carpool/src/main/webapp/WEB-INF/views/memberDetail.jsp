@@ -14,7 +14,7 @@
 				</div>
 				<div class="row">
 					<div class="col-md-12">
-						<img class="img-thumbnail mx-auto d-block" style="height: 400px; width: auto;" src="${m.profile }"><br><br>
+						<img class="rounded-circle" style=" width: 280px; height: 280px; margin-left: auto; margin-right: auto; display: block;" src="${m.profile }"><br><br>
 						<div class="form-group row">
 							<label class="col-4 col-form-label">이름</label>
 							<div class="col-8">
