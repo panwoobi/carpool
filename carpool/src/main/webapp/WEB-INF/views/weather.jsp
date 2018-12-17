@@ -193,64 +193,48 @@ anchors are inline so you need ot make them block to go full width
 </script>
 </head>
 <body>
-	
-	<table border="1" align="center">
-	<h1 align="center" >서울, 경기권</h1>
+	<table border="1">
 		<tr>
 			<td>
 				<div id="openweathermap-widget-15"></div>
 			</td>
+			</tr><tr>
 			<td>
 				<div id="openweathermap-widget-17"></div>
 			</td>
+			</tr><tr>
 			<td>
 				<div id="openweathermap-widget-24"></div>
 			</td>
-	</table>		
-	<table border="1" align="center">
-	<h1 align="center">중부권</h1>	
-	<tr>	
+			</tr><tr>
 			<td>
 				<div id="openweathermap-widget-18"></div>
 			</td>
+			</tr><tr>
 			<td>
 				<div id="openweathermap-widget-23"></div>
 			</td>
-		</tr>
-	</table>
-	</br>
-	<table border="1" align="center">
-<h1 align="center">전라도</h1>
-		<tr>
+			</tr><tr>
 			<td>
 				<div id="openweathermap-widget-20"></div>
 			</td>
-			
-			</tr>
-			</table>
-			<table border="1" align="center">
-			<h1 align="center">경상도</h1>
-			<tr>
+			</tr><tr>
 			<td>
 				<div id="openweathermap-widget-21"></div>
 			</td>
+			</tr><tr>
 			<td>
 				<div id="openweathermap-widget-22"></div>
 			</td>
+			</tr><tr>
 			<td>
 				<div id="openweathermap-widget-16"></div>
 			</td>
-			</tr>
-			</table>
-			<table border="1" align="center">
-			<h1 align="center">강원도</h1>
-			<tr>
-	<td>
+			</tr><tr>
+			<td>
 				<div id="openweathermap-widget-19"></div>
 			</td>
-
 		</tr>
-		<!--    </main> -->
 	</table>
 </body>
 </html>

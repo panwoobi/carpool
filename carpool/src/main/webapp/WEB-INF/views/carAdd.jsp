@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
+<head>
 <script type="text/javascript">
 $('document').ready(function() {
 	if(${chk != true} ) {
@@ -8,6 +9,7 @@ $('document').ready(function() {
 	}
 });
 </script>
+</head>
 <body>
 	<form action="${pageContext.request.contextPath }/CarAddController" method="post">
 	<br>
