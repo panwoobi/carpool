@@ -122,7 +122,7 @@
 
 <header>
 <br>
-	<div id="container">
+	<div id="container" class="naviBar">
 		<div class="row">
 			<div class="col-md-9">
 				<a href="${pageContext.request.contextPath }"><i class="fa fa-car" aria-hidden="true" style="font-size: 35px"> Carpool</i></a>
@@ -158,6 +158,9 @@
 			</div>
 		</div>
 		<br>
+		</div>
+		
+	<div id="container">
 		<nav class="nav nav-pills flex-column flex-md-row" style="font-size: 18px; background-color: #e3f2fd;">
 			<a class="flex-md-fill text-md-center nav-link" href="#" onclick="menuClick(1)">Carpool?</a> <a class="flex-md-fill text-md-center nav-link" href="#" onclick="menuClick(2)">Passenger</a> <a class="flex-md-fill text-md-center nav-link" href="#" onclick="menuClick(3)">Driver</a> <a class="flex-md-fill text-md-center nav-link" href="#" onclick="menuClick(4)">Notice</a> <a class="flex-md-fill text-md-center nav-link" href="#" onclick="menuClick(5)">Board</a>
 		</nav>

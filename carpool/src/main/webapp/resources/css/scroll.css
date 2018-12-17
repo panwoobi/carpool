@@ -1,6 +1,26 @@
-@charset "EUC-KR";
+@charset "UTF-8";
 
 html {
   overflow-y: scroll;
   overflow-x: hidden;
+}
+
+.naviBar {
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
+a:link {
+   color: WindowText;
+   text-decoration: none;
+}
+
+a:visited {
+   color: WindowText;
+   text-decoration: none;
+}
+
+a:hover {
+   color: WindowText;
+   text-decoration: underline;
 }
