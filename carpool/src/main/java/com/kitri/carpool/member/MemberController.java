@@ -247,5 +247,21 @@ public class MemberController {
 		return b;
 	}
 	
+	@RequestMapping("/idCheck")
+	@ResponseBody
+	public Boolean idCheck(@RequestBody Map<String,String> map) {
+				
+		Boolean b;
+		String input = map.get("id");
+		Member m = new Member();
+		m.setId(input);
+		int cnt = service.checkId(m);
+		if(cnt == 0) {
+			b = true;
+		}else{
+			b = false;
+		}
+		return b;
+	}
 	
 }
