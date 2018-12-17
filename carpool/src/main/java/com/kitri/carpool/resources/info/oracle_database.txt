@@ -1,0 +1,115 @@
+CREATE TABLE c_member (
+    id        VARCHAR2(20) PRIMARY KEY,
+    pw        VARCHAR2(20) NOT NULL,
+    name      VARCHAR2(20) NOT NULL,
+    email     VARCHAR2(100) NOT NULL,
+    tel       VARCHAR2(20),
+    profile   VARCHAR2(100),
+    type      NUMBER(1) NOT NULL,
+    sex       NUMBER(1),
+    issmoke   NUMBER(1),
+    tmpkey    VARCHAR2(50) NOT NULL,
+    isvalidate NUMBER(1) NOT NULL
+);
+CREATE TABLE c_boardd (
+    num          NUMBER PRIMARY KEY,
+    cate         VARCHAR2(20) NOT NULL,
+    w_date       DATE NOT NULL,
+    start_time   DATE NOT NULL,
+    start_posi   VARCHAR2(50) NOT NULL,
+    end_posi     VARCHAR2(50) NOT NULL,
+    start_x       NUMBER NOT NULL,
+    start_y       NUMBER NOT NULL,
+    end_x       NUMBER NOT NULL,
+    end_y       NUMBER NOT NULL,
+    price        NUMBER(20) NOT NULL,
+    content      VARCHAR2(100),
+    title        VARCHAR2(50) NOT NULL,
+    seat       NUMBER NOT NULL,
+    maxSeat      NUMBER NOT NULL,
+    writer       VARCHAR2(20) NOT NULL,
+    driver       VARCHAR2(20),
+    passenger1   VARCHAR2(20),
+    passenger2   VARCHAR2(20),
+    passenger3   VARCHAR2(20),
+    profile       VARCHAR(100),
+    CONSTRAINT writer_fk1 FOREIGN KEY ( writer ) REFERENCES c_member ( id ) ON DELETE CASCADE,
+    CONSTRAINT driver_fk1 FOREIGN KEY ( driver ) REFERENCES c_member ( id ) ON DELETE CASCADE,
+    CONSTRAINT passenger1_fk1 FOREIGN KEY ( passenger1 ) REFERENCES c_member ( id ) ON DELETE CASCADE,
+    CONSTRAINT passenger2_fk1 FOREIGN KEY ( passenger2 ) REFERENCES c_member ( id ) ON DELETE CASCADE,
+    CONSTRAINT passenger3_fk1 FOREIGN KEY ( passenger3 ) REFERENCES c_member ( id ) ON DELETE CASCADE
+);
+CREATE TABLE c_boardp (
+    num          NUMBER PRIMARY KEY,
+    cate         VARCHAR2(20) NOT NULL,
+    w_date       DATE NOT NULL,
+    start_time   DATE NOT NULL,
+    start_posi   VARCHAR2(50) NOT NULL,
+    end_posi     VARCHAR2(50) NOT NULL,
+    start_x       NUMBER NOT NULL,
+    start_y       NUMBER NOT NULL,
+    end_x       NUMBER NOT NULL,
+    end_y       NUMBER NOT NULL,
+    price        NUMBER(20) NOT NULL,
+    content      VARCHAR2(100),
+    title        VARCHAR2(50) NOT NULL,
+    seat       NUMBER NOT NULL,
+    maxSeat      NUMBER NOT NULL,
+    writer       VARCHAR2(20) NOT NULL,
+    driver       VARCHAR2(20),
+    passenger1   VARCHAR2(20),
+    passenger2   VARCHAR2(20),
+    passenger3   VARCHAR2(20),
+    profile       VARCHAR(100),
+    CONSTRAINT writer_fk2 FOREIGN KEY ( writer ) REFERENCES c_member ( id ) ON DELETE CASCADE,
+    CONSTRAINT driver_fk2 FOREIGN KEY ( driver ) REFERENCES c_member ( id ) ON DELETE CASCADE,
+    CONSTRAINT passenger1_fk2 FOREIGN KEY ( passenger1 ) REFERENCES c_member ( id ) ON DELETE CASCADE,
+    CONSTRAINT passenger2_fk2 FOREIGN KEY ( passenger2 ) REFERENCES c_member ( id ) ON DELETE CASCADE,
+    CONSTRAINT passenger3_fk2 FOREIGN KEY ( passenger3 ) REFERENCES c_member ( id ) ON DELETE CASCADE
+);
+CREATE TABLE c_boardn (
+    num          NUMBER PRIMARY KEY,
+    w_date       DATE NOT NULL,
+    title        VARCHAR2(50) NOT NULL,
+    content      clob,
+    writer       VARCHAR2(20),
+    CONSTRAINT writer_fk3 FOREIGN KEY ( writer ) REFERENCES c_member ( id ) ON DELETE CASCADE
+);
+CREATE TABLE c_boardf (
+    num          NUMBER PRIMARY KEY,
+    w_date       DATE NOT NULL,
+    title        VARCHAR2(50) NOT NULL,
+    content      clob,
+    writer       VARCHAR2(20),
+    CONSTRAINT writer_fk4 FOREIGN KEY ( writer ) REFERENCES c_member ( id ) ON DELETE CASCADE
+);
+CREATE TABLE c_car (
+    owner          VARCHAR2(20) UNIQUE,
+    license        VARCHAR2(100) NOT NULL,
+    number_plate   VARCHAR2(20) NOT NULL,
+    mileage        NUMBER NOT NULL,
+    age            DATE NOT NULL,
+    car_name       VARCHAR2(20) NOT NULL,
+    car_size       NUMBER NOT NULL,
+    CONSTRAINT car_fk FOREIGN KEY ( owner ) REFERENCES c_member ( id ) ON DELETE CASCADE
+);
+CREATE SEQUENCE seq_c_boardd;
+CREATE SEQUENCE seq_c_boardp;
+CREATE SEQUENCE seq_c_boardf;
+CREATE SEQUENCE seq_c_boardn;
+commit;
+
+------------------------------------------------------------------
+
+drop sequence seq_c_boardd;
+drop sequence seq_c_boardf;
+drop sequence seq_c_boardn;
+drop sequence seq_c_boardp;
+drop table c_reps;
+drop table c_car;
+drop table c_boardd;
+drop table c_boardf;
+drop table c_boardn;
+drop table c_boardp;
+drop table c_member;
+commit;

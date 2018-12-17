@@ -25,7 +25,6 @@ anchors are inline so you need ot make them block to go full width
   width:100%;
 }
 </style>
-
 </head>
 <body>
 	<div id="carousel-2" class="carousel slide carousel-fade" data-ride="carousel" data-interval="6000">
@@ -74,6 +73,17 @@ anchors are inline so you need ot make them block to go full width
             <p class="card-text" style="text-align:center">사용자들과 의사소통하기!</p>
          </div>
       </div>
+           
+      <div class="card">
+         <div style="padding: 10px;"></div>
+         <i class="fa fa-sun-o" style="font-size: 60pt; text-align: center;"></i>
+         <%--          <a href="${pageContext.request.contextPath }/weather.jsp"><img class="card-img-top" src="${pageContext.request.contextPath }/resources/img/weather.png" alt="Card image cap"></a> --%>
+         <div class="card-body">
+            <h5 class="card-title" style="text-align:center">weather</h5>
+            <p class="card-text" style="text-align:center">날씨 확인 하기!</p>
+         </div>
+      </div>
+      
       <div class="card">
          <div style="padding: 10px;"></div>
          <i class="fa fa-building" style="font-size: 60pt; text-align: center;"></i>

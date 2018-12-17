@@ -213,9 +213,9 @@ public class MemberController {
 			MimeMessage message = mailSender.createMimeMessage();
 			MimeMessageHelper messageHelper = new MimeMessageHelper(message, true, "UTF-8");
 
-			messageHelper.setFrom("whdgus537@gmail.com"); // 蹂대궡�뒗�궗�엺 �깮�왂�븯嫄곕굹 �븯硫� �젙�긽�옉�룞�쓣 �븞�븿
-			messageHelper.setTo(m.getEmail()); // 諛쏅뒗�궗�엺 �씠硫붿씪
-			messageHelper.setSubject("Kitri Carpool �엫�떆 鍮꾨�踰덊샇 �엯�땲�떎."); // 硫붿씪�젣紐⑹� �깮�왂�씠 媛��뒫�븯�떎
+			messageHelper.setFrom("kitricarpool@gmail.com"); 
+			messageHelper.setTo(m.getEmail()); 
+			messageHelper.setSubject("Kitri Carpool 임시비밀번호 발송."); 
 			String temppwd = Long.valueOf(new Date().getTime()).toString();
 			messageHelper.setText(temppwd); // 硫붿씪 �궡�슜
 			m.setPw(temppwd);
@@ -246,24 +246,6 @@ public class MemberController {
 		}
 		return b;
 	}
-
-	@RequestMapping("/idCheck")
-	@ResponseBody
-	public Boolean checkId(@RequestBody Map<String, String> map) {
-
-		Boolean b;
-		String input = map.get("id");
-		Member m = new Member();
-		m.setId(input);
-		int cnt = service.checkId(m);
-		if (cnt == 0) {
-			b = true;
-		} else {
-			b = false;
-		}
-		return b;
-	}
-
 	
 	@RequestMapping("/idCheck")
 	@ResponseBody

@@ -23,6 +23,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -71,7 +72,7 @@ public class myCaptcha {
 	}
 
 	@RequestMapping("/captchaResult")
-	public String captcahResult(Member m, HttpServletRequest request, @RequestParam("ff") MultipartFile file) {
+	public String captcahResult(Member m, HttpServletRequest request, @RequestParam("ff") MultipartFile file, Model model) {
 
 		String path = "";
 		File newFile = null;
@@ -107,11 +108,9 @@ public class myCaptcha {
 				}
 			}
 			path = "redirect:/";
-			request.setAttribute("join", true);
 
 		} else {
-			request.setAttribute("join", false);
-			path = "redirect:/";
+			return "redirect:/";
 
 		}
 		String key = getRandomKey();
@@ -132,7 +131,7 @@ public class myCaptcha {
 		} catch (Exception e) {
 			System.out.println(e);
 		}
-		
+		model.addAttribute("welcome","1");
 		System.out.println(m);
 		return path;
 	}

@@ -40,5 +40,18 @@ public class HomeController {
 	public String privacy() {
 		return "privacy.tiles";
 	}
+	@RequestMapping(value = "/weather", method = RequestMethod.GET)
+	public String weather() {
+		return "weather.tiles";
+	}
+	@RequestMapping(value = "/AdminPage", method = RequestMethod.GET)
+	public String AdminPage() {
+		return "AdminPage.tiles";
+	}
+	
+	@RequestMapping(value = "/survey", method = RequestMethod.GET)
+	public String survey() {
+		return "survey.tiles";
+	}
 
 }

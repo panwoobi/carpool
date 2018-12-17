@@ -215,32 +215,3 @@
         });
     }
 </script>
-=======
-
-
-<script>
- 
-    var idCheck = 0;
-
-    function checkId() {
-      
-        var inputed = $('#id').val();
-        
-        var obj = new Object();
-        obj.id = inputed;
-     	var jsonData = JSON.stringify(obj);
- 
-        $.ajax({
-            data : jsonData,
-            dataType : "json",
-            contentType : "application/json",
-            url : "${pageContext.request.contextPath}/idCheck",
-            type: "POST",
-            success : function(responseData) {
-
-       
-            }
-        });
-    }
-</script>
-
