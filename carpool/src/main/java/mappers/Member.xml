@@ -12,10 +12,12 @@
 		<result column="type" property="type" />
 		<result column="sex" property="sex" />
 		<result column="isSmoke" property="isSmoke" />
+		<result column="tmpkey" property="tmpkey" />
+		<result column="isValidate" property="isValidate" />
 	</resultMap>
 
 	<insert id="insert" parameterType="com.kitri.carpool.member.Member">
-		insert into c_member values(#{id}, #{pw}, #{name}, #{email}, #{tel}, #{profile}, #{type}, #{sex}, #{isSmoke})
+		insert into c_member values(#{id}, #{pw}, #{name}, #{email}, #{tel}, #{profile}, #{type}, #{sex}, #{isSmoke},#{tmpkey},#{isValidate})
 	</insert>
 	<update id="update" parameterType="com.kitri.carpool.member.Member">
 		update c_member set pw=#{pw}, name=#{name}, email=#{email}, tel=#{tel}, isSmoke=#{isSmoke} where id=#{id}
@@ -32,6 +34,14 @@
 	
 	<update id="updateProfile" parameterType="com.kitri.carpool.member.Member">
 		update c_member set profile=#{profile} where id=#{id}
+	</update>
+	
+	<update id="updatePwd" parameterType="com.kitri.carpool.member.Member">
+		update c_member set pw=#{pw} where id=#{id}
+	</update>
+	
+	<update id="updateValidate" parameterType="com.kitri.carpool.member.Member">
+		update c_member set isValidate =#{isValidate} where id=#{id}
 	</update>
 
 </mapper>

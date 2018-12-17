@@ -5,7 +5,9 @@ import java.util.ArrayList;
 import javax.annotation.Resource;
 
 import org.apache.ibatis.session.SqlSession;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 
 @Component("memberService")
@@ -120,4 +122,19 @@ public class MemberServiceImpl implements MemberService {
 		dao = sqlSession.getMapper(MemberDao.class);
 		dao.updateProfile(m);
 	}
+
+	@Override
+	public void editPwd(Member m) {
+		// TODO Auto-generated method stub
+		dao = sqlSession.getMapper(MemberDao.class);
+		dao.updatePwd(m);
+	}
+
+	@Override
+	public void editIsValidate(Member m) {
+		// TODO Auto-generated method stub
+		dao = sqlSession.getMapper(MemberDao.class);
+		dao.updateValidate(m);
+	}
+	
 }

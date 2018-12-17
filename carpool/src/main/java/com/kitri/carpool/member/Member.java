@@ -13,5 +13,7 @@ public class Member {
 	private String profile;
 	private int type;
 	private int sex;
-	private int isSmoke;	
+	private int isSmoke;
+	private String tmpkey;
+	private int isValidate;
 }

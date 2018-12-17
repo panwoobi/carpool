@@ -13,4 +13,6 @@ public interface MemberDao {
 	public ArrayList<Member> selectBySex(int sex);
 	public ArrayList<Member> selectAll();
 	public void updateProfile(Member m);
+	public void updatePwd(Member m);
+	public void updateValidate(Member m);
 }

@@ -1,13 +1,18 @@
 package com.kitri.carpool.member;
 
 import java.io.File;
+import java.util.Date;
 import java.util.ArrayList;
 import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -33,6 +38,9 @@ public class MemberController {
 
 	@Resource(name = "carService")
 	private CarService cservice;
+	
+	@Autowired
+	private JavaMailSender mailSender;
 
 	@Resource(name = "boardDService")
 	private BoardDService dService;
@@ -191,6 +199,52 @@ public class MemberController {
 			}
 		}
 		return b;
-	}
+	}	
+	
+	@RequestMapping("/find")
+	@ResponseBody
+	public Boolean find(@RequestBody Map<String, String> map) {
 
+		Boolean b = false;
+		String id = map.get("id");
+		Member m = service.getMember(id);
+		
+		try {
+			MimeMessage message = mailSender.createMimeMessage();
+			MimeMessageHelper messageHelper = new MimeMessageHelper(message, true, "UTF-8");
+
+			messageHelper.setFrom("whdgus537@gmail.com"); // 보내는사람 생략하거나 하면 정상작동을 안함
+			messageHelper.setTo(m.getEmail()); // 받는사람 이메일
+			messageHelper.setSubject("Kitri Carpool 임시 비밀번호 입니다."); // 메일제목은 생략이 가능하다
+			String temppwd = Long.valueOf(new Date().getTime()).toString();
+			messageHelper.setText(temppwd); // 메일 내용
+			m.setPw(temppwd);
+			mailSender.send(message);
+			b = true;
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		service.editPwd(m);
+		return b;
+	}	
+	
+	@RequestMapping("/activation")
+	@ResponseBody
+	public Boolean activation(@RequestBody Map<String, String> map, HttpServletRequest req) {
+		
+		Boolean b = false;
+		String input = map.get("input");
+		System.out.println(input);
+		HttpSession session = req.getSession(false);
+		Member m = (Member) session.getAttribute("m");
+		
+		if(m.getTmpkey().equals(input)) {
+			b = true;
+			m.setIsValidate(1);
+			service.editIsValidate(m);
+		}
+		return b;
+	}
+	
+	
 }
