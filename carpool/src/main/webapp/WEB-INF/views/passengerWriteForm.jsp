@@ -42,27 +42,27 @@ $(function() {
 				</tr>
 				<tr>
 					<td>제목</td>
-					<td><input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name="title" placeholder="제목" required></td>
+					<td><input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name="title" placeholder="제목" required autocomplete=off></td>
 				</tr>
 				<tr>
 					<td>내용</td>
-					<td><textarea class="form-control" rows="10" name="content" style="resize: none" placeholder="EX) 즐거운 카풀 원해요" required></textarea></td>
+					<td><textarea class="form-control" rows="10" name="content" style="resize: none" placeholder="EX) 즐거운 카풀 원해요" required autocomplete=off></textarea></td>
 				</tr>
 				<tr>
 					<td>출발 위치</td>
-					<td><input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name="start_posi" id="sp1" placeholder="옆의 지도에서 선택하세요" required onkeypress="return false;"></td>
+					<td><input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name="start_posi" id="sp1" placeholder="옆의 지도에서 선택하세요" required onkeypress="return false;" autocomplete=off></td>
 				</tr>
 				<tr>
 					<td>도착 위치</td>
-					<td><input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name="end_posi" id="ep1" placeholder="옆의 지도에서 선택하세요" required onkeypress="return false;"></td>
+					<td><input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name="end_posi" id="ep1" placeholder="옆의 지도에서 선택하세요" required onkeypress="return false;" autocomplete=off></td>
 				</tr>
 				<tr>
 					<td>출발 시간</td>
-					<td><input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" id="datetimepicker" name="start_time" required></td>
+					<td><input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" id="datetimepicker" name="start_time" required autocomplete=off></td>
 				</tr>
 				<tr>
 					<td>가격</td>
-					<td><input type="number" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name="price" placeholder="원" required></td>
+					<td><input type="number" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name="price" placeholder="원" required autocomplete=off></td>
 				</tr>
 				<tr>
 					<td colspan="2"><input type="submit" class="btn btn-info" id="passengerWrite" value="작성"> <input type="button" class="btn btn-info" id="driverList" value="목록"></td>
