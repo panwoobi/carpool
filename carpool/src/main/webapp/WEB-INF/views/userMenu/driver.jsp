@@ -2,6 +2,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <script>
 	$(document).ready(function(){
+	  
+	  $('#editProfile').attr("src", $('#editProfile').attr("src")+"?"+getRandom());
+	  
 	  $('.card').hide();
 	  $('#partner').show();
 	  
@@ -54,6 +57,7 @@
     });
 	  
 	$("#profileCommit").click(function(){
+	  	alert(getRandom());
 	    alert("Profile Change Commit");
 	  });
 	
@@ -91,7 +95,15 @@
 	});
 </script>
 
-
+<script >
+    function getRandom(){
+        var currentDate = new Date();         
+        var msg = currentDate.getHours();
+        msg += currentDate.getMinutes();
+        msg += currentDate.getSeconds();
+        return msg;
+    }
+</script>
 <style>
 #list {
 	text-align: center;
@@ -141,11 +153,11 @@ div>#paging {
 
 				<div class="form-group row">
 					<div class="container">
-									<div style="width: 140px; height: 140px; overflow: hidden border-radius: 70px; margin-left: auto; margin-right: auto; display: block;">
-										<img id="editProfile" class="rounded-circle" src="/profile/${sessionScope.m.id }.jpg" style="width: 140px; height: 140px; margin-left: auto; margin-right: auto; display: block;">
+						<div style="width: 140px; height: 140px; overflow: hidden border-radius: 70px; margin-left: auto; margin-right: auto; display: block;">
+							<img id="editProfile" class="rounded-circle" src="${sessionScope.m.profile }" style="width: 140px; height: 140px; margin-left: auto; margin-right: auto; display: block;">
 						</div>
 						<form action="${pageContext.request.contextPath }/editProfile" method="POST" enctype="multipart/form-data">
-							<input type="file" id="editProfileBtn" name="editProfileBtn" style="display: none;"> <input type="button" value="Profile Change" class="btn btn-link" style="float: left;" onclick="document.getElementById('editProfileBtn').click();" /> <input type="submit" class="btn btn-link" id="profileCommit" value="Save" style="float: right;">
+							<input type="file" id="editProfileBtn" name="editProfileBtn" style="display: none;"> <input type="button" value="프로필 변경" class="btn btn-link" style="float: left;" onclick="document.getElementById('editProfileBtn').click();" /> <input type="submit" class="btn btn-link" id="profileCommit" value="저장" style="float: right;">
 						</form>
 					</div>
 				</div>
@@ -262,38 +274,38 @@ div>#paging {
 				<div class="card-body">
 					<div class="row">
 						<div class="col-md-12">
-							<h4>Your Profile</h4>
+							<h4>Your Information</h4>
 							<hr>
 						</div>
 					</div>
 					<div class="row">
 						<div class="col-md-12">
 							<div class="form-group row">
-								<label class="col-4 col-form-label">User Name</label>
+								<label class="col-4 col-form-label">이름</label>
 								<div class="col-8">
 									<input value="${sessionScope.m.name }" class="form-control here" type="text" readonly>
 								</div>
 							</div>
 							<div class="form-group row">
-								<label class="col-4 col-form-label">User ID</label>
+								<label class="col-4 col-form-label">아이디</label>
 								<div class="col-8">
 									<input value="${sessionScope.m.id }" class="form-control here" type="text" readonly>
 								</div>
 							</div>
 							<div class="form-group row">
-								<label class="col-4 col-form-label">User Email</label>
+								<label class="col-4 col-form-label">이메일</label>
 								<div class="col-8">
 									<input value="${sessionScope.m.email }" class="form-control here" type="text" readonly>
 								</div>
 							</div>
 							<div class="form-group row">
-								<label class="col-4 col-form-label">User Tel</label>
+								<label class="col-4 col-form-label">전화번호</label>
 								<div class="col-8">
 									<input value="${sessionScope.m.tel }" class="form-control here" type="text" readonly>
 								</div>
 							</div>
 							<div class="form-group row">
-								<label class="col-4 col-form-label">User Type</label>
+								<label class="col-4 col-form-label">유형</label>
 								<div class="col-8">
 									<input value="Driver" class="form-control here" type="text" readonly>
 								</div>
@@ -301,16 +313,16 @@ div>#paging {
 
 
 							<div class="form-group row">
-								<label class="col-4 col-form-label">Sex</label>
+								<label class="col-4 col-form-label">성별</label>
 								<div class="col-8">
 
 									<c:choose>
 										<c:when test="${sessionScope.m.sex eq 0}">
-											<input value="Man" class="form-control here" type="text" readonly>
+											<input value="남" class="form-control here" type="text" readonly>
 										</c:when>
 
 										<c:when test="${sessionScope.m.sex eq 1}">
-											<input value="Woman" class="form-control here" type="text" readonly>
+											<input value="여" class="form-control here" type="text" readonly>
 										</c:when>
 									</c:choose>
 
@@ -320,15 +332,15 @@ div>#paging {
 
 
 							<div class="form-group row">
-								<label class="col-4 col-form-label">IsSmoke</label>
+								<label class="col-4 col-form-label">흡연여부</label>
 								<div class="col-8">
 									<c:choose>
 										<c:when test="${sessionScope.m.isSmoke eq 0}">
-											<input value="No" class="form-control here" type="text" readonly>
+											<input value="비흡연" class="form-control here" type="text" readonly>
 										</c:when>
 
 										<c:when test="${sessionScope.m.isSmoke eq 1}">
-											<input value="Yes" class="form-control here" type="text" readonly>
+											<input value="흡연" class="form-control here" type="text" readonly>
 										</c:when>
 									</c:choose>
 								</div>
@@ -359,7 +371,7 @@ div>#paging {
 								<c:choose>
 									<c:when test="${empty sessionScope.c }">
 										<h3>
-											There Is No Your Car<br> <br> <a href="#" id="carEnroll">Please Enroll Your Car</a> :(
+											등록된 차가 없습니다<br> <br> <a href="#" id="carEnroll">차를 등록해주세요</a> :(
 										</h3>
 									</c:when>
 									<c:otherwise>
@@ -370,44 +382,44 @@ div>#paging {
 											</div>
 										</div>
 										<div class="form-group row">
-											<label class="col-4 col-form-label">License</label>
+											<label class="col-4 col-form-label">운전면허번호</label>
 											<div class="col-8">
 												<input value="${sessionScope.c.license }" class="form-control here" type="text" readonly>
 											</div>
 										</div>
 										<div class="form-group row">
-											<label class="col-4 col-form-label">Number Plate</label>
+											<label class="col-4 col-form-label">차량번호</label>
 											<div class="col-8">
 												<input value="${sessionScope.c.number_plate }" class="form-control here" type="text" readonly>
 											</div>
 										</div>
 										<div class="form-group row">
-											<label class="col-4 col-form-label">Mileage</label>
+											<label class="col-4 col-form-label">킬로수</label>
 											<div class="col-8">
 												<input value="${sessionScope.c.mileage }" class="form-control here" type="text" readonly>
 											</div>
 										</div>
 										<div class="form-group row">
-											<label class="col-4 col-form-label">Age</label>
+											<label class="col-4 col-form-label">연식</label>
 											<div class="col-8">
 												<input value="${sessionScope.c.age }" class="form-control here" type="text" readonly>
 											</div>
 										</div>
 										<div class="form-group row">
-											<label class="col-4 col-form-label">Car Name</label>
+											<label class="col-4 col-form-label">차종</label>
 											<div class="col-8">
 												<input value="${sessionScope.c.car_name }" class="form-control here" type="text" readonly>
 											</div>
 										</div>
 										<div class="form-group row">
-											<label class="col-4 col-form-label">Car Size</label>
+											<label class="col-4 col-form-label">차 크기</label>
 											<div class="col-8">
 												<input value="${sessionScope.c.car_size }" class="form-control here" type="text" readonly>
 											</div>
 										</div>
 										<div class="form-group row">
 											<div class="offset-8 col-4">
-												<input value="DELETE" class="form-control here" type="submit">
+												<input value="삭제" class="form-control here" type="submit">
 											</div>
 										</div>
 									</c:otherwise>
@@ -436,43 +448,43 @@ div>#paging {
 						<div class="col-md-12">
 							<form action="${pageContext.request.contextPath }/editInfo" method="post">
 								<div class="form-group row">
-									<label class="col-4 col-form-label">User Name</label>
+									<label class="col-4 col-form-label">이름</label>
 									<div class="col-8">
 										<input name="name" class="form-control here" type="text" value="${sessionScope.m.name }" required oninvalid="this.setCustomValidity('닉네임을 입력하세요')" oninput="setCustomValidity('')">
 									</div>
 								</div>
 
 								<div class="form-group row">
-									<label class="col-4 col-form-label">User Password</label>
+									<label class="col-4 col-form-label">패스워드</label>
 									<div class="col-8">
 										<input name="pw" class="form-control here" type="password" value="${sessionScope.m.pw }" required oninvalid="this.setCustomValidity('password를 입력하세요')" oninput="setCustomValidity('')">
 									</div>
 								</div>
 								<div class="form-group row">
-									<label class="col-4 col-form-label">User Email</label>
+									<label class="col-4 col-form-label">이메일</label>
 									<div class="col-8">
 										<input name="email" class="form-control here" type="email" value="${sessionScope.m.email }" required oninvalid="this.setCustomValidity('email을 입력하세요')" oninput="setCustomValidity('')">
 									</div>
 								</div>
 								<div class="form-group row">
-									<label class="col-4 col-form-label">User Tel</label>
+									<label class="col-4 col-form-label">전화번호</label>
 									<div class="col-8">
 										<input name="tel" class="form-control here" type="text" value="${sessionScope.m.tel }" required oninvalid="this.setCustomValidity('연락처를 입력하세요')" oninput="setCustomValidity('')">
 									</div>
 								</div>
 
 								<div class="form-group row">
-									<label class="col-4 col-form-label">IsSmoke</label>
+									<label class="col-4 col-form-label">흡연여부</label>
 									<div class="col-8">
 										<select name="isSmoke" class="form-control">
-											<option selected value="0">No</option>
-											<option value="1">Yes</option>
+											<option selected value="0">비흡연</option>
+											<option value="1">흡연</option>
 										</select>
 									</div>
 								</div>
 								<div class="form-group row">
 									<div class="offset-8 col-4">
-										<input value="Edit" class="form-control here" type="submit">
+										<input value="변경" class="form-control here" type="submit">
 									</div>
 								</div>
 							</form>
@@ -498,12 +510,18 @@ div>#paging {
 					</div>
 					<div class="row">
 						<div class="col-md-12">
-							Once you delete your account, there is no going back. Please be certain.<br> All Information you write will be remove.<br> <br> Confirm your password<br> <br> <input type="password" id="deletePwd" placeholder="Password"><br> <br> If you conform notice, please click the "OUT" button<br> <br>
+							회원 탈퇴를 하시면 회원 가입시<br>
+							입력하신 모든 정보가 삭제됩니다.<br>
+							그와 동시에 KITRI Carpool 을 사용하면서<br>
+							작성하신 게시글 내역 또한 함께 삭제됩니다.<br><br>
+							<input type="password" id="deletePwd" placeholder="Password"><br><br>
+							위 안내사항을 모두 확인하였으며, <br>이에 동의하시면 탈퇴 진행을 위하여 패스워드를 입력하고 "탈퇴" 버튼을 눌러주세요.<br><br>
+		            
 						</div>
 						<div class="form-group row">
 							<div class="col-md-12">
 								<div class="container">
-									<input id="deleteDriver" value="Out" class="form-control here" type="button">
+									<input id="deleteDriver" value="탈퇴" class="form-control here" type="button">
 								</div>
 							</div>
 						</div>
@@ -526,31 +544,31 @@ div>#paging {
 						<div class="col-md-12">
 							<form action="${pageContext.request.contextPath }/enrollCar" method="post">
 								<div class="form-group row">
-									<label class="col-4 col-form-label">Owner</label>
+									<label class="col-4 col-form-label">소유주</label>
 									<div class="col-8">
 										<input value="${sessionScope.m.id }" name="owner" class="form-control here" type="text" readonly>
 									</div>
 								</div>
 								<div class="form-group row">
-									<label class="col-4 col-form-label">License</label>
+									<label class="col-4 col-form-label">운전면허번호</label>
 									<div class="col-8">
 										<input name="license" class="form-control here" type="password" required oninvalid="this.setCustomValidity('Licence번호를 입력하세요')" oninput="setCustomValidity('')">
 									</div>
 								</div>
 								<div class="form-group row">
-									<label class="col-4 col-form-label">Number Plate</label>
+									<label class="col-4 col-form-label">차량번호</label>
 									<div class="col-8">
 										<input name="number_plate" class="form-control here" type="text" required oninvalid="this.setCustomValidity('number plate를 입력하세요')" oninput="setCustomValidity('')">
 									</div>
 								</div>
 								<div class="form-group row">
-									<label class="col-4 col-form-label">Mileage</label>
+									<label class="col-4 col-form-label">킬로수</label>
 									<div class="col-8">
 										<input name="mileage" class="form-control here" type="text" required oninvalid="this.setCustomValidity('마일리지를 입력하세요')" oninput="setCustomValidity('')">
 									</div>
 								</div>
 								<div class="form-group row">
-									<label class="col-4 col-form-label">Age</label>
+									<label class="col-4 col-form-label">연식</label>
 									<div class="col-8">
 										<select name="age" class="form-control">
 											<option selected value="1970">1970</option>
@@ -561,24 +579,24 @@ div>#paging {
 									</div>
 								</div>
 								<div class="form-group row">
-									<label class="col-4 col-form-label">Car Name</label>
+									<label class="col-4 col-form-label">차종</label>
 									<div class="col-8">
 										<input name="car_name" class="form-control here" type="text" required oninvalid="this.setCustomValidity('차 종을 입력하세요')" oninput="setCustomValidity('')">
 									</div>
 								</div>
 								<div class="form-group row">
-									<label class="col-4 col-form-label">Car Size</label>
+									<label class="col-4 col-form-label">차 크기</label>
 									<div class="col-8">
 										<select name="car_size" class="form-control">
-											<option selected value="1">Small</option>
-											<option value="2">Medium</option>
-											<option value="2">Large</option>
+											<option selected value="1">소형</option>
+											<option value="2">중형</option>
+											<option value="2">대형</option>
 										</select>
 									</div>
 								</div>
 								<div class="form-group row">
 									<div class="offset-8 col-4">
-										<input value="Enroll" class="form-control here" type="submit">
+										<input value="등록" class="form-control here" type="submit">
 									</div>
 								</div>
 							</form>

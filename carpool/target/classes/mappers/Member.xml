@@ -45,7 +45,12 @@
 	</update>
 	
 	<select id="checkId" parameterType="com.kitri.carpool.member.Member" resultType="int">
+<<<<<<< HEAD
       select count(*) from c_member where id=#{id}
     </select>
+=======
+		select count(*) from c_member where id=#{id}
+	</select>
+>>>>>>> branch 'master' of https://github.com/panwoobi/carpool.git
 
 </mapper>

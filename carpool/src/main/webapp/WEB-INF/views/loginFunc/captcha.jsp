@@ -20,7 +20,7 @@
 
 
 						<div class="form-group row">
-							<label class="col-sm-2 col-form-label">프로필</label>
+							<label class="col-sm-2 col-form-label">Profile</label>
 							<div class="col-sm-10">
 								<input type="file" id="ff"  name="ff">
 							</div>
@@ -31,6 +31,7 @@
 						<div class="form-group row">
 							<label class="col-sm-2 col-form-label">ID</label>
 							<div class="col-sm-10">
+
 								<input type="text" class="form-control" id="id" name="id" placeholder="사용하실 ID를 입력하세요"  data-minlength="6" pattern=".{6,}" required title="6 글자이상" oninvalid="this.setCustomValidity('유효한 ID를 입력하세요')" oninput="setCustomValidity(''); checkId();" >
 							</div>
 						</div>
@@ -59,7 +60,7 @@
 
 
 						<div class="form-group row">
-							<label class="col-sm-2 col-form-label">연락처</label>
+							<label class="col-sm-2 col-form-label">Tel</label>
 							<div class="col-sm-10">
 								<input type="text" class="form-control" name="tel" placeholder="'-'를 제외한 숫자만 입력"  required oninvalid="this.setCustomValidity('유효한 연락처를 입력하세요')" oninput="setCustomValidity('')">
 							</div>
@@ -68,7 +69,7 @@
 
 						<div class="form-group">
 							<div class="row">
-								<label class="col-sm-2 col-form-label">흡연여부</label>
+								<label class="col-sm-2 col-form-label">Smoke</label>
 								<div class="col-sm-10">
 									<select name="isSmoke" class="form-control">
 										<option selected value="0">비흡연</option>
@@ -81,7 +82,7 @@
 
 						<div class="form-group">
 							<div class="row">
-								<label class="col-sm-2 col-form-label">성별</label>
+								<label class="col-sm-2 col-form-label">Sex</label>
 								<div class="col-sm-10">
 									<select name="sex" class="form-control">
 										<option selected value="0">남자</option>
@@ -94,11 +95,11 @@
 
 						<div class="form-group">
 							<div class="row">
-								<label class="col-sm-2 col-form-label">유형</label>
+								<label class="col-sm-2 col-form-label">Type</label>
 								<div class="col-sm-10">
 									<select name="type" class="form-control">
-										<option selected value="1">Passenger</option>
-										<option value="2">Driver</option>
+										<option selected value="2">Passenger</option>
+										<option value="1">Driver</option>
 									</select>
 								</div>
 
@@ -175,6 +176,7 @@
 
   });
 </script>
+
 <script>
  
     var idCheck = 0;
@@ -213,3 +215,32 @@
         });
     }
 </script>
+=======
+
+
+<script>
+ 
+    var idCheck = 0;
+
+    function checkId() {
+      
+        var inputed = $('#id').val();
+        
+        var obj = new Object();
+        obj.id = inputed;
+     	var jsonData = JSON.stringify(obj);
+ 
+        $.ajax({
+            data : jsonData,
+            dataType : "json",
+            contentType : "application/json",
+            url : "${pageContext.request.contextPath}/idCheck",
+            type: "POST",
+            success : function(responseData) {
+
+       
+            }
+        });
+    }
+</script>
+
