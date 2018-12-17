@@ -20,12 +20,11 @@
 					<br>
 					<p class="mb-0">You are happy to have a co-worker to accompany
 						me on my way to work.</p>
-				</div></li>
+				</div>
+			</li>
 
-			<br>
 
-
-			<div class="media">
+			<li class="media">
 				<div class="media-body">
 					<br>
 					<h2 class="mt-0 mb-1">Diversity</h2>
@@ -35,8 +34,7 @@
 				<img class="align-self-center ml-5"
 					src="${pageContext.request.contextPath }/resources/img/intro1.jpg"
 					style="width: 250px; height: 150px">
-			</div>
-			<br>
+			</li>
 
 
 			<li class="media"><img class="align-self-center mr-3"

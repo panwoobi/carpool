@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
 <body>
 
 <script src="https://apis.google.com/js/platform.js" async defer></script>
@@ -22,7 +21,7 @@
       }
 
 </script>
-<meta name="google-signin-client_id" content="696132996010-3koghf38vkb6s0fiqcjj2156p4e4l79e.apps.googleusercontent.com">
+<!-- <meta name="google-signin-client_id" content="696132996010-3koghf38vkb6s0fiqcjj2156p4e4l79e.apps.googleusercontent.com"> -->
 <div class="container">
 	<!-- Modal -->
 	<div class="modal fade" id="loginProc" role="dialog">
@@ -33,7 +32,7 @@
 				<div class="modal-body" style="padding: 40px 50px;">
 					<form action="${pageContext.request.contextPath}/myLogin" method="post">
 						<div class="form-group">
-							<label for="ID"><span class="glyphicon glyphicon-user">ID</span></label> <input type="type" class="form-control" name="id" id="ID" placeholder="ID를 입력하세요."  required oninvalid="this.setCustomValidity('유효한 ID를 입력하세요')" oninput="setCustomValidity('')">		
+							<label for="ID"><span class="glyphicon glyphicon-user">ID</span></label> <input type="text" class="form-control" name="id" id="ID" placeholder="ID를 입력하세요."  required oninvalid="this.setCustomValidity('유효한 ID를 입력하세요')" oninput="setCustomValidity('')">		
 						</div>
 						<div class="form-group">
 							<label for="Password"><span class="glyphicon glyphicon-eye-open">Password</span></label> <input type="text" class="form-control" name="pw" id="Password" placeholder="PW를 입력하세요." required oninvalid="this.setCustomValidity('유효한 Password를 입력하세요')" oninput="setCustomValidity('')">
