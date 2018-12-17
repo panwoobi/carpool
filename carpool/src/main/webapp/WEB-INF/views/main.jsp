@@ -25,7 +25,9 @@ anchors are inline so you need ot make them block to go full width
   width:100%;
 }
 </style>
+<script>
 
+</script>
 </head>
 <body>
 	<div id="carousel-2" class="carousel slide carousel-fade" data-ride="carousel" data-interval="6000">

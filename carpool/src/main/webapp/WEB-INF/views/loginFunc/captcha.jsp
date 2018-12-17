@@ -114,7 +114,7 @@
 						<div class="form-group row">
 							<label for="captcha" class="col-sm-2 col-form-label">Captcha</label>
 							<div class="col-sm-10">
-								<input type="text" class="form-control" name="input" id="input" placeholder="Captcha">
+								<input type="text" class="form-control" name="input" id="input" placeholder="Captcha" autocomplete="off">
 
 							</div>
 						</div>
@@ -215,32 +215,3 @@
         });
     }
 </script>
-=======
-
-
-<script>
- 
-    var idCheck = 0;
-
-    function checkId() {
-      
-        var inputed = $('#id').val();
-        
-        var obj = new Object();
-        obj.id = inputed;
-     	var jsonData = JSON.stringify(obj);
- 
-        $.ajax({
-            data : jsonData,
-            dataType : "json",
-            contentType : "application/json",
-            url : "${pageContext.request.contextPath}/idCheck",
-            type: "POST",
-            success : function(responseData) {
-
-       
-            }
-        });
-    }
-</script>
-

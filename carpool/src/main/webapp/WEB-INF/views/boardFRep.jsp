@@ -2,9 +2,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
-<title>Insert title here</title>
-<script type="text/javascript" src="//code.jquery.com/jquery-3.3.1.min.js"></script>
 <script type="text/javascript">
 //댓글등록하기
 function fn_comment(code){

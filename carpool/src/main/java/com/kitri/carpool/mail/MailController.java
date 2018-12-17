@@ -24,7 +24,7 @@ public class MailController {
 	@RequestMapping(value = "/testProc")
 	public String mailSending(HttpServletRequest request) {
 
-		String setfrom = "whdgus537@gmail.com";
+		String setfrom = "kitricarpool@gmail.com";
 		String tomail = request.getParameter("tomail"); // 받는 사람 이메일
 		String title = request.getParameter("title"); // 제목
 		String content = request.getParameter("content"); // 내용

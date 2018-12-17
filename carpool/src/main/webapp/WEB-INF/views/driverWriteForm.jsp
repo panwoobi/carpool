@@ -17,7 +17,6 @@
 </style>
 </head>
 <script>
-
 $(function() {
   $('#datetimepicker').appendDtpicker({
     'locale' : 'ko'
@@ -50,11 +49,11 @@ $(function() {
 				</tr>
 				<tr>
 					<td>출발 위치</td>
-					<td><input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name="start_posi" id="sp1" placeholder="옆의 지도에서 선택하세요" readonly required></td>
+					<td><input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name="start_posi" id="sp1" placeholder="옆의 지도에서 선택하세요" required onkeypress="return false;"></td>
 				</tr>
 				<tr>
 					<td>도착 위치</td>
-					<td><input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name="end_posi" id="ep1" placeholder="옆의 지도에서 선택하세요" readonly required></td>
+					<td><input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name="end_posi" id="ep1" placeholder="옆의 지도에서 선택하세요" required onkeypress="return false;"></td>
 				</tr>
 				<tr>
 					<td>출발 시간</td>
@@ -62,7 +61,7 @@ $(function() {
 				</tr>
 				<tr>
 					<td>가격</td>
-					<td><input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name="price" placeholder="원" required></td>
+					<td><input type="number" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name="price" placeholder="원" required></td>
 				</tr>
 				<tr>
 					<td>수용 인원</td>
