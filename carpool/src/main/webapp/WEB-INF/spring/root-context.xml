@@ -8,8 +8,8 @@
    <bean id="mailSender" class = "org.springframework.mail.javamail.JavaMailSenderImpl">
       <property name="host" value="smtp.gmail.com" />
       <property name="port" value="587" />
-      <property name="username" value="whdgus537@ajou.ac.kr" />
-      <property name="password" value="" />
+      <property name="username" value="kitricarpool@gmail.com" />
+      <property name="password" value="kitri12#$" />
       <!-- 여기다가 자기 gmail이랑 비밀번호를 적어야됩니다. -->
       <property name="javaMailProperties">
          <props>
@@ -20,4 +20,16 @@
          </props>
       </property>
     </bean>
+
+	<!-- google Class Bean설정 추가 -->
+	<!-- 클라이언트ID와 보안비밀 세팅 -->
+	<bean id="googleConnectionFactory" class="org.springframework.social.google.connect.GoogleConnectionFactory">
+		<constructor-arg value="696132996010-3koghf38vkb6s0fiqcjj2156p4e4l79e.apps.googleusercontent.com" />
+		<constructor-arg value="P1WZfaslywHmrollf27nt2kt" />
+	</bean>
+	<!-- 승인된 자바스크립트 원본과 승인된 리디렉션 URI -->
+	<bean id="googleOAuth2Parameters" class="org.springframework.social.oauth2.OAuth2Parameters">
+		<property name="scope" value="https://www.googleapis.com/auth/plus.login" />
+		<property name="redirectUri" value="http://localhost:8787/carpool/googleSignInCallback" />
+	</bean>
 </beans>

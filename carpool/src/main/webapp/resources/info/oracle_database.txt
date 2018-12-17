@@ -3,11 +3,11 @@ CREATE TABLE c_member (
     pw        VARCHAR2(20) NOT NULL,
     name      VARCHAR2(20) NOT NULL,
     email     VARCHAR2(100) NOT NULL,
-    tel       VARCHAR2(20) NOT NULL,
+    tel       VARCHAR2(20),
     profile   VARCHAR2(100),
     type      NUMBER(1) NOT NULL,
-    sex       NUMBER(1) NOT NULL,
-    issmoke   NUMBER(1) NOT NULL,
+    sex       NUMBER(1),
+    issmoke   NUMBER(1),
     tmpkey    VARCHAR2(50) NOT NULL,
     isvalidate NUMBER(1) NOT NULL
 );

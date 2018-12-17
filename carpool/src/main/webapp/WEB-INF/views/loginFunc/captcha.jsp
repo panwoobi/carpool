@@ -97,8 +97,8 @@
 								<label class="col-sm-2 col-form-label">유형</label>
 								<div class="col-sm-10">
 									<select name="type" class="form-control">
-										<option selected value="1">Passenger</option>
-										<option value="2">Driver</option>
+										<option selected value="2">Passenger</option>
+										<option value="1">Driver</option>
 									</select>
 								</div>
 
