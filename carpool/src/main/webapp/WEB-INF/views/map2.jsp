@@ -4,9 +4,11 @@
 <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?clientId=xXLVpp7s9U_1DSsciPkB&amp;submodules=drawing"></script>
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/map.css">
 <div id="wrap" class="section">
-	<div id="map" style="width: 100%; height: 600px;">
+	<div id="map" style="width: 100%; height: 800px;">
 		<div class="buttons">
-			<input id="startM" type="button" value="출발지로" class="control-btn" /> <input id="endM" type="button" value="도착지로" class="control-btn" />
+			<input id="startM" type="button" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" value="출발지로" class="control-btn" />
+			<div style="padding-top:3px"></div>
+			<input id="endM" type="button" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" value="도착지로" class="control-btn" />
 		</div>
 	</div>
 	<code id="snippet" class="snippet"></code>

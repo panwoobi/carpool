@@ -6,18 +6,18 @@
 <script>
 	$(document).ready(function(){
 	  $('.card').hide();
-	  $('#myInfo').show();
+	  $('#partner').show();
 	  
 	  $('.list-group-item').on('click', function(){
 		menu = $(this).attr("id");
 	  	if(menu=="1"){
 	  	  $('.card').hide();
-	  	  $('#myInfo').show();
-	  	}
-	  	if(menu=="2"){
-	  	  $('.card').hide();
 	  	  $('#partner').show();
 	  	}
+	  	if(menu=="2"){
+		  	  $('.card').hide();
+		  	  $('#myInfo').show();
+		  	}
 	  	if(menu=="3"){
 	  	  $('.card').hide();
 	  	  $('#edit').show();
@@ -116,8 +116,8 @@
 						</div>
 			  
               <h5>MENU</h5>
-              <a href="#" id="1" class="list-group-item list-group-item-action">My Info</a>
-              <a href="#" id="2" class="list-group-item list-group-item-action">Partner</a>
+              <a href="#" id="1" class="list-group-item list-group-item-action">Partner</a>
+              <a href="#" id="2" class="list-group-item list-group-item-action">My Info</a>
               <a href="#" id="3" class="list-group-item list-group-item-action">Edit My Info</a>
               <a href="#" id="4" class="list-group-item list-group-item-action">Delete My Account</a>
             </div> 
@@ -125,6 +125,89 @@
 		
 		<div class="col-md-9">
 
+		
+		<!-- partner start -->
+			<div class="card" id="partner">
+				<div class="card-body">
+					<div class="row">
+						<div class="col-md-12">
+							<h4>Your Partner</h4>
+							<hr>
+						</div>
+					</div>
+					<table class="table table-hover">
+					<caption>Driver Board</caption>
+						<thead class="thead-light">
+							<tr>
+								<th width="15%">제목</th>
+								<th width="20%">출발</th>
+								<th width="20%">도착</th>
+								<th width="15%">출발시간</th>
+								<th width="20%">운전자</th>
+								<th width="10%">금액</th>
+							</tr>
+						</thead>
+						<tbody>
+							<c:choose>
+								<c:when test="${empty Dlist}">
+									<tr>
+										<td colspan="6">파트너가 없습니다.</td>
+									</tr>
+								</c:when>
+								<c:when test="${!empty Dlist }">
+									<c:forEach var="b" items="${Dlist }" varStatus="status">
+										<tr>
+											<td><a href="${pageContext.request.contextPath }/driverDetail?num=${b.num }">${b.title}</a></td>
+											<td>${b.start_posi}</td>
+											<td>${b.end_posi}</td>
+											<td>${b.start_time}</td>
+											<td><a href="${pageContext.request.contextPath}/memberDetail?id=${b.driver}">${b.driver}</a></td>
+											<td>${b.price}원</td>
+										</tr>
+									</c:forEach>
+								</c:when>
+							</c:choose>
+						</tbody>
+					</table>
+					<br><br><br>
+					<table class="table table-hover">
+					<caption>Passenger Board</caption>
+						<thead class="thead-light">
+							<tr>
+								<th width="15%">제목</th>
+								<th width="20%">출발</th>
+								<th width="20%">도착</th>
+								<th width="15%">출발시간</th>
+								<th width="20%">운전자</th>
+								<th width="10%">금액</th>
+							</tr>
+						</thead>
+						<tbody>
+							<c:choose>
+								<c:when test="${empty Plist }">
+									<tr>
+										<td colspan="6">파트너가 없습니다.</td>
+									</tr>
+								</c:when>
+								<c:when test="${!empty Plist }">
+									<c:forEach var="b" items="${Plist }" varStatus="status">
+										<tr>
+											<td><a href="${pageContext.request.contextPath }/passengerDetail?num=${b.num }">${b.title}</a></td>
+											<td>${b.start_posi}</td>
+											<td>${b.end_posi}</td>
+											<td>${b.start_time}</td>
+											<td><a href="${pageContext.request.contextPath}/memberDetail?id=${b.driver}">${b.driver}</a></td>
+											<td>${b.price}원</td>
+										</tr>
+									</c:forEach>
+								</c:when>
+							</c:choose>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		<!-- partner end -->
+		
 		<!-- My Info start -->
 		    <div class="card" id="myInfo">
 		        <div class="card-body">
@@ -207,23 +290,6 @@
 		        </div>
 		    </div>
 		<!-- My Info end -->
-		
-		
-		<!-- partner start -->
-		    <div class="card" id="partner">
-		        <div class="card-body">
-		            <div class="row">
-		                <div class="col-md-12">
-		                    <h4>Your Partner</h4>
-		                    <hr>
-		                </div>
-		            </div>
-	
-		            
-		        </div>
-		    </div>
-		    
-		<!-- partner end -->
 		
 		<!-- Edit start -->
 		    <div class="card" id="edit">

@@ -1,4 +1,4 @@
-
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <div class="container">
 	<!-- Modal -->
 	<div class="modal fade" id="joinProc" role="dialog">
@@ -31,21 +31,21 @@
 						<div class="form-group row">
 							<label class="col-sm-2 col-form-label">ID</label>
 							<div class="col-sm-10">
-								<input type="text" class="form-control" name="id" placeholder="사용하실 ID를 입력하세요">
+								<input type="text" class="form-control" name="id" placeholder="사용하실 ID를 입력하세요"  data-minlength="6" pattern=".{6,}" required title="6 글자이상" oninvalid="this.setCustomValidity('유효한 ID를 입력하세요')" oninput="setCustomValidity('')">
 							</div>
 						</div>
 
 						<div class="form-group row">
 							<label class="col-sm-2 col-form-label">Password</label>
 							<div class="col-sm-10">
-								<input type="password" class="form-control" name="pw" placeholder="영어와 숫자 조합, 특수문자 반드시 포함, 8자 이상">
+								<input type="password" class="form-control" name="pw" placeholder="영어와 숫자 조합, 특수문자 반드시 포함, 6자 이상" data-minlength="6" pattern=".{6,}" required title="6 글자이상" oninvalid="this.setCustomValidity('유효한 PW를 입력하세요')" oninput="setCustomValidity('')">
 							</div>
 						</div>
 
 						<div class="form-group row">
 							<label class="col-sm-2 col-form-label">Name</label>
 							<div class="col-sm-10">
-								<input type="text" class="form-control" name="name" placeholder="홍길동">
+								<input type="text" class="form-control" name="name" placeholder="홍길동"  required oninvalid="this.setCustomValidity('유효한 닉네임을 입력하세요')" oninput="setCustomValidity('')">
 							</div>
 						</div>
 
@@ -53,7 +53,7 @@
 						<div class="form-group row">
 							<label class="col-sm-2 col-form-label">Email</label>
 							<div class="col-sm-10">
-								<input type="email" class="form-control" name="email" placeholder="Email">
+								<input type="email" class="form-control" name="email" placeholder="Email"  required oninvalid="this.setCustomValidity('유효한 Email를 입력하세요')" oninput="setCustomValidity('')">
 							</div>
 						</div>
 
@@ -61,7 +61,7 @@
 						<div class="form-group row">
 							<label class="col-sm-2 col-form-label">연락처</label>
 							<div class="col-sm-10">
-								<input type="text" class="form-control" name="tel" placeholder="'-'를 제외한 숫자만 입력">
+								<input type="text" class="form-control" name="tel" placeholder="'-'를 제외한 숫자만 입력"  required oninvalid="this.setCustomValidity('유효한 연락처를 입력하세요')" oninput="setCustomValidity('')">
 							</div>
 						</div>
 

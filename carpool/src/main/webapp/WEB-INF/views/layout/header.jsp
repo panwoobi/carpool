@@ -9,12 +9,6 @@
 
 <script type="text/javascript">
   $('document').ready(function() {
-    $('#div1').append("<iframe id='m' src='map' scrolling='no' frameborder='0' framespacing='0' margin='0' padding='0' vspace='0'></iframe>");
-    $('#div2').append("<iframe id='m' src='map2' scrolling='no' frameborder='0' framespacing='0' margin='0' padding='0' vspace='0'></iframe>");
-
-    $('#car').click(function() {
-      window.open("${pageContext.request.contextPath}/carDetail?owner=" + $('#w').val(), "", "width=740, height=130, top=100, left=100, scrollbars=no");
-    });
 
     $('#noticeWrite').click(function() {
       $('#f').attr("action", "${pageContext.request.contextPath}/noticeWrite");
@@ -49,34 +43,17 @@
       $('#f').attr("action", "${pageContext.request.contextPath}/freeBoardList");
       $('#f').submit();
     });
-
-    $('#passengerWrite').click(function() {
-      $('#f').attr("action", "${pageContext.request.contextPath}/passengerWrite");
-      $('#f').submit();
-    });
     $('#passengerList').click(function() {
       $('#f').attr("action", "${pageContext.request.contextPath}/passengerList");
       $('#f').submit();
     });
     $('#passengerDel').click(function() {
-      $('#f').attr("action", "${pageContext.request.contextPath}/passengerDel");
-      $('#f').submit();
-    });
-    $('#passengerEdit').click(function() {
-      $('#f').attr("action", "${pageContext.request.contextPath}/passengerEdit");
+      $('#f').attr("action", "${pageContext.request.contextPath}/passengerDelete");
       $('#f').submit();
     });
 
-    $('#driverWrite').click(function() {
-      $('#f').attr("action", "${pageContext.request.contextPath}/driverWrite");
-      $('#f').submit();
-    });
-    $('#driverEdit').click(function() {
-      $('#f').attr("action", "${pageContext.request.contextPath}/driverEdit");
-      $('#f').submit();
-    });
     $('#driverDel').click(function() {
-      $('#f').attr("action", "${pageContext.request.contextPath}/driverDel");
+      $('#f').attr("action", "${pageContext.request.contextPath}/driverDelete");
       $('#f').submit();
     });
     $('#driverList').click(function() {
@@ -116,10 +93,6 @@
     });
     $('#out').click(function() {
       $('#info').attr("action", "${pageContext.request.contextPath }/out");
-      $('#info').submit();
-    });
-    $('#partner').click(function() {
-      $('#info').attr("action", "${pageContext.request.contextPath }/partnerList");
       $('#info').submit();
     });
     

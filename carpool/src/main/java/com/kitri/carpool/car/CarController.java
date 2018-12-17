@@ -6,6 +6,8 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.kitri.carpool.member.Member;
 
@@ -23,7 +25,6 @@ public class CarController {
 	
 	@RequestMapping("/enrollCar")
 	public String enrollCar(Car c, HttpServletRequest req) {
-		System.out.println(c);
 		service.insertCar(c);
 		HttpSession session = req.getSession(false);
 		session.setAttribute("c", c);
@@ -40,5 +41,4 @@ public class CarController {
 		
 		return "/userMenu/driver.tiles";
 	}
-	
 }

@@ -1,6 +1,7 @@
 package com.kitri.carpool.boardD;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 public interface BoardDService {
 	
@@ -12,11 +13,11 @@ public interface BoardDService {
 
 	public ArrayList<BoardD> getByCate(String cate);
 
-	public ArrayList<BoardD> getByTime(String startTime);
+	public ArrayList<BoardD> getByTime(String start_time);
 
-	public ArrayList<BoardD> getByStartPosi(String startPosi);
+	public ArrayList<BoardD> getByStartPosi(String start_posi);
 
-	public ArrayList<BoardD> getByEndPosi(String endPosi);
+	public ArrayList<BoardD> getByEndPosi(String end_posi);
 
 	public ArrayList<BoardD> getByPrice(int price);
 
@@ -30,9 +31,11 @@ public interface BoardDService {
 	
 	public void editDriver(BoardD b);
 
-	public ArrayList<BoardD> getByStartEnd(String start_posi, String end_posi);
+	public ArrayList<BoardD> getByStartEnd(Map<String, String> map);
 
 	public ArrayList<BoardD> getByDriver(String driver);
 
 	public ArrayList<BoardD> getByPassenger(String passenger);
+
+	public ArrayList<BoardD> getByDriverPartnerList(String driver);
 }

@@ -1,6 +1,7 @@
 package com.kitri.carpool.boardD;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 import javax.annotation.Resource;
 
@@ -47,24 +48,24 @@ public class BoardDServiceImpl implements BoardDService {
 	}
 
 	@Override
-	public ArrayList<BoardD> getByTime(String startTime) {
+	public ArrayList<BoardD> getByTime(String start_time) {
 		// TODO Auto-generated method stub
 		dao = sqlSession.getMapper(BoardDDao.class);
-		return dao.selectByTime(startTime);
+		return dao.selectByTime(start_time);
 	}
 
 	@Override
-	public ArrayList<BoardD> getByStartPosi(String startPosi) {
+	public ArrayList<BoardD> getByStartPosi(String start_posi) {
 		// TODO Auto-generated method stub
 		dao = sqlSession.getMapper(BoardDDao.class);
-		return dao.selectByStartPosi(startPosi);
+		return dao.selectByStartPosi(start_posi);
 	}
 
 	@Override
-	public ArrayList<BoardD> getByEndPosi(String endPosi) {
+	public ArrayList<BoardD> getByEndPosi(String end_posi) {
 		// TODO Auto-generated method stub
 		dao = sqlSession.getMapper(BoardDDao.class);
-		return dao.selectByEndPosi(endPosi);
+		return dao.selectByEndPosi(end_posi);
 	}
 
 	@Override
@@ -96,9 +97,9 @@ public class BoardDServiceImpl implements BoardDService {
 	}
 	
 	@Override
-	public ArrayList<BoardD> getByStartEnd(String start_posi, String end_posi) {
+	public ArrayList<BoardD> getByStartEnd(Map<String, String> map) {
 		dao = sqlSession.getMapper(BoardDDao.class);
-		return dao.selectByStartEnd(start_posi, end_posi);
+		return dao.selectByStartEnd(map);
 	}
 
 	@Override
@@ -113,6 +114,19 @@ public class BoardDServiceImpl implements BoardDService {
 		// TODO Auto-generated method stub
 		dao = sqlSession.getMapper(BoardDDao.class);
 		return dao.selectByDriver(driver);
+	}
+
+	@Override
+	public ArrayList<BoardD> getByDriverPartnerList(String driver) {
+		// TODO Auto-generated method stub
+		dao = sqlSession.getMapper(BoardDDao.class);
+		ArrayList<BoardD> list = dao.selectByDriver(driver);
+		for(int i=0; i < list.size(); i++) {
+			if(list.get(i).getPassenger1() == null || list.get(i).getPassenger1() == "") {
+				list.remove(i);
+			}
+		}
+		return list;
 	}
 
 	@Override

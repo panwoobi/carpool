@@ -26,7 +26,7 @@ $(function() {
 </script>
 <body>
 	<div id="container">
-		<form id="f" action="" method="post">
+		<form id="f" action="${pageContext.request.contextPath}/driverWrite" method="post">
 			<input type="hidden" id="spx" name="spx"> <input type="hidden" id="spy" name="spy"> <input type="hidden" id="epx" name="epx"> <input type="hidden" id="epy" name="epy">
 			<table class="table table-striped table-bordered">
 				<tr>
@@ -38,46 +38,42 @@ $(function() {
 							<option value="여행">여행</option>
 							<option value="기타">기타</option>
 					</select></td>
-					<td style="width: 50%" rowspan="10">
-					<%@ include file="map.jsp"%></td>
+					<td style="width: 50%" rowspan="10"><%@ include file="map.jsp"%></td>
 				</tr>
 				<tr>
 					<td>제목</td>
-					<td><input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name="title" placeholder="제목"></td>
+					<td><input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name="title" placeholder="제목" required></td>
 				</tr>
 				<tr>
 					<td>내용</td>
-					<td><textarea class="form-control" rows="10" name="content" style="resize: none" placeholder="EX) 즐거운 카풀 원해요"></textarea></td>
+					<td><textarea class="form-control" rows="10" name="content" style="resize: none" placeholder="EX) 즐거운 카풀 원해요" required></textarea></td>
 				</tr>
 				<tr>
 					<td>출발 위치</td>
-					<td><input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name="start_posi" id="sp1" placeholder="옆의 지도에서 선택하세요" readonly></td>
+					<td><input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name="start_posi" id="sp1" placeholder="옆의 지도에서 선택하세요" readonly required></td>
 				</tr>
 				<tr>
 					<td>도착 위치</td>
-					<td><input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name="end_posi" id="ep1" placeholder="옆의 지도에서 선택하세요" readonly></td>
+					<td><input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name="end_posi" id="ep1" placeholder="옆의 지도에서 선택하세요" readonly required></td>
 				</tr>
 				<tr>
 					<td>출발 시간</td>
-					<td>
-						<input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" id="datetimepicker" name="start_time">
-					</td>
+					<td><input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" id="datetimepicker" name="start_time" required></td>
 				</tr>
 				<tr>
 					<td>가격</td>
-					<td><input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name="price" placeholder="원"></td>
+					<td><input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name="price" placeholder="원" required></td>
 				</tr>
 				<tr>
 					<td>수용 인원</td>
-					<td style="text-align: left">
-							<select name="maxSeat" class="form-control">
+					<td style="text-align: left"><select name="maxSeat" class="form-control">
 							<option value="1" selected>1</option>
 							<option value="2">2</option>
 							<option value="3">3</option>
 					</select></td>
 				</tr>
 				<tr>
-					<td colspan="2"><input type="button" class="btn btn-info" id="driverWrite" value="작성"> <input type="button" class="btn btn-info" id="driverList" value="목록"></td>
+					<td colspan="2"><input type="submit" class="btn btn-info" id="driverWrite" value="작성"> <input type="button" class="btn btn-info" id="driverList" value="목록"></td>
 				</tr>
 			</table>
 		</form>

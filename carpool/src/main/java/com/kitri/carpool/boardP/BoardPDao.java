@@ -1,6 +1,7 @@
 package com.kitri.carpool.boardP;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 public interface BoardPDao {
 
@@ -30,7 +31,7 @@ public interface BoardPDao {
 	
 	public void delete(int num);
 
-	public ArrayList<BoardP> selectByStartEnd(String start_posi, String end_posi);
+	public ArrayList<BoardP> selectByStartEnd(Map<String, String> map);
 
 	public ArrayList<BoardP> selectByPassenger(String passenger);
 

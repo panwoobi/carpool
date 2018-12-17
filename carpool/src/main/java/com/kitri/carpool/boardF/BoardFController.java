@@ -37,7 +37,6 @@ public class BoardFController {
 	public ModelAndView list() {
 		ModelAndView mav = new ModelAndView("boardFList.tiles");
 		ArrayList<BoardF> list = service.getAll();
-		System.out.println(list);
 		mav.addObject("list", list);
 		return mav;
 	}

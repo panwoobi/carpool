@@ -27,5 +27,4 @@ public class BoardD {
 	private String passenger2;
 	private String passenger3;
 	private String profile;
-
 }

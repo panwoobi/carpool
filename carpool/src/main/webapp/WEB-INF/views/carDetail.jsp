@@ -1,17 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
 <head>
-<link rel="shortcut icon"
-	href="${pageContext.request.contextPath }/img/favicon.ico"
-	type="image/x-icon" />
-<link rel="icon"
-	href="${pageContext.request.contextPath }/img/favicon.ico"
-	type="image/x-icon" />
-<title>${c.owner} ì˜ ì°¨ëŸ‰ì •ë³´</title>
+<link rel="shortcut icon" href="${pageContext.request.contextPath }/img/favicon.ico" type="image/x-icon" />
+<link rel="icon" href="${pageContext.request.contextPath }/img/favicon.ico" type="image/x-icon" />
+<title>${c.owner}ÀÇ Â÷·®Á¤º¸</title>
 <style>
-
 #listSubject {
 	text-align: center;
 	background-color: #d9d9d9;
@@ -21,38 +16,42 @@ table#carDetail {
 	text-align: center;
 	margin: auto;
 	width: 100%;
-	margin-top : 0px;
+	margin-top: 0px;
 	text-align: center;
 }
-
 </style>
 </head>
 <body>
-		<c:choose>
-			<c:when test="${c==null}">
-				<tr><td>ì°¨ëŸ‰ì„ ë“±ë¡í•˜ì§€ ì•Šì•˜ìŒ</td></tr>
-			</c:when>
-			<c:otherwise>
+	<c:choose>
+		<c:when test="${c==null}">
+			<tr>
+				<td>Â÷·®À» µî·ÏÇÏÁö ¾Ê¾ÒÀ½</td>
+			</tr>
+		</c:when>
+		<c:otherwise>
 			<table id="carDetail">
 				<tr>
-					<td id="listSubject" style="width:5%">ë¼ì´ì„¼ìŠ¤ ë²ˆí˜¸</td>
-					<td id="listSubject" style="width:5%">ì°¨ëŸ‰ë²ˆí˜¸</td>
-					<td id="listSubject" style="width:5%">ì£¼í–‰ê±°ë¦¬</td>
-					<td id="listSubject" style="width:5%">êµ¬ì…ë…„ë„</td>
-					<td id="listSubject" style="width:5%">ì°¨ëŸ‰ëª…</td>
-					<td id="listSubject" style="width:5%">ì°¨ì¢…</td>
+					<td id="listSubject" style="width: 5%">¶óÀÌ¼¾½º ¹øÈ£</td>
+					<td id="listSubject" style="width: 5%">Â÷·®¹øÈ£</td>
+					<td id="listSubject" style="width: 5%">ÁÖÇà°Å¸®</td>
+					<td id="listSubject" style="width: 5%">±¸ÀÔ³âµµ</td>
+					<td id="listSubject" style="width: 5%">Â÷·®¸í</td>
+					<td id="listSubject" style="width: 5%">Â÷Á¾</td>
 				</tr>
 				<tr>
-							<td>${c.license}</td>
-							<td>${c.numberPlate}</td>
-							<td>${c.mileage} km</td>
-							<td>${c.age} ë…„</td>
-							<td>${c.carName}</td>
-							<td>
-							<c:choose><c:when test="${c.carSize eq 0}">ì†Œí˜•</c:when><c:when test="${c.carSize eq 1}">ì¤‘í˜•</c:when><c:when test="${c.carSize eq 2}">ëŒ€í˜•</c:when></c:choose></td>
+					<td>${c.license}</td>
+					<td>${c.numberPlate}</td>
+					<td>${c.mileage}km</td>
+					<td>${c.age}³â</td>
+					<td>${c.carName}</td>
+					<td><c:choose>
+							<c:when test="${c.carSize eq 0}">¼ÒÇü</c:when>
+							<c:when test="${c.carSize eq 1}">ÁßÇü</c:when>
+							<c:when test="${c.carSize eq 2}">´ëÇü</c:when>
+						</c:choose></td>
 				</tr>
 			</table>
-			</c:otherwise>
-		</c:choose>
+		</c:otherwise>
+	</c:choose>
 </body>
 </html>
