@@ -3,11 +3,13 @@ CREATE TABLE c_member (
     pw        VARCHAR2(20) NOT NULL,
     name      VARCHAR2(20) NOT NULL,
     email     VARCHAR2(100) NOT NULL,
-    tel       VARCHAR2(20) NOT NULL,
+    tel       VARCHAR2(20),
     profile   VARCHAR2(100),
     type      NUMBER(1) NOT NULL,
-    sex       NUMBER(1) NOT NULL,
-    issmoke   NUMBER(1) NOT NULL
+    sex       NUMBER(1),
+    issmoke   NUMBER(1),
+    tmpkey    VARCHAR2(50) NOT NULL,
+    isvalidate NUMBER(1) NOT NULL
 );
 CREATE TABLE c_boardd (
     num          NUMBER PRIMARY KEY,
@@ -91,65 +93,10 @@ CREATE TABLE c_car (
     car_size       NUMBER NOT NULL,
     CONSTRAINT car_fk FOREIGN KEY ( owner ) REFERENCES c_member ( id ) ON DELETE CASCADE
 );
-CREATE SEQUENCE seq_c_boardd START WITH 1 INCREMENT BY 1 MAXVALUE 9999 NOCACHE;
-CREATE SEQUENCE seq_c_boardp START WITH 1 INCREMENT BY 1 MAXVALUE 9999 NOCACHE;
-CREATE SEQUENCE seq_c_boardf START WITH 1 INCREMENT BY 1 MAXVALUE 9999 NOCACHE;
-CREATE SEQUENCE seq_c_boardn START WITH 1 INCREMENT BY 1 MAXVALUE 9999 NOCACHE;
-INSERT INTO c_member VALUES (
-    'admin',
-    'admin',
-    'admin',
-    'email1',
-    '010-1111-2222',
-    'default_profile.jpg',
-    0,
-    0,
-    0
-);
-INSERT INTO c_member VALUES (
-    'driver',
-    'driver',
-    'driver',
-    'email2',
-    '010-3333-4444',
-    'default_profile.jpg',
-    1,
-    0,
-    0
-);
-INSERT INTO c_member VALUES (
-    'passenger1',
-    'passenger1',
-    'passenger1',
-    'email3',
-    '010-5555-6666',
-    'default_profile.jpg',
-    2,
-    0,
-    0
-);
-INSERT INTO c_member VALUES (
-    'passenger2',
-    'passenger2',
-    'passenger2',
-    'email4',
-    '010-7777-8888',
-    'default_profile.jpg',
-    2,
-    0,
-    0
-);
-INSERT INTO c_member VALUES (
-    'passenger3',
-    'passenger3',
-    'passenger3',
-    'email5',
-    '010-1234-4567',
-    'default_profile.jpg',
-    2,
-    0,
-    0
-);
+CREATE SEQUENCE seq_c_boardd;
+CREATE SEQUENCE seq_c_boardp;
+CREATE SEQUENCE seq_c_boardf;
+CREATE SEQUENCE seq_c_boardn;
 commit;
 
 ------------------------------------------------------------------

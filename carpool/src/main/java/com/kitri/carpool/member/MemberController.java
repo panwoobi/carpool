@@ -1,8 +1,8 @@
 package com.kitri.carpool.member;
 
 import java.io.File;
-import java.util.Date;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Map;
 
 import javax.annotation.Resource;
@@ -234,6 +234,7 @@ public class MemberController {
 
 		Boolean b = false;
 		String input = map.get("input");
+		input = input.trim();
 		System.out.println(input);
 		HttpSession session = req.getSession(false);
 		Member m = (Member) session.getAttribute("m");

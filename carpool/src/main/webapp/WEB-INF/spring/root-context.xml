@@ -20,4 +20,16 @@
          </props>
       </property>
     </bean>
+
+	<!-- google Class Bean설정 추가 -->
+	<!-- 클라이언트ID와 보안비밀 세팅 -->
+	<bean id="googleConnectionFactory" class="org.springframework.social.google.connect.GoogleConnectionFactory">
+		<constructor-arg value="696132996010-3koghf38vkb6s0fiqcjj2156p4e4l79e.apps.googleusercontent.com" />
+		<constructor-arg value="P1WZfaslywHmrollf27nt2kt" />
+	</bean>
+	<!-- 승인된 자바스크립트 원본과 승인된 리디렉션 URI -->
+	<bean id="googleOAuth2Parameters" class="org.springframework.social.oauth2.OAuth2Parameters">
+		<property name="scope" value="https://www.googleapis.com/auth/plus.login" />
+		<property name="redirectUri" value="http://localhost:8787/carpool/googleSignInCallback" />
+	</bean>
 </beans>

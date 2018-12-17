@@ -123,10 +123,10 @@ public class myCaptcha {
 			MimeMessage message = mailSender.createMimeMessage();
 			MimeMessageHelper messageHelper = new MimeMessageHelper(message, true, "UTF-8");
 
-			messageHelper.setFrom("whdgus537@gmail.com"); // 보내는사람 생략하거나 하면 정상작동을 안함
+			messageHelper.setFrom("kitricarpool@gmail.com"); // 보내는사람 생략하거나 하면 정상작동을 안함
 			messageHelper.setTo(m.getEmail()); // 받는사람 이메일
 			messageHelper.setSubject("Kitri Carpool 가입을 환영합니다"); // 메일제목은 생략이 가능하다
-			String temppwd = Long.valueOf(new Date().getTime()).toString();
+//			String temppwd = Long.valueOf(new Date().getTime()).toString();
 			messageHelper.setText(key+" 를 등록하세요"); // 메일 내용
 			mailSender.send(message);
 		} catch (Exception e) {

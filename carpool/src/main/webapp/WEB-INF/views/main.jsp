@@ -32,16 +32,13 @@ anchors are inline so you need ot make them block to go full width
 		<div class="carousel-inner" role="listbox">
 
 			<div class="carousel-item active carousel-item-left">
-				<a href="https://bootstrapcreative.com/"> <img src="${pageContext.request.contextPath}/resources/img/title1.png" alt="Los Angeles" class="d-block img-fluid">
-				</a>
+				<img src="${pageContext.request.contextPath}/resources/img/title1.png" alt="Los Angeles" class="d-block img-fluid">
 			</div>
 			<div class="carousel-item carousel-item-next carousel-item-left">
-				<a href="https://bootstrapcreative.com/"> <img src="${pageContext.request.contextPath}/resources/img/title2.png" alt="Los Angeles" class="d-block img-fluid">
-				</a>
+				<img src="${pageContext.request.contextPath}/resources/img/title2.png" alt="Los Angeles" class="d-block img-fluid">
 			</div>
 			<div class="carousel-item">
-				<a href="https://bootstrapcreative.com/"> <img src="${pageContext.request.contextPath}/resources/img/title3.png" alt="Los Angeles" class="d-block img-fluid">
-				</a>
+				<img src="${pageContext.request.contextPath}/resources/img/title3.png" alt="Los Angeles" class="d-block img-fluid">
 			</div>
 		</div>
 		<a class="carousel-control-prev" href="#carousel-2" role="button" data-slide="prev"> <span class="carousel-control-prev-icon" aria-hidden="true"></span> <span class="sr-only">Previous</span>
