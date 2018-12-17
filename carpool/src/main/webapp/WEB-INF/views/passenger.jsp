@@ -53,7 +53,9 @@ div>#paging {
 </style>
 </head>
 <body>
+<br>
 	<div id="container">
+		<div class="container">
 		<div class="form-inline">
 			<form action="${pageContext.request.contextPath }/passengerSearchList" method="post">
 				<input type="text" class="form-control" aria-label="Default" name="start_posi" placeholder="출발지역"> <input type="text" class="form-control" aria-label="Default" name="end_posi" placeholder="도착지역"> <input type="submit" class="btn btn-outline-primary" value="Search">
@@ -61,6 +63,7 @@ div>#paging {
 					<a class="btn btn-outline-primary right" href="${pageContext.request.contextPath }/passengerWriteForm">글쓰기</a>
 				</c:if>
 			</form>
+		</div>
 		</div>
 		<div id="list">
 			<b>게시판 (전체 글: ${totalCount})</b>

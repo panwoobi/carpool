@@ -53,7 +53,9 @@ div>#paging {
 </style>
 </head>
 <body>
+	<br>
 	<div id="container">
+		<div class ="container">
 		<div class="form-inline">
 			<form action="${pageContext.request.contextPath }/driverSearchList" method="post">
 				<input type="text" class="form-control" aria-label="Default" name="start_posi" placeholder="출발지역">
@@ -63,6 +65,7 @@ div>#paging {
 				<a class="btn btn-outline-primary right" href="${pageContext.request.contextPath }/driverWriteForm">글쓰기</a>
 			</c:if>
 			</form>
+		</div>
 		</div>
 		<div id="list">
 			<b>게시판 (전체 글: ${totalCount})</b>

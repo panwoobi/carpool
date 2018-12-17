@@ -5,6 +5,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <script>
 	$(document).ready(function(){
+	  
+	  $('#editProfile').attr("src", $('#editProfile').attr("src")+"?"+getRandom());
 	  $('.card').hide();
 	  $('#partner').show();
 	  
@@ -92,9 +94,15 @@
 	});
 </script>
 
-
-
-
+<script >
+    function getRandom(){
+        var currentDate = new Date();         
+        var msg = currentDate.getHours();
+        msg += currentDate.getMinutes();
+        msg += currentDate.getSeconds();
+        return msg;
+    }
+</script>
 
 <br><br>
 <div class="container">
@@ -109,8 +117,8 @@
 									</div>
 									<form action="${pageContext.request.contextPath }/editProfile" method="POST" enctype="multipart/form-data">
 									<input type="file" id="editProfileBtn" name="editProfileBtn" style="display: none;">
-									<input type="button" value="Profile Change"  class="btn btn-link" style="float:left;" onclick="document.getElementById('editProfileBtn').click();" />
-									<input type="submit"  id="re" class="btn btn-link" id="profileCommit" value="Save" style="float:right;">
+									<input type="button" value="프로필 변경"  class="btn btn-link" style="float:left;" onclick="document.getElementById('editProfileBtn').click();" />
+									<input type="submit"  id="re" class="btn btn-link" id="profileCommit" value="저장`" style="float:right;">
 									</form>
 							</div>
 						</div>
@@ -213,7 +221,7 @@
 		        <div class="card-body">
 		            <div class="row">
 		                <div class="col-md-12">
-		                    <h4>Your Profile</h4>
+		                    <h4>Your Information</h4>
 		                    <hr>
 		                </div>
 		            </div>
@@ -257,11 +265,11 @@
                                 
                                 <c:choose>
                                 <c:when test="${sessionScope.m.sex eq 0}">
-                                  <input value="Man" class="form-control here" type="text" readonly>
+                                  <input value="남" class="form-control here" type="text" readonly>
                                 </c:when>
                                
                                 <c:when test="${sessionScope.m.sex eq 1}">
-                                  <input value="Woman" class="form-control here" type="text" readonly>
+                                  <input value="여" class="form-control here" type="text" readonly>
                                 </c:when>
                                 </c:choose>
                                 
@@ -271,15 +279,15 @@
                               
                               
                                <div class="form-group row">
-                                <label class="col-4 col-form-label">IsSmoke</label> 
+                                <label class="col-4 col-form-label">흡연여부</label> 
                                 <div class="col-8">
                                 <c:choose>
                                 <c:when test="${sessionScope.m.isSmoke eq 0}">
-                                  <input value="No" class="form-control here" type="text" readonly>
+                                  <input value="비흡연" class="form-control here" type="text" readonly>
                                 </c:when>
                                
                                 <c:when test="${sessionScope.m.isSmoke eq 1}">
-                                  <input value="Yes" class="form-control here" type="text" readonly>
+                                  <input value="흡연" class="form-control here" type="text" readonly>
                                 </c:when>
                                 </c:choose>                               
                                  </div>
@@ -305,33 +313,33 @@
 		                <div class="col-md-12">
 		                    <form action="${pageContext.request.contextPath }/editInfo" method="post">
                               <div class="form-group row">
-                                <label class="col-4 col-form-label">User Name</label> 
+                                <label class="col-4 col-form-label">이름</label> 
                                 <div class="col-8">
                                   <input name="name" class="form-control here" type="text">
                                 </div>
                               </div>
 
                                 <div class="form-group row">
-                                <label class="col-4 col-form-label">User Password</label> 
+                                <label class="col-4 col-form-label">패스워드</label> 
                                 <div class="col-8">
                                   <input name="pw" class="form-control here" type="password" >
                                 </div>
                               </div>
                                <div class="form-group row">
-                                <label class="col-4 col-form-label">User Email</label> 
+                                <label class="col-4 col-form-label">이메일</label> 
                                 <div class="col-8">
                                   <input name="email" class="form-control here" type="email">
                                 </div>
                               </div>
                                <div class="form-group row">
-                                <label class="col-4 col-form-label">User Tel</label> 
+                                <label class="col-4 col-form-label">전화번호</label> 
                                 <div class="col-8">
                                   <input name="tel" class="form-control here" type="text" >
                                 </div>
                               </div>
    
                                <div class="form-group row">
-                                <label class="col-4 col-form-label">IsSmoke</label> 
+                                <label class="col-4 col-form-label">흡연여부</label> 
                                 <div class="col-8">
                                     <select name="isSmoke" class="form-control">
                                   		<option selected value="0">No</option>
@@ -341,7 +349,7 @@
                               </div>
                                <div class="form-group row">
                                  <div class="offset-8 col-4">
-                                  <input value="Edit" class="form-control here" type="submit">
+                                  <input value="변경" class="form-control here" type="submit">
                                 </div>
                                </div>
                                 </form>
@@ -370,12 +378,12 @@
 							그와 동시에 KITRI Carpool 을 사용하면서<br>
 							작성하신 게시글 내역 또한 함께 삭제됩니다.<br><br>
 							<input type="password" id="deletePwd" placeholder="Password"><br><br>
-							위 안내사항을 모두 확인하였으며, 이에 동의하시면 탈퇴 진행을 위하여 "OUT" 버튼을 눌러주세요.<br><br>
+							위 안내사항을 모두 확인하였으며, <br>이에 동의하시면 탈퇴 진행을 위하여 패스워드를 입력하고 "탈퇴" 버튼을 눌러주세요.<br><br>
 		                </div>
 		                <div class="form-group row">
                               <div class="col-md-12">
                               <div class="container">
-                                  <input id="deletePassenger" value="Out" class="form-control here" type="button">
+                                  <input id="deletePassenger" value="탈퇴" class="form-control here" type="button">
                               </div>
                               </div>
                         </div>

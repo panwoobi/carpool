@@ -64,10 +64,10 @@
 				<div class="modal-body" style="padding: 40px 50px;">
 					<form action="${pageContext.request.contextPath}/myLogin" method="post">
 						<div class="form-group">
-							<label for="ID"><span class="glyphicon glyphicon-user">ID</span></label> <input type="type" class="form-control" name="id" id="ID" placeholder="ID를 입력하세요."  required oninvalid="this.setCustomValidity('유효한 ID를 입력하세요')" oninput="setCustomValidity('')">		
+							<label for="ID"><span class="glyphicon glyphicon-user">ID</span></label> <input type="text" class="form-control" name="id" id="ID" placeholder="ID를 입력하세요."  required oninvalid="this.setCustomValidity('유효한 ID를 입력하세요')" oninput="setCustomValidity('')">		
 						</div>
 						<div class="form-group">
-							<label for="Password"><span class="glyphicon glyphicon-eye-open">Password</span></label> <input type="text" class="form-control" name="pw" id="Password" placeholder="PW를 입력하세요." required oninvalid="this.setCustomValidity('유효한 Password를 입력하세요')" oninput="setCustomValidity('')">
+							<label for="Password"><span class="glyphicon glyphicon-eye-open">Password</span></label> <input type="password" class="form-control" name="pw" id="Password" placeholder="PW를 입력하세요." required oninvalid="this.setCustomValidity('유효한 Password를 입력하세요')" oninput="setCustomValidity('')">
 						
 						</div>
 						<div>
