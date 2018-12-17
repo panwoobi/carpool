@@ -9,6 +9,37 @@
       $("#login").click(function() {
          $("#loginProc").modal();
       });
+      
+      $('#findPwd').click(function(){
+    	  var value = prompt("임시 비밀번호를 보낼 아이디를 입력하세요");
+    	
+    	  var obj = new Object();
+          obj.id = value;
+       	  var jsonData = JSON.stringify(obj);
+
+    	  if(value) {
+    	 
+    	    $.ajax({
+    	      url : "${pageContext.request.contextPath }/find",
+    	      type : "POST",
+    	      dataType: "json",
+    	      data: jsonData,
+    	      contentType : "application/json",
+    	      success : function(responseData) {  
+    	       	if(responseData==true){
+    	       	  alert("해당 이메일에 임시 비밀번호를 보냅니다");
+    	       	}else{
+    	           alert("발송 실패");
+    	       	}
+    	      }
+    	    });
+
+    	  }else {
+    	 
+    	  }
+
+      });
+      
    });
    
    
@@ -38,7 +69,7 @@
 							<label for="pw"><span class="glyphicon glyphicon-eye-open"></span> Password</label> <input type="text" class="form-control" name="pw" placeholder="PW를 입력하세요.">
 						</div>
 						<div>
-							<label><a href="#">비밀번호 찾기</a></label>
+							<label><a href="#" id="findPwd">비밀번호 찾기</a></label>
 						</div>
 						<button type="submit" class="btn btn-success btn-block">
 							<span class="glyphicon glyphicon-off"></span> 로그인

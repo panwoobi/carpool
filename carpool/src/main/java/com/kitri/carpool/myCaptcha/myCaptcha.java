@@ -11,12 +11,17 @@ import java.net.URL;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 
 import javax.annotation.Resource;
+import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpServletRequest;
 
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -33,6 +38,9 @@ public class myCaptcha {
 
 	private static String key;
 	private PathInfo pi;
+	
+	@Autowired
+	private JavaMailSender mailSender;
 
 	public myCaptcha() {
 		pi = PathInfo.getInstance();
@@ -64,7 +72,7 @@ public class myCaptcha {
 
 	@RequestMapping("/captchaResult")
 	public String captcahResult(Member m, HttpServletRequest request, @RequestParam("ff") MultipartFile file) {
-		
+
 		String path = "";
 		File newFile = null;
 		String input = (String) request.getParameter("input");
@@ -78,7 +86,7 @@ public class myCaptcha {
 		} catch (Exception e) {
 		}
 
-		if (b == true) { 
+		if (b == true) {
 
 			MultipartFile f = file;
 			if (f != null) {
@@ -101,13 +109,30 @@ public class myCaptcha {
 			path = "redirect:/";
 			request.setAttribute("join", true);
 
-		} else { 
+		} else {
 			request.setAttribute("join", false);
 			path = "redirect:/";
 
 		}
-		System.out.println(m.getProfile());
+		String key = getRandomKey();
+		m.setTmpkey(key);
+		m.setIsValidate(0);
 		service.join(m);
+		
+		try {
+			MimeMessage message = mailSender.createMimeMessage();
+			MimeMessageHelper messageHelper = new MimeMessageHelper(message, true, "UTF-8");
+
+			messageHelper.setFrom("whdgus537@gmail.com"); // 보내는사람 생략하거나 하면 정상작동을 안함
+			messageHelper.setTo(m.getEmail()); // 받는사람 이메일
+			messageHelper.setSubject("Kitri Carpool 가입을 환영합니다"); // 메일제목은 생략이 가능하다
+			String temppwd = Long.valueOf(new Date().getTime()).toString();
+			messageHelper.setText(key+" 를 등록하세요"); // 메일 내용
+			mailSender.send(message);
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		
 		System.out.println(m);
 		return path;
 	}
@@ -126,7 +151,7 @@ public class myCaptcha {
 			con.setRequestProperty("X-Naver-Client-Secret", clientSecret);
 			int responseCode = con.getResponseCode();
 			BufferedReader br;
-			if (responseCode == 200) { 
+			if (responseCode == 200) {
 				br = new BufferedReader(new InputStreamReader(con.getInputStream()));
 			} else { // ���� �߻�
 				br = new BufferedReader(new InputStreamReader(con.getErrorStream()));
@@ -153,7 +178,7 @@ public class myCaptcha {
 //		String img = "";
 		String path = "";
 		String apiURL = "";
-		
+
 		try {
 			apiURL = "https://openapi.naver.com/v1/captcha/ncaptcha.bin?key=" + key;
 			URL url = new URL(apiURL);
@@ -179,7 +204,7 @@ public class myCaptcha {
 				is.close();
 				outputStream.close();
 //				img = tempname + ".jpg";
-			} else { 
+			} else {
 				br = new BufferedReader(new InputStreamReader(con.getErrorStream()));
 				String inputLine;
 				StringBuffer sb = new StringBuffer();
@@ -199,10 +224,11 @@ public class myCaptcha {
 
 	public static String CaptchaNkeyResult(String key, String value) {
 		String result = "";
-		String clientId = "6AGmgCe30U75KRn0vAQg";;
+		String clientId = "6AGmgCe30U75KRn0vAQg";
+		;
 		String clientSecret = "TDh2gn2WDr";
 		try {
-			String code = "1"; 
+			String code = "1";
 			String apiURL = "https://openapi.naver.com/v1/captcha/nkey?code=" + code + "&key=" + key + "&value="
 					+ value;
 			URL url = new URL(apiURL);
@@ -212,7 +238,7 @@ public class myCaptcha {
 			con.setRequestProperty("X-Naver-Client-Secret", clientSecret);
 			int responseCode = con.getResponseCode();
 			BufferedReader br;
-			if (responseCode == 200) { 
+			if (responseCode == 200) {
 				br = new BufferedReader(new InputStreamReader(con.getInputStream()));
 			} else {
 				br = new BufferedReader(new InputStreamReader(con.getErrorStream()));
@@ -230,6 +256,20 @@ public class myCaptcha {
 		}
 
 		return result;
+	}
+
+	public static String getRandomKey() {
+		char[] charaters = { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r',
+				's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
+
+		StringBuffer sb = new StringBuffer();
+		Random r = new Random();
+
+		for (int i = 0; i < 8; i++) {
+			sb.append(charaters[r.nextInt(charaters.length)]);
+		}
+
+		return sb.toString();
 	}
 
 }
