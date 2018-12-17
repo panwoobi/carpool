@@ -49,7 +49,6 @@
 			<div class="modal-dialog">
 				<!-- Modal content-->
 				<div class="modal-content">
-
 					<div class="modal-body" style="padding: 40px 50px;">
 						<form action="${pageContext.request.contextPath}/myLogin" method="post">
 							<div class="form-group">
@@ -65,15 +64,8 @@
 							<button type="submit" class="btn btn-primary btn-block">
 								<span class="glyphicon glyphicon-off"></span> 로그인
 							</button>
-							<div style="padding: 10px;"></div>
-							<a href="${google_url}">
-								<button type="button" id="btnJoinGoogle" class="btn btn-primary btn-block">
-									<i class="fa fa-google" aria-hidden="true"></i> Google Login
-								</button>
-							</a>
 						</form>
 					</div>
-
 				</div>
 			</div>
 		</div>

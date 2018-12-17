@@ -172,11 +172,11 @@
 				</tr>
 				<tr>
 					<td>출발 위치</td>
-					<td><input type="text" class="form-control" aria-label="Default" name="start_posi" value="${b.start_posi }" id="sp1" placeholder="옆의 지도에서 선택하세요" readonly></td>
+					<td><input type="text" class="form-control" aria-label="Default" name="start_posi" value="${b.start_posi }" id="sp1" placeholder="옆의 지도에서 선택하세요" required onkeypress="return false;"></td>
 				</tr>
 				<tr>
 					<td>도착 위치</td>
-					<td><input type="text" class="form-control" aria-label="Default" name="end_posi" id="ep1" value="${b.end_posi }" placeholder="옆의 지도에서 선택하세요" readonly></td>
+					<td><input type="text" class="form-control" aria-label="Default" name="end_posi" id="ep1" value="${b.end_posi }" placeholder="옆의 지도에서 선택하세요" required onkeypress="return false;"></td>
 				</tr>
 				<tr>
 					<td>출발 시간</td>
@@ -192,7 +192,7 @@
 				</tr>
 				<tr>
 					<td>가격</td>
-					<td><input type="text" class="form-control" aria-label="Default" name="price" placeholder="원" value="${b.price }" ${readonly} required></td>
+					<td><input type="number" class="form-control" aria-label="Default" name="price" placeholder="원" value="${b.price }" ${readonly} required></td>
 				</tr>
 				<tr>
 					<td>신청자</td>

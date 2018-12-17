@@ -114,7 +114,7 @@
 						<div class="form-group row">
 							<label for="captcha" class="col-sm-2 col-form-label">Captcha</label>
 							<div class="col-sm-10">
-								<input type="text" class="form-control" name="input" id="input" placeholder="Captcha">
+								<input type="text" class="form-control" name="input" id="input" placeholder="Captcha" autocomplete="off">
 
 							</div>
 						</div>

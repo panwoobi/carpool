@@ -16,6 +16,7 @@ import java.util.Random;
 import javax.annotation.Resource;
 import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -117,6 +118,8 @@ public class myCaptcha {
 		m.setTmpkey(key);
 		m.setIsValidate(0);
 		service.join(m);
+		HttpSession session = request.getSession();
+		session.setAttribute("m", m);
 		
 		try {
 			MimeMessage message = mailSender.createMimeMessage();
@@ -131,7 +134,6 @@ public class myCaptcha {
 		} catch (Exception e) {
 			System.out.println(e);
 		}
-		model.addAttribute("welcome","1");
 		System.out.println(m);
 		return path;
 	}
