@@ -15,4 +15,5 @@ public interface MemberDao {
 	public void updateProfile(Member m);
 	public void updatePwd(Member m);
 	public void updateValidate(Member m);
+	public int checkId(Member m);
 }

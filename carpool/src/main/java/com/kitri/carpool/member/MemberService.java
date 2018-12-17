@@ -16,4 +16,6 @@ public interface MemberService {
 	public ArrayList<Member> getByType(int type);
 	public ArrayList<Member> getBySex(int sex);
 	public ArrayList<Member> getAll();
+	public int checkId(Member m);
+
 }

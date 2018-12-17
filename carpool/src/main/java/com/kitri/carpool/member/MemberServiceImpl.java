@@ -136,5 +136,12 @@ public class MemberServiceImpl implements MemberService {
 		dao = sqlSession.getMapper(MemberDao.class);
 		dao.updateValidate(m);
 	}
+
+	@Override
+	public int checkId(Member m) {
+		// TODO Auto-generated method stub
+		dao = sqlSession.getMapper(MemberDao.class);
+		return dao.checkId(m);
+	}
 	
 }

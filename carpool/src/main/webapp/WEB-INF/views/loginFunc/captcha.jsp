@@ -31,7 +31,7 @@
 						<div class="form-group row">
 							<label class="col-sm-2 col-form-label">ID</label>
 							<div class="col-sm-10">
-								<input type="text" class="form-control" name="id" placeholder="사용하실 ID를 입력하세요"  data-minlength="6" pattern=".{6,}" required title="6 글자이상" oninvalid="this.setCustomValidity('유효한 ID를 입력하세요')" oninput="setCustomValidity('')">
+								<input type="text" class="form-control" id="id" name="id" placeholder="사용하실 ID를 입력하세요"  data-minlength="6" pattern=".{6,}" required title="6 글자이상" oninvalid="this.setCustomValidity('유효한 ID를 입력하세요')" oninput="setCustomValidity(''); checkId();" >
 							</div>
 						</div>
 
@@ -174,4 +174,42 @@
     });
 
   });
+</script>
+<script>
+ 
+    var idCheck = 0;
+
+    function checkId() {
+      
+        var inputed = $('#id').val();
+        
+        var obj = new Object();
+        obj.id = inputed;
+        var jsonData = JSON.stringify(obj);
+
+        $.ajax({
+            data : jsonData,
+            dataType : "json",
+            contentType : "application/json",
+            url : "${pageContext.request.contextPath}/idCheck",
+            type: "POST",
+            success : function(data) {
+                if(inputed=="") {
+                    $(".signupbtn").prop("disabled", true);
+                    $(".signupbtn").css("background-color", "#aaaaaa");
+                    $("#id").css("background-color", "#FFFFFF");
+                    idCheck = 0;
+                } else if (data == false) {
+                    $(".signupbtn").prop("disabled", true);
+                    $(".signupbtn").css("background-color", "#aaaaaa");
+                    $("#id").css("background-color", "#FFCECE");
+                } else if (data == true) {
+                    $(".signupbtn").prop("disabled", false);
+                    $(".signupbtn").css("background-color", "#4CAF50");
+                    $("#id").css("background-color", "#B0F6AC");
+                    signupCheck();
+                } 
+            }
+        });
+    }
 </script>

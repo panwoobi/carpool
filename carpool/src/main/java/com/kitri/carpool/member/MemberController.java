@@ -38,13 +38,13 @@ public class MemberController {
 
 	@Resource(name = "carService")
 	private CarService cservice;
-	
+
 	@Autowired
 	private JavaMailSender mailSender;
 
 	@Resource(name = "boardDService")
 	private BoardDService dService;
-	
+
 	@Resource(name = "boardPService")
 	private BoardPService pService;
 
@@ -102,18 +102,18 @@ public class MemberController {
 
 		ArrayList<BoardD> Dlist = new ArrayList<BoardD>();
 		ArrayList<BoardP> Plist = new ArrayList<BoardP>();
-		
-		if(m.getType() == 1) {
+
+		if (m.getType() == 1) {
 			Dlist = dService.getByDriverPartnerList(m.getId());
 			Plist = pService.getByDriver(m.getId());
 		} else if (m.getType() == 2) {
 			Dlist = dService.getByPassenger(m.getId());
 			Plist = pService.getByPassenger(m.getId());
 		}
-		
+
 		mav.addObject("Dlist", Dlist);
 		mav.addObject("Plist", Plist);
-		
+
 		if (m.getType() == 0) {
 			mav.setViewName("/userMenu/admin.tiles");
 		} else if (m.getType() == 1) {
@@ -124,18 +124,18 @@ public class MemberController {
 
 		return mav;
 	}
-	
+
 	@RequestMapping("/memberDetail")
 	public ModelAndView detail(HttpServletRequest req) {
 		ModelAndView mav = new ModelAndView();
-		
+
 		String id = req.getParameter("id");
 
 		Member m = service.getMember(id);
 		mav.setViewName("memberDetail.tiles");
 		mav.addObject("m", m);
-		
-		if(m.getType() == 1) {
+
+		if (m.getType() == 1) {
 			Car c = cservice.getCar(m.getId());
 			mav.addObject("cc", c);
 		}
@@ -199,8 +199,8 @@ public class MemberController {
 			}
 		}
 		return b;
-	}	
-	
+	}
+
 	@RequestMapping("/find")
 	@ResponseBody
 	public Boolean find(@RequestBody Map<String, String> map) {
@@ -208,16 +208,16 @@ public class MemberController {
 		Boolean b = false;
 		String id = map.get("id");
 		Member m = service.getMember(id);
-		
+
 		try {
 			MimeMessage message = mailSender.createMimeMessage();
 			MimeMessageHelper messageHelper = new MimeMessageHelper(message, true, "UTF-8");
 
-			messageHelper.setFrom("whdgus537@gmail.com"); // 보내는사람 생략하거나 하면 정상작동을 안함
-			messageHelper.setTo(m.getEmail()); // 받는사람 이메일
-			messageHelper.setSubject("Kitri Carpool 임시 비밀번호 입니다."); // 메일제목은 생략이 가능하다
+			messageHelper.setFrom("whdgus537@gmail.com"); // 蹂대궡�뒗�궗�엺 �깮�왂�븯嫄곕굹 �븯硫� �젙�긽�옉�룞�쓣 �븞�븿
+			messageHelper.setTo(m.getEmail()); // 諛쏅뒗�궗�엺 �씠硫붿씪
+			messageHelper.setSubject("Kitri Carpool �엫�떆 鍮꾨�踰덊샇 �엯�땲�떎."); // 硫붿씪�젣紐⑹� �깮�왂�씠 媛��뒫�븯�떎
 			String temppwd = Long.valueOf(new Date().getTime()).toString();
-			messageHelper.setText(temppwd); // 메일 내용
+			messageHelper.setText(temppwd); // 硫붿씪 �궡�슜
 			m.setPw(temppwd);
 			mailSender.send(message);
 			b = true;
@@ -226,25 +226,41 @@ public class MemberController {
 		}
 		service.editPwd(m);
 		return b;
-	}	
-	
+	}
+
 	@RequestMapping("/activation")
 	@ResponseBody
 	public Boolean activation(@RequestBody Map<String, String> map, HttpServletRequest req) {
-		
+
 		Boolean b = false;
 		String input = map.get("input");
 		System.out.println(input);
 		HttpSession session = req.getSession(false);
 		Member m = (Member) session.getAttribute("m");
-		
-		if(m.getTmpkey().equals(input)) {
+
+		if (m.getTmpkey().equals(input)) {
 			b = true;
 			m.setIsValidate(1);
 			service.editIsValidate(m);
 		}
 		return b;
 	}
-	
-	
+
+	@RequestMapping("/idCheck")
+	@ResponseBody
+	public Boolean checkId(@RequestBody Map<String, String> map) {
+
+		Boolean b;
+		String input = map.get("id");
+		Member m = new Member();
+		m.setId(input);
+		int cnt = service.checkId(m);
+		if (cnt == 0) {
+			b = true;
+		} else {
+			b = false;
+		}
+		return b;
+	}
+
 }
