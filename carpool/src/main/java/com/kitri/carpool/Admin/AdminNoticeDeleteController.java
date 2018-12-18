@@ -24,12 +24,12 @@ public class AdminNoticeDeleteController {
 	public void setService(BoardNService service) {
 		this.service = service;
 	}
-
-	@RequestMapping("/ndelete")
-	@ResponseBody
-	public String delmember(@RequestParam(value = "num") int num) {
-		service.remove(num);
-		return "AdminNotice.tiles";
-	}
+//
+//	@RequestMapping("/ndelete")
+//	@ResponseBody
+//	public String delmember(@RequestParam(value = "num") int num) {
+//		service.remove(num);
+//		return "AdminNotice.tiles";
+//	}
 
 }

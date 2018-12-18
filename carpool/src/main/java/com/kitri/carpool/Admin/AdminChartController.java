@@ -33,36 +33,36 @@ public class AdminChartController {
 		this.pService = pService;
 	}
 
-	@RequestMapping("/admin")
-	public String admin(HttpServletRequest req, Model model) {
-		ArrayList<Member> m = service.getAll();
-		ArrayList<Member> a = service.geta();
-	ArrayList<Member> b = service.getb();
-		ArrayList<Member> c = service.getc();
-		ArrayList<Member> d = service.getd();
-		ArrayList<Member> e = service.gete();
-		ArrayList<Member> f = service.getf();
-		ArrayList<Member> g = service.getg();
-		ArrayList<Member> h = service.geth();
-		ArrayList<Member> i = service.geti();
-		ArrayList<Member> j = service.getj();
-		ArrayList<Member> k = service.getk();
-		ArrayList<Member> l = service.getl();
-	
-		model.addAttribute("m",m);
-		model.addAttribute("a",a);
-		model.addAttribute("b",b);
-		model.addAttribute("c",c);
-		model.addAttribute("d",d);
-		model.addAttribute("e",e);
-		model.addAttribute("f",f);
-		model.addAttribute("g",g);
-		model.addAttribute("h",h);
-		model.addAttribute("i",i);
-		model.addAttribute("j",j);
-		model.addAttribute("k",k);
-		model.addAttribute("l",l);
-		
-		return "AdminPage.tiles";
-	}
+//	@RequestMapping("/admin")
+//	public String admin(HttpServletRequest req, Model model) {
+//		ArrayList<Member> m = service.getAll();
+//		ArrayList<Member> a = service.geta();
+//		ArrayList<Member> b = service.getb();
+//		ArrayList<Member> c = service.getc();
+//		ArrayList<Member> d = service.getd();
+//		ArrayList<Member> e = service.gete();
+//		ArrayList<Member> f = service.getf();
+//		ArrayList<Member> g = service.getg();
+//		ArrayList<Member> h = service.geth();
+//		ArrayList<Member> i = service.geti();
+//		ArrayList<Member> j = service.getj();
+//		ArrayList<Member> k = service.getk();
+//		ArrayList<Member> l = service.getl();
+//	
+//		model.addAttribute("m",m);
+//		model.addAttribute("a",a);
+//		model.addAttribute("b",b);
+//		model.addAttribute("c",c);
+//		model.addAttribute("d",d);
+//		model.addAttribute("e",e);
+//		model.addAttribute("f",f);
+//		model.addAttribute("g",g);
+//		model.addAttribute("h",h);
+//		model.addAttribute("i",i);
+//		model.addAttribute("j",j);
+//		model.addAttribute("k",k);
+//		model.addAttribute("l",l);
+//		
+//		return "AdminPage.tiles";
+//	}
 }

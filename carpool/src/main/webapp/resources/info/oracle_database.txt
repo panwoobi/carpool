@@ -9,8 +9,10 @@ CREATE TABLE c_member (
     sex       NUMBER(1),
     issmoke   NUMBER(1),
     tmpkey    VARCHAR2(50) NOT NULL,
-    isvalidate NUMBER(1) NOT NULL
+    isvalidate NUMBER(1) NOT NULL,
+    jdate       DATE NOT NULL
 );
+insert into c_member values('admin', 'admin', 'admin', 'admin@kitri.com', '01012345678', '/profile/admin.jpg', 0, 0, 0, '1', 1, sysdate);
 CREATE TABLE c_boardd (
     num          NUMBER PRIMARY KEY,
     cate         VARCHAR2(20) NOT NULL,
@@ -105,7 +107,6 @@ drop sequence seq_c_boardd;
 drop sequence seq_c_boardf;
 drop sequence seq_c_boardn;
 drop sequence seq_c_boardp;
-drop table c_reps;
 drop table c_car;
 drop table c_boardd;
 drop table c_boardf;

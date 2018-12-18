@@ -22,13 +22,13 @@ public class AdminNoticeController {
 	public void setService(BoardNService service) {
 		this.service = service;
 	}
-
-	@RequestMapping("/adminNotice")
-	public ModelAndView Noticelist() {
-		ModelAndView mav = new ModelAndView("AdminNotice.tiles");
-		ArrayList<BoardN> list = service.getAll();
-		mav.addObject("list", list);
-		return mav;
-	}
+//
+//	@RequestMapping("/adminNotice")
+//	public ModelAndView Noticelist() {
+//		ModelAndView mav = new ModelAndView("AdminNotice.tiles");
+//		ArrayList<BoardN> list = service.getAll();
+//		mav.addObject("list", list);
+//		return mav;
+//	}
 
 }

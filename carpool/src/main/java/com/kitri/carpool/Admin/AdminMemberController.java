@@ -34,14 +34,6 @@ public class AdminMemberController {
 	@Resource(name = "memberService")
 	private MemberService service;
 
-	@Autowired
-	private JavaMailSender mailSender;
-
-	private PathInfo pi;
-
-	public AdminMemberController() {
-		pi = PathInfo.getInstance();
-	}
 
 	public void setService(MemberService service) {
 		this.service = service;
@@ -49,13 +41,13 @@ public class AdminMemberController {
 	}
 
 
-	@RequestMapping("/adminMember")
-	public ModelAndView Memberlist() {
-		ModelAndView mav = new ModelAndView("AdminMember.tiles");
-		ArrayList<Member> list = service.getAll();
-		mav.addObject("list", list);
-		return mav;
-	}
+//	@RequestMapping("/adminMember")
+//	public ModelAndView Memberlist() {
+//		ModelAndView mav = new ModelAndView("AdminMember.tiles");
+//		ArrayList<Member> list = service.getAll();
+//		mav.addObject("list", list);
+//		return mav;
+//	}
 	}
 
 	

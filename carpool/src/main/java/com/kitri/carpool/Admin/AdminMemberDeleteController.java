@@ -35,10 +35,10 @@ public class AdminMemberDeleteController {
 		this.pService = pService;
 	}
 
-	@RequestMapping("/mdelete")
-	@ResponseBody
-	public String delmember(@RequestParam(value = "id") String id) {
-		service.deletemember(id);
-		return "AdminMember.tiles";
-	}
+//	@RequestMapping("/mdelete")
+//	@ResponseBody
+//	public String delmember(@RequestParam(value = "id") String id) {
+//		service.deletemember(id);
+//		return "AdminMember.tiles";
+//	}
 }

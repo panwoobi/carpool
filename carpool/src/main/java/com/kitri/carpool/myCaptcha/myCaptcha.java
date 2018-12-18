@@ -117,6 +117,7 @@ public class myCaptcha {
 		String key = getRandomKey();
 		m.setTmpkey(key);
 		m.setIsValidate(0);
+		m.setJdate(null);
 		service.join(m);
 		HttpSession session = request.getSession();
 		session.setAttribute("m", m);
