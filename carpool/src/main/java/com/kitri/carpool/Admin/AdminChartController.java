@@ -1,39 +1,68 @@
 package com.kitri.carpool.Admin;
 
-import java.io.IOException;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
+import java.util.ArrayList;
+
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
-/**
- * Servlet implementation class AdminChartController
- */
-public class AdminChartController extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public AdminChartController() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+import com.kitri.carpool.boardD.BoardDService;
+import com.kitri.carpool.boardP.BoardPService;
+import com.kitri.carpool.member.Member;
+import com.kitri.carpool.member.MemberService;
+
+@Controller
+public class AdminChartController {
+
+	@Resource(name = "memberService")
+	private MemberService service;
+
+	
+	@Resource(name = "boardDService")
+	private BoardDService dService;
+
+	@Resource(name = "boardPService")
+	private BoardPService pService;
+	public void setService(MemberService service, BoardDService dService, BoardPService pService) {
+		this.service = service;
+		
+		this.dService = dService;
+		this.pService = pService;
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+	@RequestMapping("/admin")
+	public String admin(HttpServletRequest req, Model model) {
+		ArrayList<Member> m = service.getAll();
+		ArrayList<Member> a = service.geta();
+	ArrayList<Member> b = service.getb();
+		ArrayList<Member> c = service.getc();
+		ArrayList<Member> d = service.getd();
+		ArrayList<Member> e = service.gete();
+		ArrayList<Member> f = service.getf();
+		ArrayList<Member> g = service.getg();
+		ArrayList<Member> h = service.geth();
+		ArrayList<Member> i = service.geti();
+		ArrayList<Member> j = service.getj();
+		ArrayList<Member> k = service.getk();
+		ArrayList<Member> l = service.getl();
+	
+		model.addAttribute("m",m);
+		model.addAttribute("a",a);
+		model.addAttribute("b",b);
+		model.addAttribute("c",c);
+		model.addAttribute("d",d);
+		model.addAttribute("e",e);
+		model.addAttribute("f",f);
+		model.addAttribute("g",g);
+		model.addAttribute("h",h);
+		model.addAttribute("i",i);
+		model.addAttribute("j",j);
+		model.addAttribute("k",k);
+		model.addAttribute("l",l);
+		
+		return "AdminPage.tiles";
 	}
-
 }

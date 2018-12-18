@@ -141,5 +141,83 @@ public class MemberServiceImpl implements MemberService {
 		dao = sqlSession.getMapper(MemberDao.class);
 		return dao.checkId(m);
 	}
+
+	@Override
+	public ArrayList<Member> geta() {
+		dao = sqlSession.getMapper(MemberDao.class);
+		return dao.geta();
+	}
+
+	@Override
+	public ArrayList<Member> getb() {
+		dao = sqlSession.getMapper(MemberDao.class);
+		return dao.getb();
+	}
+
+	@Override
+	public ArrayList<Member> getc() {
+		dao = sqlSession.getMapper(MemberDao.class);
+		return dao.getc();
+	}
+
+	@Override
+	public ArrayList<Member> getd() {
+		dao = sqlSession.getMapper(MemberDao.class);
+		return dao.getd();
+	}
+
+	@Override
+	public ArrayList<Member> gete() {
+		dao = sqlSession.getMapper(MemberDao.class);
+		return dao.gete();
+	}
+
+	@Override
+	public ArrayList<Member> getf() {
+		dao = sqlSession.getMapper(MemberDao.class);
+		return dao.getf();
+	}
+
+	@Override
+	public ArrayList<Member> getg() {
+		dao = sqlSession.getMapper(MemberDao.class);
+		return dao.getg();
+	}
+
+	@Override
+	public ArrayList<Member> geth() {
+		dao = sqlSession.getMapper(MemberDao.class);
+		return dao.geth();
+	}
+
+	@Override
+	public ArrayList<Member> geti() {
+		dao = sqlSession.getMapper(MemberDao.class);
+		return dao.geti();
+	}
+
+	@Override
+	public ArrayList<Member> getj() {
+		dao = sqlSession.getMapper(MemberDao.class);
+		return dao.getj();
+	}
+
+	@Override
+	public ArrayList<Member> getk() {
+		dao = sqlSession.getMapper(MemberDao.class);
+		return dao.getk();
+	}
+
+	@Override
+	public ArrayList<Member> getl() {
+		dao = sqlSession.getMapper(MemberDao.class);
+		return dao.getl();
+	}
+
+	@Override
+	public void deletemember(String id) {
+		dao = sqlSession.getMapper(MemberDao.class);
+		dao.deletemember(id);
+	}
 	
 }

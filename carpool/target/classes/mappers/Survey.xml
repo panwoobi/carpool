@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kitri.carpool.Survey.SurveyDao">
+
+	<resultMap id="SurveyResult" type="com.kitri.carpool.Survey.Survey">
+		<result column="num" property="num" />
+		<result column="pid" property="pid" />
+		<result column="did" property="did" />
+		<result column="star" property="star" />
+		<result column="comlain" property="complain" />
+		<result column="opinion" property="opinion" />
+
+	</resultMap>
+
+	<insert id="insert" parameterType="com.kitri.carpool.Survey.Survey">
+		insert into Survey values(seq_c_boardd.nextval, #{cate}, sysdate, TO_DATE(#{start_time},'yyyy-mm-dd hh24:mi'), #{start_posi}, #{end_posi}, #{start_x}, #{start_y}, #{end_x}, #{end_y}, #{price}, #{content}, #{title}, #{seat}, #{maxSeat}, #{writer}, #{driver}, #{passenger1}, #{passenger2}, #{passenger3}, #{profile})
+	</insert>
+	<update id="update" parameterType="com.kitri.carpool.Survey.Survey">
+		update Survey set complain=#{complain}, opinion=#{opinion} where num=#{num}
+	</update>
+
+	<delete id="delete" parameterType="int">
+		delete Survey where num=#{num}
+	</delete>
+	<select id="selectByNum" parameterType="int" resultMap="SurveyResult">
+		select * from Survey where num=#{num}
+	</select>
+	<select id="selectBydid" parameterType="String" resultMap="SurveyResult">
+		select * from Survey where did=#{did} order by num desc
+	</select>
+
+	<select id="selectAll" resultMap="SurveyResult">
+		select * from Survey order by num desc
+	</select>
+<!-- 	<select id="selectByStartPosi" parameterType="String" resultMap="boardDResult"> -->
+<!-- 		select * from c_boardd where start_posi like '%'||#{start_posi}||'%' order by num desc  -->
+<!-- 	</select> -->
+<!-- 	<select id="selectByEndPosi" parameterType="String" resultMap="boardDResult"> -->
+<!-- 		select * from c_boardd where end_posi like '%'||#{end_posi}||'%' order by num desc  -->
+<!-- 	</select> -->
+	
+</mapper>

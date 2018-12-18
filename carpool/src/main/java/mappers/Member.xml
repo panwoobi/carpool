@@ -14,6 +14,7 @@
 		<result column="isSmoke" property="isSmoke" />
 		<result column="tmpkey" property="tmpkey" />
 		<result column="isValidate" property="isValidate" />
+			<result column="jdate" property="jdate" />
 	</resultMap>
 
 	<insert id="insert" parameterType="com.kitri.carpool.member.Member">
@@ -46,5 +47,83 @@
 	
 	<select id="checkId" parameterType="com.kitri.carpool.member.Member" resultType="int">
       select count(*) from c_member where id=#{id}
+    </select>
+    
+      <select id="geta" resultType="int">
+   select count(*)
+	from c_boardd
+	where to_date(w_date,'YY-MM-DD') = (SELECT ADD_MONTHS(to_date(sysdate,'YY-MM-DD'),-1) FROM dual)
+    </select>
+    
+    <select id="getb"  resultType="int">
+    select count(*)
+	from c_boardd
+	where to_date(w_date,'YY-MM-DD') = (SELECT to_date(sysdate,'YY-MM-DD') FROM dual)
+    </select>
+    
+    <select id="getc" resultType="int">
+     select count(*)
+	from c_boardd
+	where to_date(w_date,'YY-MM-DD') = (SELECT ADD_MONTHS(to_date(sysdate,'YY-MM-DD'),1) FROM dual)
+    </select>
+    
+    <select id="getd" resultType="int">
+   select count(*)
+	from c_boardp
+	where to_date(w_date,'YY-MM-DD') = (SELECT ADD_MONTHS(to_date(sysdate,'YY-MM-DD'),-1) FROM dual)
+    </select>
+    
+    <select id="gete" resultType="int">
+   select count(*)
+	from c_boardp
+	where to_date(w_date,'YY-MM-DD') = (SELECT to_date(sysdate,'YY-MM-DD') FROM dual)
+    </select>
+    
+    <select id="getf" resultType="int">
+    select count(*)
+	from c_boardp
+	where to_date(w_date,'YY-MM-DD') = (SELECT ADD_MONTHS(to_date(sysdate,'YY-MM-DD'),1) FROM dual)
+    </select>
+    
+    <select id="getg" resultType="int">
+   select count(*)
+	from c_member
+	where type = 2
+	and to_date(jdate,'YY-MM-DD') = (SELECT ADD_MONTHS(to_date(sysdate,'YY-MM-DD'),-1) FROM dual)
+    </select>
+    
+    <select id="geth" resultType="int">
+     select count(*)
+	from c_member
+	where type = 2
+	and to_date(jdate,'YY-MM-DD') = (SELECT to_date(sysdate,'YY-MM-DD') FROM dual)
+    </select>
+    
+    <select id="geti" resultType="int">
+     select count(*)
+	from c_member
+	where type = 2
+	and to_date(jdate,'YY-MM-DD') = (SELECT ADD_MONTHS(to_date(sysdate,'YY-MM-DD'),1) FROM dual)
+    </select>
+    
+    <select id="getj" resultType="int">
+     select count(*)
+	from c_member
+	where type = 1
+	and to_date(jdate,'YY-MM-DD') = (SELECT ADD_MONTHS(to_date(sysdate,'YY-MM-DD'),-1) FROM dual)
+    </select>
+    
+     <select id="getk" resultType="int">
+     select count(*)
+	from c_member
+	where type = 1
+	and to_date(jdate,'YY-MM-DD') = (SELECT to_date(sysdate,'YY-MM-DD') FROM dual)
+    </select>
+    
+     <select id="getl" resultType="int">
+     select count(*)
+	from c_member
+	where type = 1
+	and to_date(jdate,'YY-MM-DD') = (SELECT ADD_MONTHS(to_date(sysdate,'YY-MM-DD'),1) FROM dual)
     </select>
 </mapper>

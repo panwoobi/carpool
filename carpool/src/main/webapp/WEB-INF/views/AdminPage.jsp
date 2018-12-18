@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<html>
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,72 +8,86 @@
     <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 	<script type="text/javascript">
-		google.charts.load('current', {'packages':['corechart']});
-		 google.charts.setOnLoadCallback(drawChart);
+	google.charts.load('current', {'packages':['corechart']});
+	 google.charts.setOnLoadCallback(drawChart);
 
-		google.charts.setOnLoadCallback(drawVisualization2);
-		google.charts.setOnLoadCallback(drawVisualization3);
-		 function drawChart() {
-		        var data = google.visualization.arrayToDataTable([
-		          ['Year', 'Sales', 'Expenses'],
-		          ['2013',  1000,      400],
-		          ['2014',  1170,      460],
-		          ['2015',  660,       1120],
-		          ['2016',  1030,      540]
-		        ]);
+	google.charts.setOnLoadCallback(drawVisualization2);
+	google.charts.setOnLoadCallback(drawVisualization3);
+	
+	 function drawChart() {
+		 var a = ${a};
+		 var b = ${b};
+		 var c = ${c};
+		 var d = ${d};
+		 var e = ${e};
+		 var f = ${f};
 
-		        var options = {
-		          title: 'Company Performance',
-		          hAxis: {title: 'Year',  titleTextStyle: {color: '#333'}},
-		          vAxis: {minValue: 0}
-		        };
+		 
+	        var data = google.visualization.arrayToDataTable([
+	          ['Year', '드라이브 게시물', '손님 게시물'],
+	          ['2018/10',  a,      d],
+	          ['2018/11',  b,      e],
+	          ['2018/12',  c,      f]
+	 	        ]);
 
-		        var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
-		        chart.draw(data, options);
-		      }
+	        var options = {
+	          title: 'Company Performance',
+	          hAxis: {title: 'Year',  titleTextStyle: {color: '#333'}},
+	          vAxis: {minValue: 0}
+	        };
+
+	        var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
+	        chart.draw(data, options);
+	      }
+	
+	function drawVisualization2() { 
+		var g = ${g};
+		var h = ${h};
+		var i = ${i};
 		
-		function drawVisualization2() { 
-			var data = google.visualization.arrayToDataTable([
-					['Month', 'Bolivia', 'Ecuador', 'Madagascar', 'Papua New Guinea', 'Rwanda', 'Average'],
-					['2004/05',  165,      938,         522,             998,           450,      614.6],
-					['2005/06',  135,      1120,        599,             1268,          288,      682],
-					['2006/07',  157,      1167,        587,             807,           397,      623],
-					['2007/08',  139,      1110,        615,             968,           215,      609.4],
-					['2008/09',  136,      691,         629,             1026,          366,      569.6]
-				]);
-			var options = {
-					title : 'Monthly Coffee Production by Country',
-					vAxis: {title: 'Cups'},
-					hAxis: {title: 'Month'}, 
-					seriesType: 'bars',
-					series: {5: {type: 'line'}}
-				};
-			
-			var chart2 = new google.visualization.ComboChart(document.getElementById('chart_div2'));
-			chart2.draw(data, options);
-		}
+		var data = google.visualization.arrayToDataTable([				
+				['년/월', '고객'],
+				['2018/10',  g  ],
+				['2018/11',  h  ],
+				['2018/12',  i  ]
+				
+			]);
+		var options = {
+				vAxis: {title: '인원'},
+				hAxis: {title: '년/월'}, 
+				seriesType: 'bars',
+				series: {5: {type: 'line'}}
+			};
 		
-		function drawVisualization3() { 
-			var data = google.visualization.arrayToDataTable([
-					['Month', 'Bolivia', 'Ecuador', 'Madagascar', 'Papua New Guinea', 'Rwanda', 'Average'],
-					['2004/05',  165,      938,         522,             998,           450,      614.6],
-					['2005/06',  135,      1120,        599,             1268,          288,      682],
-					['2006/07',  157,      1167,        587,             807,           397,      623],
-					['2007/08',  139,      1110,        615,             968,           215,      609.4],
-					['2008/09',  136,      691,         629,             1026,          366,      569.6]
-				]);
-			var options = {
-					title : 'Monthly Coffee Production by Country',
-					vAxis: {title: 'Cups'},
-					hAxis: {title: 'Month'}, 
-					seriesType: 'bars',
-					series: {5: {type: 'line'}}
-				};
-			
-			var chart3 = new google.visualization.ComboChart(document.getElementById('chart_div3'));
-			chart3.draw(data, options);
-		}
-	</script>
+		var chart2 = new google.visualization.ComboChart(document.getElementById('chart_div2'));
+		chart2.draw(data, options);
+	}
+	
+	function drawVisualization3() { 		
+			var j = ${j};
+			var k = ${k};
+			var l = ${l};
+		var data = google.visualization.arrayToDataTable([
+				['년/월', '드라이버'],
+				['2018/10',  j],
+				['2018/11',  k],
+				['2018/12',  l]
+			]);
+		var options = {
+				title : 'Monthly Coffee Production by Country',
+				vAxis: {title: '인원'},
+				hAxis: {title: '년/월'}, 
+				seriesType: 'bars',
+				series: {5: {type: 'line'}}
+			};
+		
+		var chart3 = new google.visualization.ComboChart(document.getElementById('chart_div3'));
+		chart3.draw(data, options);
+	}
+</script>
+
+
+
 	
 	
 
@@ -107,61 +120,11 @@
 
       <a class="navbar-brand mr-1" href="${pageContext.request.contextPath}/resources/page2/index.html">AdminPage</a>
 
-      <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle">
+      <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
         <i class="fas fa-bars"></i>
       </button>
 
-      <!-- Navbar Search -->
-      <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
-        <div class="input-group">
-          <input type="text" class="form-control" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
-          <div class="input-group-append">
-            <button class="btn btn-primary" type="button">
-              <i class="fas fa-search"></i>
-            </button>
-          </div>
-        </div>
-      </form>
-
-      <!-- Navbar -->
-      <ul class="navbar-nav ml-auto ml-md-0">
-        <li class="nav-item dropdown no-arrow mx-1">
-          <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="fas fa-bell fa-fw"></i>
-            <span class="badge badge-danger">9+</span>
-          </a>
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="alertsDropdown">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Something else here</a>
-          </div>
-        </li>
-        <li class="nav-item dropdown no-arrow mx-1">
-          <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="fas fa-envelope fa-fw"></i>
-            <span class="badge badge-danger">7</span>
-          </a>
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="messagesDropdown">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Something else here</a>
-          </div>
-        </li>
-        <li class="nav-item dropdown no-arrow">
-          <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="fas fa-user-circle fa-fw"></i>
-          </a>
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-            <a class="dropdown-item" href="#">Settings</a>
-            <a class="dropdown-item" href="#">Activity Log</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Logout</a>
-          </div>
-        </li>
-      </ul>
-
+     
     </nav>
 
     <div id="wrapper">
@@ -169,14 +132,14 @@
       <!-- Sidebar -->
       <ul class="sidebar navbar-nav">
         <li class="nav-item active">
-          <a class="nav-link" href="${pageContext.request.contextPath}/resources/AdminPage/AdminPage2.jsp">
+          <a class="nav-link" href="${pageContext.request.contextPath}/admin">
      <i class="fa fa-tasks" aria-hidden="true"></i>
 
             <span>통계</span>
           </a>
         </li>
          <li class="nav-item active">
-          <a class="nav-link" href="${pageContext.request.contextPath}/resources/AdminPage/Memberm.jsp">
+          <a class="nav-link" href="${pageContext.request.contextPath}/adminMember">
             <i class="fa fa-users"></i>
             
             <span>회원관리</span>
@@ -184,7 +147,7 @@
         </li>
         
          <li class="nav-item active">
-          <a class="nav-link" href="${pageContext.request.contextPath}/resources/AdminPage/Notice.jsp">
+          <a class="nav-link" href="${pageContext.request.contextPath}/adminNotice">
             <i class="fa fa-comment"></i>
             <span>공지관리
            </span>

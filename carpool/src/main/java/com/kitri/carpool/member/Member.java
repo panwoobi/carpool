@@ -1,6 +1,8 @@
 package com.kitri.carpool.member;
 
 
+import java.sql.Date;
+
 import lombok.Data;
 
 @Data
@@ -16,4 +18,5 @@ public class Member {
 	private int isSmoke;
 	private String tmpkey;
 	private int isValidate;
+	private Date jdate;
 }
