@@ -26,8 +26,6 @@
 							</div>
 						</div>
 
-
-
 						<div class="form-group row">
 							<label class="col-sm-2 col-form-label">ID</label>
 							<div class="col-sm-10">
@@ -39,7 +37,7 @@
 						<div class="form-group row">
 							<label class="col-sm-2 col-form-label">Password</label>
 							<div class="col-sm-10">
-								<input type="password" class="form-control" name="pw" placeholder="영어와 숫자 조합, 특수문자 반드시 포함, 6자 이상" data-minlength="6" pattern=".{6,}" required title="6 글자이상" oninvalid="this.setCustomValidity('유효한 PW를 입력하세요')" oninput="setCustomValidity('')">
+								<input type="password" class="form-control" name="pw" placeholder="영어와 숫자 조합 6자 이상" data-minlength="6" pattern=".{6,}" required title="6 글자이상" oninvalid="this.setCustomValidity('유효한 PW를 입력하세요')" oninput="setCustomValidity('')">
 							</div>
 						</div>
 
