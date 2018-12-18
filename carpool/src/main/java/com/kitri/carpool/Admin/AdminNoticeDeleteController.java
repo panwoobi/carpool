@@ -27,9 +27,8 @@ public class AdminNoticeDeleteController {
 
 	@RequestMapping("/ndelete")
 	@ResponseBody
-	public String delmember(@RequestParam(value = "num") int num) {
+	public String delNotice(@RequestParam(value = "num") int num) {
 		service.remove(num);
-		return "AdminNotice.tiles";
+		return "redirect:/AdminNotice";
 	}
-
 }

@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.kitri.carpool.boardD.BoardDService;
 import com.kitri.carpool.boardP.BoardPService;
@@ -65,4 +66,6 @@ public class AdminChartController {
 		
 		return "AdminPage.tiles";
 	}
+	
+	
 }

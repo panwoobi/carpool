@@ -14,11 +14,11 @@
 		<result column="isSmoke" property="isSmoke" />
 		<result column="tmpkey" property="tmpkey" />
 		<result column="isValidate" property="isValidate" />
-			<result column="jdate" property="jdate" />
+		<result column="jdate" property="jdate" />
 	</resultMap>
 
 	<insert id="insert" parameterType="com.kitri.carpool.member.Member">
-		insert into c_member values(#{id}, #{pw}, #{name}, #{email}, #{tel}, #{profile}, #{type}, #{sex}, #{isSmoke},#{tmpkey},#{isValidate})
+		insert into c_member values(#{id}, #{pw}, #{name}, #{email}, #{tel}, #{profile}, #{type}, #{sex}, #{isSmoke},#{tmpkey},#{isValidate},sysdate)
 	</insert>
 	<update id="update" parameterType="com.kitri.carpool.member.Member">
 		update c_member set pw=#{pw}, name=#{name}, email=#{email}, tel=#{tel}, isSmoke=#{isSmoke} where id=#{id}
@@ -26,6 +26,11 @@
 	<delete id="delete" parameterType="String">
 		delete c_member where id=#{id}
 	</delete>
+	
+	<delete id="deletemember" parameterType="String">
+		delete c_member where id=#{id}
+	</delete>
+	
 	<select id="selectById" parameterType="String" resultMap="memberResult">
 		select * from c_member where id=#{id}
 	</select>
