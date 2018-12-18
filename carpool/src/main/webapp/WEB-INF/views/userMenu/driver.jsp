@@ -396,7 +396,7 @@ div>#paging {
 										<div class="form-group row">
 											<label class="col-4 col-form-label">킬로수</label>
 											<div class="col-8">
-												<input value="${sessionScope.c.mileage }" class="form-control here" type="text" readonly>
+												<input value="${sessionScope.c.mileage }" class="form-control here" type="number" readonly>
 											</div>
 										</div>
 										<div class="form-group row">

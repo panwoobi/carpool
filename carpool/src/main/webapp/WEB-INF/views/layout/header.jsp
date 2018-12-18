@@ -145,7 +145,7 @@
 					<c:when test="${!empty sessionScope.m && sessionScope.m.type eq 1 && sessionScope.m.isValidate eq 1}">
 						<form id="info" action="" method="post">
 							<p style="font-size: 18px">
-								<a href="${pageContext.request.contextPath }/menu">${sessionScope.m.name } (${sessionScope.m.id })</a>님 안녕하세요.
+								<a href="${pageContext.request.contextPath }/menu">${sessionScope.m.name } (${sessionScope.m.id })</a>
 							</p>
 							<a href="#" class="badge badge-primary" id="logout">Logout</a>
 						</form>
@@ -153,7 +153,7 @@
 					<c:when test="${!empty sessionScope.m && sessionScope.m.type eq 0 && sessionScope.m.isValidate eq 1}">
 						<form id="info" action="" method="post">
 							<p style="font-size: 18px">
-								<a href="${pageContext.request.contextPath }/menu">${sessionScope.m.name } (${sessionScope.m.id })</a>님 안녕하세요.
+								<a href="${pageContext.request.contextPath }/admin">${sessionScope.m.name } (${sessionScope.m.id })</a>
 							</p>
 							<a href="#" class="badge badge-primary" id="logout">Logout</a>
 						</form>
@@ -161,7 +161,7 @@
 					<c:when test="${!empty sessionScope.m && sessionScope.m.type eq 2 && sessionScope.m.isValidate eq 1}">
 						<form id="info" action="" method="post">
 							<p style="font-size: 18px">
-								<a href="${pageContext.request.contextPath }/menu">${sessionScope.m.name } (${sessionScope.m.id })</a>님 안녕하세요.
+								<a href="${pageContext.request.contextPath }/menu">${sessionScope.m.name } (${sessionScope.m.id })</a>
 							</p>
 							<a href="#" class="badge badge-primary" id="logout">Logout</a>
 						</form>

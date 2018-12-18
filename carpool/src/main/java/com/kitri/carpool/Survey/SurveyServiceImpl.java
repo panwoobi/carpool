@@ -7,8 +7,6 @@ import javax.annotation.Resource;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Component;
 
-import com.kitri.carpool.boardN.BoardNDao;
-
 
 @Component("SurveyService")
 public class SurveyServiceImpl implements SurveyService {

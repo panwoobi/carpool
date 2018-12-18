@@ -1,4 +1,4 @@
-
+<head>
 <style>
 /*
 Removes white gap between slides - chagnge to base color of slide images
@@ -22,21 +22,27 @@ anchors are inline so you need ot make them block to go full width
 	width: 100%;
 }
 </style>
-<br>
-<script>window.myWidgetParam ? window.myWidgetParam : window.myWidgetParam = [];  window.myWidgetParam.push({id: 15,cityid: '1835848',appid: '6e1b0b6da113f8e45c77421c2f83a3dd',units: 'metric',containerid: 'openweathermap-widget-1',  });  (function() {var script = document.createElement('script');script.async = true;script.charset = "utf-8";script.src = "//openweathermap.org/themes/openweathermap/assets/vendor/owm/js/weather-widget-generator.js";var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(script, s);  })();</script>
+<script>
+	window.myWidgetParam ? window.myWidgetParam : window.myWidgetParam = [];
+	window.myWidgetParam.push({
+		id : 15,
+		cityid : '1835848',
+		appid : '6e1b0b6da113f8e45c77421c2f83a3dd',
+		units : 'metric',
+		containerid : 'openweathermap-widget-1',
+	});
+	(function() {
+		var script = document.createElement('script');
+		script.async = true;
+		script.charset = "utf-8";
+		script.src = "//openweathermap.org/themes/openweathermap/assets/vendor/owm/js/weather-widget-generator.js";
+		var s = document.getElementsByTagName('script')[0];
+		s.parentNode.insertBefore(script, s);
+	})();
+</script>
 <!-- <script>window.myWidgetParam ? window.myWidgetParam : window.myWidgetParam = [];  window.myWidgetParam.push({id: 15,cityid: '1838524',appid: '6e1b0b6da113f8e45c77421c2f83a3dd',units: 'metric',containerid: 'openweathermap-widget-2',  });  (function() {var script = document.createElement('script');script.async = true;script.charset = "utf-8";script.src = "//openweathermap.org/themes/openweathermap/assets/vendor/owm/js/weather-widget-generator.js";var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(script, s);  })();</script> -->
 <!-- <script>window.myWidgetParam ? window.myWidgetParam : window.myWidgetParam = [];  window.myWidgetParam.push({id: 15,cityid: '1835329',appid: '6e1b0b6da113f8e45c77421c2f83a3dd',units: 'metric',containerid: 'openweathermap-widget-4',  });  (function() {var script = document.createElement('script');script.async = true;script.charset = "utf-8";script.src = "//openweathermap.org/themes/openweathermap/assets/vendor/owm/js/weather-widget-generator.js";var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(script, s);  })();</script> -->
-
-<<<<<<< HEAD
-<div class="container">
-<table>
-<tr><td><div id="openweathermap-widget-1"></div></td>
-<!-- <td> <div id="openweathermap-widget-2"></div></td> -->
-<!-- <td> <div id="openweathermap-widget-4"></div></td> -->
-</tr>
-</table>
-</div>
-=======
+<script>
 	window.myWidgetParam ? window.myWidgetParam : window.myWidgetParam = [];
 	window.myWidgetParam.push({
 		id : 15,
@@ -166,8 +172,7 @@ anchors are inline so you need ot make them block to go full width
 		var s8 = document.getElementsByTagName('script')[0];
 		s8.parentNode.insertBefore(script, s8);
 	})();
-	window.myWidgetParam ? window.myWidgetParam
-			: window.myWidgetParam = [];
+	window.myWidgetParam ? window.myWidgetParam : window.myWidgetParam = [];
 	window.myWidgetParam.push({
 		id : 15,
 		cityid : '1832427',
@@ -186,49 +191,16 @@ anchors are inline so you need ot make them block to go full width
 </script>
 </head>
 <body>
-	<table border="1">
-		<tr>
-			<td>
-				<div id="openweathermap-widget-15"></div>
-			</td>
-			</tr><tr>
-			<td>
-				<div id="openweathermap-widget-17"></div>
-			</td>
-			</tr><tr>
-			<td>
-				<div id="openweathermap-widget-24"></div>
-			</td>
-			</tr><tr>
-			<td>
-				<div id="openweathermap-widget-18"></div>
-			</td>
-			</tr><tr>
-			<td>
-				<div id="openweathermap-widget-23"></div>
-			</td>
-			</tr><tr>
-			<td>
-				<div id="openweathermap-widget-20"></div>
-			</td>
-			</tr><tr>
-			<td>
-				<div id="openweathermap-widget-21"></div>
-			</td>
-			</tr><tr>
-			<td>
-				<div id="openweathermap-widget-22"></div>
-			</td>
-			</tr><tr>
-			<td>
-				<div id="openweathermap-widget-16"></div>
-			</td>
-			</tr><tr>
-			<td>
-				<div id="openweathermap-widget-19"></div>
-			</td>
-		</tr>
-	</table>
+<br><br>
+	<div class="container">
+		<table align="center">
+			<tr>
+				<td><div id="openweathermap-widget-1"></div></td>
+				<!-- <td> <div id="openweathermap-widget-2"></div></td> -->
+				<!-- <td> <div id="openweathermap-widget-4"></div></td> -->
+			</tr>
+		</table>
+	</div>
+<br><br>
 </body>
 </html>
->>>>>>> branch 'master' of https://github.com/panwoobi/carpool.git

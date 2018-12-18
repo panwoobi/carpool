@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,22 +8,22 @@
 Removes white gap between slides - chagnge to base color of slide images
 */
 .carousel {
-  background:#007aeb;
+	background: #007aeb;
 }
 
 /*
 Forces image to be 100% width and not max width of 100%
 */
 .carousel-item .img-fluid {
-  width:100%;
+	width: 100%;
 }
 
 /* 
 anchors are inline so you need ot make them block to go full width
 */
 .carousel-item a {
-  display: block;
-  width:100%;
+	display: block;
+	width: 100%;
 }
 </style>
 </head>
@@ -47,54 +47,78 @@ anchors are inline so you need ot make them block to go full width
 	</div>
 
 	<div class="card-group">
-   <div style="padding: 7px;"></div>
-      <div class="card">
-         <div style="padding: 10px;"></div>
-         <i class="fa fa-car" style="font-size: 60pt; text-align: center;"></i>
-         <%--          <a href="${pageContext.request.contextPath }/CarChkController"><img class="card-img-top" src="${pageContext.request.contextPath }/resources/img/registration.png" alt="Card image cap"></a> --%>
-         <div class="card-body">
-            <h5 class="card-title" style="text-align:center">Registration</h5>
-            <p class="card-text" style="text-align:center">차량등록하여 이용하기!</p>
-         </div>
-      </div>
-      <div class="card">
-      <div style="padding: 10px;"></div>
-         <i class="fa fa-question" style="font-size: 60pt; text-align: center;"></i>
-         <div class="card-body">
-            <h5 class="card-title" style="text-align:center" >Carpool?</h5>
-            <p class="card-text" style="text-align:center">카풀이란?</p>
-         </div>
-      </div>
-      <div class="card">
-      <div style="padding: 10px;"></div>
-         <i class="fa fa-comments" style="font-size: 60pt; text-align: center;"></i>
-         <%--          <a href="${pageContext.request.contextPath }/CarChkController"><img class="card-img-top" src="${pageContext.request.contextPath }/resources/img/introduce.png" alt="Card image cap"></a> --%>
-         <div class="card-body">
-            <h5 class="card-title" style="text-align:center">Community</h5>
-            <p class="card-text" style="text-align:center">사용자들과 의사소통하기!</p>
-         </div>
-      </div>
-           
-      <div class="card">
-         <div style="padding: 10px;"></div>
-         <i class="fa fa-sun-o" style="font-size: 60pt; text-align: center;"></i>
-<%--                   <a href="${pageContext.request.contextPath }/weather.jsp"><img class="card-img-top" src="${pageContext.request.contextPath }/resources/img/weather.png" alt="Card image cap"></a> --%>
-         <div class="card-body">
-            <h5 class="card-title" style="text-align:center">weather</h5>
-           <a href="${pageContext.request.contextPath }/weather" ><p class="card-text" style="text-align:center">날씨 확인 하기!</p></a>
-         </div>
-      </div>
-      
-      <div class="card">
-         <div style="padding: 10px;"></div>
-         <i class="fa fa-building" style="font-size: 60pt; text-align: center;"></i>
-         <%--          <a href="${pageContext.request.contextPath }/CarChkController"><img class="card-img-top" src="${pageContext.request.contextPath }/resources/img/registration.png" alt="Card image cap"></a> --%>
-         <div class="card-body">
-            <h5 class="card-title" style="text-align:center">Recruit</h5>
-            <p class="card-text" style="text-align:center">KITRI Carpool에 지원하기!</p>
-         </div>
-      </div>
-   </div>
-<!--    </main> -->
+		<div style="padding: 7px;"></div>
+		<div class="card">
+			<div style="padding: 10px;"></div>
+			<i class="fa fa-car" style="font-size: 60pt; text-align: center;"></i>
+			<div class="card-body">
+				<c:choose>
+					<c:when test="${sessionScope.m.type eq 1 && sessionScope.m.isValidate eq 1}">
+						<h5 class="card-title" style="text-align: center">
+							<a href="${pageContext.request.contextPath }/menu">Registration</a>
+						</h5>
+						<h5 class="card-title" style="text-align: center">
+							<a href="${pageContext.request.contextPath }/menu">차량등록하여 이용하기!</a>
+						</h5>
+					</c:when>
+					<c:otherwise>
+						<h5 class="card-title" style="text-align: center">Registration</h5>
+						<p class="card-text" style="text-align: center">차량등록하여 이용하기!</p>
+					</c:otherwise>
+				</c:choose>
+			</div>
+		</div>
+		<div class="card">
+			<div style="padding: 10px;"></div>
+			<i class="fa fa-question" style="font-size: 60pt; text-align: center;"></i>
+			<div class="card-body">
+				<h5 class="card-title" style="text-align: center">
+					<a href="${pageContext.request.contextPath }/intro">Carpool?</a>
+				</h5>
+				<p class="card-text" style="text-align: center">
+					<a href="${pageContext.request.contextPath }/intro">카풀이란?</a>
+				</p>
+			</div>
+		</div>
+		<div class="card">
+			<div style="padding: 10px;"></div>
+			<i class="fa fa-comments" style="font-size: 60pt; text-align: center;"></i>
+			<div class="card-body">
+				<h5 class="card-title" style="text-align: center">
+					<a href="${pageContext.request.contextPath }/boardFList">Community</a>
+				</h5>
+				<p class="card-text" style="text-align: center">
+					<a href="${pageContext.request.contextPath }/boardFList">사용자들과 의사소통하기!</a>
+				</p>
+			</div>
+		</div>
+
+		<div class="card">
+			<div style="padding: 10px;"></div>
+			<i class="fa fa-sun-o" style="font-size: 60pt; text-align: center;"></i>
+			<div class="card-body">
+				<h5 class="card-title" style="text-align: center">
+					<a href="${pageContext.request.contextPath }/weather">weather</a>
+				</h5>
+				<p class="card-text" style="text-align: center">
+					<a href="${pageContext.request.contextPath }/weather">날씨 확인 하기!</a>
+				</p>
+			</div>
+		</div>
+
+		<div class="card">
+			<div style="padding: 10px;"></div>
+			<i class="fa fa-building" style="font-size: 60pt; text-align: center;"></i>
+			<div class="card-body">
+				<h5 class="card-title" style="text-align: center">
+					<a href="${pageContext.request.contextPath }/recruit">Recruit</a>
+				</h5>
+				<p class="card-text" style="text-align: center">
+					<a href="${pageContext.request.contextPath }/recruit">KITRI Carpool에 지원하기!</a>
+				</p>
+			</div>
+		</div>
+	</div>
+	<!--    </main> -->
 </body>
 </html>

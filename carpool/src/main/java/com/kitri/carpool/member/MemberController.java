@@ -114,9 +114,9 @@ public class MemberController {
 		mav.addObject("Dlist", Dlist);
 		mav.addObject("Plist", Plist);
 
-		if (m.getType() == 0) {
-			mav.setViewName("/userMenu/admin.tiles");
-		} else if (m.getType() == 1) {
+//		if (m.getType() == 0) {
+//			mav.setViewName("/userMenu/admin");
+		if (m.getType() == 1) {
 			mav.setViewName("/userMenu/driver.tiles");
 		} else if (m.getType() == 2) {
 			mav.setViewName("/userMenu/passenger.tiles");
@@ -215,9 +215,9 @@ public class MemberController {
 
 			messageHelper.setFrom("kitricarpool@gmail.com"); 
 			messageHelper.setTo(m.getEmail()); 
-			messageHelper.setSubject("Kitri Carpool 임시비밀번호 발송."); 
+			messageHelper.setSubject("Kitri Carpool 비밀번호 찾기."); 
 			String temppwd = Long.valueOf(new Date().getTime()).toString();
-			messageHelper.setText(temppwd); // 硫붿씪 �궡�슜
+			messageHelper.setText(temppwd); // 筌롫뗄�뵬 占쎄땀占쎌뒠
 			m.setPw(temppwd);
 			mailSender.send(message);
 			b = true;

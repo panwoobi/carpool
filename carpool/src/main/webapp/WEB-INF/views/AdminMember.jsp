@@ -76,14 +76,6 @@
 				<span class="glyphicon"></span> Member </td>
 		</tr>
 		<tr>
-			<c:if test="${sessionScope.m.type == 0}">
-				<td colspan="4" style="text-align: right"><a href="${pageContext.request.contextPath }/noticeWrite">
-				<button type="button" class="btn btn-default btn-sm">
-          <span class="glyphicon glyphicon-pencil"></span> write </button></a>
-				</td>
-			</c:if>
-		</tr>
-		<tr>
 			<td>
 				<table class="table table-hover">
 					<thead class="thead-light">
@@ -111,14 +103,12 @@
 									<tr>
 										<th scope="row">${m.id}</th>
 										<td scope="row">${m.name}</td>
-										<td scope="row">${m.email}</a></td>
-										<td scope="row">${m.tel}</a></td>
+										<td scope="row">${m.email}</td>
+										<td scope="row">${m.tel}</td>
 										<td scope="row">${m.sex}</td>
 										<td scope="row">${m.isSmoke}</td>
 										<td scope="row">${m.jdate}</td>
-			
-								<c:if test="${sessionScope.id==a.id}"> <form action="${pageContext.request.contextPath }/ReviewDeleteController?num=${m.num}&rno=${a.rno}&ptype=${sessionScope.type}" 
-method="post" enctype="multipart/form-data"> <td><input style="height:100%" type="submit" value="삭제"></td></c:if>
+								 <td scope="row"><a href="${pageContext.request.contextPath }/mdelete?id=${m.id }"><h5>삭제<h5></h1></a></td>
 									</tr>
 								</c:forEach>
 							</c:when>

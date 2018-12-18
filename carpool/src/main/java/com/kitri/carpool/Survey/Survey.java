@@ -1,5 +1,8 @@
 package com.kitri.carpool.Survey;
 
+import lombok.Data;
+
+@Data
 public class Survey {
 	private int num;
 	private String pid;

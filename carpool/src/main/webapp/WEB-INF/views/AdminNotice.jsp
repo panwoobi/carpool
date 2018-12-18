@@ -92,6 +92,7 @@
 							<th scope="col">작성자</th>
 							<th scope="col">제목</th>
 							<th scope="col">작성일</th>
+							<th scope="col">수정</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -108,8 +109,7 @@
 										<td scope="row">${n.writer}</td>
 										<td scope="row">${n.title}</a></td>
 										<td scope="row">${n.w_date}</td>
-										<c:if test="${sessionScope.id==a.id}"> <form action="${pageContext.request.contextPath }/ReviewDeleteController?num=${m.num}&rno=${a.rno}&ptype=${sessionScope.type}" 
-method="post" enctype="multipart/form-data"><td><input style="height:100%" type="submit" value="삭제"></td></c:if>
+										 <td scope="row"><a href="${pageContext.request.contextPath }/ndelete?num=${n.num }"><h5>삭제<h5></h1></a></td>
 									</tr>
 								</c:forEach>
 							</c:when>

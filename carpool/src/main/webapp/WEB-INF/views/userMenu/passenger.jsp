@@ -118,7 +118,7 @@
 									<form action="${pageContext.request.contextPath }/editProfile" method="POST" enctype="multipart/form-data">
 									<input type="file" id="editProfileBtn" name="editProfileBtn" style="display: none;">
 									<input type="button" value="프로필 변경"  class="btn btn-link" style="float:left;" onclick="document.getElementById('editProfileBtn').click();" />
-									<input type="submit"  id="re" class="btn btn-link" id="profileCommit" value="저장`" style="float:right;">
+									<input type="submit"  id="re" class="btn btn-link" id="profileCommit" value="저장" style="float:right;">
 									</form>
 							</div>
 						</div>

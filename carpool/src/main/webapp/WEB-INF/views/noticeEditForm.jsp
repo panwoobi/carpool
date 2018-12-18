@@ -92,7 +92,7 @@
 			$('#validationCustom02').summernote({
 				placeholder : '내용을 작성하세요',
 				tabsize : 2,
-				height : 100
+				height : 800
 			});
 		</script>
 	</form>

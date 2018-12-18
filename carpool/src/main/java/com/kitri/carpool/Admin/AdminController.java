@@ -9,7 +9,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.kitri.carpool.boardD.BoardDService;
@@ -41,18 +40,18 @@ public class AdminController {
 		this.nService = nService;
 	}
 
+
 	@RequestMapping("/mdelete")
-	@ResponseBody
 	public String delmember(@RequestParam(value = "id") String id) {
+		System.out.println(id);
 		mService.deletemember(id);
-		return "AdminMember.tiles";
+		return "redirect:/adminMember";
 	}
 
 	@RequestMapping("/ndelete")
-	@ResponseBody
-	public String delmember(@RequestParam(value = "num") int num) {
+	public String delNotice(@RequestParam(value = "num") int num) {
 		nService.remove(num);
-		return "AdminNotice.tiles";
+		return "redirect:/adminNotice";
 	}
 	
 	@RequestMapping("/adminNotice")
@@ -101,6 +100,6 @@ public class AdminController {
 		model.addAttribute("k",k);
 		model.addAttribute("l",l);
 		
-		return "AdminPage.tiles";
+		return "/userMenu/admin.tiles";
 	}
 }
